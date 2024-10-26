@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "animate.css";
 
 export const metadata: Metadata = {
-  title: "ClockPath App",
-  description: "Implemented by mrDanny&Greg",
+  title: "Chran",
+  description: "Implemented Chidera",
 };
 
 export default function RootLayout({

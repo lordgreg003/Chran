@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,11 +19,12 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              {/* <img
-                className="h-8 w-auto"
-                src="/logo.png" // Replace with your logo path
-                alt="Water.org Logo"
-              /> */}
+              <Image
+                src="/chranlogo.jpg"
+                alt="chran-logo"
+                height={50}
+                width={50}
+              />
             </Link>
           </div>
 

@@ -8,10 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      backgroundImage: {
+        chranBackground: "url('/chranlogo2.jpg')",
       },
+      colors: {},
     },
   },
   plugins: [],
