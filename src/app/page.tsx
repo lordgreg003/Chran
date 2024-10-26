@@ -2,6 +2,7 @@ import Navbar from "./ui/components/layoutComponents/navbar";
 import Carousel from "./ui/components/homeComponents/Carousel";
 import AboutPage from "./ui/components/homeComponents/About";
 import StatsSection from "./ui/components/homeComponents/StatsSection";
+import Footer from "./ui/components/layoutComponents/Footer";
 export default function Home() {
   const slides = [
     {
@@ -24,6 +25,7 @@ export default function Home() {
       <Carousel slides={slides} />
       <AboutPage />
       <StatsSection />
+      <Footer />
     </div>
   );
 }
