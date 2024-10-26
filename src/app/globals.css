@@ -2,4 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
- 
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.font-open-sans {
+  font-family: "Open Sans", sans-serif;
+}

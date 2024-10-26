@@ -17,15 +17,16 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex flex-row items-center justify-center gap-3">
             <Link href="/">
               <Image
-                src="/chranlogo.jpg"
+                src="/mainlogo.webp"
                 alt="chran-logo"
                 height={50}
                 width={50}
               />
             </Link>
+            <p className="text-xl font-bold ">Chran</p>
           </div>
 
           {/* Desktop Menu */}
