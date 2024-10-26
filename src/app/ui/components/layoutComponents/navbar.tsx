@@ -72,48 +72,18 @@ const Navbar: React.FC = () => {
               About Us
             </Link>
             <Link
-              href="/impact"
+              href="/blog"
               className="block text-gray-700 hover:text-blue-600"
             >
-              Our Impact
+              Blog
             </Link>
             <Link
-              href="/solutions"
+              href="/contact"
               className="block text-gray-700 hover:text-blue-600"
             >
-              Solutions
+              Contact
             </Link>
-            <Link
-              href="/partners"
-              className="block text-gray-700 hover:text-blue-600"
-            >
-              Partners
-            </Link>
-            {/* Search Bar */}
-            <div className="relative text-gray-600 focus-within:text-gray-400">
-              <input
-                type="search"
-                name="search"
-                placeholder="Search..."
-                className="w-full py-2 text-sm bg-gray-100 rounded-full pl-10 focus:outline-none focus:bg-white focus:border-blue-600"
-              />
-              <span className="absolute inset-y-0 left-0 pl-3 flex items-center">
-                <svg
-                  className="h-5 w-5 text-gray-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1110.606-.707L21 21z"
-                  />
-                </svg>
-              </span>
-            </div>
+
             {/* Donate Button */}
             <a
               href="/donate"
