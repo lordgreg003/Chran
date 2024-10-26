@@ -7,6 +7,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import Link from "next/link";
+import { IoMailSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
@@ -48,6 +49,9 @@ const Footer = () => {
       <div className="text-center items-center justify-center space-x-3 flex text-gray-600 text-sm mt-6">
         <Link href="https://github.com/lordgreg003">
           <FaGithub className="text-gray-700 text-2xl cursor-pointer hover:text-gray-900" />
+        </Link>
+        <Link href="chideranwokoye555@gmail.com">
+          <IoMailSharp className="text-gray-700 text-2xl cursor-pointer hover:text-gray-900" />
         </Link>
         <Link href="https://github.com/lordgreg003">built by dera</Link>
       </div>

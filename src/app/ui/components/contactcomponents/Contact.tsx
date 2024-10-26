@@ -1,54 +1,149 @@
-// components/Contact.tsx
-import React from "react";
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import emailjs from "emailjs-com";
+import { playfair_Display, open_sans } from "../../fonts/fonts";
 
 const Contact = () => {
-  return (
-    <section className="flex flex-col md:flex-row items-center justify-between bg-white py-16 px-8 md:px-24 lg:px-48">
-      {/* Left side - Background image */}
-      <div className="w-full md:w-1/2 h-80 bg-cover bg-center" style={{ backgroundImage: `url('/path-to-your-desert-image.jpg')` }}></div>
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
 
-      {/* Right side - Contact information and form */}
-      <div className="w-full md:w-1/2 p-8 md:pl-16">
-        {/* Contact Information */}
-        <div className="text-center md:text-left mb-8">
-          <p className="text-lg font-semibold">500 Terry Francine Street, San Francisco, CA 94158</p>
-          <p className="text-lg">info@mysite.com | 123-456-7890</p>
+  const [isSent, setIsSent] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await emailjs.send(
+        "service_23se4ar",
+        "template_sncjxzp",
+        {
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "GFCFVpvOIqYgTG0JU"
+      );
+
+      if (response.status === 200) {
+        setIsSent(true);
+        setFormData({ firstName: "", lastName: "", email: "", message: "" });
+      }
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      setError("Failed to send the message. Please try again.");
+    }
+  };
+
+  return (
+    <section>
+      <div className="h-24 w-full"></div>
+      <div className="h-[5rem] flex justify-center items-center w-full">
+        <div className="w-[30rem] h-[80%] text-center">
+          <h1
+            className={`${playfair_Display.className} text-[24px] font-semibold sm:text-[29px] md:text-[35px]`}
+          >
+            Contact Us
+          </h1>
+        </div>
+      </div>
+      <div className="flex flex-col md:flex-row items-center gap-3 justify-center">
+        <div className="w-full flex items-center justify-center md:w-1/2 h-auto">
+          <Image
+            src="/contactImage.webp"
+            alt="chran"
+            width={450}
+            height={450}
+          />
         </div>
 
-        {/* Contact Form */}
-        <form className="space-y-6">
-          <div className="flex flex-col md:flex-row md:space-x-4">
-            <input
-              type="text"
-              placeholder="First Name"
-              className="border-b border-gray-400 py-2 px-4 focus:outline-none w-full md:w-1/2"
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="border-b border-gray-400 py-2 px-4 focus:outline-none w-full md:w-1/2"
-            />
+        {/* Right side - Contact information and form */}
+        <div className="w-full md:w-1/2 p-8 md:pl-16">
+          <div className="text-center md:text-left mb-8">
+            <p className={`${open_sans.className} text-lg font-semibold`}>
+              500 Terry Francine Street, San Francisco, CA 94158
+            </p>
+            <p className={`${open_sans.className} text-lg`}>
+              info@mysite.com | 123-456-7890
+            </p>
           </div>
 
-          <input
-            type="email"
-            placeholder="Email *"
-            className="border-b border-gray-400 py-2 px-4 focus:outline-none w-full"
-          />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="flex flex-col md:flex-row md:space-x-4">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={handleChange}
+                className={`${open_sans.className} border-b border-gray-400 py-2 px-4 focus:outline-none w-full md:w-1/2`}
+                required
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={handleChange}
+                className={`${open_sans.className} border-b border-gray-400 py-2 px-4 focus:outline-none w-full md:w-1/2`}
+              />
+            </div>
 
-          <textarea
-            placeholder="Message"
-            rows={4}
-            className="border-b border-gray-400 py-2 px-4 focus:outline-none w-full resize-none"
-          ></textarea>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email *"
+              value={formData.email}
+              onChange={handleChange}
+              className={`${open_sans.className} border-b border-gray-400 py-2 px-4 focus:outline-none w-full`}
+              required
+            />
 
-          <button
-            type="submit"
-            className="bg-gray-800 text-white py-2 px-8 mt-4 hover:bg-gray-900 transition-colors"
-          >
-            Send
-          </button>
-        </form>
+            <textarea
+              name="message"
+              placeholder="Message"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              className={`${open_sans.className} border-b border-gray-400 py-2 px-4 focus:outline-none w-full resize-none`}
+              required
+            ></textarea>
+
+            <button
+              type="submit"
+              className="bg-gray-800 rounded-xl text-white py-2 px-8 mt-4 hover:bg-gray-900 transition-colors"
+            >
+              Send
+            </button>
+          </form>
+          {isSent && (
+            <p className="text-green-500 mt-4">Message sent successfully!</p>
+          )}
+          {error && <p className="text-red-500 mt-4">{error}</p>}
+        </div>
+      </div>
+      <div className="w-full mt-4 h-80">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15898.035734297511!2d7.920043629088101!3d5.020869519288928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d578ea16ab783%3A0x6694d5d5bf04fe07!2sJe-nissi%20Event%20Center!5e0!3m2!1sen!2sng!4v1729969228326!5m2!1sen!2sng"
+          width="100%"
+          height="100%"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </section>
   );
