@@ -1,4 +1,5 @@
 "use client";
+import { playfair_Display, open_sans } from "../../fonts/fonts";
 
 import Image from "next/image";
 
@@ -8,10 +9,14 @@ const AboutPage: React.FC = () => {
       {/* Left Section (Text) */}
       <div className="md:w-1/2 w-full bg-blue-500 h-[99%] flex items-center justify-center   ">
         <div className="text-center w-[80%] h-[80%] p-5  md:text-left flex flex-col lg:gap-7">
-          <h1 className="text-white text-4xl md:text-5xl font-bold mb-4">
+          <h1
+            className={`${playfair_Display.className} text-white text-4xl md:text-5xl font-bold mb-4`}
+          >
             About CHRAN
           </h1>
-          <p className="text-white text-lg md:text-xl mb-6">
+          <p
+            className={`${open_sans.className}  text-white text-lg md:text-xl mb-6`}
+          >
             The Center for Human Rights and Accountability Network (CHRAN) is
             dedicated to championing the cause of democracy, human rights, and
             civil society in Nigeria. Our mission is to uphold accountability,
