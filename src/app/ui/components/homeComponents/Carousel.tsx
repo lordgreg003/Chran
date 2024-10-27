@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { playfair_Display } from "../../fonts/fonts";
 
 // Define the data structure for each slide
 interface Slide {
@@ -24,8 +25,8 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
         setAnimation("animate__fadeIn");
-      }, 600);  
-    }, 15000);  
+      }, 600);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -39,7 +40,9 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
       >
         {/* Overlay with text */}
         <div className="flex items-center justify-center h-full bg-black bg-opacity-50">
-          <h2 className="text-white text-4xl font-bold text-center">
+          <h2
+            className={`${playfair_Display.className} text-white text-4xl font-bold text-center`}
+          >
             {slides[currentIndex].text}
           </h2>
         </div>
