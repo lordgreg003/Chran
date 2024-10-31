@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="flex flex-col md:flex-row w-full md:h-screen items-center justify-center gap-5 md:gap-0 bg-yellow-100">
+    <div className="flex flex-col md:flex-row w-full md:h-screen items-center justify-center gap-5 md:gap-0 bg-blue-500">
       {/* Left Section (Text) */}
       <div className="md:w-1/2 w-full bg-blue-500 h-[99%] flex items-center justify-center   ">
         <div className="text-center w-[80%] h-[80%] p-5  md:text-left flex flex-col lg:gap-7">
