@@ -3,7 +3,7 @@ import { playfair_Display, open_sans } from "../../fonts/fonts";
 
 const StatsSection: React.FC = () => {
   return (
-    <section className="bg-white py-12">
+    <section className="bg-white  py-12">
       <div className="container mx-auto text-center">
         <h2 className={`${playfair_Display.className} text-3xl font-bold mb-6`}>
           Our Impact
