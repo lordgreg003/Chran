@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 // Define API URLs
 const API_BASE_URL = "https://chran-backend.onrender.com/admin";
@@ -9,6 +9,11 @@ interface AuthState {
   token: string | null;
   loading: boolean;
   error: string | null;
+}
+
+// Define an interface for error response
+interface ErrorResponse {
+  message: string;
 }
 
 // Initial state
@@ -27,10 +32,11 @@ export const registerAdmin = createAsyncThunk(
       const response = await axios.post(`${API_BASE_URL}/register`, data);
       console.log("Registration response:", response.data); // Log the successful response
       return response.data; // Success response data
-    } catch (error: any) {
-      console.error("Registration error:", error); // Log the error for debugging
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>; // Cast error to AxiosError with the ErrorResponse type
+      console.error("Registration error:", axiosError); // Log the error for debugging
       return rejectWithValue(
-        error.response?.data?.message || "Registration failed"
+        axiosError.response?.data?.message || "Registration failed"
       );
     }
   }
@@ -45,9 +51,12 @@ export const loginAdmin = createAsyncThunk(
       const response = await axios.post(`${API_BASE_URL}/login`, data);
       console.log("Login response:", response.data); // Log the successful response
       return response.data.token; // Return the token
-    } catch (error: any) {
-      console.error("Login error:", error); // Log the error for debugging
-      return rejectWithValue(error.response?.data?.message || "Login failed");
+    } catch (error) {
+      const axiosError = error as AxiosError<ErrorResponse>; // Cast error to AxiosError with the ErrorResponse type
+      console.error("Login error:", axiosError); // Log the error for debugging
+      return rejectWithValue(
+        axiosError.response?.data?.message || "Login failed"
+      );
     }
   }
 );
