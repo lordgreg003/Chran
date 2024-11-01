@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAdmin } from "@/redux/authSlice";
 import { RootState, AppDispatch } from "@/redux/store";
@@ -9,35 +9,70 @@ const Login = () => {
   const { loading, error, token } = useSelector(
     (state: RootState) => state.auth
   );
-  console.log()
+
+  console.log(token);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     dispatch(loginAdmin({ username, password }));
+    console.log(loginAdmin);
   };
 
+  // Effect to show alert when login is successful
+  useEffect(() => {
+    if (token) {
+      alert("Login successful!"); // Display success alert
+    }
+  }, [token]);
+
   return (
-    <div className="login-container">
-      <h2>Admin Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin} disabled={loading}>
-        {loading ? "Logging in..." : "Login"}
-      </button>
-      {error && <p className="error">{error}</p>}
-      {token && <p>Login successful!</p>}
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+        <h2 className="text-2xl font-semibold text-center text-gray-700">
+          Admin Login
+        </h2>
+
+        {/* Username Input */}
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        />
+
+        {/* Password Input */}
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        />
+
+        {/* Login Button */}
+        <button
+          onClick={handleLogin}
+          disabled={loading}
+          className={`w-full px-4 py-2 font-semibold text-white rounded-md ${
+            loading
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600"
+          }`}
+        >
+          {loading ? "Logging in..." : "Login"}
+        </button>
+
+        {/* Error Message */}
+        {error && (
+          <p className="mt-4 text-sm text-red-500 text-center">{error}</p>
+        )}
+        {/* {message && (
+          <p className="mt-4 text-sm text-green-500 text-center">{message}</p>
+        )} */}
+      </div>
     </div>
   );
 };
