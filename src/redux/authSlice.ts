@@ -6,7 +6,7 @@ const API_BASE_URL = "https://chran-backend.onrender.com/admin";
 
 // Define types for our state
 interface AuthState {
-  token: string | null;
+  accessToken: string | null;
   loading: boolean;
   error: string | null;
 }
@@ -18,7 +18,7 @@ interface ErrorResponse {
 
 // Initial state
 const initialState: AuthState = {
-  token: null,
+  accessToken: null,
   loading: false,
   error: null,
 };
@@ -42,15 +42,19 @@ export const registerAdmin = createAsyncThunk(
   }
 );
 
-// Async action to login admin
 export const loginAdmin = createAsyncThunk(
   "auth/loginAdmin",
   async (data: { username: string; password: string }, { rejectWithValue }) => {
     console.log("Logging in with data:", data); // Log the data being sent
     try {
       const response = await axios.post(`${API_BASE_URL}/login`, data);
-      console.log("Login response:", response.data); // Log the successful response
-      return response.data.token; // Return the token
+      console.log("Login response:", response.data); // Log the full response data
+
+      // Access token is likely inside response.data.data
+      const accessToken = response.data.data.accessToken; // Adjust this line to reflect the correct structure
+
+      console.log("Access Token:", accessToken); // Log the access token
+      return accessToken; // Return the token
     } catch (error) {
       const axiosError = error as AxiosError<ErrorResponse>; // Cast error to AxiosError with the ErrorResponse type
       console.error("Login error:", axiosError); // Log the error for debugging
@@ -67,7 +71,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.token = null; // Clear the token on logout
+      state.accessToken = null; // Clear the token on logout
       state.error = null;
     },
   },
@@ -89,8 +93,9 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(loginAdmin.fulfilled, (state, action: PayloadAction<string>) => {
+        console.log("Login fulfilled with token:", action.payload); // Log the payload received
         state.loading = false;
-        state.token = action.payload; // Store the token
+        state.accessToken = action.payload; // Store the token
       })
       .addCase(loginAdmin.rejected, (state, action) => {
         state.loading = false;

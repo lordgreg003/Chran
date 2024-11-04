@@ -1,31 +1,31 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation"; // Import from next/navigation
 import { loginAdmin } from "@/redux/authSlice";
 import { RootState, AppDispatch } from "@/redux/store";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { loading, error, token } = useSelector(
+  const router = useRouter(); // Initialize router from next/navigation
+  const { loading, error, accessToken } = useSelector(
     (state: RootState) => state.auth
   );
-
-  console.log(token);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     dispatch(loginAdmin({ username, password }));
-    console.log(loginAdmin);
   };
 
-  // Effect to show alert when login is successful
   useEffect(() => {
-    if (token) {
+    if (accessToken) {
       alert("Login successful!"); // Display success alert
+      router.push("/admin"); // Redirect to the admin dashboard
     }
-  }, [token]);
+    console.log("Token:", accessToken); // Log the token
+  }, [accessToken, router]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -34,7 +34,6 @@ const Login = () => {
           Admin Login
         </h2>
 
-        {/* Username Input */}
         <input
           type="text"
           placeholder="Username"
@@ -43,7 +42,6 @@ const Login = () => {
           className="w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
         />
 
-        {/* Password Input */}
         <input
           type="password"
           placeholder="Password"
@@ -52,7 +50,6 @@ const Login = () => {
           className="w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
         />
 
-        {/* Login Button */}
         <button
           onClick={handleLogin}
           disabled={loading}
@@ -65,13 +62,9 @@ const Login = () => {
           {loading ? "Logging in..." : "Login"}
         </button>
 
-        {/* Error Message */}
         {error && (
           <p className="mt-4 text-sm text-red-500 text-center">{error}</p>
         )}
-        {/* {message && (
-          <p className="mt-4 text-sm text-green-500 text-center">{message}</p>
-        )} */}
       </div>
     </div>
   );
