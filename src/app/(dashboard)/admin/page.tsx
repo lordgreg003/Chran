@@ -1,13 +1,13 @@
 // src/screens/AdminDashboard.tsx
 "use client";
 import React from "react";
-import { useDispatch } from "react-redux"; // Import useDispatch
+// import { useDispatch } from "react-redux"; // Import useDispatch
 import ImageUploadButton from "@/app/ui/components/ImageUpload/ImageUploadButton";
-import { AppDispatch } from "@/redux/store";
-import { createPost } from "@/redux/blogSlice";
+// import { AppDispatch } from "@/redux/store";
+// import { createPost } from "@/redux/blogSlice";
 
 const AdminDashboard = () => {
-  const dispatch: AppDispatch = useDispatch(); // Type dispatch with AppDispatch
+  // const dispatch: AppDispatch = useDispatch(); // Type dispatch with AppDispatch
 
   const handleCreatePost = async (
     title: string,
@@ -28,7 +28,7 @@ const AdminDashboard = () => {
 
     try {
       // Dispatch the createPost action
-      await dispatch(createPost(formData)).unwrap();
+      // await dispatch(createPost(formData)).unwrap();
       alert("Post created successfully!");
     } catch (error) {
       // Handle errors here
