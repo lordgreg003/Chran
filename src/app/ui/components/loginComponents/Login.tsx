@@ -7,13 +7,17 @@ import { RootState, AppDispatch } from "@/redux/store";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const router = useRouter(); // Initialize router from next/navigation
+  const router = useRouter();
   const { loading, error, accessToken } = useSelector(
     (state: RootState) => state.auth
   );
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState<{
+    text: string;
+    type: "success" | "error";
+  } | null>(null);
 
   const handleLogin = () => {
     dispatch(loginAdmin({ username, password }));
@@ -21,11 +25,14 @@ const Login = () => {
 
   useEffect(() => {
     if (accessToken) {
-      alert("Login successful!"); // Display success alert
-      router.push("/admin"); // Redirect to the admin dashboard
+      setMessage({ text: "Login successful!", type: "success" }); // Show success message
+      setTimeout(() => {
+        router.push("/admin"); // Redirect after a short delay
+      }, 1000);
+    } else if (error) {
+      setMessage({ text: error, type: "error" }); // Show error message if there is one
     }
-    console.log("Token:", accessToken); // Log the token
-  }, [accessToken, router]);
+  }, [accessToken, error, router]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -33,6 +40,17 @@ const Login = () => {
         <h2 className="text-2xl font-semibold text-center text-gray-700">
           Admin Login
         </h2>
+
+        {/* Success or Error Message */}
+        {message && (
+          <p
+            className={`mt-4 text-center text-sm ${
+              message.type === "success" ? "text-green-600" : "text-red-600"
+            }`}
+          >
+            {message.text}
+          </p>
+        )}
 
         <input
           type="text"
@@ -61,10 +79,6 @@ const Login = () => {
         >
           {loading ? "Logging in..." : "Login"}
         </button>
-
-        {error && (
-          <p className="mt-4 text-sm text-red-500 text-center">{error}</p>
-        )}
       </div>
     </div>
   );

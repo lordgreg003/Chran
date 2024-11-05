@@ -1,4 +1,4 @@
-// components/ImageUploadButton.tsx
+"use client";
 import React, { useState } from "react";
 
 interface ImageUploadButtonProps {
@@ -17,9 +17,7 @@ const ImageUploadButton: React.FC<ImageUploadButtonProps> = ({ onUpload }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleModal = () => setIsOpen(!isOpen);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files ? event.target.files[0] : null;
@@ -34,11 +32,11 @@ const ImageUploadButton: React.FC<ImageUploadButtonProps> = ({ onUpload }) => {
   const handleSubmit = () => {
     if (title && description) {
       onUpload(title, description, imageFile, videoFile);
-      setIsOpen(false); // Close modal after submission
-      setImageFile(null);
-      setVideoFile(null);
+      toggleModal(); // Close modal
       setTitle("");
       setDescription("");
+      setImageFile(null);
+      setVideoFile(null);
     } else {
       alert("Please fill in the title and description");
     }
@@ -59,7 +57,6 @@ const ImageUploadButton: React.FC<ImageUploadButtonProps> = ({ onUpload }) => {
           <div className="bg-white p-6 rounded-lg shadow-lg w-80">
             <h2 className="text-xl font-bold mb-4">Create Post</h2>
 
-            <label className="block mb-2 font-semibold">Choose Image</label>
             <input
               type="file"
               accept="image/*"
@@ -67,7 +64,6 @@ const ImageUploadButton: React.FC<ImageUploadButtonProps> = ({ onUpload }) => {
               className="mb-3 w-full"
             />
 
-            <label className="block mb-2 font-semibold">Choose Video</label>
             <input
               type="file"
               accept="video/*"

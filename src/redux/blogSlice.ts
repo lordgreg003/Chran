@@ -1,4 +1,4 @@
-// src/slices/blogSlice.ts
+"use client";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -24,18 +24,42 @@ const initialState: BlogState = {
   error: null,
 };
 
+// Fetch all blog posts
 export const fetchAllPosts = createAsyncThunk("blogs/fetchAll", async () => {
   try {
     const response = await axios.get(
       "https://chran-backend.onrender.com/api/blogs/"
     );
-    console.log("API Response:", response.data); // Log to confirm data structure
-    return response.data; // Adjust based on API response structure
+    console.log("API Response:", response.data);
+    return response.data;
   } catch (error) {
     console.error("API fetch error:", error);
     throw error;
   }
 });
+
+export const createBlogPost = createAsyncThunk(
+  "blog/createBlogPost",
+  async (formData: FormData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        "https://chran-backend.onrender.com/api/blogs/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("API Response:", response.data);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(
+        error instanceof Error ? error.message : "An unexpected error occurred"
+      );
+    }
+  }
+);
 
 const blogSlice = createSlice({
   name: "blogs",
@@ -43,16 +67,30 @@ const blogSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      // Fetch all blog posts
       .addCase(fetchAllPosts.pending, (state) => {
         state.loading = true;
       })
       .addCase(fetchAllPosts.fulfilled, (state, action) => {
         state.loading = false;
-        state.posts = action.payload; // Check if this structure matches your API response
+        state.posts = action.payload;
       })
       .addCase(fetchAllPosts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || null;
+      })
+
+      // Create a new blog post
+      .addCase(createBlogPost.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(createBlogPost.fulfilled, (state, action) => {
+        state.loading = false;
+        state.posts.push(action.payload); // Add new post to the posts array
+      })
+      .addCase(createBlogPost.rejected, (state, action) => {
+        state.loading = false;
+        state.error = (action.payload as string) || "Failed to create post";
       });
   },
 });

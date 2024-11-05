@@ -18,7 +18,7 @@ interface ErrorResponse {
 
 // Initial state
 const initialState: AuthState = {
-  accessToken: null,
+  accessToken: typeof window !== "undefined" ? localStorage.getItem("accessToken") : null,
   loading: false,
   error: null,
 };
@@ -27,14 +27,11 @@ const initialState: AuthState = {
 export const registerAdmin = createAsyncThunk(
   "auth/registerAdmin",
   async (data: { username: string; password: string }, { rejectWithValue }) => {
-    console.log("Registering admin with data:", data); // Log the data being sent
     try {
       const response = await axios.post(`${API_BASE_URL}/register`, data);
-      console.log("Registration response:", response.data); // Log the successful response
       return response.data; // Success response data
     } catch (error) {
-      const axiosError = error as AxiosError<ErrorResponse>; // Cast error to AxiosError with the ErrorResponse type
-      console.error("Registration error:", axiosError); // Log the error for debugging
+      const axiosError = error as AxiosError<ErrorResponse>;
       return rejectWithValue(
         axiosError.response?.data?.message || "Registration failed"
       );
@@ -45,19 +42,13 @@ export const registerAdmin = createAsyncThunk(
 export const loginAdmin = createAsyncThunk(
   "auth/loginAdmin",
   async (data: { username: string; password: string }, { rejectWithValue }) => {
-    console.log("Logging in with data:", data); // Log the data being sent
     try {
       const response = await axios.post(`${API_BASE_URL}/login`, data);
-      console.log("Login response:", response.data); // Log the full response data
-
-      // Access token is likely inside response.data.data
-      const accessToken = response.data.data.accessToken; // Adjust this line to reflect the correct structure
-
-      console.log("Access Token:", accessToken); // Log the access token
+      const accessToken = response.data.data.accessToken; // Adjust this line if needed
+      localStorage.setItem("accessToken", accessToken); // Store token in localStorage
       return accessToken; // Return the token
     } catch (error) {
-      const axiosError = error as AxiosError<ErrorResponse>; // Cast error to AxiosError with the ErrorResponse type
-      console.error("Login error:", axiosError); // Log the error for debugging
+      const axiosError = error as AxiosError<ErrorResponse>;
       return rejectWithValue(
         axiosError.response?.data?.message || "Login failed"
       );
@@ -73,6 +64,7 @@ const authSlice = createSlice({
     logout: (state) => {
       state.accessToken = null; // Clear the token on logout
       state.error = null;
+      localStorage.removeItem("accessToken"); // Remove token from localStorage
     },
   },
   extraReducers: (builder) => {
@@ -93,9 +85,8 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(loginAdmin.fulfilled, (state, action: PayloadAction<string>) => {
-        console.log("Login fulfilled with token:", action.payload); // Log the payload received
         state.loading = false;
-        state.accessToken = action.payload; // Store the token
+        state.accessToken = action.payload; // Store the token in the Redux state
       })
       .addCase(loginAdmin.rejected, (state, action) => {
         state.loading = false;

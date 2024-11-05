@@ -41,7 +41,7 @@ const Footer = () => {
 
   return (
     <footer ref={footerRef} className=" w-full h-[28rem]">
-      <div className="w-[90%] h-[70%] bg-white mx-auto text-center md:text-left md:flex md:items-center md:space-x-5 px-4">
+      <div className="w-[90%] h-[70%] bg-white dark:bg-[#2D2D2D] mx-auto text-center md:text-left md:flex md:items-center md:space-x-5 px-4">
         <div className="mb-4 md:mb-0 h-1/2 ">
           <h3 className={`${playfair_Display.className} font-semibold text-l`}>
             CHRAN: Upholding Human Rights
@@ -146,11 +146,11 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className={`${open_sans.className} font-semibold text-center text-gray-600 text-sm mt-6`}
+        className={`${open_sans.className} font-semibold text-center text-gray-600 text-sm mt-6 dark:bg-[#2D2D2D] `}
       >
         &copy; 2024 by CHRAN
       </div>
-      <div className="text-center items-center justify-center space-x-3 flex text-gray-600 text-sm mt-6">
+      <div className="text-center dark:bg-[#2D2D2D]  items-center justify-center space-x-3 flex text-gray-600 text-sm mt-6">
         <Link href="https://github.com/lordgreg003">
           <FaGithub
             className={`text-gray-700 text-2xl cursor-pointer ${

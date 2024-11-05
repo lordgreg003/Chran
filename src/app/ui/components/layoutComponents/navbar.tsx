@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50">
+    <nav className="bg-white shadow-lg fixed w-full z-50 dark:bg-foreground text-foreground dark:text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -30,24 +30,36 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-blue-600">
+          <div className="hidden md:flex space-x-6 dark:text-white">
+            <Link
+              href="/"
+              className="text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]"
+            >
               Home
             </Link>
-            <Link href="/aboutus" className="text-gray-700 hover:text-blue-600">
+            <Link
+              href="/aboutus"
+              className="text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]"
+            >
               About Us
             </Link>
-            <Link href="/blog" className="text-gray-700 hover:text-blue-600">
+            <Link
+              href="/blog"
+              className="text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]"
+            >
               Blog
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600">
+            <Link
+              href="/contact"
+              className="text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]"
+            >
               Contact
             </Link>
 
             {/* Donate Button */}
             <Link
               href="/donate"
-              className="bg-blue-600 text-white px-4 py-2 rounded-full"
+              className="bg-blue-600 dark:text-[#E0E0E0] text-white px-4 py-2 rounded-full"
             >
               Donate
             </Link>
@@ -64,23 +76,23 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="md:hidden bg-white dark:bg-[#2D2D2D]  shadow-lg dark:text-white">
           <div className="space-y-2 p-4">
             <Link
               href="/aboutus"
-              className="block text-gray-700 hover:text-blue-600"
+              className="block dark:text-white text-gray-700 hover:text-blue-600"
             >
               About Us
             </Link>
             <Link
               href="/blog"
-              className="block text-gray-700 hover:text-blue-600"
+              className="block dark:text-white text-gray-700 hover:text-blue-600"
             >
               Blog
             </Link>
             <Link
               href="/contact"
-              className="block text-gray-700 hover:text-blue-600"
+              className="block dark:text-white text-gray-700 hover:text-blue-600"
             >
               Contact
             </Link>
