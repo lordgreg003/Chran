@@ -27,14 +27,14 @@ const Blogs: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container dark:bg-[#2D2D2D] mx-auto py-8 px-4">
       <div className="h-14"></div>
       <h2 className="text-2xl font-semibold text-center mb-6">Blog Posts</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 dark:bg-[#2D2D2D]">
         {posts.map((post) => (
           <div
             key={post.id}
-            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="bg-white dark:bg-[#1E1E1E] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
           >
             {post.image && (
               <Image

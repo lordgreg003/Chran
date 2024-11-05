@@ -15,15 +15,15 @@ const Mission: React.FC = () => {
   if (!isMounted) return null;
 
   return (
-    <section className="h-screen">
+    <section className="h-screen dark:bg-[#2D2D2D]">
       <div className="h-10 w-full"></div>
-      <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 py-16 lg:py-24 bg-white">
+      <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between px-4 py-16 lg:py-24 bg-white dark:bg-[#2D2D2D]">
         <div className="lg:w-1/2 ml-4 text-center lg:text-left">
-          <h1 className="font-playfair text-4xl font-bold mb-4">CHRAN</h1>
-          <h2 className="font-open-sans text-xl font-semibold mb-4">
+          <h1 className="font-playfair text-4xl font-bold mb-4 dark:text-[#E0E0E0]">CHRAN</h1>
+          <h2 className="font-open-sans dark:text-[#E0E0E0] text-xl font-semibold mb-4">
             Our Mission
           </h2>
-          <p className="font-open-sans text-lg mb-8">
+          <p className="font-open-sans text-lg mb-8 dark:text-[#E0E0E0]">
             Empowering democracy through advocacy, education, and civic
             engagement for a better Nigeria.
           </p>
