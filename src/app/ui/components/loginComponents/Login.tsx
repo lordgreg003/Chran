@@ -35,8 +35,8 @@ const Login = () => {
   }, [accessToken, error, router]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-[#2D2D2D]">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md dark:bg-[#1E1E1E]">
         <h2 className="text-2xl font-semibold text-center text-gray-700">
           Admin Login
         </h2>
@@ -71,7 +71,7 @@ const Login = () => {
         <button
           onClick={handleLogin}
           disabled={loading}
-          className={`w-full px-4 py-2 font-semibold text-white rounded-md ${
+          className={`w-full px-4 py-2 font-semibold dark:text-[#E0E0E0] text-white rounded-md ${
             loading
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-blue-500 hover:bg-blue-600"
