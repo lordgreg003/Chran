@@ -135,7 +135,7 @@ const Contact = () => {
           {error && <p className="text-red-500 mt-4">{error}</p>}
         </div>
       </div>
-      <div className="w-full mt-4 h-80">
+      <div className="w-full  mt-4 h-80">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15898.035734297511!2d7.920043629088101!3d5.020869519288928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d578ea16ab783%3A0x6694d5d5bf04fe07!2sJe-nissi%20Event%20Center!5e0!3m2!1sen!2sng!4v1729969228326!5m2!1sen!2sng"
           width="100%"
