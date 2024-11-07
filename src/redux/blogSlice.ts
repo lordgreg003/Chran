@@ -25,18 +25,19 @@ const initialState: BlogState = {
 };
 
 // Fetch all blog posts
-export const fetchAllPosts = createAsyncThunk("blogs/fetchAll", async () => {
-  try {
-    const response = await axios.get(
-      "https://chran-backend.onrender.com/api/blogs/"
-    );
-    console.log("API Response:", response.data);
-    return response.data;
-  } catch (error) {
-    console.error("API fetch error:", error);
-    throw error;
+export const fetchAllPosts = createAsyncThunk(
+  "blogs/fetchAll",
+  async ({ page = 1, limit = 10 }: { page: number; limit: number }) => {
+    try {
+      const response = await axios.get(
+        `https://chran-backend.onrender.com/api/blogs/?page=${page}&limit=${limit}`
+      );
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
-});
+);
 
 export const createBlogPost = createAsyncThunk(
   "blog/createBlogPost",
