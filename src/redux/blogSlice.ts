@@ -6,8 +6,8 @@ interface BlogPost {
   id: string;
   title: string;
   description: string;
-  image?: string;
-  video?: string;
+  mediaUrl?: string;
+  mediaType?: string;
   likes: number;
   createdAt: Date;
 }
@@ -32,12 +32,15 @@ export const fetchAllPosts = createAsyncThunk(
       const response = await axios.get(
         `https://chran-backend.onrender.com/api/blogs/?page=${page}&limit=${limit}`
       );
-      return response.data;
+      return response.data.blogPosts;
+      // console.log("response data", response.data);
     } catch (error) {
       throw error;
     }
   }
 );
+
+console.log("response data", fetchAllPosts);
 
 export const createBlogPost = createAsyncThunk(
   "blog/createBlogPost",
