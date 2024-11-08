@@ -13,5 +13,5 @@
 html.dark {
   background-color: theme(
     "colors.darkBg"
-  ); /* Use the custom dark background color */
+  );   
 }
