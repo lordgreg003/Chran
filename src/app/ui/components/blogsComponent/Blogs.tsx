@@ -8,11 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Blogs: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { posts = [], loading, error } = useSelector((state: RootState) => state.blogs);
+  const { posts = [], loading, error, lastUpdated  } = useSelector((state: RootState) => state.blogs);
 
   useEffect(() => {
     dispatch(fetchAllPosts({ page: 1, limit: 10 })); // Adjust page and limit as needed
-  }, [dispatch]);
+  }, [dispatch,lastUpdated]);
 
   console.log("Posts:", posts); // Log to check posts data
 
