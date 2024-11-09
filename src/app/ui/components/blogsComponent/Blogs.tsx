@@ -12,10 +12,10 @@ const Blogs: React.FC = () => {
     (state: RootState) => state.blogs
   );
 
-  // State to check if we are in the client-side
+  // State to check if we are on the client side
   const [isClient, setIsClient] = useState(false);
 
-  // Check if the component is mounted on the client
+  // This effect ensures localStorage access is only done on the client side
   useEffect(() => {
     setIsClient(true); // Set to true when mounted on the client
   }, []);

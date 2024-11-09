@@ -20,7 +20,7 @@ interface BlogState {
 }
 
 const initialState: BlogState = {
-  posts: JSON.parse(localStorage.getItem("blogPosts") || "[]"), // Load posts from localStorage if available
+  posts: [],  
   loading: false,
   lastUpdated: Date.now(),
   error: null,
