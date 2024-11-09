@@ -1,13 +1,10 @@
-
-
 "use client";
 import Image from "next/image";
 import { fetchAllPosts } from "@/redux/blogSlice";
 import { AppDispatch, RootState } from "@/redux/store";
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BlogSkeleton } from "../../subComponents/skeletons";
- 
 
 const Blogs: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -15,9 +12,17 @@ const Blogs: React.FC = () => {
     (state: RootState) => state.blogs
   );
 
+  // State to check if we are in the client-side
+  const [isClient, setIsClient] = useState(false);
+
+  // Check if the component is mounted on the client
+  useEffect(() => {
+    setIsClient(true); // Set to true when mounted on the client
+  }, []);
+
   // Load cached posts from localStorage if no posts are available in Redux state
   useEffect(() => {
-    if (!posts.length && !loading && !error) {
+    if (isClient && !posts.length && !loading && !error) {
       const cachedPosts = JSON.parse(localStorage.getItem("blogPosts") || "[]");
       if (cachedPosts.length) {
         // Set posts to cached data if available
@@ -26,7 +31,7 @@ const Blogs: React.FC = () => {
         dispatch(fetchAllPosts());
       }
     }
-  }, [dispatch, posts, loading, error, lastUpdated]);
+  }, [dispatch, posts, loading, error, lastUpdated, isClient]);
 
   console.log("Posts:", posts); // Log to check posts data
 
