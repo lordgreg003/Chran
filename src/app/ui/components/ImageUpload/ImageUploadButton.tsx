@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { createBlogPost, fetchAllPosts } from "@/redux/blogSlice";
+import { createBlogPost} from "@/redux/blogSlice";
 import { AppDispatch } from "@/redux/store";
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -64,7 +64,7 @@ const ImageUploadButton: React.FC = () => {
 
       try {
         const newPost: BlogPost = await dispatch(createBlogPost(formData)).unwrap();
-        dispatch(fetchAllPosts({ page: 1, limit: 10 }));
+        // dispatch(fetchAllPosts({ page: 1, limit: 10 }));
         console.log("New Post Created:", newPost);
 
         toggleModal(); // Close modal

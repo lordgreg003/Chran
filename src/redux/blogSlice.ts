@@ -1,7 +1,7 @@
-"use client";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// Interfaces and Initial State
 interface BlogPost {
   id: string;
   title: string;
@@ -9,7 +9,6 @@ interface BlogPost {
   mediaUrl?: string;
   mediaType?: string;
   likes: number;
-
   createdAt: Date;
 }
 
@@ -21,43 +20,46 @@ interface BlogState {
 }
 
 const initialState: BlogState = {
-  posts: [],
+  posts: JSON.parse(localStorage.getItem("blogPosts") || "[]"), // Load posts from localStorage if available
   loading: false,
   lastUpdated: Date.now(),
   error: null,
 };
 
 // Fetch all blog posts
-export const fetchAllPosts = createAsyncThunk(
-  "blogs/fetchAll",
-  async ({ page = 1, limit = 10 }: { page: number; limit: number }) => {
-    try {
-      const response = await axios.get(
-        `https://chran-backend.onrender.com/api/blogs/?page=${page}&limit=${limit}`
-      );
-      return response.data.blogPosts;
-    } catch (error) {
-      throw error;
-    }
+export const fetchAllPosts = createAsyncThunk("blogs/fetchAll", async () => {
+  try {
+    const response = await axios.get(
+      `https://chran-backend.onrender.com/api/blogs/`
+    );
+    // Save the fetched posts to localStorage
+    localStorage.setItem("blogPosts", JSON.stringify(response.data.blogPosts));
+    return response.data.blogPosts;
+  } catch (error) {
+    throw error;
   }
-);
-
-// https://chran-backend.onrender.com/api/blogs/
+});
 
 export const createBlogPost = createAsyncThunk<BlogPost, FormData>(
   "blogs/createBlogPost",
   async (formData: FormData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://chran-backend.onrender.com/api/blogs/", // Replace with your deployed API URL
+        "https://chran-backend.onrender.com/api/blogs/",
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data", // Ensure that we send the form data correctly
+            "Content-Type": "multipart/form-data",
           },
         }
       );
-      return response.data.newPost; // Return the `newPost` part of the response
+      // Update localStorage when a new post is created
+      const updatedPosts = JSON.parse(
+        localStorage.getItem("blogPosts") || "[]"
+      );
+      updatedPosts.push(response.data.newPost);
+      localStorage.setItem("blogPosts", JSON.stringify(updatedPosts));
+      return response.data.newPost;
     } catch (error) {
       return rejectWithValue(
         error instanceof Error ? error.message : "An unexpected error occurred"
@@ -93,7 +95,6 @@ const blogSlice = createSlice({
         state.loading = false;
         state.posts.push(action.payload);
         state.lastUpdated = Date.now();
-        fetchAllPosts({ page: 1, limit: 10 });
       })
       .addCase(createBlogPost.rejected, (state, action) => {
         state.loading = false;
