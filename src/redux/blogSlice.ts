@@ -20,25 +20,26 @@ interface BlogState {
 }
 
 const initialState: BlogState = {
-  posts: [],  
+  posts: [],
   loading: false,
   lastUpdated: Date.now(),
   error: null,
 };
 
 // Fetch all blog posts
-export const fetchAllPosts = createAsyncThunk("blogs/fetchAll", async () => {
-  try {
-    const response = await axios.get(
-      `https://chran-backend.onrender.com/api/blogs/`
-    );
-    // Save the fetched posts to localStorage
-    localStorage.setItem("blogPosts", JSON.stringify(response.data.blogPosts));
-    return response.data.blogPosts;
-  } catch (error) {
-    throw error;
+export const fetchAllPosts = createAsyncThunk(
+  "blogs/fetchAll",
+  async ({ page, limit }: { page: number; limit: number }) => {
+    try {
+      const response = await axios.get(
+        `https://chran-backend.onrender.com/api/blogs/?page=${page}&limit=${limit}`
+      );
+      return response.data.blogPosts;
+    } catch (error) {
+      throw error;
+    }
   }
-});
+);
 
 export const createBlogPost = createAsyncThunk<BlogPost, FormData>(
   "blogs/createBlogPost",

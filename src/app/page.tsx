@@ -4,6 +4,7 @@ import AboutPage from "./ui/components/homeComponents/About";
 import StatsSection from "./ui/components/homeComponents/StatsSection";
 import Blogs from "./ui/components/blogsComponent/Blogs";
 import Footer from "./ui/components/layoutComponents/Footer";
+import SupportVolunteerSection from "./ui/components/homeComponents/SupportVolunteerSection";
 export default function Home() {
   const slides = [
     {
@@ -27,6 +28,7 @@ export default function Home() {
       <AboutPage />
       <StatsSection />
       <Blogs />
+      <SupportVolunteerSection />
       <Footer />
     </div>
   );
