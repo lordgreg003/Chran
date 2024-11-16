@@ -33,6 +33,7 @@ const AboutPage: React.FC = () => {
         <Image
           src="/aboutimage.png" // Replace with your image path
           alt="CHRAN Volunteers"
+          loading="lazy"
           width={500}
           height={500}
         />

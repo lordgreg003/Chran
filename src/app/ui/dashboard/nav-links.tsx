@@ -1,6 +1,7 @@
 "use client";
 import {
   UserGroupIcon,
+ 
   PlusIcon as CreateIcon,
   PencilIcon as UpdateIcon,
 } from "@heroicons/react/24/outline";
@@ -18,6 +19,7 @@ const links = [
     icon: UpdateIcon,
   },
   { name: "All Post", href: "/all", icon: UserGroupIcon },
+ 
 ];
 
 export default function NavLinks() {

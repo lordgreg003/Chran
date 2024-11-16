@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
               <Image
                 src="/mainlogo.webp"
                 alt="chran-logo"
+                loading="lazy"
                 height={50}
                 width={50}
               />

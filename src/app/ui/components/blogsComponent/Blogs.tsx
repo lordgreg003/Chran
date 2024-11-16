@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from "@/redux/store";
 import React, { Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BlogSkeleton } from "../../subComponents/skeletons";
-import "animate.css"; // Import Animate.css
+import "animate.css";
 
 const Blogs: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -13,24 +13,52 @@ const Blogs: React.FC = () => {
     (state: RootState) => state.blogs
   );
 
-  // State for pagination
   const [page, setPage] = useState(1);
-  const postsPerPage = 10; // Number of posts per page
+  const postsPerPage = 10;
 
-  // Fetch posts based on page
   useEffect(() => {
+    console.log("Fetching posts for page:", page); // Log the page when fetching posts
     dispatch(fetchAllPosts({ page, limit: postsPerPage }));
   }, [dispatch, page]);
 
-  // Handlers to navigate between pages
   const handlePreviousPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
+    if (page > 1) setPage(page - 1);
   };
 
   const handleNextPage = () => {
     setPage(page + 1);
+  };
+
+  const renderMedia = (mediaUrls: { url: string; type: "image" | "video" }[]  ) => {
+    console.log("Rendering media:", mediaUrls); // Log mediaUrls when rendering media
+    return (
+      <div className="media-container">
+        {mediaUrls.map((media, index) => (
+          <div key={index} className="media-item">
+            {media.type === "image" ? (
+              <Image
+                src={media.url || "/default-image.png" }
+                alt={`Media ${index + 1}`}
+                layout="responsive"
+                width={400}
+                height={0}
+                // fill
+                loading="lazy"
+                quality={100}
+                className="rounded-t-lg object-cover"
+                // style={{ objectFit: "cover",height : "100%" }}
+              />
+            ) : (
+              <video
+                src={media.url}
+                controls
+                className="w-full rounded-t-lg"
+              ></video>
+            )}
+          </div>
+        ))}
+      </div>
+    );
   };
 
   if (loading) return <p className="text-center text-gray-600">Loading posts...</p>;
@@ -47,16 +75,10 @@ const Blogs: React.FC = () => {
               className={`bg-white dark:bg-[#1E1E1E] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp border-4 border-blue-400 dark:border-blue-600 hover:border-blue-500 dark:hover:border-blue-700 p-1 relative`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {post.mediaUrl && (
-                <Image
-                  src={post.mediaUrl}
-                  alt={post.title}
-                  layout="responsive"
-                  width={400}
-                  height={250}
-                  quality={100}
-                  className="rounded-t-lg object-cover"
-                />
+              {post.media && (
+                <>
+                  {renderMedia(post.media)}
+                </>
               )}
               <div className="p-4 bg-white dark:bg-[#1E1E1E] rounded-b-lg shadow-inner">
                 <h3 className="text-lg font-bold mb-2">{post.title}</h3>
@@ -67,7 +89,6 @@ const Blogs: React.FC = () => {
         </div>
       </Suspense>
 
-      {/* Pagination Controls */}
       <div className="flex justify-center space-x-4 py-4">
         <button
           onClick={handlePreviousPage}
