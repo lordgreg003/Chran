@@ -51,7 +51,7 @@ const Footer = () => {
             15 Akpa Ubeh Street off Babangida avenue by Je-Nissi Event Center
           </p>
           <p className={`${open_sans.className} text-base`}>
-            Uyo Akwaibom State
+            Uyo Akwa Ibom State
           </p>
         </div>
         <div className="flex flex-col items-center h-1/2 justify-center md:items-start ">

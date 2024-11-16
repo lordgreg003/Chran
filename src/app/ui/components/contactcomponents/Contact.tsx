@@ -28,14 +28,14 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await emailjs.send(
-        "service_23se4ar",
-        "template_sncjxzp",
+        "service_i1ltxrm",
+        "template_qohc3n7",
         {
           from_name: `${formData.firstName} ${formData.lastName}`,
           from_email: formData.email,
           message: formData.message,
         },
-        "GFCFVpvOIqYgTG0JU"
+        "Rco3tSF5o8uTVVy_g"
       );
 
       if (response.status === 200) {
@@ -64,6 +64,7 @@ const Contact = () => {
         <div className="w-full flex items-center justify-center md:w-1/2 h-auto">
           <Image
             src="/contactImage.webp"
+            loading="lazy"
             alt="chran"
             width={450}
             height={450}
@@ -77,7 +78,7 @@ const Contact = () => {
               500 Terry Francine Street, San Francisco, CA 94158
             </p>
             <p className={`${open_sans.className} text-lg`}>
-              info@mysite.com | 123-456-7890
+               center4humanrights@gmail.com | +2348023501555
             </p>
           </div>
 

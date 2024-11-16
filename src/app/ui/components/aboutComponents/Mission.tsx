@@ -105,6 +105,7 @@ const Mission: React.FC = () => {
           <Image
             src="/mission.jpg"
             alt="Chran image"
+            loading="lazy"
             width={500}
             height={600}
             className="rounded-lg object-cover"
