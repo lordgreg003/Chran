@@ -71,7 +71,7 @@ const Blogs: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 dark:bg-[#2D2D2D]">
           {posts.map((post, index) => (
             <div
-              key={post.id}
+              key={post._id}
               className={`bg-white dark:bg-[#1E1E1E] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp border-4 border-blue-400 dark:border-blue-600 hover:border-blue-500 dark:hover:border-blue-700 p-1 relative`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
