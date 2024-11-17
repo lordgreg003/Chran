@@ -1,4 +1,5 @@
-"use client"; // Ensures that the component runs on the client side
+"use client";  
+import { playfair_Display } from "../../fonts/fonts";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -27,32 +28,32 @@ const Navbar: React.FC = () => {
                 width={50}
               />
             </Link>
-            <p className="text-xl font-bold ">Chran</p>
+            <p className={`${playfair_Display.className} text-xl font-bold`}>Chran</p>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 dark:text-white">
             <Link
               href="/"
-              className="text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]"
+              className={`${playfair_Display.className} text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]`}
             >
               Home
             </Link>
             <Link
               href="/aboutus"
-              className="text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]"
+              className={`${playfair_Display.className} text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]`}
             >
               About Us
             </Link>
             <Link
               href="/blog"
-              className="text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]"
+              className={`${playfair_Display.className} text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]`}
             >
               Blog
             </Link>
             <Link
               href="/contact"
-              className="text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]"
+              className={`${playfair_Display.className} text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]`}
             >
               Contact
             </Link>
@@ -60,7 +61,7 @@ const Navbar: React.FC = () => {
             {/* Donate Button */}
             <Link
               href="/donate"
-              className="bg-blue-600 dark:text-[#E0E0E0] text-white px-4 py-2 rounded-full"
+              className={`${playfair_Display.className}bg-blue-600 dark:bg-[#1E1E1E] dark:text-[#E0E0E0] text-white px-4 py-2 rounded-full`}
             >
               Donate
             </Link>
@@ -78,22 +79,22 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white dark:bg-[#2D2D2D]  shadow-lg dark:text-white">
-          <div className="space-y-2 p-4">
+          <div className="space-y-2 flex flex-col p-4">
             <Link
               href="/aboutus"
-              className="block dark:text-white text-gray-700 hover:text-blue-600"
+              className={`${playfair_Display.className}block dark:text-white text-gray-700 hover:text-blue-600`}
             >
               About Us
             </Link>
             <Link
               href="/blog"
-              className="block dark:text-white text-gray-700 hover:text-blue-600"
+              className={`${playfair_Display.className}block dark:text-white text-gray-700 hover:text-blue-600`}
             >
               Blog
             </Link>
             <Link
               href="/contact"
-              className="block dark:text-white text-gray-700 hover:text-blue-600"
+              className={`${playfair_Display.className}block dark:text-white text-gray-700 hover:text-blue-600`}
             >
               Contact
             </Link>
@@ -101,7 +102,7 @@ const Navbar: React.FC = () => {
             {/* Donate Button */}
             <a
               href="/donate"
-              className="block bg-blue-600 text-white text-center px-4 py-2 rounded-full"
+              className="block bg-blue-600 dark:bg-[#1E1E1E] text-white text-center px-4 py-2 rounded-full"
             >
               Donate
             </a>
