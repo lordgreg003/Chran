@@ -26,11 +26,11 @@ const Donate = () => {
   };
 
   return (
-    <section className="bg-blue-500 py-12">
+    <section className="bg-blue-500 py-12 dark:bg-[#2D2D2D]">
         <div className='h-10'></div>
-      <div className="bg-white p-8 rounded-lg max-w-3xl mx-auto">
-        <h2 className="text-3xl font-semibold text-center text-blue-500 mb-4">Make a Donation</h2>
-        <p className="text-center text-blue-700 mb-6">
+      <div className="bg-white dark:bg-[#1E1E1E]  p-8 rounded-lg max-w-3xl mx-auto">
+        <h2 className="text-3xl font-semibold text-center text-blue-500 mb-4 dark:text-[#E0E0E0] ">Make a Donation</h2>
+        <p className="text-center text-blue-700 mb-6 dark:text-[#E0E0E0]">
           This is your campaign description. It’s a great place to tell visitors what this campaign is about, 
           connect with your donors, and draw attention to your cause.
         </p>
@@ -38,13 +38,13 @@ const Donate = () => {
         {/* Frequency Options */}
         <div className="flex justify-center mb-6">
           <button 
-            className={`px-6 py-2 rounded-full ${frequency === 'one-time' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-6 py-2 rounded-full ${frequency === 'one-time' ? 'bg-blue-500 text-white dark:text-black' : 'bg-gray-200 dark:text-black'}`}
             onClick={() => handleFrequencyChange('one-time')}
           >
             One time
           </button>
           <button 
-            className={`px-6 py-2 rounded-full ml-4 ${frequency === 'monthly' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-6 py-2 rounded-full ml-4 ${frequency === 'monthly' ? 'bg-blue-500 text-white dark:text-black' : 'bg-gray-200 dark:text-black'}`}
             onClick={() => handleFrequencyChange('monthly')}
           >
             Monthly
@@ -56,7 +56,7 @@ const Donate = () => {
           {['10', '50', '100', '200'].map((value) => (
             <button
               key={value}
-              className={`px-6 py-2 rounded-full m-2 ${amount === value ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+              className={`px-6 py-2 rounded-full m-2 ${amount === value ? 'bg-blue-500 text-white dark:text-black' : 'bg-gray-200 dark:text-black'}`}
               onClick={() => setAmount(value)}
             >
               ₦{value}
@@ -75,7 +75,7 @@ const Donate = () => {
         <div className="text-center">
           <button
             onClick={handleDonate}
-            className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300"
+            className="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 dark:bg-[#2D2D2D] transition duration-300 "
           >
             Donate
           </button>
