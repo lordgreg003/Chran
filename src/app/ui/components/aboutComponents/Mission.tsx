@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { FaFacebook,  FaLinkedin, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
+import { FaFacebook,  FaLinkedin, FaInstagram, FaYoutube, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import "animate.css";
@@ -92,6 +92,13 @@ const Mission: React.FC = () => {
             <Link href="https://www.tiktok.com/@franklyn.isong">
               <FaTiktok
                 className={`text-black text-2xl cursor-pointer ${
+                  animate ? "animate__animated animate__rotateIn" : ""
+                }`}
+              />
+            </Link>
+            <Link href="https://wa.me/qr/MFTAVXKKNJWAF1">
+              <FaWhatsapp
+                className={`text-green-600 text-2xl cursor-pointer ${
                   animate ? "animate__animated animate__rotateIn" : ""
                 }`}
               />

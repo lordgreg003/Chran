@@ -6,6 +6,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaTiktok,
+  FaWhatsapp
 } from "react-icons/fa";
 import Link from "next/link";
 import { IoMailSharp } from "react-icons/io5";
@@ -94,6 +95,13 @@ const Footer = () => {
             <Link href="https://www.tiktok.com/@franklyn.isong">
               <FaTiktok
                 className={`text-black text-2xl cursor-pointer ${
+                  animate ? "animate__animated animate__rotateIn" : ""
+                }`}
+              />
+            </Link>
+            <Link href="https://wa.me/qr/MFTAVXKKNJWAF1">
+              <FaWhatsapp
+                className={`text-green-600 text-2xl cursor-pointer ${
                   animate ? "animate__animated animate__rotateIn" : ""
                 }`}
               />

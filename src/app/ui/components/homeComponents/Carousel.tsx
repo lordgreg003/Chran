@@ -26,7 +26,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
         setAnimation("animate__fadeIn");
       }, 600);
-    }, 15000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
