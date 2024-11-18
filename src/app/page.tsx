@@ -8,19 +8,41 @@ import SupportVolunteerSection from "./ui/components/homeComponents/SupportVolun
 export default function Home() {
   const slides = [
     {
-      image: "/carousel1.webp",
+      image: "/chranlogo2.jpeg",
       text: "Support Human Rights Advocacy in Nigeria",
     },
     {
-      image: "/carousel3.webp",
+      image: "/chranlogo3.jpeg",
       text: "Promoting Democracy and Accountability",
     },
     {
-      image: "/carousel2.webp",
-      text: "Stand with Victims of Human Rights Violations",
+      image: "/chranlogo4.jpeg",
+      text: "Advocating for Justice and Equality in Marginalized Communities",
     },
-    // Add more slides as needed
-  ];
+    {
+      image: "/chranlogo5.jpeg",
+      text: "Empowering Women and Girls to Overcome Discrimination and Violence",
+    }, 
+    {
+      image: "/chranlogo6.jpeg",
+      text: "Championing Freedom of Expression and Access to Information",
+    }, 
+    {
+      image: "/chranlogo7.jpeg",
+      text: "Strengthening Grassroots Movements for Sustainable Development",
+    },
+    {
+      image: "/chranlogo8.jpeg",
+      text: "Defending the Rights of Vulnerable and Displaced Populations",
+    },
+    {
+      image: "/chranlogo9.jpeg",
+      text: "Supporting Legal Reforms for Inclusive and Transparent Governance",
+    },
+    {
+      image: "/chranlogo10.jpeg",
+      text: "Stand with Victims of Human Rights Violations",
+    },];
   return (
     <div>
       <Navbar />
