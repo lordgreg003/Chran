@@ -1,26 +1,18 @@
-import Image from "next/image";
-import { createBlogPost } from "@/redux/blogSlice";
-import { AppDispatch } from "@/redux/store";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useDispatch } from "react-redux";
-
-interface BlogPost {
-  _id: string;
-  title: string;
-  description: string;
-  media?: { url: string; type: "image" | "video" }[]; // Updated media type
-  likes: number;
-  createdAt: Date;
-}
+import { AppDispatch } from "@/redux/store";
+import { BlogPost, createBlogPost } from "@/redux/blogSlice";
+import { compressImage } from "../../utils/imageCompressor";
 
 const ImageUploadButton: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [isOpen, setIsOpen] = useState(false);
-  const [imageFiles, setImageFiles] = useState<File[]>([]); // Array to hold multiple images
-  const [videoFiles, setVideoFiles] = useState<File[]>([]); // Array to hold multiple videos
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
+  const [videoFiles, setVideoFiles] = useState<File[]>([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [previewUrls, setPreviewUrls] = useState<string[]>([]); // Array for previews
+  const [previewUrls, setPreviewUrls] = useState<string[]>([]);
 
   const toggleModal = () => setIsOpen(!isOpen);
 
@@ -31,27 +23,43 @@ const ImageUploadButton: React.FC = () => {
     };
   }, [isOpen]);
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files ? Array.from(event.target.files) : [];
-
-    // Append new selected images to the existing images
-    setImageFiles(prevFiles => [...prevFiles, ...selectedFiles]);
-
-    // Generate preview URLs for each newly selected image and append to existing previews
-    const imagePreviews = selectedFiles.map(file => URL.createObjectURL(file));
-    setPreviewUrls(prevPreviews => [...prevPreviews, ...imagePreviews]);
+  
+    try {
+      const compressedFiles = await Promise.all(
+        selectedFiles.map(async (file) => {
+           
+          const compressedFile = await compressImage(file, {
+            maxSizeMB: 2,
+            maxHeight: 800,
+            maxWidth : 800 ,
+          });
+          
+          return new File([compressedFile], file.name, { type: file.type });
+        })
+      );
+  
+      const previewUrls = compressedFiles.map((file) => URL.createObjectURL(file));
+  
+      setImageFiles((prevFiles) => [...prevFiles, ...compressedFiles]);
+      setPreviewUrls((prevPreviews) => [...prevPreviews, ...previewUrls]);
+    } catch (error) {
+      console.error("Error compressing images:", error);
+    }
   };
 
   const handleVideoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files ? Array.from(event.target.files) : [];
-    setVideoFiles(selectedFiles);
-
-    // Generate preview URLs for videos
-    const videoPreviews = selectedFiles.map(file => URL.createObjectURL(file));
-    setPreviewUrls(prevPreviews => [...prevPreviews, ...videoPreviews]);
+    setVideoFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
+    const videoPreviews = selectedFiles.map((file) => URL.createObjectURL(file));
+    setPreviewUrls((prevPreviews) => [...prevPreviews, ...videoPreviews]);
   };
 
-  const removePreview = () => setPreviewUrls([]); // Clear all previews
+  const removePreview = (index: number) => {
+    setImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+    setPreviewUrls((prevPreviews) => prevPreviews.filter((_, i) => i !== index));
+  };
 
   const handleSubmit = async () => {
     if (title && description && (imageFiles.length > 0 || videoFiles.length > 0)) {
@@ -59,31 +67,21 @@ const ImageUploadButton: React.FC = () => {
       formData.append("title", title);
       formData.append("description", description);
 
-      const media: { url: string; type: "image" | "video" }[] = [];
+      // Append image and video files
+      imageFiles.forEach((file) => formData.append("media", file));
+      videoFiles.forEach((file) => formData.append("media", file));
 
-      // Append selected images to media array
-      imageFiles.forEach(file => {
-        media.push({ url: URL.createObjectURL(file), type: "image" });
-        formData.append("media", file); // Add image file to FormData
-      });
-
-      // Append selected videos to media array
-      videoFiles.forEach(file => {
-        media.push({ url: URL.createObjectURL(file), type: "video" });
-        formData.append("media", file); // Add video file to FormData
-      });
-
-      // Send the form data to the backend
       try {
         const newPost: BlogPost = await dispatch(createBlogPost(formData)).unwrap();
         console.log("New Post Created:", newPost);
 
-        toggleModal(); // Close modal
+        // Reset modal and form state
+        toggleModal();
         setTitle("");
         setDescription("");
-        setImageFiles([]); // Clear image files array
-        setVideoFiles([]); // Clear video files array
-        setPreviewUrls([]); // Clear preview
+        setImageFiles([]);
+        setVideoFiles([]);
+        setPreviewUrls([]);
       } catch (error) {
         alert("Failed to create post: " + error);
       }
@@ -105,63 +103,51 @@ const ImageUploadButton: React.FC = () => {
       {isOpen && (
         <div
           className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50"
-          onClick={toggleModal} // Close modal on background click
+          onClick={toggleModal}
         >
           <div
             className="bg-white dark:bg-[#1E1E1E] p-6 rounded-lg shadow-lg w-80 relative"
-            onClick={(e) => e.stopPropagation()} // Prevent modal close on content click
+            onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-xl font-bold mb-4">Create Post</h2>
 
-            {/* Image Input */}
             <input
               type="file"
               accept="image/*"
               onChange={handleImageChange}
               className="mb-3 w-full"
-              multiple // Allow multiple image selection
+              multiple
             />
 
-            {/* Video Input */}
             <input
               type="file"
               accept="video/*"
               onChange={handleVideoChange}
               className="mb-3 w-full"
-              multiple // Allow multiple video selection
+              multiple
             />
 
             {previewUrls.length > 0 && (
               <div className="mb-3 relative">
-                {previewUrls.map((url, index) => {
-                  const isVideo = url.startsWith("blob:") && (url.includes("mp4") || url.includes("webm"));
-                  return (
-                    <div key={index} className="mb-2">
-                      {isVideo ? (
-                        <video controls width="100%" className="rounded-t-lg">
-                          <source src={url} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      ) : (
-                        <Image
-                          src={url}
-                          alt={`Selected preview ${index}`}
-                          layout="responsive"
-                          width={100}
-                          height={100}
-                          quality={100}
-                          className="rounded-t-lg object-cover"
-                        />
-                      )}
-                    </div>
-                  );
-                })}
-                <button
-                  onClick={removePreview}
-                  className="mt-2 text-red-500 hover:text-red-700"
-                >
-                  Remove Previews
-                </button>
+                {previewUrls.map((url, index) => (
+                  <div key={index} className="relative mb-2">
+                    <Image
+                      src={url}
+                      alt={`Selected preview ${index}`}
+                      layout="responsive"
+                      width={100}
+                      height={100}
+                      quality={100}
+                      className="rounded-t-lg object-cover"
+                    />
+                    <button
+                      onClick={() => removePreview(index)}
+                      className="absolute top-2 right-2 text-red-500 hover:text-red-700"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
               </div>
             )}
 

@@ -1,7 +1,12 @@
 // src/screens/AdminDashboard.tsx
 "use client";
 import React from "react";
-import ImageUploadButton from "@/app/ui/components/ImageUpload/ImageUploadButton";
+ 
+import dynamic from "next/dynamic";
+
+const ImageUploadButton = dynamic(() => import("@/app/ui/components/ImageUpload/ImageUploadButton"), { 
+  ssr: false 
+});
  
 const AdminDashboard = () => {
  

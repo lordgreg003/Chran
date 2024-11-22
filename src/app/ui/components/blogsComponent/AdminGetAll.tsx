@@ -1,14 +1,12 @@
 "use client";
-import Image from "next/image";
 import { fetchAllPosts, deleteBlogPost, updateBlogPost } from "@/redux/blogSlice";
 import { AppDispatch, RootState } from "@/redux/store";
 import React, { Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BlogSkeleton } from "../../subComponents/skeletons";
-import "animate.css";
-import { FaTrashAlt, FaEdit } from "react-icons/fa"; // Import edit icon
 import { BlogPost } from "@/redux/blogSlice";
-
+import Article from "./Article";
+ 
 export interface Media {
   url: string;
   type: "image" | "video";
@@ -19,11 +17,12 @@ const AdminGetAll: React.FC = () => {
   const { posts = [], loading, error } = useSelector((state: RootState) => state.blogs);
 
   const [page, setPage] = useState(1);
-  const postsPerPage = 10;
+  const postsPerPage = 3;
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [newImage, setNewImage] = useState<File | null>(null); // State for storing the new image
+  const [readMore, setReadMore] = useState<Set<string>>(new Set()); // Track which posts are expanded
 
   useEffect(() => {
     dispatch(fetchAllPosts({ page, limit: postsPerPage }));
@@ -75,35 +74,17 @@ const AdminGetAll: React.FC = () => {
       setIsEditModalOpen(false);  // Close the modal after saving
     }
   };
-  
 
-  const renderMedia = (mediaUrls: { url: string; type: "image" | "video" }[]) => {
-    return (
-      <div className="media-container">
-        {mediaUrls.map((media, index) => (
-          <div key={index} className="media-item">
-            {media.type === "image" ? (
-              <Image
-                src={media.url || "/default-image.png"}
-                alt={`Media ${index + 1}`}
-                layout="responsive"
-                width={400}
-                height={0}
-                loading="lazy"
-                quality={100}
-                className="rounded-t-lg object-cover"
-              />
-            ) : (
-              <video
-                src={media.url}
-                controls
-                className="w-full rounded-t-lg"
-              ></video>
-            )}
-          </div>
-        ))}
-      </div>
-    );
+  const toggleReadMore = (id: string) => {
+    setReadMore((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
   };
 
   if (loading) return <p className="text-center text-gray-600">Loading posts...</p>;
@@ -113,31 +94,16 @@ const AdminGetAll: React.FC = () => {
     <div className="container dark:bg-[#2D2D2D] mx-auto py-8 px-4">
       <h2 className="text-2xl font-semibold text-center mb-6">Blog Posts</h2>
       <Suspense fallback={<BlogSkeleton />}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 dark:bg-[#2D2D2D]">
-          {posts.map((post, index) => (
-            <div
+        <div className="space-y-6">
+          {posts.map((post) => (
+            <Article
               key={post._id}
-              className={`bg-white dark:bg-[#1E1E1E] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp border-4 border-blue-400 dark:border-blue-600 hover:border-blue-500 dark:hover:border-blue-700 p-1 relative`}
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {post.media && renderMedia(post.media)}
-              <div className="p-4 bg-white dark:bg-[#1E1E1E] rounded-b-lg shadow-inner">
-                <h3 className="text-lg font-bold mb-2">{post.title}</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">{post.description}</p>
-                <button
-                  onClick={() => handleUpdate(post)}
-                  className="absolute top-2 right-10 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"
-                >
-                  <FaEdit size={20} />
-                </button>
-                <button
-                  onClick={() => handleDelete(post._id)}
-                  className="absolute top-2 right-2 bg-red-600 text-white p-2 rounded-full hover:bg-red-700"
-                >
-                  <FaTrashAlt size={20} />
-                </button>
-              </div>
-            </div>
+              post={post}
+              onDelete={handleDelete}
+              onEdit={handleUpdate}
+              readMore={readMore}
+              toggleReadMore={toggleReadMore}
+            />
           ))}
         </div>
       </Suspense>
@@ -165,64 +131,44 @@ const AdminGetAll: React.FC = () => {
           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
             <h3 className="text-xl font-bold mb-4">Edit Post</h3>
             <div className="mb-4">
-              <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
+              <label htmlFor="title" className="block text-sm font-medium mb-2">
+                Title
+              </label>
               <input
                 type="text"
                 id="title"
                 value={selectedPost.title}
-                onChange={(e) => setSelectedPost({ ...selectedPost, title: e.target.value })}
-                className="w-full px-4 py-2 border rounded-md"
+                onChange={(e) =>
+                  setSelectedPost({ ...selectedPost, title: e.target.value })
+                }
+                className="w-full p-2 border border-gray-300 rounded-md"
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
+              <label htmlFor="description" className="block text-sm font-medium mb-2">
+                Description
+              </label>
               <textarea
                 id="description"
                 value={selectedPost.description}
-                onChange={(e) => setSelectedPost({ ...selectedPost, description: e.target.value })}
-                className="w-full px-4 py-2 border rounded-md"
-              />
+                onChange={(e) =>
+                  setSelectedPost({ ...selectedPost, description: e.target.value })
+                }
+                className="w-full p-2 border border-gray-300 rounded-md"
+              ></textarea>
             </div>
-            <div className="mb-4">
-              <label htmlFor="media" className="block text-sm font-medium text-gray-700">Image/Media</label>
-              <input
-                type="file"
-                id="media"
-                onChange={(e) => {
-                  const file = e.target.files?.[0];
-                  if (file) {
-                    setNewImage(file); // Set the new image file
-                  }
-                }}
-                className="w-full px-4 py-2 border rounded-md"
-              />
-            </div>
-
-            {/* Display image preview */}
-            {newImage && (
-              <div className="mb-4">
-                <Image
-                  src={URL.createObjectURL(newImage)}
-                  alt="Selected Image"
-                  width={300}
-                  height={200}
-                  className="rounded-md"
-                />
-              </div>
-            )}
-
-            <div className="flex justify-between">
-              <button
-                onClick={handleSaveUpdate}
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-              >
-                Save
-              </button>
+            <div className="flex justify-between mt-4">
               <button
                 onClick={() => setIsEditModalOpen(false)}
-                className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-gray-500"
+                className="bg-gray-400 text-white px-4 py-2 rounded-md"
               >
                 Cancel
+              </button>
+              <button
+                onClick={handleSaveUpdate}
+                className="bg-blue-600 text-white px-4 py-2 rounded-md"
+              >
+                Save Changes
               </button>
             </div>
           </div>
