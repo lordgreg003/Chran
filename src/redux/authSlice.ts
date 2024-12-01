@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 
-const API_BASE_URL = "https://chran-backend.onrender.com/admin";
+const API_BASE_URL = "https://chran-backend-1.onrender.com/admin";
 
 interface AuthState {
   accessToken: string | null;

@@ -5,7 +5,8 @@ import React, { Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BlogSkeleton } from "../../subComponents/skeletons";
 import "animate.css";
-import BlogArticle from "./BlogArticle";
+import Image from "next/image";
+import Link from "next/link";
 
 // Blog Component - Display all blog posts
 const Blogs: React.FC = () => {
@@ -14,11 +15,8 @@ const Blogs: React.FC = () => {
 
   const [page, setPage] = useState(1);
   const postsPerPage = 3;
-  const [readMore, setReadMore] = useState<Set<string>>(new Set()); // Track which posts are expanded
 
- 
   useEffect(() => {
-    console.log("Fetching posts for page:", page); // Log the page when fetching posts
     dispatch(fetchAllPosts({ page, limit: postsPerPage }));
   }, [dispatch, page]);
 
@@ -30,17 +28,37 @@ const Blogs: React.FC = () => {
     setPage(page + 1);
   };
 
-  const toggleReadMore = (id: string) => {
-    setReadMore((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(id)) {
-        newSet.delete(id);
-      } else {
-        newSet.add(id);
-      }
-      return newSet;
-    });
+  const renderMedia = (mediaUrls: { url: string; type: "image" | "video" }[]) => {
+    return (
+      <div className="media-container">
+        {mediaUrls.map((media, index) => (
+          <div key={index} className="media-item">
+            {media.type === "image" ? (
+              <div className="border-4  rounded-lg overflow-hidden max-w-[300px] mx-auto">
+                <Image
+                  src={media.url || "/default-image.png"}
+                  alt={`Media ${index + 1}`}
+                  layout="responsive"
+                  width={600}
+                  height={0}
+                  loading="lazy"
+                  quality={100}
+                  className="object-cover w-full"
+                />
+              </div>
+            ) : (
+              <video
+                src={media.url}
+                controls
+                className="w-full rounded-t-lg"
+              ></video>
+            )}
+          </div>
+        ))}
+      </div>
+    );
   };
+
 
   if (loading) return <p className="text-center text-gray-600">Loading posts...</p>;
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
@@ -49,15 +67,15 @@ const Blogs: React.FC = () => {
     <div className="container dark:bg-[#2D2D2D] flex flex-col justify-center  items-center mx-auto py-8 px-4">
       <h2 className="text-2xl font-semibold text-center mb-6">Blog Posts</h2>
       <Suspense fallback={<BlogSkeleton />}>
-      <div className="md:max-w-md bg-yellow-200 gap-5 flex flex-col justify-center">
+        <div className="md:max-w-md bg-yellow-200 gap-5 flex flex-col justify-center">
           {posts.map((post) => (
-            <BlogArticle
-              key={post._id}
-              post={post}
-               
-              readMore={readMore}
-              toggleReadMore={toggleReadMore}
-            />
+            <Link key={post._id} href={`/blog/${post.slug}`} passHref>
+              <div className="bg-white dark:bg-[#1E1E1E] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp p-4">
+              {post.media && renderMedia(post.media)}
+                <h3 className="text-lg font-bold mb-2">{post.title}</h3>
+                <p className="text-gray-700 dark:text-gray-300">{post.description}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </Suspense>
