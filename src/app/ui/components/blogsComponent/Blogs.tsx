@@ -8,13 +8,12 @@ import "animate.css";
 import Image from "next/image";
 import Link from "next/link";
 
-// Blog Component - Display all blog posts
 const Blogs: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { posts = [], loading, error } = useSelector((state: RootState) => state.blogs);
 
   const [page, setPage] = useState(1);
-  const postsPerPage = 3;
+  const postsPerPage = 8;
 
   useEffect(() => {
     dispatch(fetchAllPosts({ page, limit: postsPerPage }));
@@ -34,7 +33,7 @@ const Blogs: React.FC = () => {
         {mediaUrls.map((media, index) => (
           <div key={index} className="media-item">
             {media.type === "image" ? (
-              <div className="border-4  rounded-lg overflow-hidden max-w-[300px] mx-auto">
+              <div className="border-4 rounded-lg overflow-hidden max-w-[300px] mx-auto">
                 <Image
                   src={media.url || "/default-image.png"}
                   alt={`Media ${index + 1}`}
@@ -47,11 +46,7 @@ const Blogs: React.FC = () => {
                 />
               </div>
             ) : (
-              <video
-                src={media.url}
-                controls
-                className="w-full rounded-t-lg"
-              ></video>
+              <video src={media.url} controls className="w-full rounded-t-lg"></video>
             )}
           </div>
         ))}
@@ -59,19 +54,19 @@ const Blogs: React.FC = () => {
     );
   };
 
-
   if (loading) return <p className="text-center text-gray-600">Loading posts...</p>;
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
   return (
-    <div className="container dark:bg-[#2D2D2D] flex flex-col justify-center  items-center mx-auto py-8 px-4">
+    <div className="container dark:bg-[#2D2D2D] flex flex-col items-center mx-auto py-8 px-4">
       <h2 className="text-2xl font-semibold text-center mb-6">Blog Posts</h2>
       <Suspense fallback={<BlogSkeleton />}>
-        <div className="md:max-w-md bg-yellow-200 gap-5 flex flex-col justify-center">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {posts.map((post) => (
             <Link key={post._id} href={`/blog/${post.slug}`} passHref>
               <div className="bg-white dark:bg-[#1E1E1E] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp p-4">
-              {post.media && renderMedia(post.media)}
+                {post.media && renderMedia(post.media)}
                 <h3 className="text-lg font-bold mb-2">{post.title}</h3>
                 <p className="text-gray-700 dark:text-gray-300">{post.description}</p>
               </div>
