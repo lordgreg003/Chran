@@ -16,8 +16,16 @@ const Blogs: React.FC = () => {
   const postsPerPage = 8;
 
   useEffect(() => {
+    // Fetch posts for the current page
     dispatch(fetchAllPosts({ page, limit: postsPerPage }));
   }, [dispatch, page]);
+
+  useEffect(() => {
+    // If no posts are fetched and we're not on the first page, go back to the previous page
+    if (!loading && posts.length === 0 && page > 1) {
+      setPage((prevPage) => prevPage - 1);
+    }
+  }, [posts, loading, page]);
 
   const handlePreviousPage = () => {
     if (page > 1) setPage(page - 1);
@@ -57,6 +65,21 @@ const Blogs: React.FC = () => {
   if (loading) return <p className="text-center text-gray-600">Loading posts...</p>;
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
+  // If no posts exist and we are on the first page
+  if (!loading && posts.length === 0 && page === 1) {
+    return (
+      <div className="container dark:bg-[#2D2D2D] flex flex-col items-center justify-center h-screen mx-auto py-8 px-4">
+        <h2 className="text-2xl font-semibold text-center mb-6">No blogs here</h2>
+        <button
+          onClick={handlePreviousPage}
+          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+        >
+          Go Back
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="container dark:bg-[#2D2D2D] flex flex-col items-center mx-auto py-8 px-4">
       <h2 className="text-2xl font-semibold text-center mb-6">Blog Posts</h2>
@@ -82,13 +105,13 @@ const Blogs: React.FC = () => {
           disabled={page === 1}
           className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
         >
-          Previous Page
+          New Blogs
         </button>
         <button
           onClick={handleNextPage}
           className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
         >
-          Next Page
+          More Blogs
         </button>
       </div>
     </div>
