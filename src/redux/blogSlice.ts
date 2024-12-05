@@ -8,12 +8,12 @@ export interface BlogPost {
   description: string;
   media?: { url: string; type: "image" | "video" }[];
   likes: number;
-  slug: string;
   createdAt: Date;
 }
 
 interface BlogState {
   posts: BlogPost[];
+  post: BlogPost | null;
   currentPost: BlogPost | null; // New state property to store the selected post
   loading: boolean;
   lastUpdated: number;
@@ -50,6 +50,7 @@ const savePostsToLocalStorage = (posts: BlogPost[]) => {
 // Initialize state
 const initialState: BlogState = {
   posts: [],
+  post: null,
   currentPost: null, // Initialize currentPost to null
   loading: false,
   lastUpdated: Date.now(),
@@ -57,19 +58,18 @@ const initialState: BlogState = {
 };
 
 // Thunks
-export const getPostBySlug = createAsyncThunk<
-  BlogPost,
-  string,
+export const getPostById = createAsyncThunk<
+  BlogPost, // Define the return type
+  string, // Define the argument type (blog post ID)
   { rejectValue: string }
->("blogs/getPostBySlug", async (slug, { rejectWithValue }) => {
-  console.log("Fetching blog with slug:", slug);
+>("blogs/getPostById", async (id, { rejectWithValue }) => {
+  console.log("Fetching blog with ID:", id);
   try {
     const response = await axios.get(
-      `https://chran-backend-1.onrender.com/api/blogs/${slug}`
+      `https://chran-backend.onrender.com/api/blogs/${id}` // Use ID in the endpoint
     );
-    console.log("API Response:", response.data);
-    console.log("API Response:", response.data.blogPost);
-    return response.data.blogPost;
+    console.log("API get by id Response:", response.data);
+    return response.data; // Assuming the API returns the blog post directly
   } catch (error) {
     return rejectWithValue(
       error instanceof Error ? error.message : "Failed to fetch post"
@@ -130,7 +130,7 @@ export const deleteBlogPost = createAsyncThunk<
   try {
     console.log(`Deleting post with id: ${id}`); // Log the id being deleted
     await axios.delete(`https://chran-backend-1.onrender.com/api/blogs/${id}`);
-    console.log(`Post with id: ${id} deleted successfully`); // Log success
+    console.log(`Post with id: ${id} deleted successfully`);  
     return id; // Return the deleted post ID to update the state
   } catch (error) {
     console.error("Error deleting post:", error); // Log the error if it occurs
@@ -193,15 +193,15 @@ const blogSlice = createSlice({
       })
 
       // Get post by slug
-      .addCase(getPostBySlug.pending, (state) => {
+      .addCase(getPostById.pending, (state) => {
         state.loading = true;
         state.currentPost = null; // Clear previous data when a new fetch begins
       })
-      .addCase(getPostBySlug.fulfilled, (state, action) => {
+      .addCase(getPostById.fulfilled, (state, action) => {
         state.loading = false;
         state.currentPost = action.payload; // Set the retrieved post
       })
-      .addCase(getPostBySlug.rejected, (state, action) => {
+      .addCase(getPostById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || "Failed to fetch post by slug";
       })

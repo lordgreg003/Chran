@@ -59,7 +59,7 @@ const StatsSection: React.FC = () => {
               className={` ${open_sans.className} text-4xl font-semibold dark:text-[#E0E0E0] text-blue-600`}
             >
               {isVisible && (
-                <CountUp start={0} end={10000} duration={3} separator="," />
+                <CountUp start={0} end={11952} duration={3} separator="," />
               )}
               +
             </h3>
@@ -73,7 +73,7 @@ const StatsSection: React.FC = () => {
             <h3
               className={` ${open_sans.className} text-4xl font-semibold dark:text-[#E0E0E0] text-blue-600`}
             >
-              {isVisible && <CountUp start={0} end={80} duration={3} />}
+              {isVisible && <CountUp start={0} end={82} duration={3} />}
               +
             </h3>
             <p className={`${open_sans.className} text-lg text-gray-700`}>
@@ -87,7 +87,7 @@ const StatsSection: React.FC = () => {
               className={` ${open_sans.className} text-4xl font-semibold dark:text-[#E0E0E0] text-blue-600`}
             >
               {isVisible && (
-                <CountUp start={0} end={1000} duration={3} separator="," />
+                <CountUp start={0} end={987} duration={3} separator="," />
               )}
               +
             </h3>
