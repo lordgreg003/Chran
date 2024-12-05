@@ -64,7 +64,7 @@ const Blogs: React.FC = () => {
         {/* Grid Layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {posts.map((post) => (
-            <Link key={post._id} href={`/blog/${post.slug}`} passHref>
+            <Link key={post._id} href={`/blog/${post._id}`} passHref>
               <div className="bg-white dark:bg-[#1E1E1E] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp p-4">
                 {post.media && renderMedia(post.media)}
                 <h3 className="text-lg font-bold mb-2">{post.title}</h3>
