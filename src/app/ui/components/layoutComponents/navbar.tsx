@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
             {/* Donate Button */}
             <Link
               href="/donate"
-              className={`${playfair_Display.className}bg-blue-600 dark:bg-[#1E1E1E] dark:text-[#E0E0E0] text-white px-4 py-2 rounded-full`}
+              className={`${playfair_Display.className} bg-blue-600  dark:bg-[#1E1E1E] dark:text-[#E0E0E0] text-white px-4 py-2 rounded-full`}
             >
               Donate
             </Link>
