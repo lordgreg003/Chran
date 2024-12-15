@@ -1,24 +1,16 @@
 "use client";
 import {
   UserGroupIcon,
- 
   PlusIcon as CreateIcon,
-  PencilIcon as UpdateIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
-
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: "Create Post", href: "/admin", icon: CreateIcon },
-  {
-    name: "Update Post",
-    href: "/update",
-    icon: UpdateIcon,
-  },
+  { name: "Create Article", href: "/create", icon: CreateIcon },
   { name: "All Post", href: "/all", icon: UserGroupIcon },
+  { name: "All Article", href: "/allarticle", icon: UserGroupIcon },
  
 ];
 

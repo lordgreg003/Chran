@@ -16,7 +16,7 @@ const Blogs: React.FC = () => {
   const postsPerPage = 8;
 
   useEffect(() => {
-    // Fetch posts for the current page
+    // Fetch posts for the current page, sorting by newest first
     dispatch(fetchAllPosts({ page, limit: postsPerPage }));
   }, [dispatch, page]);
 
@@ -99,19 +99,19 @@ const Blogs: React.FC = () => {
       </Suspense>
 
       {/* Pagination */}
-      <div className="flex justify-center space-x-4 py-4">
+      <div className="flex justify-center items-center space-x-6 py-6">
         <button
           onClick={handlePreviousPage}
           disabled={page === 1}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+          className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg disabled:opacity-50"
         >
-          New Blogs
+          <span className="animate__animated animate__fadeIn animate__delay-1s">Previous</span>
         </button>
         <button
           onClick={handleNextPage}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+          className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-6 py-3 rounded-full hover:scale-105 transition-transform duration-300 shadow-lg"
         >
-          More Blogs
+          <span className="animate__animated animate__fadeIn animate__delay-1s">Next</span>
         </button>
       </div>
     </div>
