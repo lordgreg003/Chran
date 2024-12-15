@@ -50,7 +50,13 @@ const Navbar: React.FC = () => {
               href="/blog"
               className={`${playfair_Display.className} text-gray-700 hover:text-blue-600 dark:text-[#E0E0E0]`}
             >
-              Blog
+              Blogs
+            </Link>
+            <Link
+              href="/articles"
+              className={`${playfair_Display.className}block dark:text-[#E0E0E0] text-gray-700 hover:text-blue-600`}
+            >
+              Articles
             </Link>
             <Link
               href="/contact"
@@ -91,7 +97,13 @@ const Navbar: React.FC = () => {
               href="/blog"
               className={`${playfair_Display.className}block dark:text-white text-gray-700 hover:text-blue-600`}
             >
-              Blog
+              Blogs
+            </Link>
+            <Link
+              href="/articles"
+              className={`${playfair_Display.className}block dark:text-white text-gray-700 hover:text-blue-600`}
+            >
+              Articles
             </Link>
             <Link
               href="/contact"

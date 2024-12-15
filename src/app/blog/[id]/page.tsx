@@ -46,7 +46,7 @@ const BlogDetail: React.FC = () => {
         &larr; Go Back
       </Link>
       <h2 className="text-2xl font-semibold text-center mb-6">Blog Post</h2>
-      <div className="md:max-w-md bg-yellow-200 gap-5 flex flex-col justify-center">
+      <div className="md:max-w-md gap-5 flex flex-col justify-center">
         <div
           key={post._id}
           className="bg-white dark:bg-[#1E1E1E] rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 animate__animated animate__fadeInUp p-4"

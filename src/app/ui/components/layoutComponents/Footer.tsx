@@ -139,6 +139,12 @@ const Footer = () => {
               Blogs
             </Link>
             <Link
+              href="/articles"
+              className={`${open_sans.className} hover:underline`}
+            >
+              Articles
+            </Link>
+            <Link
               href="/ongoing-project"
               className={`${open_sans.className} hover:underline`}
             >

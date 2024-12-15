@@ -1,6 +1,6 @@
 "use client";
 import { playfair_Display, open_sans } from "../../fonts/fonts";
-
+import Link from "next/link";
 import Image from "next/image";
 
 const AboutPage: React.FC = () => {
@@ -22,9 +22,9 @@ const AboutPage: React.FC = () => {
             civil society in Nigeria. Our mission is to uphold accountability,
             transparency, and justice for all.
           </p>
-          <button className="px-6 py-3 border-2 border-white dark:text-white text-black rounded-full lg:w-[30%] hover:bg-white hover:text-blue-500 transition duration-300">
+          <Link href={'/aboutus'}><button className="px-6 py-3 border-2 border-white dark:text-white text-black rounded-full lg:w-[30%] hover:bg-white hover:text-blue-500 transition duration-300">
             Read More
-          </button>
+          </button></Link>
         </div>
       </div>
 
