@@ -1,10 +1,9 @@
 "use client";  
 import { playfair_Display } from "../../fonts/fonts";
-
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Image from "next/image";
+ 
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,16 +19,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex flex-row items-center justify-center gap-3">
-            <Link href="/">
-              <Image
-                src="/mainlogo.webp"
-                alt="chran-logo"
-                loading="lazy"
-                height={50}
-                width={50}
-              />
-            </Link>
-            <p className={`${playfair_Display.className} text-xl font-bold`}>Chran</p>
+            <p className={`${playfair_Display.className} text-3xl font-bold`}>Chran</p>
           </div>
 
           {/* Desktop Menu */}
