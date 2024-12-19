@@ -9,6 +9,17 @@ export type FeatureData = {
   content?: string;
 };
 
+export type NewsData = {
+  id: string;
+  type?: string;
+  title?: string;
+  description?: string;
+  author?: string;
+  date?: string;
+  categories: string[];
+  fullText?: string; // New field for extra text
+};
+
 export interface NewsItem {
   id: string;
   type: "news" | "sponsored" | "news-analysis";
@@ -107,5 +118,47 @@ export const newsItems: NewsItem[] = [
     description: "Analysis of the latest Salt Typhoon supply chain risk.",
     author: "By Cynthia Brumfield",
     date: "11 Dec 2024 • 12 mins",
+  },
+];
+
+export const newsData: NewsData[] = [
+  {
+    id: "Amazon-refuses-Microsoft-365 ",
+    type: "News",
+    title:
+      "Amazon refuses Microsoft 365 deployment because of lax cybersecurity",
+    description:
+      "Security executives applaud Amazon for publicly shaming Microsoft security, although some suspect it is a thinly veiled AWS sales pitch.",
+    author: "Evan Schuman",
+    date: "16 Dec 2024 • 5 mins",
+    categories: ["Access Control", "Application Security", "Cloud Security"],
+    fullText:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. ...", // New 200-word content
+  },
+  {
+    id: "Rhode-Island-suffers-major-cyberattack",
+    type: "News",
+    title:
+      "Rhode Island suffers major cyberattack, exposing personal data of thousands",
+    description:
+      "With government systems targeted in the state, Deloitte, law enforcement, and IT experts are racing to contain the breach.",
+    author: "Gyana Swain",
+    date: "16 Dec 2024 • 5 mins",
+    categories: ["Cyberattacks", "Malware", "Security"],
+    fullText:
+      "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius. Nulla facilisi. Pellentesque lobortis. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Nulla aliquet. Vivamus euismod mauris. Cras vel lorem. Etiam eu ante. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. ...", // New 200-word content
+  },
+  {
+    id: "Amazon-refuses-Microsoft-365-deployment-because",
+    type: "News",
+    title:
+      "Amazon refuses Microsoft 365 deployment because of lax cybersecurity",
+    description:
+      "Security executives applaud Amazon for publicly shaming Microsoft security, although some suspect it is a thinly veiled AWS sales pitch.",
+    author: "Evan Schuman",
+    date: "16 Dec 2024 • 5 mins",
+    categories: ["Access Control", "Application Security", "Cloud Security"],
+    fullText:
+      "Sed libero. Curabitur tristique, libero et volutpat pellentesque, felis ipsum faucibus metus, ut hendrerit mi erat eu tortor. Sed tristique suscipit justo, quis venenatis erat iaculis a. Mauris tristique euismod nunc, eget cursus sem. Curabitur ullamcorper, sapien id dictum varius, eros libero fermentum neque, nec pretium eros est id libero. ...", // New 200-word content
   },
 ];
