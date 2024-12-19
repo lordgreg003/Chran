@@ -3,6 +3,7 @@ export interface News1Item {
   type: "news" | "sponsored" | "news-analysis";
   title: string;
   description: string;
+  text?: string;
   author?: string;
   date: string;
   duration?: string; // for sponsored or news content
@@ -16,6 +17,11 @@ export interface Feature1 {
   date: string;
   categories: string[];
   videoUrl: string; // URL for video
+  text1: string;
+  text2: string;
+  text3: string;
+  text4: string;
+  text5: string;
 }
 
 export const featureData1: Feature1 = {
@@ -28,6 +34,14 @@ export const featureData1: Feature1 = {
   categories: ["Chran and CISO Chran", "IT Leadership"],
   videoUrl:
     "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1734263503/youtubecharn1_kk3sli.mp4",
+  text1:
+    "A frontline good governance cum human rights organisation in Nigeria under the auspices of the Center for Human Rights and Accountability Network (CHRAN) stated that the Akwa Ibom State Governor, Pastor Umo Eno, PhD., has not deviated from his vision for the State and its people as encapsulated in his ARISE Agenda. ",
+  text2:
+    "The Center made the statement through its Director, Otuekong Franklyn Isong, while fielding questions in a live-phone-in Radio programme on Passion 94.5 FM, Uyo, tagged, The Morning Flight with Captain Ikechukwu Juwe, on Wednesday, 11th December, 2024. ",
+  text3:
+    "The Center appraised the implementation of the 2024 Appropriation Law of Akwa Ibom State and lauded the governor on its implementation. ",
+  text4: "#Passion94.5fm",
+  text5: "#CHRAN_Advocacy ",
 };
 
 export const newsItems1: News1Item[] = [
@@ -38,6 +52,7 @@ export const newsItems1: News1Item[] = [
       "A frontline good governance cum human rights organisation in Nigeria under the auspices of the Center for Human Rights and Accountability Network (CHRAN) ",
     description:
       "A frontline good governance cum human rights organisation in Nigeria under the auspices of the Center for Human Rights and Accountability Network (CHRAN) stated that the Akwa Ibom State Governor, Pastor Umo Eno, PhD., has not deviated from his vision for the State and its people as encapsulated in his ARISE Agenda",
+    text: "",
     author: "By John Leyden",
     date: "12 Dec 2024 • 3 mins",
   },
@@ -48,6 +63,7 @@ export const newsItems1: News1Item[] = [
       "The Center made the statement through its Director, Otuekong Franklyn Isong, while fielding questions in a live-phone-in ",
     description:
       "The Center made the statement through its Director, Otuekong Franklyn Isong, while fielding questions in a live-phone-in Radio programme on Passion 94.5 FM, Uyo, tagged, The Morning Flight with Captain Ikechukwu Juwe, on Wednesday, 11th December, 2024. ",
+    text: "",
     author: "Cyber NewsWire",
     date: "",
   },
@@ -58,6 +74,7 @@ export const newsItems1: News1Item[] = [
       "The Center appraised the implementation of the 2024 Appropriation Law of Akwa Ibom State ",
     description:
       "The Center appraised the implementation of the 2024 Appropriation Law of Akwa Ibom State and lauded the governor on its implementation",
+    text: "",
     author: "By Cynthia Brumfield",
     date: "11 Dec 2024 • 12 mins",
   },

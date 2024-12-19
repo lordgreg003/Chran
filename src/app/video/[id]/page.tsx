@@ -1,5 +1,7 @@
 "use client";
 import { featureData1 } from "@/app/ui/data/istdata";
+import { open_sans } from "@/app/ui/fonts/fonts";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 
 const FeatureDetail: React.FC = () => {
@@ -9,9 +11,7 @@ const FeatureDetail: React.FC = () => {
     // Decode the URL parameter to match the feature data ID
     const decodedId = decodeURIComponent(id);
 
-    // Log to check the decoded ID
-    console.log("Decoded URL Param ID:", decodedId);
-    console.log("Feature Data ID:", featureData1.id);
+  
 
     // Mock fetching by ID
     const feature = decodedId === featureData1.id ? featureData1 : null;
@@ -22,11 +22,10 @@ const FeatureDetail: React.FC = () => {
         return <p>Feature not found</p>;
     }
 
-    // Log the feature details once it is found
-    console.log("Feature found:", feature);
-
+    
     return (
         <div className="container mx-auto px-4 pt-8">
+            <Link href={'/'} className="cursor-pointer "><button className="underline px-5 py-1">Back</button></Link>
             <h1 className="text-4xl font-semibold text-gray-900 mb-4">{feature.title}</h1>
             <p className="text-gray-600 text-lg mb-4">{feature.description}</p>
             <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
@@ -49,6 +48,14 @@ const FeatureDetail: React.FC = () => {
                     controls
                     className="rounded-md w-full h-full object-cover"
                 />
+            </div>
+            <div className="flex flex-col items-left gap-2 text-sm  mb-4  md:max-w-3xl">
+            <h1 className="text-4xl font-semibold text-gray-900 mb-4">{feature.title}</h1>
+                <p className={`${open_sans.className} font-medium text-xl text-gray-800`}>{feature.text1}</p>
+                <p className={`${open_sans.className} text-xl text-gray-700`}>{feature.text2}</p>
+                <p className={`${open_sans.className} text-xl text-gray-700`}>{feature.text3}</p>
+                <p className={`${open_sans.className} text-xl text-gray-700 underline`}>{feature.text4}</p>
+                <p className={`${open_sans.className} text-xl text-gray-700 underline`}>{feature.text5}</p>
             </div>
         </div>
     );

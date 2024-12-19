@@ -7,7 +7,7 @@ const NewsSection: React.FC = () => {
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Title */}
       <h1 className="text-4xl font-serif font-bold text-center mb-4">
-        More security news
+        More news
       </h1>
 
       {/* Divider */}
