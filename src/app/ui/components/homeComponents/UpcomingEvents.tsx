@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const UpcomingEvents = () => {
   return (
@@ -36,12 +37,12 @@ const UpcomingEvents = () => {
           <span className="text-sm italic text-red-500 mb-2 inline-block">
             In-person event
           </span>
-          <a
+          <Link
             href="#"
             className="text-2xl font-semibold text-gray-800 hover:underline"
           >
             FutureIT Los Angeles
-          </a>
+          </Link>
           <p className="text-gray-500 mt-1">12 Mar 2025 • The Biltmore</p>
           <span className="inline-block border border-gray-400 px-2 py-1 mt-2 rounded text-gray-700 text-sm">
             Technology Industry
@@ -75,12 +76,12 @@ const UpcomingEvents = () => {
           <span className="text-sm italic text-red-500 mb-2 inline-block">
             In-person event
           </span>
-          <a
+          <Link
             href="#"
             className="text-2xl font-semibold text-gray-800 hover:underline"
           >
             Work+ – The New Future of Work: AI, Emerging Tech & Where IT Can Lead
-          </a>
+          </Link>
           <p className="text-gray-500 mt-1">
             04 May 2025 • Loews Vanderbilt Hotel Nashville
           </p>
@@ -114,12 +115,12 @@ const UpcomingEvents = () => {
           <span className="text-sm italic text-red-500 mb-2 inline-block">
             In-person event
           </span>
-          <a
+          <Link
             href="#"
             className="text-2xl font-semibold text-gray-800 hover:underline"
           >
             Work+ – The New Future of Work: AI, Emerging Tech & Where IT Can Lead
-          </a>
+          </Link>
           <p className="text-gray-500 mt-1">
             04 May 2025 • Loews Vanderbilt Hotel Nashville
           </p>

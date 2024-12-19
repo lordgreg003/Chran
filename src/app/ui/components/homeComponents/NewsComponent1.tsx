@@ -1,5 +1,6 @@
 import React from "react";
-import Image from "next/image";
+import Link from "next/link";
+import { featureData1, newsItems1 } from "../../data/istdata";
 
 const NewsComponent1: React.FC = () => {
   return (
@@ -7,24 +8,23 @@ const NewsComponent1: React.FC = () => {
       {/* Main Feature Section */}
       <div className="pb-6 border-b">
         <h1 className="text-4xl font-semibold text-gray-900 leading-tight mb-4">
-          Security leaders top 10 takeaways for 2024
+          <Link href={`/video/${featureData1.id}`}>{featureData1.title}</Link>
         </h1>
-        <p className="text-gray-600 text-lg mb-4">
-          CISOs share insights on lessons they have learned in 2024 about AI
-          coding assistants, transparency with customers, deepfakes, third-party
-          threats and more.
-        </p>
+        <Link href={`/video/${featureData1.id}`} >
+          <p className="text-gray-600  text-lg mb-4">{featureData1.description}</p>
+        </Link>
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-          <p className="font-medium">By Rosalyn Page</p>
-          <p>16 Dec 2024 • 11 mins</p>
+          <p className="font-medium">{featureData1.author}</p>
+          <p>{featureData1.date}</p>
         </div>
         <div className="flex gap-2">
-          <span className="px-3 py-1 bg-gray-200 text-sm rounded-md">
-            CSO and CISO
-          </span>
-          <span className="px-3 py-1 bg-gray-200 text-sm rounded-md">
-            IT Leadership
-          </span>
+          {featureData1.categories.map((category, index) => (
+            <Link href={`/video/${category}`} key={index}>
+              <span className="px-3 py-1 bg-gray-200 text-sm rounded-md">
+                {category}
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
 
@@ -34,56 +34,40 @@ const NewsComponent1: React.FC = () => {
         <div className="lg:col-span-2">
           <p className="text-sm text-red-500 italic mb-2">Feature</p>
           <div className="relative w-full h-64 lg:h-96 mb-4">
-            <Image
-              src="https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734378400/chran3_vgguw5.jpg" // Replace with the actual image
-              alt="Feature Image"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-md"
-            />
+            <Link href={`/video/${featureData1.id}`}>
+              <video
+                src={featureData1.videoUrl}
+                controls
+                className="rounded-md w-full h-full object-cover"
+              />
+            </Link>
           </div>
           <h2 className="text-xl font-bold text-gray-900">
-            How to turn around a toxic cybersecurity culture
+            <Link href={`/video/${featureData1.id}`}>{featureData1.title}</Link>
           </h2>
         </div>
 
         {/* Right Section */}
         <div>
-          {/* News Item 1 */}
-          <div className="border-b pb-4 mb-4">
-            <p className="text-red-500 text-sm font-semibold mb-1">News</p>
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">
-              Security researchers find deep flaws in CVSS vulnerability scoring
-              system
-            </h3>
-            <p className="text-gray-500 text-xs">
-              By John Leyden • 12 Dec 2024 • 3 mins
-            </p>
-          </div>
-
-          {/* Sponsored Content */}
-          <div className="border-b pb-4 mb-4">
-            <p className="text-red-500 italic text-sm mb-1">Sponsored Content</p>
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">
-              To make the most of Cisco HyperShield, you need to upskill your IT
-              team.
-            </h3>
-            <p className="text-gray-500 text-xs">By Cyber NewsWire</p>
-          </div>
-
-          {/* News Item 2 */}
-          <div>
-            <p className="text-red-500 text-sm font-semibold mb-1">
-              News analysis
-            </p>
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">
-              Salt Typhoon poses a serious supply chain risk to most
-              organizations
-            </h3>
-            <p className="text-gray-500 text-xs">
-              By Cynthia Brumfield • 11 Dec 2024 • 12 mins
-            </p>
-          </div>
+          {newsItems1.map((item, index) => (
+            <div key={index} className="border-b pb-4 mb-4">
+              <p
+                className={`text-red-500 text-sm font-semibold mb-1 ${
+                  item.type === "sponsored" ? "italic" : ""
+                }`}
+              >
+                {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+              </p>
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                <Link href={`/news/${item.id}`}>{item.title.slice(0, 50)}</Link>
+              </h3>
+              <p className="text-gray-500 text-xs">
+                {item.author} • {item.date}
+              </p>
+              {/* Always render the description, regardless of type */}
+              <p className="text-gray-500 text-xs mt-2">{item.description.slice(0,150)}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

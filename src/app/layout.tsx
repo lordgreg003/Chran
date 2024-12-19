@@ -5,7 +5,7 @@ import "animate.css";
 import { ThemeProvider } from "./ui/context/ThemeContext";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
-import FloatingComponents from "@/app/ui/theme/FloatingComponents";
+// import FloatingComponents from "@/app/ui/theme/FloatingComponents";
 
 // export const metadata: Metadata = {
 //   title: "Chran",
@@ -23,7 +23,7 @@ export default function RootLayout({
         <Provider store={store}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
             {children}
-            <FloatingComponents />
+            {/* <FloatingComponents /> */}
           </ThemeProvider>
         </Provider>
       </body>
