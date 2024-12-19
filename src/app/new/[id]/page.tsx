@@ -43,7 +43,7 @@ const NewsDetails: React.FC = () => {
       
       {/* Display the full text */}
       <div className="mt-6">
-        <p className="text-lg text-gray-800">{newsItem.fullText}</p>
+        <p className="text-lg text-gray-800">{newsItem.Text}</p>
       </div>
     </div>
   );
