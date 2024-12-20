@@ -13,7 +13,7 @@ const NewsComponent: React.FC = () => {
         <Link href={`/videos/${featureData.id}`} ><p className="text-gray-600 text-lg mb-4">{featureData.description}</p></Link>
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
           <p className="font-medium">{featureData.author}</p>
-          <p>{featureData.date}</p>
+          <p className="whitespace-nowrap">{featureData.date}</p>
         </div>
         <div className="flex gap-2">
           {featureData.categories.map((category, index) => (
