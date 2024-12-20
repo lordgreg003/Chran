@@ -7,6 +7,20 @@ export type FeatureData = {
   author?: string;
   date?: string;
   content?: string;
+  content1?: string;
+  content2?: string;
+  content3?: string;
+  content4?: string;
+  content5?: string;
+  content6?: string;
+  content7?: string;
+  content8?: string;
+  content9?: string;
+  content10?: string;
+  content11?: string;
+  content12?: string;
+  content13?: string;
+  content14?: string;
 };
 
 export type NewsData = {
@@ -17,13 +31,16 @@ export type NewsData = {
   author?: string;
   date?: string;
   categories: string[];
-  Text?: string; // New field for extra text
-  Text1: string;
+  Text?: string;
+  Text1?: string;
   Text2?: string;
   Text3?: string;
   Text4?: string;
   Text5?: string;
   Text6?: string;
+  Observation?: string;
+  Observation1?: string;
+  Observation2?: string;
   Text7?: string;
   Text8?: string;
   Text9?: string;
@@ -34,6 +51,10 @@ export type NewsData = {
   Text14?: string;
   Text15?: string;
   Text16?: string;
+  Text17?: string;
+  Text18?: string;
+  Text19?: string;
+  Text20?: string;
 };
 
 export interface NewsItem {
@@ -63,13 +84,38 @@ export const articles: FeatureData[] = [
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
     category: "Feature",
     title:
-      "Presentation by the Center for Human Rights & Accountability Network (CHRAN)",
+      "A human rights organisation in Nigeria, Center for Human Rights and Accountability Network (CHRAN), has decried the upsurge in insecurity in Akwa Ibom State",
     description:
-      "Presentation by the Center for Human Rights & Accountability Network (CHRAN) at the Akwa Ibom State House of Assembly Public Hearing on the 2025 Budget of Akwa Ibom State on Monday, 9th December, 2024.",
-    author: "Chran director",
+      "A human rights organisation in Nigeria, Center for Human Rights and Accountability Network (CHRAN), has decried the upsurge in insecurity in Akwa Ibom State and called on the Nigeria Police Force and other security agencies to rise to the occasion and stem the tide",
+    author: "By Otuekong Franklyn Isong	(Director)",
     date: "9 Dec 2024",
     content:
-      "This is the full article content that would be displayed on the details page...",
+      "A human rights organisation in Nigeria, Center for Human Rights and Accountability Network (CHRAN), has decried the upsurge in insecurity in Akwa Ibom State and called on the Nigeria Police Force and other security agencies to rise to the occasion and stem the tide",
+    content1:
+      "This was contained in a presentation made by the Director of the Center, Otuekong Franklyn Isong, during a Critical Stakeholders Meeting with the Deputy Inspector-General of Police,  South South, DIG Daniel Sokari-Pedro, at the Conference Hall, Akwa Ibom State Police Headquarters, Ikot Akpan Abia, on Monday, 27th May, 2024.",
+    content2:
+      "The CHRAN commended the State Governor, Pastor Umo Eno, on efforts in tackling crime across the State since his assumption of office, elaborating that the Governor has provided patrol vehicles, gunboats and security gadgets to the security agencies in the State to boost crime fighting in Akwa Ibom. ",
+    content3:
+      "The CHRAN noted that the Governor has established the Ministry of Internal Security and Waterways as well as Ibom Community Watch (ICW) and appointed a Commissioner to oversee the activities of the ministry and the ICW and expressed worry over the upsurge of crime in the State.",
+    content4:
+      "The CHRAN lauded the Akwa Ibom State Commissioner of Police, CP Waheed Ayilara, and officers and men of the Nigeria Police Force and other security agencies in the State for their efforts in tackling crimes across the State.",
+    content5:
+      "The Center noted that on assumption of duty, CP Ayilara toured the 31 local government areas and held interactions with the Chairmen of the Local Government Transition Committees and the Divisional Police Officers (DPOs) to ascertain their security challenges with a view to designing strategies to combat them.",
+    content6:
+      "The rights group urged the security agencies in the State to redouble efforts and rely more on intelligence gathering and community policing in order to nip the menace of rising insecurity in the bud",
+    content7:
+      "The CHRAN advocated for improved welfare for officers and men of the Nigeria Police Force and called for improved insurance scheme for the Nigeria Police Force.",
+    content8:
+      "The CHRAN also made a case for improved welfare for retired police personnel. ",
+    content9:
+      "The Center called for regular training and retraining of officers and men of the Nigeria Police Force, urging Government at all levels to provide sufficient modern equipment to the officers and men of the Nigeria Police Force and other security agencies so as to boost crime fighting and enhance security in Akwa Ibom State",
+    content10:
+      "Other stakeholders who shared their thoughts at the meeting included the Assistant Inspector-General of Police Zone 6, AIG Jonathan Towuru; Deputy Inspector-General of Police (rtd) Yemi Ogunjemilusi; the Chaiman of Nigeria Union of Journalists (NUJ), Akwa Ibom State Council, Comrade Amos Etuk; the Chairman of the Nigerian Medical Association (NMA), Akwa Ibom State Branch, Professor Emem Abraham; leaders of the Police Community Relations Committee (PCRC); Coordinator of the National Human Rights Commission in Akwa Ibom State, an aide to the Akwa Ibom State Governor on Youths, among others",
+    content11:
+      "The Stakeholders Meeting was hosted by the Commissioner of Police, Akwa Ibom State Command, CP Waheed Ayilara, who was also in attendance. ",
+    content12: "Signed Otuekong Franklyn Isong (Director)",
+    content13: "Comrade (Barr.) Christopher Ekpo (Secretary)",
+    content14: "Dated: Tuesday, 28 May, 2024.",
   },
   {
     id: "SAP-systems-increasingly-targeted",
@@ -97,11 +143,11 @@ export const articles: FeatureData[] = [
 export const featureData: Feature = {
   id: "Security-leaders-top-10-takeaways-for-2024",
   title:
-    "AT THE PUBLIC HEARING ON THE 2025 APPROPRIATION BILL HELD AT THE AKWA IBOM STATE HOUSE OF ASSEMBLY ON MONDAY, 9th DECEMBER, 2024 AT THE OLD CHAPEL, HOUSE OF ASSEMBLY, UYO.",
+    "Presentation by the Center for Human Rights & Accountability Network (CHRAN) at the Akwa Ibom State House of Assembly Public Hearing on the 2025 Budget of Akwa Ibom State on Monday, 9th December, 2024.",
   description:
-    "BEING A PRESENTATION BY THE CENTER FOR HUMAN RIGHTS & ACCOUNTABILITY NETWORK (CHRAN)",
-  author: "By Rosalyn Page",
-  date: "16 Dec 2024 • 11 mins",
+    "Presentation by the Center for Human Rights & Accountability Network (CHRAN) at the Akwa Ibom State House of Assembly Public Hearing on the 2025 Budget of Akwa Ibom State on Monday, 9th December, 2024.",
+  author: "By Otuekong Franklyn Isong	(Director)",
+  date: "16 Dec 2024 ",
   categories: ["CSO and CISO", "IT Leadership"],
   videoUrl:
     "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1734243728/daddy_speech2_xtszxt.mp4",
@@ -139,7 +185,7 @@ export const newsItems: NewsItem[] = [
 
 export const newsData: NewsData[] = [
   {
-    id: "Amazon-refuses-Microsoft-365 ",
+    id: "This-presentation-represents-the",
     type: "News",
     title:
       "BEING A PRESENTATION BY THE CENTER FOR HUMAN RIGHTS & ACCOUNTABILITY NETWORK (CHRAN) AT THE PUBLIC HEARING ON THE 2025 APPROPRIATION BILL HELD AT THE AKWA IBOM STATE HOUSE OF ASSEMBLY ON MONDAY, 9th DECEMBER, 2024 AT THE OLD CHAPEL, HOUSE OF ASSEMBLY, UYO",
@@ -147,8 +193,11 @@ export const newsData: NewsData[] = [
       "This presentation represents the position of our Center on the 2025 Appropriation Bill.",
     author: "Evan Schuman",
     date: "16 Dec 2024 • 5 mins",
-    categories: ["Access Control", "Application Security", "Cloud Security"],
-    Text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. ...",
+    categories: [
+      "Otuekong Franklyn Isong	(Director)",
+      "Comrade (Barr.)",
+      "Christopher Ekpo (Secretary)",
+    ],
     Text1:
       "Introduction : By a letter dated 29th November, 2024 with reference number AKHA/S/61/Vol. IX/315 signed by Unyime Ekpenyong (Mrs.) for Chairman, House Committee on Appropriation and Finance, the CHRAN was invited to attend a Public Hearing on the 2025 Appropriation Bill at the Old Chapel, House of Assembly, Uyo. Annexed to the letter is a Bill for a Law to appropriate monies out of the Consolidated Revenue Fund and Capital Development Fund to the service of the Government of Akwa Ibom State, and for other matters connected  therewith. Annexed to the Appropriation Bill is the proposed 2025 Budget in two (2) Schedules. Schedule 1 is the Recurrent Expenditure while Schedule 2 is the Capital Expenditure.",
     Text2:
@@ -160,7 +209,13 @@ export const newsData: NewsData[] = [
     Text5:
       "CHRAN’s inputs: 1.	The Center commends the drafters of the 2025 Budget Estimates christened “BUDGET OF CONSOLIDATION AND EXPANSION”, for producing a compact Appropriation Bill, which is a clear departure from Appropriation Bills of the immediate past years, where, for instance, Comprehensive Health Centres, Cottage Hospitals, and Dental Health Centres had identical allocations of N6,000,000.00 and General Hospitals also had identical allocations of N7,200,000.00. CHRAN had last year, in this forum, observed that that awkward practice occurred in some previous years’ Appropriation Laws of the State. The Center had sought to know if there were no promotion of staff, transfer of staff or death or retirement of staff of these Health facilities over the years. Of course, those identical allocations created the impression of either budget padding or suggested that the nagging issue of ghost workers existed in the health sector.  ",
     Text6:
-      " 2.	The Center observed that Items  1,2,3,4,6,7,8,16,23,27,29,30,32,36,37,38,39,41,42,44,46,48,52,53,54,58,59,60,93,101,102,104,106,109, and 111 in Schedule 2 have zero allocation for Capital Expenditure. From our findings, it would appear that the Capital Votes for these MDAs are captured in the Capital Votes of the mother Ministries. Be that as it may, the CHRAN suggests that those items should be expunged from Schedule 2 of the Appropriation Bill, 2025.",
+      "The Center noted that certain items in Schedule 2 of the Appropriation Bill, 2025, have zero allocation for Capital Expenditure",
+    Observation:
+      "Items 1, 2, 3, 4, 6, 7, 8, 16, 23, 27, 29, 30, 32, 36, 37, 38, 39, 41, 42, 44, 46, 48, 52, 53, 54, 58, 59, 60, 93, 101, 102, 104, 106, 109, and 111 were observed to have zero capital allocation.",
+    Observation1:
+      "It appears that the Capital Votes for these MDAs (Ministries, Departments, and Agencies) are included in the Capital Votes of their respective mother Ministries.",
+    Observation2:
+      "The CHRAN (Center for Human Rights Advocacy Network) suggests that these items should be expunged from Schedule 2 of the Appropriation Bill, 2025.",
     Text7:
       "3.	The CHRAN is worried about the meagre allocation of N61,613,050 as Recurrent Expenditure to Akwa Ibom State Library Board and the zero allocation to the Akwa Ibom State Library Board as Capital Expenditure. Findings by CHRAN indicate, sadly, that the Ibom E-Library at Babangida Avenue, Uyo is no longer functioning as a library. Further findings by CHRAN have established that the decrepit old Divisional Library, Udotung Ubo Street, Uyo, which now harbours the Akwa Ibom State Library Board, needs a comprehensive rehabilitation of structures and facilities to give it a semblance of a modern library. The Center recalls that the old Divisional Library at Udotung Ubo Street, Uyo was built and stocked about half a century ago by the then military administration in the defunct South Eastern State. ",
     Text8:
@@ -169,11 +224,22 @@ export const newsData: NewsData[] = [
       "5.	The CHRAN has noted the Capital Expenditure of N2,200,000,000.00 allocated to the Akwa Ibom State Judiciary in the 2025 Appropriation Bill (Item 26 Schedule 2). Though the CHRAN views the amount allocated to the Judiciary as Capital Vote to be grossly inadequate considering the spread of the Judiciary across the 31 Local Government Areas of the State, the CHRAN queries the utilisation of previous allocations of Capital Votes to the Judiciary in the face of the poor state of infrastructure and facilities, including toilets, fittings, power and water supply, in the Courts spread across the 31 Local Government Areas of Akwa Ibom State. The CHRAN is also aware of the nagging issue of gross understaffing in the Akwa Ibom State Judiciary, which should be urgently addressed to ensure smooth administration of justice in the State.",
     Text10:
       "6.	The CHRAN has noted the Capital Expenditure of N7,000,000,000.00 allocated to the Ministry of Humanitarian Affairs in the 2025 Appropriation Bill (Item 77 Schedule 2). The CHRAN applauds the Governor of Akwa Ibom State, Pastor Umo Eno, PhD., for building several Arise Compassionate Homes for the homeless and less-privileged persons across the State and urges that the tempo should be sustained to reach more vulnerable citizens and groups.",
-    Text11: "",
-    Text12: "",
-    Text13: "",
-    Text14: "",
-    Text15: "",
+    Text11:
+      "7.	The CHRAN has noted the Capital Expenditure of N3,500,000,000.00 allocated to the Ministry of Culture and Tourism in the 2025 Appropriation Bill (Item 70 Schedule 2). The CHRAN lauds the ongoing construction of the Arise Park at the Dominic Utuk Street, Uyo and the handling of the Christmas Village at the Unity Park, Udo Udoma Avenue, Uyo. As the current State administration is working towards diversifying the economy, the proper utilisation of the Capital Votes appropriated to the Ministry of Culture and Tourism will go a long way.",
+    Text12:
+      "8.	The CHRAN has noted the Capital Expenditure of N225,000,000,000.00 allocated to the Ministry of Works and Fire Service in the 2025 Appropriation Bill (Item 91 Schedule 2). The CHRAN commends the ongoing operation zero potholes across the State and the award of contract for the construction of the Uyo Village Road, among other road construction projects across the State. The CHRAN observes the non-functioning of streetlights at Udo Udoma Avenue and other streets in Uyo metropolis. The Center calls on the Ministry to fix them.",
+    Text13:
+      "9.	The CHRAN has noted the approval of N80,000.00 minimum wage and the approval for payment of 13th month salary (Eno-mber) to civil servants in the State. The CHRAN notes with commendation that the Governor of Akwa Ibom State, His Excellency, Pastor Umo Eno, PhD., has, so far, paid over N37 billion out of the N85.2 billion backlog of gratuities owed retired civil servants in the state by previous administrations. The Center commends the Governor for his workers-friendly disposition and for showing empathy to the retirees in the state.",
+    Text14:
+      "10. The CHRAN has noted the Capital Expenditure of N85,000,000,000.00 allocated to the Ministry of Special Duties and Ibom Deep Seaport in the 2025 Appropriation Bill (Item 85 Schedule 2). The CHRAN applauds the progress of work in the ongoing construction of the International Terminal Building, Apron, Taxi-Way and the Maintenance, Repair and Overhaul (MRO) facility at the Victor Attah International Airport. Going by the passion of the Governor of Akwa Ibom State to industrialise the state, the CHRAN is hopeful that concerted efforts will be put into the actualisation of the Ibom Deep Seaport Project in 2025.",
+    Text15:
+      "In summary: The CHRAN is pleased with the drafters of the 2025 Appropriation Bill and is optimistic that this Appropriation Bill, when passed and signed into Law, will serve as a catalyst for diversification, good governance and development in Akwa Ibom State. The CHRAN urges synergy between the Legislature and the Executive in the implementation of the Appropriation Law 2025 that this Appropriation Bill seeks to enact. ",
+    Text16:
+      "Conclusion: The Center appreciates the Honourable Speaker, Rt. Hon. Udeme Otong, and Members of the 8th Assembly, particularly, the Chairman and Members of the House Committee on Appropriation and Finance, for the invitation to participate in this Public Hearing. We believe that our inputs will be reflected in the Appropriation Bill that will be passed by the Akwa Ibom State House of Assembly.",
+    Text17: "Thank you.",
+    Text18: "Signed CHRAN ",
+    Text19: "Otuekong Franklyn Isong	(Director) ",
+    Text20: "Comrade (Barr.) Christopher Ekpo (Secretary)",
   },
   {
     id: "Rhode-Island-suffers-major-cyberattack",
@@ -186,21 +252,6 @@ export const newsData: NewsData[] = [
     date: "16 Dec 2024 • 5 mins",
     categories: ["Cyberattacks", "Malware", "Security"],
     Text: "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius. Nulla facilisi. Pellentesque lobortis. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Nulla aliquet. Vivamus euismod mauris. Cras vel lorem. Etiam eu ante. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. ...",
-    Text1: "",
-    Text2: "",
-    Text3: "",
-    Text4: "",
-    Text5: "",
-    Text6: "",
-    Text7: "",
-    Text8: "",
-    Text9: "",
-    Text10: "",
-    Text11: "",
-    Text12: "",
-    Text13: "",
-    Text14: "",
-    Text15: "",
   },
   {
     id: "Amazon-refuses-Microsoft-365-deployment-because",
@@ -213,20 +264,5 @@ export const newsData: NewsData[] = [
     date: "16 Dec 2024 • 5 mins",
     categories: ["Access Control", "Application Security", "Cloud Security"],
     Text: "Sed libero. Curabitur tristique, libero et volutpat pellentesque, felis ipsum faucibus metus, ut hendrerit mi erat eu tortor. Sed tristique suscipit justo, quis venenatis erat iaculis a. Mauris tristique euismod nunc, eget cursus sem. Curabitur ullamcorper, sapien id dictum varius, eros libero fermentum neque, nec pretium eros est id libero. ...",
-    Text1: "",
-    Text2: "",
-    Text3: "",
-    Text4: "",
-    Text5: "",
-    Text6: "",
-    Text7: "",
-    Text8: "",
-    Text9: "",
-    Text10: "",
-    Text11: "",
-    Text12: "",
-    Text13: "",
-    Text14: "",
-    Text15: "",
   },
 ];

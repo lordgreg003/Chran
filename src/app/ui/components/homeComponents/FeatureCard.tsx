@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { articles } from "../../data/articles"; // Assuming articles are imported correctly
-import { open_sans } from "../../fonts/fonts";
+import { open_sans,playfair_Display } from "../../fonts/fonts";
 
 const FeatureCard: React.FC = () => {
   return (
@@ -30,7 +30,7 @@ const FeatureCard: React.FC = () => {
               <p className="text-sm italic text-red-600 mb-2">{article.category}</p>
               <Link href={`/detail/${article.id}`}>
                 {/* Title */}
-                <h2 className="text-2xl font-bold text-gray-900 leading-tight mb-4 cursor-pointer hover:text-blue-600">
+                <h2 className={`${playfair_Display.className} text-2xl font-bold text-gray-900 leading-tight mb-4 cursor-pointer hover:text-blue-600`}>
                   {article.title}
                 </h2>
               </Link>
