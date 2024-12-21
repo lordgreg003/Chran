@@ -133,7 +133,7 @@ const Footer = () => {
               Contact us
             </Link>
             <Link
-              href="/blogs"
+              href="/blog"
               className={`${open_sans.className} hover:underline`}
             >
               Blogs

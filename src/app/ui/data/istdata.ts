@@ -30,9 +30,10 @@ export interface showMoreinter {
   title?: string;
   author?: string;
   date?: string;
-  category?: string;
+  tags?: string;
   imageUrl?: string;
   sponsor?: string;
+  duration?: string;
 }
 
 export const featureData1: Feature1 = {
@@ -98,8 +99,9 @@ export const showMore: showMoreinter[] = [
     title:
       "Guarding against AI-powered threats requires a focus on cyber awareness",
     author: "Rob Rashotte",
-    date: "16 Dec 2024 • 5 mins",
-    category: "Cloud Security",
+    date: "16 Dec 2024 ",
+    duration: "5 mins",
+    tags: "Cloud Security",
     imageUrl:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
     sponsor: "Sponsored by Fortinet",
@@ -110,8 +112,9 @@ export const showMore: showMoreinter[] = [
     title:
       "CSO Executive Sessions: Guardians of the Games - How to keep the Olympics cyber safe",
     author: "",
-    date: "07 Aug 2024 • 17 mins",
-    category: "CSO and CISO",
+    date: "07 Aug 2024 ",
+    duration: "17 mins",
+    tags: "CSO and CISO",
     imageUrl:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
     sponsor: "",
@@ -122,8 +125,9 @@ export const showMore: showMoreinter[] = [
     title:
       "CSO Executive Sessions: Open Source Institute’s Eric Nguyen on supply chain risks",
     author: "",
-    date: "14 Nov 2024 • 15 mins",
-    category: "Critical Infrastructure, IT Governance, Supply Chain",
+    date: "14 Nov 2024 ",
+    duration: "15 mins",
+    tags: "Critical Infrastructure, IT Governance, Supply Chain",
     imageUrl:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
     sponsor: "",
