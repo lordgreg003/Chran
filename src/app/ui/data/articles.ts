@@ -6,6 +6,7 @@ export type FeatureData = {
   description?: string;
   author?: string;
   date?: string;
+  video?: string;
   content?: string;
   content1?: string;
   content2?: string;
@@ -118,24 +119,64 @@ export const articles: FeatureData[] = [
     content14: "Dated: Tuesday, 28 May, 2024.",
   },
   {
-    id: "SAP-systems-increasingly-targeted",
+    id: "NCCE-ACCREDITATION-CSO",
     category: "News",
-    title: "SAP systems increasingly targeted by cyber attackers",
-    description: "By John Leyden • 13 Dec 2024 • 4 mins",
-    content: "Full details about SAP systems and cyber attacker trends...",
+    title:
+      "NCCE ACCREDITATION: CSO LAUDS A'IBOM GOVT OVER COE, SEEKS UPGRADE OF COLLEGE ",
+    description: "By Otuekong Franklyn Isong ",
+    content:
+      "A foremost civil society organisation in Nigeria, the Center for Human Rights and Accountability Network (CHRAN), has lauded the management of the Akwa Ibom State College of Education, Afaha Nsit, Nsit Ibom Local Government Area of Akwa Ibom State for providing and maintaining infrastructure in the College and for securing the full accreditation of all Programmes of the College by the National Commission for Colleges of Education (NCCE).",
+    content1:
+      "The Center made the commendation in a Goodwill Message sent to the Provost, Prof. Daniel Udo, on the occasion of the 33rd NCE, 6th Degree and 1st Part-time/Sandwich Degree Programmes Matriculation Ceremony of the College, which took place on Friday, 24th May,  2024 in the College.",
+    content2:
+      "The message, which was signed by the Center's Director, Otuekong Franklyn Isong and Secretary, Barr. Christopher Ekpo, was made available to newsmen in Uyo, the Akwa Ibom State capital. ",
+    content3:
+      "The Center, whose team to the ceremony was led by its Secretary, Comrade Christopher Ekpo, stated that the event was attended by a cross-section of the intelligentsia in Akwa Ibom State and beyond.",
+    content4:
+      "According to the Center, the ceremony was presided by the Provost of the College, Prof. Daniel G. Udo, with the Commissioner for Education, Mrs. Idongesit Etiebet, represented at the event by the Permanent Secretary, Akwa Ibom State Ministry for Education, Mrs. Rose N. Bassey",
+    content5:
+      "The Center noted that under the watch of Daniel Udo as Provost, the College has recorded numerous achievements, including the 100 percent accreditation of the NCE and Degree Programmes of the College, recruitment of new staff to replace exited staff, restoration of public power supply after years of blackout, reinvigoration and equipping of Education Technology Unit and the ICT Centre, establishment of effective portal, development of the entrepreneurial centre, establishment of transportation scheme, the running of an uninterrupted academic calendar, the achievement of peace and harmony on campus, the exhumation of over 9,000 NCE certificates that were pending since 2010, the development and use of the ICT to conduct free, fair and transparent Students Union Government elections, and the reinvigoration of sports and sporting activities.",
+    content6:
+      "The Center noted that the degree programme of the College, run in affiliation with the Faculty of Education of the University of Uyo, is fast rising in patronage but decried that the College cannot admit beyond the quota assigned to it.",
+    content7:
+      "The Center observed that the NCE quota of over 4,000 attracts only 69 students and advocated for the upgrade of the College by the State Government to the status of a University of Education, saying that if the College is upgraded, both degree and NCE programmes can be complementarily run by the institution, which will, by extension, enhance the quality of teacher education and broaden the space for higher education in Akwa Ibom State.",
+    content8:
+      "The Center urged the State Government to provide a masterplan for the College, perimeter fence, quality infrastructure, access and link roads within the College.",
+    content9:
+      "The CHRAN recalled that it has, recently, paid advocacy visits to the College during which it appraised the College and recommended that it be upgraded to the status of a University of Education.",
+    content10: "Signed Otuekong Franklyn Isong Director)",
+    content11: "Comrade (Barr. ) Christopher Ekpo (Secretary)",
+    content12: "Dated Monday, 27th May, 2024.",
+  },
+
+  {
+    id: "To-make-the-most-of-Cisco-HyperShield",
+    category: "Sponsored Content",
+    title:
+      "The Director of Center for Human Rights and Accountability Network (CHRAN), Otuekong Franklyn Isong",
+    description: "By Otuekong Franklyn Isong",
+    video:
+      "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1734779229/news_e36pu1.mp4",
+    content:
+      "The Director of Center for Human Rights and Accountability Network (CHRAN), Otuekong Franklyn Isong, making the presentation of the Center in a critical stakeholders’ meeting with the Deputy Inspector-General of Police (South South), DIG Daniel Sokari Pedro, at the Akwa Ibom State Police Headquarters, Ikot Akpan Abia, on Monday, 27th May, 2024.",
+    content1:
+      "On Monday, 27th May 2024, Otuekong Franklyn Isong, the Director of the Center for Human Rights and Accountability Network (CHRAN), delivered a significant presentation at a critical stakeholders' meeting. The event, held at the Akwa Ibom State Police Headquarters in Ikot Akpan Abia, brought together key stakeholders, including Deputy Inspector-General of Police (South South), DIG Daniel Sokari Pedro.",
+    content2:
+      "Isong’s presentation underscored CHRAN’s dedication to promoting human rights and accountability in law enforcement. Addressing the gathering, he emphasized the urgent need for collaborative efforts to address systemic challenges affecting human rights in the South-South region. His detailed report highlighted issues such as police misconduct, arbitrary detentions, and the need for community policing to bridge the gap between law enforcement and citizens.",
+    content3:
+      "The meeting served as a platform for fostering dialogue between civil society organizations, law enforcement agencies, and other stakeholders. Isong stressed that accountability remains a cornerstone of effective policing, urging the Police Force to adopt a rights-based approach in its operations. He also advocated for increased public awareness and education on human rights, emphasizing the role of citizens in holding institutions accountable.",
+    content4:
+      "DIG Daniel Sokari Pedro commended CHRAN’s efforts and reaffirmed the Police Force’s commitment to addressing human rights concerns. He acknowledged the importance of such collaborations in building trust and ensuring justice.",
+    content5:
+      "The meeting concluded with actionable resolutions aimed at enhancing police accountability and strengthening partnerships between stakeholders. CHRAN’s presentation marked a pivotal step in advancing human rights advocacy in the South-South region, reinforcing the need for sustained dialogue and cooperation to address pressing issues.",
+    content6:
+      "This event highlights CHRAN’s pivotal role in shaping a just and equitable society through advocacy and strategic engagement",
   },
   {
     id: "To-make-the-most-of-Cisco-HyperShield",
     category: "Sponsored Content",
     title: "To make the most of Cisco HyperShield, upskill your IT team",
-    description: "By Cyber NewsWire • 20 Aug 2024",
-    content: "Sponsored content about Cisco HyperShield and IT upskilling...",
-  },
-  {
-    id: "To-make-the-most-of-Cisco-HyperShield",
-    category: "Sponsored Content",
-    title: "To make the most of Cisco HyperShield, upskill your IT team",
-    description: "By Cyber NewsWire • 20 Aug 2024",
+    description: "By Otuekong Franklyn Isong ",
     content: "Sponsored content about Cisco HyperShield and IT upskilling...",
   },
 ];
