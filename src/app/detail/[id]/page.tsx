@@ -25,28 +25,45 @@ const ArticleDetails: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col justify-center items-center gap-8">
-        <div className="relative w-full lg:w-1/2 h-64 lg:h-auto">
-          {article.imageUrl && (
-            <Image
-              src={article.imageUrl}
-              alt={article.title}
-              className="rounded-md object-cover w-full h-[50%]"
-              width={500}
-              height={300}
-            />
-          )}
-        </div>
-        <div className="w-full lg:w-1/2">
-          
+        {/* Content Section */}
+        <div className="w-full lg:w-1/2 text-center">
           {/* Category */}
           <p className="text-sm italic text-red-600 mb-2">{article.category}</p>
-          
+
           {/* Author and Date */}
           {article.author && <p className="text-sm text-gray-500">By {article.author}</p>}
           {article.date && <p className="text-sm text-gray-500">{article.date}</p>}
 
-          <h1 className={`${playfair_Display.className} text-3xl font-bold text-gray-900 mb-4`}>{article.title}</h1>
-          
+          {/* Title */}
+          <h1
+            className={`${playfair_Display.className} text-3xl font-bold text-gray-900 mb-4`}
+          >
+            {article.title}
+          </h1>
+        </div>
+
+        {/* Media Section */}
+        <div className="relative w-full lg:w-1/2">
+          {article.imageUrl && !article.video && (
+            <Image
+              src={article.imageUrl}
+              alt={article.title}
+              className="rounded-md object-cover w-full"
+              width={500}
+              height={300}
+            />
+          )}
+          {article.video && (
+            <video
+              src={article.video}
+              controls
+              className="rounded-md w-full h-[30rem] object-cover"
+            />
+          )}
+        </div>
+
+        {/* Content Text Section */}
+        <div className="w-full lg:w-1/2">
           {article.content && (
             <div className="mt-4 text-gray-700 flex flex-col gap-5">
               <p>{article.content}</p>

@@ -24,6 +24,17 @@ export interface Feature1 {
   text5: string;
 }
 
+export interface showMoreinter {
+  id: string;
+  type?: string;
+  title?: string;
+  author?: string;
+  date?: string;
+  category?: string;
+  imageUrl?: string;
+  sponsor?: string;
+}
+
 export const featureData1: Feature1 = {
   id: "2024-BUDGET:-GOV-UMO-ENO-HAS",
   title: "2024 BUDGET: GOV UMO ENO HAS NOT DEVIATED FROM ARISE AGENDA - CHRAN ",
@@ -77,5 +88,44 @@ export const newsItems1: News1Item[] = [
     text: "",
     author: "By Cynthia Brumfield",
     date: "11 Dec 2024 • 12 mins",
+  },
+];
+
+export const showMore: showMoreinter[] = [
+  {
+    id: "Guarding-against",
+    type: "Brandpost",
+    title:
+      "Guarding against AI-powered threats requires a focus on cyber awareness",
+    author: "Rob Rashotte",
+    date: "16 Dec 2024 • 5 mins",
+    category: "Cloud Security",
+    imageUrl:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
+    sponsor: "Sponsored by Fortinet",
+  },
+  {
+    id: "Guardians-of-the-Games",
+    type: "Podcast",
+    title:
+      "CSO Executive Sessions: Guardians of the Games - How to keep the Olympics cyber safe",
+    author: "",
+    date: "07 Aug 2024 • 17 mins",
+    category: "CSO and CISO",
+    imageUrl:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
+    sponsor: "",
+  },
+  {
+    id: "Open-Source-Institute",
+    type: "Video",
+    title:
+      "CSO Executive Sessions: Open Source Institute’s Eric Nguyen on supply chain risks",
+    author: "",
+    date: "14 Nov 2024 • 15 mins",
+    category: "Critical Infrastructure, IT Governance, Supply Chain",
+    imageUrl:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
+    sponsor: "",
   },
 ];

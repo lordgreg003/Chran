@@ -5,8 +5,11 @@ import {
   Coustard,
   Open_Sans,
   Playfair_Display,
+  Merriweather,
+  Roboto,
 } from "next/font/google";
 
+// Existing fonts
 export const inter = Inter({ subsets: ["latin"] });
 
 export const lusitana = Lusitana({
@@ -34,4 +37,17 @@ export const playfair_Display = Playfair_Display({
   weight: ["700"],
   subsets: ["latin"],
   variable: "--font-playfair_Display",
+});
+
+// New fonts (Merriweather and Roboto)
+export const merriweather = Merriweather({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-merriweather",
+});
+
+export const roboto = Roboto({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
 });
