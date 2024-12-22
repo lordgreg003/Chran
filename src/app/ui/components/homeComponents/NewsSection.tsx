@@ -1,27 +1,75 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { newsData } from "../../data/articles";
-import { open_sans,playfair_Display } from "../../fonts/fonts";
-
+import { open_sans, playfair_Display } from "../../fonts/fonts";
+import { motion } from "framer-motion";
 
 const NewsSection: React.FC = () => {
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0) {
+        setIsInView(true); // Element is in the viewport
+      } else {
+        setIsInView(false); // Element is out of the viewport
+      }
+    }
+  };
+
+  // Listen for scroll events
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on initial render as well
+
+    // Cleanup scroll event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-4 py-8" ref={ref}>
       {/* Title */}
-      <h1 className="text-4xl font-serif font-bold text-center mb-4">
+      <motion.h1
+        className="text-4xl font-serif font-bold text-center mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }} // Trigger opacity change based on visibility
+        transition={{ duration: 1 }}
+      >
         More news
-      </h1>
+      </motion.h1>
 
       {/* Divider */}
-      <hr className="border-t border-gray-300 mb-6" />
+      <motion.hr
+        className="border-t border-gray-300 mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }} // Trigger opacity change based on visibility
+        transition={{ duration: 0.5, delay: 0.2 }}
+      />
 
       {/* Render Limited News Items */}
       {newsData.slice(0, 5).map((newsItem) => (
-        <div key={newsItem.id} className="mb-8">
-          <Link href={`/new/${newsItem.id}`} className={`${open_sans.className} text-sm  text-red-500 mb-1 hover:underline`}>
+        <motion.div
+          key={newsItem.id}
+          className="mb-8"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{
+            opacity: isInView ? 1 : 0,
+            y: isInView ? 0 : 50,
+          }} // Slide and fade in when in view
+          transition={{ duration: 0.75, ease: "easeOut" }}
+        >
+          <Link href={`/new/${newsItem.id}`} className={`${open_sans.className} text-sm text-red-500 mb-1 hover:underline`}>
             {newsItem.type}
           </Link>
-          <Link href={`/new/${newsItem.id}`} className={`${playfair_Display.className} text-2xl font-semibold text-gray-800 hover:underline block mt-2`}>
+          <Link
+            href={`/new/${newsItem.id}`}
+            className={`${playfair_Display.className} text-2xl font-semibold text-gray-800 hover:underline block mt-2`}
+          >
             {newsItem.title}
           </Link>
           <Link href={`/new/${newsItem.id}`} className={`${open_sans.className} text-gray-600 mt-1 block hover:underline`}>
@@ -44,11 +92,16 @@ const NewsSection: React.FC = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
       ))}
 
       {/* Divider */}
-      <hr className="border-t border-gray-300 mb-6" />
+      <motion.hr
+        className="border-t border-gray-300 mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }} // Trigger opacity change based on visibility
+        transition={{ duration: 0.5, delay: 0.3 }}
+      />
     </div>
   );
 };
