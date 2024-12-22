@@ -6,7 +6,7 @@ export interface News1Item {
   text?: string;
   author?: string;
   date: string;
-  duration?: string; // for sponsored or news content
+  duration?: string;  
 }
 
 export interface Feature1 {
@@ -16,7 +16,7 @@ export interface Feature1 {
   author: string;
   date: string;
   categories: string[];
-  videoUrl: string; // URL for video
+  videoUrl: string;  
   text1: string;
   text2: string;
   text3: string;

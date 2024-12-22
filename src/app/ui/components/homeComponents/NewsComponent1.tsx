@@ -1,18 +1,56 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { open_sans,playfair_Display } from "../../fonts/fonts";
+import { open_sans, playfair_Display } from "../../fonts/fonts";
 import { featureData1, newsItems1 } from "../../data/istdata";
+import { motion } from "framer-motion"; // Import motion
 
 const NewsComponent1: React.FC = () => {
+  const [isInView, setIsInView] = useState(false); // State to track visibility
+  const componentRef = useRef<HTMLDivElement>(null); // Ref to the component for tracking visibility
+
+  // Handle scroll to check if the component is in the viewport
+  const handleScroll = () => {
+    if (componentRef.current) {
+      const rect = componentRef.current.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0) {
+        setIsInView(true);
+      } else {
+        setIsInView(false);
+      }
+    }
+  };
+
+  // Set up scroll listener
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    // Initial check in case it's already in view when the page loads
+    handleScroll();
+
+    // Cleanup scroll event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="container mx-auto px-4 pt-8 lg:pt-16">
       {/* Main Feature Section */}
-      <div className="pb-6 border-b">
+      <motion.div
+        ref={componentRef} // Attach ref for visibility detection
+        className="pb-6 border-b"
+        initial={{ opacity: 0 }} // Start with opacity 0
+        animate={{
+          opacity: isInView ? 1 : 0, // Fade in when in view
+          y: isInView ? 0 : 50, // Slide up effect
+        }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
         <h1 className={`${playfair_Display.className} text-4xl font-semibold text-gray-900 leading-tight mb-4`}>
           <Link href={`/video/${featureData1.id}`}>{featureData1.title}</Link>
         </h1>
-        <Link href={`/video/${featureData1.id}`} >
-          <p className={`${open_sans.className} text-gray-600  text-lg mb-4`}>{featureData1.description}</p>
+        <Link href={`/video/${featureData1.id}`}>
+          <p className={`${open_sans.className} text-gray-600 text-lg mb-4`}>{featureData1.description}</p>
         </Link>
         <div className={`${open_sans.className} flex items-center gap-2 text-sm text-gray-500 mb-4`}>
           <p className="font-medium">{featureData1.author}</p>
@@ -27,12 +65,20 @@ const NewsComponent1: React.FC = () => {
             </Link>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Content Under Feature */}
       <div className="grid lg:grid-cols-3 gap-8 mt-8">
         {/* Left Section */}
-        <div className="lg:col-span-2">
+        <motion.div
+          className="lg:col-span-2"
+          initial={{ opacity: 0, y: 50 }} // Initial state for slide-up effect
+          animate={{
+            opacity: isInView ? 1 : 0,
+            y: isInView ? 0 : 50,
+          }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }} // Add a delay to stagger the animations
+        >
           <p className="text-sm text-red-500 italic mb-2">Feature</p>
           <div className="relative w-full h-64 lg:h-96 mb-4">
             <Link href={`/video/${featureData1.id}`}>
@@ -43,13 +89,20 @@ const NewsComponent1: React.FC = () => {
               />
             </Link>
           </div>
-          <h2 className={`${playfair_Display.className}text-xl font-bold text-gray-900`}>
+          <h2 className={`${playfair_Display.className} text-xl font-bold text-gray-900`}>
             <Link href={`/video/${featureData1.id}`}>{featureData1.title}</Link>
           </h2>
-        </div>
+        </motion.div>
 
         {/* Right Section */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }} // Start with slide-in effect from the right
+          animate={{
+            opacity: isInView ? 1 : 0,
+            x: isInView ? 0 : 50,
+          }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+        >
           {newsItems1.map((item, index) => (
             <div key={index} className="border-b pb-4 mb-4">
               <p
@@ -69,7 +122,7 @@ const NewsComponent1: React.FC = () => {
               <p className={`${open_sans.className} text-gray-500 text-xs mt-2`}>{item.description.slice(0,150)}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
