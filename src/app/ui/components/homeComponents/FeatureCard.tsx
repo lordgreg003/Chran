@@ -35,7 +35,7 @@ const FeatureCard: React.FC = () => {
                 </h2>
               </Link>
               {/* Description */}
-              <Link href={`/detail/${article.id}`}> <p className="text-gray-600 text-sm">{article.description?.slice(0, 100)}</p></Link>
+              <Link href={`/detail/${article.id}`}> <p className={`${open_sans.className} text-gray-600 text-sm`}>{article.description?.slice(0, 100)}</p></Link>
               <Link href={`/detail/${article.id}`}>
                 <button className={`${open_sans.className} text-sm italic text-red-600 mb-2`}>
                   News
@@ -43,10 +43,10 @@ const FeatureCard: React.FC = () => {
               </Link>
               {/* Optional Author and Date */}
               {article.author && (
-                <p className="text-sm text-gray-500">{article.author}</p>
+                <p className={`${open_sans.className} text-sm text-gray-500`}>{article.author}</p>
               )}
               {article.date && (
-                <p className="text-sm text-gray-500">{article.date}</p>
+                <p className={`${open_sans.className} text-sm text-gray-500`}>{article.date}</p>
               )}
             </div>
           </div>
@@ -58,23 +58,23 @@ const FeatureCard: React.FC = () => {
         {articles.slice(1).map((article) => (
           <div key={article.id}>
             {/* Category */}
-            <p className="text-sm text-red-600 font-semibold mb-1">
+            <p className={`${open_sans.className} text-sm text-red-600 font-semibold mb-1`}>
               {article.category}
             </p>
             <Link href={`/detail/${article.id}`}>
               {/* Title */}
-              <h3 className="text-lg font-semibold text-gray-900 hover:text-blue-600 cursor-pointer">
+              <h3 className={`${playfair_Display.className} text-lg font-semibold text-gray-900 hover:text-blue-600 cursor-pointer`}>
                 {article.title}
               </h3>
             </Link>
             {/* Description */}
-            <p className="text-gray-500 text-sm mt-1">{article.description}</p>
+            <p className={`${open_sans.className} text-gray-500 text-sm mt-1`}>{article.description}</p>
             {/* Optional Author and Date */}
             {article.author && (
-              <p className="text-sm text-gray-500">{article.author}</p>
+              <p className={`${open_sans.className}text-sm text-gray-500`}>{article.author}</p>
             )}
             {article.date && (
-              <p className="text-sm text-gray-500">{article.date}</p>
+              <p className={`${open_sans.className}text-sm text-gray-500`}>{article.date}</p>
             )}
           </div>
         ))}
