@@ -283,27 +283,57 @@ export const newsData: NewsData[] = [
     Text20: "Comrade (Barr.) Christopher Ekpo (Secretary)",
   },
   {
-    id: "Rhode-Island-suffers-major-cyberattack",
+    id: "CHRAN-Urges-Akwa-Ibom-State-Government",
     type: "News",
     title:
-      "Rhode Island suffers major cyberattack, exposing personal data of thousands",
+      "CHRAN Urges Akwa Ibom State Government to Upgrade COE to University Status Calls for Management and Union Collaboration",
     description:
-      "With government systems targeted in the state, Deloitte, law enforcement, and IT experts are racing to contain the breach.",
+      "CHRAN has also drawn attention to the comparative underdevelopment of the college’s infrastructure",
     author: "Gyana Swain",
     date: "16 Dec 2024 • 5 mins",
-    categories: ["Cyberattacks", "Malware", "Security"],
-    Text: "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius. Nulla facilisi. Pellentesque lobortis. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Nulla aliquet. Vivamus euismod mauris. Cras vel lorem. Etiam eu ante. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. ...",
+    categories: ["Franklyn Isong", "Comrade (Barr.)", "Ekpo (Secretary)"],
+    Text: "The Center for Human Rights and Advocacy Network (CHRAN), an internationally recognized good governance advocacy organization in Nigeria, has issued a pressing call to the Akwa Ibom State Government to review the law establishing the Akwa Ibom State College of Education (COE), Afaha Nsit. CHRAN believes this review is imperative to upgrade the college to a full-fledged university.",
+    Text1:
+      "The Akwa Ibom State College of Education, located in Nsit Ibom Local Government Area, has long served as a pivotal institution in the training of educators, not just for Akwa Ibom State but for the entire region. The institutions contributions to teacher education have played a significant role in advancing the educational sector, particularly in producing highly skilled and competent educators who serve in primary and secondary schools across the country.",
+    Text2:
+      "However, CHRAN insists that the College of Education, in its current status, is not fulfilling its full potential. The advocacy group pointed out that elevating the institution to university status would not only broaden the scope of its academic offerings but also increase its capacity to drive research, innovation, and professional development. Such a transformation, according to CHRAN, would position the institution to address contemporary educational challenges while also opening new opportunities for students and faculty",
+    Text3:
+      "CHRAN has also drawn attention to the comparative underdevelopment of the college’s infrastructure. It has urged the state government to prioritize significant investments in facilities, ensuring the college is adequately equipped to meet the demands of university education. This includes providing state-of-the-art lecture halls, libraries, laboratories, and accommodations for students and staff. Upgrading these facilities is essential for ensuring that the institution meets the standards required to gain university accreditation",
+    Text4:
+      "The advocacy group further emphasized the need for collaboration and unity among the college's management, academic union, and non-academic staff. CHRAN urged these stakeholders to set aside differences and work together towards achieving the common goal of institutional transformation. It noted that such solidarity would create a conducive environment for the upgrade process and ensure that the interests of all stakeholders, including students, are adequately represented.",
+    Text5:
+      "CHRAN also highlighted the potential socio-economic benefits of upgrading the college to a university. A university status would attract more students from within and outside the state, leading to increased economic activity in the surrounding community. Additionally, it would create employment opportunities for academics and administrative staff, while also raising the state’s profile as a hub for quality higher education in Nigeria",
+    Text6:
+      "The group’s call aligns with its mission to advocate for sustainable development through education and good governance. CHRAN reminded the Akwa Ibom State Government of its responsibility to ensure equitable access to quality education, stating that upgrading the College of Education would be a significant step in fulfilling that mandate",
+    Text7:
+      "CHRAN concluded its statement by urging the state government to act swiftly, noting that such a move would reinforce Akwa Ibom's position as a leader in educational innovation and development in Nigeria. The group pledged its support and readiness to partner with the government and all stakeholders in realizing this important goal.",
   },
   {
-    id: "Amazon-refuses-Microsoft-365-deployment-because",
+    id: "CHRAN-Meets-New-Commissioner-of-Police",
     type: "News",
     title:
-      "Amazon refuses Microsoft 365 deployment because of lax cybersecurity",
+      "CHRAN Meets New Commissioner of Police, Lauds Professional Handling of NLC/CSOs Protest in Akwa Ibom",
     description:
-      "Security executives applaud Amazon for publicly shaming Microsoft security, although some suspect it is a thinly veiled AWS sales pitch.",
+      "In a statement issued after a courtesy visit to the Commissioner, CHRAN applauded the Akwa Ibom State Police Command for maintaining peace and order during the protests",
     author: "Evan Schuman",
     date: "16 Dec 2024 • 5 mins",
-    categories: ["Access Control", "Application Security", "Cloud Security"],
-    Text: "Sed libero. Curabitur tristique, libero et volutpat pellentesque, felis ipsum faucibus metus, ut hendrerit mi erat eu tortor. Sed tristique suscipit justo, quis venenatis erat iaculis a. Mauris tristique euismod nunc, eget cursus sem. Curabitur ullamcorper, sapien id dictum varius, eros libero fermentum neque, nec pretium eros est id libero. ...",
+    categories: ["Franklyn Isong", "Ekpo (Secretary)", "Comrade (Barr.)"],
+    Text: "The Center for Human Rights and Accountability Network (CHRAN), a prominent human rights advocacy organization in Nigeria, has praised the new Commissioner of Police for Akwa Ibom State, CP Ayilara Waheed Adedamola, for his exemplary leadership and the professional conduct of officers under his command during the recent nationwide protest organized by the Nigeria Labour Congress (NLC) and Civil Society Organisations (CSOs).",
+    Text1:
+      "In a statement issued after a courtesy visit to the Commissioner, CHRAN applauded the Akwa Ibom State Police Command for maintaining peace and order during the protests while respecting the rights of citizens to express their grievances through peaceful demonstrations. The group acknowledged the delicate balance between enforcing the law and upholding citizens’ constitutional rights, commending the police for achieving this with integrity and professionalism.",
+    Text2:
+      "CHRAN noted that the NLC/CSOs protest, which was part of a nationwide movement, aimed to draw attention to pressing socio-economic issues, including fuel subsidy removal, rising inflation, and worsening living conditions. Despite the potential for tension, the Akwa Ibom State Police Command effectively ensured that the protests were conducted without incidents of violence, intimidation, or harassment.",
+    Text3:
+      "The group highlighted the importance of such professional conduct in fostering trust and cooperation between the police and the public. “The actions of the Akwa Ibom State Police Command during the protests demonstrate a deep commitment to upholding human rights and maintaining public order. This is a testament to the leadership of CP Ayilara Waheed Adedamola and the dedication of his officers,” CHRAN stated.",
+    Text4:
+      "During the meeting with the Commissioner, CHRAN reiterated its commitment to promoting human rights, accountability, and good governance. The organization expressed its willingness to collaborate with the Akwa Ibom State Police Command on initiatives aimed at enhancing community policing, fostering dialogue between law enforcement and citizens, and addressing human rights concerns.",
+    Text5:
+      "CHRAN also used the occasion to discuss the need for continued capacity-building programs for police officers. The group emphasized the importance of regular training on human rights principles, conflict resolution, and community engagement. According to CHRAN, such training would further enhance the ability of officers to manage public demonstrations and other potentially volatile situations with professionalism and respect for human dignity.",
+    Text6:
+      "In response, CP Ayilara Waheed Adedamola expressed gratitude to CHRAN for its recognition and support. He reiterated the commitment of the Akwa Ibom State Police Command to ensuring that all actions of the police align with the principles of fairness, justice, and respect for human rights. The Commissioner also assured the group of his readiness to collaborate with stakeholders to improve security and public trust in the state.",
+    Text7:
+      "CHRAN concluded its statement by urging other state commands of the Nigeria Police Force to emulate the Akwa Ibom State Police Command’s exemplary approach to handling protests. The organization stressed that a human rights-based approach to policing is essential for fostering a peaceful, secure, and democratic society.",
+    Text8:
+      "CHRAN’s engagement with the Akwa Ibom State Police Command underscores its unwavering commitment to bridging the gap between law enforcement and the public, ensuring that human rights remain at the forefront of governance and security operations in Nigeria.",
   },
 ];
