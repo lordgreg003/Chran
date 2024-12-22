@@ -1,7 +1,8 @@
 "use client";
 import { newsItems1 } from '@/app/ui/data/istdata';
 import { useParams } from "next/navigation";
-import React from 'react';
+import Footer from "@/app/ui/components/layoutComponents/Footer";
+
 
 const NewsDetail: React.FC = () => {
     const params = useParams(); // Access route parameters
@@ -29,7 +30,7 @@ const NewsDetail: React.FC = () => {
                 </div>
             </div>
 
-            {/* You can add more details here if needed */}
+             <Footer />
         </div>
     );
 };

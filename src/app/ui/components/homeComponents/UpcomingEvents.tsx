@@ -17,7 +17,7 @@ const UpcomingEvents = () => {
       <div className="flex flex-col md:flex-row items-start gap-6 mb-8">
         {/* Date */}
         <div className="w-full md:w-1/5 text-2xl italic font-semibold text-gray-700">
-          12/Mar
+          12/feb/2025
         </div>
 
         {/* Image */}
@@ -39,9 +39,9 @@ const UpcomingEvents = () => {
           </span>
           <Link
             href="#"
-            className="text-2xl font-semibold text-gray-800 hover:underline"
+            className="text-2xl font-semibold ml-2 text-gray-800 hover:underline"
           >
-            FutureIT Los Angeles
+            coming soon stay tuned
           </Link>
           <p className="text-gray-500 mt-1">12 Mar 2025 • The Biltmore</p>
           <span className="inline-block border border-gray-400 px-2 py-1 mt-2 rounded text-gray-700 text-sm">
@@ -57,7 +57,7 @@ const UpcomingEvents = () => {
       <div className="flex flex-col md:flex-row items-start gap-6">
         {/* Date */}
         <div className="w-full md:w-1/5 text-2xl italic font-semibold text-gray-700">
-          04/May-06/May
+          04/May/2025
         </div>
 
         {/* Image */}
@@ -78,9 +78,9 @@ const UpcomingEvents = () => {
           </span>
           <Link
             href="#"
-            className="text-2xl font-semibold text-gray-800 hover:underline"
+            className="text-2xl font-semibold ml-2 text-gray-800 hover:underline"
           >
-            Work+ – The New Future of Work: AI, Emerging Tech & Where IT Can Lead
+           coming soon stay tuned
           </Link>
           <p className="text-gray-500 mt-1">
             04 May 2025 • Loews Vanderbilt Hotel Nashville
@@ -96,7 +96,7 @@ const UpcomingEvents = () => {
       <div className="flex flex-col md:flex-row items-start gap-6">
         {/* Date */}
         <div className="w-full md:w-1/5 text-2xl italic font-semibold text-gray-700">
-          04/May-06/May
+          04/May/2025
         </div>
 
         {/* Image */}
@@ -117,9 +117,9 @@ const UpcomingEvents = () => {
           </span>
           <Link
             href="#"
-            className="text-2xl font-semibold text-gray-800 hover:underline"
+            className="text-2xl font-semibold ml-2 text-gray-800 hover:underline"
           >
-            Work+ – The New Future of Work: AI, Emerging Tech & Where IT Can Lead
+          coming soon stay tuned
           </Link>
           <p className="text-gray-500 mt-1">
             04 May 2025 • Loews Vanderbilt Hotel Nashville

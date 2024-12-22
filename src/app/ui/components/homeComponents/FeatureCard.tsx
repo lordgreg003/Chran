@@ -4,8 +4,6 @@ import React from "react";
 import { articles } from "../../data/articles"; // Assuming articles are imported correctly
 import { open_sans,playfair_Display } from "../../fonts/fonts";
 
-console.log("articles",articles)
-
 const FeatureCard: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8 pt-24 flex flex-col lg:flex-row gap-8">

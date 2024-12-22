@@ -2,6 +2,8 @@
 import { newsData } from "@/app/ui/data/articles";
 import {  roboto, merriweather } from "@/app/ui/fonts/fonts";
 import { useParams } from "next/navigation";
+import Footer from "@/app/ui/components/layoutComponents/Footer";
+
 
 const NewsDetails: React.FC = () => {
   const params = useParams();
@@ -64,6 +66,7 @@ const NewsDetails: React.FC = () => {
         <p className={`${roboto.className} text-lg text-gray-950`}>{newsItem.Text19}</p>
         <p className={`${roboto.className} text-lg text-gray-950`}>{newsItem.Text20}</p>
       </div>
+    <Footer />
     </div>
   );
 };
