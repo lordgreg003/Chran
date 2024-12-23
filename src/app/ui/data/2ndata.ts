@@ -13,7 +13,7 @@ interface Event {
 // Event Data
 export const events: Event[] = [
   {
-    id: "Los-Angeles",
+    id: "MARK-ITS-END-OF-THE-YEAR-ACTIVITIES",
     date: "23/Dec/2024",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734947909/chranimage_ttcqyj.jpg",
