@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { events } from "@/app/ui/data/2ndata";
 import { motion } from "framer-motion";
+import { playfair_Display, } from "../../fonts/fonts";
+
 
 const UpcomingEvents: React.FC = () => {
   const [isInView, setIsInView] = useState<boolean>(false);
@@ -60,7 +62,7 @@ const UpcomingEvents: React.FC = () => {
           >
             {/* Date */}
             <Link href={`/events/${event.id}`} className="w-full md:w-1/5">
-              <div className="text-2xl italic font-semibold text-gray-700 hover:underline">
+              <div className={`${playfair_Display.className} text-2xl  font-semibold text-gray-700 hover:underline`}>
                 {event.date}
               </div>
             </Link>
