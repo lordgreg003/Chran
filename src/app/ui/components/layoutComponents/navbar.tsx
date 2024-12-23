@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex flex-row items-center justify-center gap-3">
-            <Link href={'/'}><p className={`${playfair_Display.className} cursor-pointer text-3xl font-bold`}>Chran</p></Link>
+            <Link href={'/'}><p className={`${playfair_Display.className} cursor-pointer text-3xl font-bold`}>CHRAN</p></Link>
           </div>
 
           {/* Desktop Menu */}
