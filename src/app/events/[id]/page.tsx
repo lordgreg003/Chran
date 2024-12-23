@@ -3,7 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { events } from "@/app/ui/data/2ndata";
 import { useParams } from "next/navigation";
+import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
  
+
 
 const EventDetails: React.FC = () => {
     const params = useParams();
@@ -22,7 +24,7 @@ const EventDetails: React.FC = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-6">{event.title}</h1>
+      <h1 className={`${playfair_Display.className}text-4xl font-bold text-center mb-6`}>{event.title}</h1>
       <div className="flex flex-col items-center gap-8">
         <div className="relative w-full max-w-2xl aspect-[16/9]">
           <Image
@@ -34,10 +36,13 @@ const EventDetails: React.FC = () => {
             priority
           />
         </div>
-        <div className="text-lg text-gray-600">{event.details}</div>
-        <div className="text-gray-500 italic">{event.date}</div>
-        {event.category && (
-          <span className="inline-block border border-gray-400 px-2 py-1 mt-2 rounded text-gray-700 text-sm">
+        <div className={`${open_sans.className}text-lg text-gray-600`}>{event.details}</div>
+ <p className={`${open_sans}text-gray-500 italic`}>{event.description1}</p>
+ <p className={`${open_sans}text-gray-500 italic`}>{event.description2}</p>
+ <p className={`${open_sans}text-gray-500 italic`}>{event.description3}</p>
+ <div className={`${open_sans.className} text-gray-500 `}>{event.date}</div>
+ {event.category && (
+          <span className={`${open_sans.className} inline-block border border-gray-400 px-2 py-1 mt-2 rounded text-gray-700 text-sm`}>
             {event.category}
           </span>
         )}

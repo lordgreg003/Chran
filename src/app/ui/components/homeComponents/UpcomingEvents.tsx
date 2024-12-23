@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { events } from "@/app/ui/data/2ndata";
 import { motion } from "framer-motion";
-import { playfair_Display, } from "../../fonts/fonts";
+import { playfair_Display, open_sans } from "../../fonts/fonts";
 
 
 const UpcomingEvents: React.FC = () => {
@@ -37,7 +37,7 @@ const UpcomingEvents: React.FC = () => {
   return (
     <div id="upcoming-events" className="max-w-6xl mx-auto px-4 py-8">
       <motion.h1
-        className="text-4xl font-serif font-bold text-center mb-6"
+        className={`${playfair_Display.className} text-4xl  font-bold text-center mb-6`}
         initial={{ opacity: 0, y: 50 }}
         animate={{
           opacity: isInView ? 1 : 0,
@@ -79,27 +79,27 @@ const UpcomingEvents: React.FC = () => {
               />
             </Link>
 
-            {/* Event Details */}
+             
             <div className="w-full md:w-2/5">
-              <span className="text-sm italic text-red-500 mb-2 inline-block">
+              <span className={`${open_sans.className} text-sm  text-red-500 mb-2 inline-block`}>
                 {event.eventType}
               </span>
               <Link
                 href={`/events/${event.id}`}
-                className="text-2xl font-semibold ml-2 text-gray-800 hover:underline"
+                className={`${playfair_Display.className} text-2xl font-semibold ml-2 text-gray-800 hover:underline`}
               >
                 {event.title}
               </Link>
               <Link
                 href={`/events/${event.id}`}
-                className="text-gray-500 mt-1 block hover:underline"
+                className={`${open_sans.className} text-gray-500 mt-1 block hover:underline`}
               >
                 {event.details}
               </Link>
               {event.category && (
                 <Link
                   href={`/events/${event.id}`}
-                  className="inline-block border border-gray-400 px-2 py-1 mt-2 rounded text-gray-700 text-sm hover:underline"
+                  className={`${open_sans.className} inline-block border border-gray-400 px-2 py-1 mt-2 rounded text-gray-700 text-sm hover:underline`}
                 >
                   {event.category}
                 </Link>
