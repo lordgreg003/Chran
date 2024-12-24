@@ -34,7 +34,7 @@ const NewsComponent1: React.FC = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 pt-8 lg:pt-16">
+    <div className="overflow-x-hidden overflow-y-hidden mx-auto px-4 pt-8 lg:pt-16">
       {/* Main Feature Section */}
       <motion.div
         ref={componentRef} // Attach ref for visibility detection

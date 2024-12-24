@@ -53,6 +53,9 @@ export default function Home() {
   return (
     <div>
       <Navbar />
+
+
+
       {/* <Carousel slides={slides} /> */}
       <FeatureCard />
       {/* <AboutPage /> */}

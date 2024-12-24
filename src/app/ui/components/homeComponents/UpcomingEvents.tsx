@@ -35,7 +35,7 @@ const UpcomingEvents: React.FC = () => {
   }, []);
 
   return (
-    <div id="upcoming-events" className="max-w-6xl mx-auto px-4 py-8">
+    <div id="upcoming-events" className="max-w-6xl  mx-auto px-4 py-8">
       <motion.h1
         className={`${playfair_Display.className} text-4xl  font-bold text-center mb-6`}
         initial={{ opacity: 0, y: 50 }}

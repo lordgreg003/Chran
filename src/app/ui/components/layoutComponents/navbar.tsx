@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
 
   return (
     <motion.nav
-      className={`bg-white shadow-lg fixed w-full z-50 dark:bg-foreground text-foreground dark:text-white transition-all duration-300 ${
+      className={`overflow-x-hidden bg-white shadow-lg fixed w-full z-50 dark:bg-foreground text-foreground dark:text-white transition-all duration-300 ${
         showNavbar ? "top-0" : "-top-20"
       }`}
       initial={{ y: -50 }} // Start with an animation on mount

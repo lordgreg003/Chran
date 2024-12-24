@@ -33,7 +33,7 @@ const FeatureCard: React.FC = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8 pt-24 flex flex-col lg:flex-row gap-8" ref={ref}>
+    <div className="overflow-x-hidden mx-auto px-4 py-8 pt-24 flex flex-col lg:flex-row gap-8" ref={ref}>
       {/* Main Feature Section */}
       <motion.div
         className="flex flex-col lg:flex-row border-b pb-8 lg:pb-0 lg:border-b-0"
@@ -92,7 +92,7 @@ const FeatureCard: React.FC = () => {
         className="w-full lg:w-1/3 flex flex-col gap-6"
         initial={{ opacity: 0, x: 30 }} // Start hidden and slightly moved to the right
         animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 30 }} // Trigger fade in and move to original position
-        transition={{ duration: 0.75, ease: "easeOut", delay: 0.5 }} // Faster with delay
+        transition={{ duration: 0.75, ease: "easeOut", delay: 0.2 }} // Faster with delay
       >
         {articles.slice(1).map((article) => (
           <div key={article.id}>
