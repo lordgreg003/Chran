@@ -1,117 +1,128 @@
-"use client";
+import { Metadata } from 'next';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
-import 'animate.css';
+import 'animate.css';  
 import { BlogCard, rightCardsData } from '@/app/ui/data/istdata';
 import Footer from '@/app/ui/components/layoutComponents/Footer';
-import Head from 'next/head';
+
+// Dynamic metadata generation
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const { id } = params;
+  const blogData = rightCardsData.find((card) => card.id === id);
+
+  if (blogData) {
+    return {
+      title: blogData.title,
+      description: blogData.description,
+      openGraph: {
+        title: blogData.title,
+        description: blogData.description,
+        url: `https://www.chran.org/blo/${id}`,
+        images: blogData.images[0],
+      },
+    };
+  }
+
+  // Fallback metadata for when a blog post is not found
+  return {
+    title: 'Blog Not Found',
+    description: 'The blog post you are looking for does not exist.',
+  };
+}
 
 export default function BlogDetails() {
-  const { id } = useParams();
+  const { id } = useParams(); // Get the id from URL
   const [blogData, setBlogData] = useState<BlogCard | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);  
   const [animationClass, setAnimationClass] = useState<string>('');  
   const router = useRouter();  
-  
+
   useEffect(() => {
     if (id) {
-      const selectedBlog = rightCardsData.find(card => card.id === id);
+      const selectedBlog = rightCardsData.find((card) => card.id === id);
       if (selectedBlog) {
         setBlogData(selectedBlog);
       }
     }
   }, [id]); // Re-run this effect whenever id changes
 
+  // If no data found for the id, show a fallback message
   if (!blogData) {
     return (
       <div className="text-center py-10">
-        <h2 className="text-xl font-semibold">Loading...</h2>
+        <h2 className="text-xl font-semibold">Blog Post Not Found</h2>
       </div>
     );
   }
 
+  // Function to go to the next image
   const nextImage = () => {
     setAnimationClass('animate__animated animate__slideOutLeft');
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % blogData.images.length);
       setAnimationClass('animate__animated animate__slideInRight');
-    }, 500);
+    }, 500); // Match the duration with the animation
   };
 
+  // Function to go to the previous image
   const prevImage = () => {
     setAnimationClass('animate__animated animate__slideOutRight');
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + blogData.images.length) % blogData.images.length);
       setAnimationClass('animate__animated animate__slideInLeft');
-    }, 500);
+    }, 500); // Match the duration with the animation
   };
 
   return (
-    <>
-      <Head>
-        <meta property="og:title" content={blogData.title} />
-        <meta property="og:description" content={blogData.description} />
-        <meta property="og:image" content={blogData.images[0]} /> {/* Use the first image */}
-        <meta property="og:url" content={`https://www.chran.org/blo/${blogData.id}`} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@yourTwitterHandle" />
-        <meta name="twitter:title" content={blogData.title} />
-        <meta name="twitter:description" content={blogData.description} />
-        <meta name="twitter:image" content={blogData.images[0]} />
-      </Head>
+    <div className="max-w-screen-lg mx-auto px-4 py-8">
+      <button
+        onClick={() => router.back()}  
+        className=" text-black px-4 py-2 rounded-md mb-6"
+      >
+        Back
+      </button>
+      <div className="flex flex-col gap-8">
+        <div className="relative">
+          <Image
+            src={blogData.images[currentIndex]}
+            alt={blogData.title}
+            width={800}
+            height={400}
+            className={`w-full h-auto rounded-lg ${animationClass}`}
+          />
+          <button 
+            onClick={prevImage} 
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
+          >
+            Prev
+          </button>
+          <button 
+            onClick={nextImage} 
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
+          >
+            Next
+          </button>
+        </div>
 
-      <div className="max-w-screen-lg mx-auto px-4 py-8">
-        <button
-          onClick={() => router.back()}  
-          className=" text-black px-4 py-2 rounded-md mb-6"
-        >
-          Back
-        </button>
-        <div className="flex flex-col gap-8">
-          
-          <div className="relative">
-            <Image
-              src={blogData.images[currentIndex]}
-              alt={blogData.title}
-              width={800}
-              height={400}
-              className={`w-full h-auto rounded-lg ${animationClass}`}
-            />
-            <button 
-              onClick={prevImage} 
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
-            >
-              Prev
-            </button>
-            <button 
-              onClick={nextImage} 
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
-            >
-              Next
+        <div>
+          <h2 className={`${playfair_Display.className} text-3xl font-semibold`}>
+            {blogData.title}
+          </h2>
+          <p className={`${open_sans.className} mt-4 text-gray-600`}>
+            {blogData.description}
+          </p>
+          <div className="mt-4 flex items-center gap-4">
+            <span className="text-sm text-gray-500">{blogData.articleCount}</span>
+            <button className={`${open_sans.className} px-3 py-1 border border-gray-300 text-sm rounded`}>
+              {blogData.category}
             </button>
           </div>
-
-          <div>
-            <h2 className={`${playfair_Display.className} text-3xl font-semibold`}>
-              {blogData.title}
-            </h2>
-            <p className={`${open_sans.className} mt-4 text-gray-600`}>
-              {blogData.description}
-            </p>
-
-            <div className="mt-4 flex items-center gap-4">
-              <span className="text-sm text-gray-500">{blogData.articleCount}</span>
-              <button className={`${open_sans.className} px-3 py-1 border border-gray-300 text-sm rounded`}>
-                {blogData.category}
-              </button>
-            </div>
-            <p className={`${open_sans.className} mt-4 text-gray-600`}>
-              {blogData.description1}
-            </p>
-            <p className={`${open_sans.className} mt-4 text-gray-600`}>
+          <p className={`${open_sans.className} mt-4 text-gray-600`}>
+            {blogData.description1}
+          </p>
+          <p className={`${open_sans.className} mt-4 text-gray-600`}>
             {blogData.description2}
           </p>
           <p className={`${open_sans.className} mt-4 text-gray-600`}>
@@ -231,10 +242,9 @@ export default function BlogDetails() {
           <p className={`${open_sans.className} mt-4 text-gray-600`}>
             {blogData.description41}
           </p>
-          </div>
         </div>
-        <Footer />
       </div>
-    </>
+      <Footer />
+    </div>
   );
 }
