@@ -32,7 +32,7 @@ const NewsSection: React.FC = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8" ref={ref}>
+    <div className="max-w-6xl overflow-x-hidden overflow-y-hidden  mx-auto px-4 py-8" ref={ref}>
       {/* Title */}
       <motion.h1
         className="text-4xl font-serif font-bold text-center mb-4"

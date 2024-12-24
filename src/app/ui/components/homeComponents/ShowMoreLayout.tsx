@@ -4,6 +4,8 @@ import Image from "next/image";
 import { showMore } from "../../data/istdata";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { open_sans, playfair_Display } from "../../fonts/fonts"; // Ensure these are correct
+
 
 const ShowMoreLayout = () => {
   const [isInView, setIsInView] = useState(false);
@@ -36,10 +38,10 @@ const ShowMoreLayout = () => {
   return (
     <section
       id="show-more-section"
-      className="py-10 px-6 md:px-20 lg:px-32 bg-white"
+      className="py-10 px-6 max-w-6xl  mx-auto overflow-y-hidden  overflow-x-hidden md:px-20 lg:px-32 bg-white"
     >
       <motion.div
-        className="flex flex-col md:flex-row"
+        className="flex flex-col md:flex-row overflow-x-hidden"
         initial={{ opacity: 0, y: 50 }}
         animate={{
           opacity: isInView ? 1 : 0,
@@ -48,26 +50,26 @@ const ShowMoreLayout = () => {
         }}
       >
         {/* Left Sidebar */}
-        <div className="w-full md:w-1/5 mb-8 md:mb-0">
-          <h2 className="text-xl font-semibold mb-6">Show me more</h2>
+        <div className="w-full md:w-1/5 mb-8 md:mb-0 overflow-x-hidden">
+          <h2 className={`${playfair_Display.className}text-xl font-semibold mb-6`}>Show me more</h2>
           <ul className="space-y-4 text-gray-500">
             <Link href={"/blog"}>
-              <li className="text-black font-semibold italic cursor-pointer hover:underline">
+              <li className={`${playfair_Display.className} text-black font-semibold italic cursor-pointer hover:underline`}>
                 Latest Blogs
               </li>
             </Link>
             <Link href={"/articles"}>
-              <li className="cursor-pointer hover:text-black transition hover:underline">
+              <li className={`${playfair_Display.className}cursor-pointer hover:text-black transition hover:underline`}>
                 Articles
               </li>
             </Link>
             <Link href={"/"}>
-              <li className="cursor-pointer hover:text-black transition hover:underline">
+              <li className={`${playfair_Display.className}cursor-pointer hover:text-black transition hover:underline`}>
                 Podcasts
               </li>
             </Link>
             <Link href={"/"}>
-              <li className="cursor-pointer hover:text-black transition hover:underline">
+              <li className={`${playfair_Display.className}cursor-pointer hover:text-black transition hover:underline`}>
                 Videos
               </li>
             </Link>
@@ -76,7 +78,7 @@ const ShowMoreLayout = () => {
 
         {/* Right Content Section */}
         <motion.div
-          className="w-full md:w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="w-full overflow-x-hidden md:w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0, x: 100 }}
           animate={{
             opacity: isInView ? 1 : 0,
@@ -87,24 +89,24 @@ const ShowMoreLayout = () => {
           {showMore.map((item, index) => (
             <div
               key={item.id}
-              className="flex flex-col px-4 space-y-1 bg-white border rounded-lg shadow-lg overflow-hidden"
+              className="flex flex-col px-4 space-y-1 bg-white border rounded-lg shadow-lg overflow-x-hidden"
             >
-              <span className="text-gray-200 text-6xl font-light">
+              <span className={`${open_sans.className}text-gray-200 text-6xl font-light`}>
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div className="flex items-center space-x-2">
-                <span className="italic text-gray-500 text-sm">{item.type}</span>
+                <span className={`${open_sans.className} text-gray-500 text-sm`}>{item.type}</span>
                 {item.sponsor && (
-                  <span className="text-xs bg-red-100 text-red-500 px-2 rounded-full">
+                  <span className={`${open_sans.className}  text-xs bg-red-100 text-red-500 px-2 rounded-full`}>
                     {item.sponsor}
                   </span>
                 )}
               </div>
-              <h3 className="text-lg font-bold">{item.title || "Untitled"}</h3>
-              <p className="text-sm text-gray-500">
+              <h3 className={`${playfair_Display.className}text-lg font-bold`}>{item.title || "Untitled"}</h3>
+              <p className={`${open_sans.className}text-sm text-gray-500`}>
                 By {item.author || "Unknown"}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className={`${open_sans.className}text-sm text-gray-500`}>
                 {item.date || "Unknown Date"} • {item.duration || "Unknown Duration"}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -113,7 +115,7 @@ const ShowMoreLayout = () => {
                   item.tags.split(", ").map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="text-xs border border-gray-300 px-2 py-1 rounded"
+                      className={`${open_sans.className}text-xs border border-gray-300 px-2 py-1 rounded`}
                     >
                       {tag}
                     </span>

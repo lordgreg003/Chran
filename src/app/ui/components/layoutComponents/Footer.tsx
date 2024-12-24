@@ -41,7 +41,7 @@ const Footer = () => {
   return (
     <motion.footer
       ref={footerRef}
-      className="w-full h-[28rem]"
+      className="w-full overflow-x-hidden-hidden mx-0 h-[28rem]"
       initial={{ opacity: 0, y: 50 }} // Initial state for animation
       animate={{ opacity: animate ? 1 : 0, y: animate ? 0 : 50 }} // Animate on scroll into view
       transition={{ duration: 0.6 }} // Transition duration
