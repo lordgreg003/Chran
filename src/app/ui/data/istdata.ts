@@ -288,7 +288,7 @@ export const rightCardsData: BlogCard[] = [
     description39: "Signed",
     description40: "Comrade (Barr.) Christopher Ekpo (Secretary)",
     description41: "This Report is dated Monday, 23rd December, 2024.",
-    category: "Security",
+    category: "CHRAN",
     images: [
       // Add an array of images
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734972902/chran6_i6xydz.jpg",
@@ -311,7 +311,7 @@ export const rightCardsData: BlogCard[] = [
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734885978/missionconvert_bhdvew.jpg",
     title: "Thoughts from the Beltway",
     articleCount: "8 articles",
-    category: "Security",
+    category: "CHRAN",
     images: [
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734885979/missionconvert1_bhdvew.jpg",
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734885980/missionconvert2_bhdvew.jpg",
@@ -334,5 +334,5 @@ export const mainCardData: MainCard = {
   description2: "#ADBNTV",
   description3: "#CHRAN_ADVOCACY ",
   articleCount: "3 articles",
-  category: "Security",
+  category: "CHRAN",
 };

@@ -1,12 +1,13 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
-import { useEffect, useState,  } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
 import 'animate.css'; // Import animate.css
 import { BlogCard, rightCardsData } from '@/app/ui/data/istdata';
-
+import Footer from '@/app/ui/components/layoutComponents/Footer';
+import Head from 'next/head'; // Import the Head component
 
 export default function BlogDetails() {
   const { id } = useParams(); // Get the id from URL
@@ -14,7 +15,7 @@ export default function BlogDetails() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);  
   const [animationClass, setAnimationClass] = useState<string>('');  
   const router = useRouter();  
- 
+
   useEffect(() => {
     if (id) {
       const selectedBlog = rightCardsData.find(card => card.id === id);
@@ -53,9 +54,21 @@ export default function BlogDetails() {
 
   return (
     <div className="max-w-screen-lg mx-auto px-4 py-8">
+      <Head>
+        <title>{blogData.title}</title>
+
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content={blogData.title} />
+        <meta property="og:description" content={blogData.description} />
+        <meta property="og:image" content={blogData.images[0]} />
+        <meta property="og:url" content={`https://www.chran.org/blo/${id}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Charn" />
+      </Head>
+
       <button
         onClick={() => router.back()}  
-        className=" text-black px-4 py-2 rounded-md mb-6"
+        className="text-black px-4 py-2 rounded-md mb-6"
       >
         Back
       </button>
@@ -100,6 +113,8 @@ export default function BlogDetails() {
               {blogData.category}
             </button>
           </div>
+
+          {/* Blog Content */}
           <p className={`${open_sans.className} mt-4 text-gray-600`}>
             {blogData.description1}
           </p>
@@ -223,8 +238,10 @@ export default function BlogDetails() {
           <p className={`${open_sans.className} mt-4 text-gray-600`}>
             {blogData.description41}
           </p>
+
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
