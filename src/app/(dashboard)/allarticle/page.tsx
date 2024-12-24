@@ -1,3 +1,4 @@
+"use client";
 import AdminGetAllArticles from '@/app/ui/components/articleComponets/AdminGetAllArticles'
 import React from 'react'
 

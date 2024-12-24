@@ -1,3 +1,4 @@
+ "use client";
  import React from "react";
  import AdminGetAll from "@/app/ui/components/blogsComponent/AdminGetAll";
 

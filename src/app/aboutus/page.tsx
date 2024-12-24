@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Navbar from "../ui/components/layoutComponents/navbar";
 import Mission from "../ui/components/aboutComponents/Mission";

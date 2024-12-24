@@ -1,3 +1,4 @@
+"use client";
 import { navVariantsType } from "@/types/motionTypes";
 
 export const navVariants: navVariantsType = {
