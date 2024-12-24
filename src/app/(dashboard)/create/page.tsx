@@ -1,3 +1,4 @@
+"use client";
 import CreateArticle from '@/app/ui/components/articleComponets/CreateArticle'
 import React from 'react'
 

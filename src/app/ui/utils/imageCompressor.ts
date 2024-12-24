@@ -1,12 +1,10 @@
+"use client";
 import Compressor from "image-compressor.js";
-
 interface CompressOptions {
   maxWidth: number;
   maxHeight: number;
   maxSizeMB: number;
 }
-
- 
 
 export const compressImage = (
   imageFile: File,

@@ -1,3 +1,4 @@
+"use client";
 import { NextPage } from "next";
 import { playfair_Display, open_sans } from "../../fonts/fonts";
 
