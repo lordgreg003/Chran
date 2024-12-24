@@ -1,43 +1,19 @@
-import { Metadata } from 'next';
+'use client';
+
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
-import 'animate.css';  
+import 'animate.css';
 import { BlogCard, rightCardsData } from '@/app/ui/data/istdata';
 import Footer from '@/app/ui/components/layoutComponents/Footer';
-
-// Dynamic metadata generation
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const { id } = params;
-  const blogData = rightCardsData.find((card) => card.id === id);
-
-  if (blogData) {
-    return {
-      title: blogData.title,
-      description: blogData.description,
-      openGraph: {
-        title: blogData.title,
-        description: blogData.description,
-        url: `https://www.chran.org/blo/${id}`,
-        images: blogData.images[0],
-      },
-    };
-  }
-
-  // Fallback metadata for when a blog post is not found
-  return {
-    title: 'Blog Not Found',
-    description: 'The blog post you are looking for does not exist.',
-  };
-}
 
 export default function BlogDetails() {
   const { id } = useParams(); // Get the id from URL
   const [blogData, setBlogData] = useState<BlogCard | null>(null);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);  
-  const [animationClass, setAnimationClass] = useState<string>('');  
-  const router = useRouter();  
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [animationClass, setAnimationClass] = useState<string>('');
+  const router = useRouter();
 
   useEffect(() => {
     if (id) {
@@ -46,9 +22,8 @@ export default function BlogDetails() {
         setBlogData(selectedBlog);
       }
     }
-  }, [id]); // Re-run this effect whenever id changes
+  }, [id]);
 
-  // If no data found for the id, show a fallback message
   if (!blogData) {
     return (
       <div className="text-center py-10">
@@ -57,29 +32,27 @@ export default function BlogDetails() {
     );
   }
 
-  // Function to go to the next image
   const nextImage = () => {
     setAnimationClass('animate__animated animate__slideOutLeft');
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % blogData.images.length);
       setAnimationClass('animate__animated animate__slideInRight');
-    }, 500); // Match the duration with the animation
+    }, 500);
   };
 
-  // Function to go to the previous image
   const prevImage = () => {
     setAnimationClass('animate__animated animate__slideOutRight');
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex - 1 + blogData.images.length) % blogData.images.length);
       setAnimationClass('animate__animated animate__slideInLeft');
-    }, 500); // Match the duration with the animation
+    }, 500);
   };
 
   return (
     <div className="max-w-screen-lg mx-auto px-4 py-8">
       <button
-        onClick={() => router.back()}  
-        className=" text-black px-4 py-2 rounded-md mb-6"
+        onClick={() => router.back()}
+        className="text-black px-4 py-2 rounded-md mb-6"
       >
         Back
       </button>
@@ -92,14 +65,14 @@ export default function BlogDetails() {
             height={400}
             className={`w-full h-auto rounded-lg ${animationClass}`}
           />
-          <button 
-            onClick={prevImage} 
+          <button
+            onClick={prevImage}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
           >
             Prev
           </button>
-          <button 
-            onClick={nextImage} 
+          <button
+            onClick={nextImage}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
           >
             Next
