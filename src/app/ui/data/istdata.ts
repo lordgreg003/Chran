@@ -39,7 +39,7 @@ export interface showMoreinter {
 // rightdata
 // Define the type for the right cards
 export interface BlogCard {
-  id: string;
+  slug: string;
   imageSrc: string;
   title: string;
   images: string[];
@@ -203,7 +203,7 @@ export const showMore: showMoreinter[] = [
 // rights data
 export const rightCardsData: BlogCard[] = [
   {
-    id: "TO-MARK-THE-END-OF-YEAR-ACTIVITIES",
+    slug: "to-mark-the-end-year-activities",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734972902/chran6_i6xydz.jpg",
     title:
@@ -306,7 +306,7 @@ export const rightCardsData: BlogCard[] = [
     ],
   },
   {
-    id: "Thoughts-from-the-Beltway",
+    slug: "Thoughts-from-the-Beltway",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734885978/missionconvert_bhdvew.jpg",
     title: "Thoughts from the Beltway",

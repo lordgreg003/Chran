@@ -5,7 +5,8 @@ import ReduxProvider from "./ui/utils/ReduxProvider";
 
 
 export const metadata: Metadata = {
-  title: "Chran",
+  metadataBase: new URL("https://chran.org"),
+  title: {default: "Chran", template: "%s | Explore Chran"},
   description: "Implemented Chidera",
 };
 
