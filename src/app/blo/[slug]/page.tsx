@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
 import 'animate.css';
 import Link from 'next/link';
+import Head from 'next/head';
 import { BlogCard, rightCardsData } from '@/app/ui/data/istdata';
 import Footer from '@/app/ui/components/layoutComponents/Footer';
 
@@ -50,6 +51,22 @@ export default function BlogDetails() {
 
   return (
     <div className="max-w-screen-lg mx-auto px-4 py-8">
+     <Head>
+  {/* Fallback image dimensions */}
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  {/* Fallback values for title, description, and image */}
+  <meta property="og:title" content={blogData.title || "GOV UMO ENO: CSO PRESENTS 18-MONTHS SCORECARD, RATES PERFORMANCE HIGH"} />
+  <meta property="og:description" content={blogData.description || "THANK YOU MEDIA PARLEY ORGANISED TO MARK THE END OF YEAR ACTIVITIES OF THE CENTER FOR HUMAN RIGHTS AND ACCOUNTABILITY NETWORK (CHRAN) HELD AT CHRAN’S CONFERENCE HALL, 15 AKPA UBEH STREET"} />
+  <meta property="og:image" content={blogData.imageSrc || "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734972998/chran14_umjp1d.jpg"} />
+  <meta property="og:image:alt" content="Explorer | Blog" />
+  <meta property="og:url" content={`https://www.chran.org/blo/${blogData.slug || "to-mark-the-end-year-activities"}`} />
+  <meta property="og:type" content="article" />
+  <meta property="og:image:type" content="image/jpg" />
+</Head>
+
+
      <Link href={'/blog'} > <button
         className="text-black px-4 py-2 rounded-md mb-6"
       >

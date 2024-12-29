@@ -1,14 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { rightCardsData } from "@/app/ui/data/istdata";
-import { ImageResponse } from "next/og";  
-  
+import { ImageResponse } from "next/og";   
 
 export const size = {
   width: 1200,
   height: 630,
 };
 export const alt = "Explorer | Blog";
-export const contentType = "image/png";
+export const contentType = "image/jpg";
 
 export default async function og({ params }: { params: { slug: string } }) {
   const slug = params.slug;
@@ -26,7 +25,7 @@ export default async function og({ params }: { params: { slug: string } }) {
         <div tw="absolute flex inset-0">
           <img
             tw="flex flex-1"
-            src={blogData.images[0] + "&w=1200&h=630&auto=format&q=75"} 
+            src={blogData.imageSrc + "&w=1200&h=630&auto=format&q=75"} 
             alt={blogData.title}
           />
           {/* Overlay */}
