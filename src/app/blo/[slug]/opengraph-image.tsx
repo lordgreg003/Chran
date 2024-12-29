@@ -9,7 +9,7 @@ export const size = {
 export const alt = "Explorer | Blog";
 export const contentType = "image/jpg";
 
-export default async function og({ params }: { params: { slug: string } }) {
+export default async function Image({ params }: { params: { slug: string } }) {
   const slug = params.slug;
   const blogData = await rightCardsData.find(card => card.slug === slug);
 
