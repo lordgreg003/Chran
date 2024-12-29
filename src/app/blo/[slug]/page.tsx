@@ -57,9 +57,9 @@ export default function BlogDetails() {
   <meta property="og:image:height" content="630" />
 
   {/* Fallback values for title, description, and image */}
-  <meta property="og:title" content={blogData.title || "GOV UMO ENO: CSO PRESENTS 18-MONTHS SCORECARD, RATES PERFORMANCE HIGH"} />
-  <meta property="og:description" content={blogData.description || "THANK YOU MEDIA PARLEY ORGANISED TO MARK THE END OF YEAR ACTIVITIES OF THE CENTER FOR HUMAN RIGHTS AND ACCOUNTABILITY NETWORK (CHRAN) HELD AT CHRAN’S CONFERENCE HALL, 15 AKPA UBEH STREET"} />
-  <meta property="og:image" content={blogData.imageSrc || "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734972998/chran14_umjp1d.jpg"} />
+  <meta property="og:title" content={blogData.title || "Celebrate the Year-End with Exciting Activities"} />
+  <meta property="og:description" content={blogData.description || "Join us to mark the end of the year with fun-filled activities, meaningful reflections, and community celebrations. "} />
+  <meta property="og:image" content="https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734972902/chran6_i6xydz.jpg" />
   <meta property="og:image:alt" content="Explorer | Blog" />
   <meta property="og:url" content={`https://www.chran.org/blo/${blogData.slug || "to-mark-the-end-year-activities"}`} />
   <meta property="og:type" content="article" />
