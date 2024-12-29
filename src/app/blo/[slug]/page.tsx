@@ -1,27 +1,28 @@
 'use client';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
 import 'animate.css';
+import Link from 'next/link';
 import { BlogCard, rightCardsData } from '@/app/ui/data/istdata';
 import Footer from '@/app/ui/components/layoutComponents/Footer';
 
 export default function BlogDetails() {
-  const { id } = useParams(); // Get the id from URL
+  const { slug } = useParams(); // Get the id from URL
   const [blogData, setBlogData] = useState<BlogCard | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [animationClass, setAnimationClass] = useState<string>('');
-  const router = useRouter();
+ 
 
   useEffect(() => {
-    if (id) {
-      const selectedBlog = rightCardsData.find((card) => card.id === id);
+    if (slug) {
+      const selectedBlog = rightCardsData.find((card) => card.slug === slug);
       if (selectedBlog) {
         setBlogData(selectedBlog);
       }
     }
-  }, [id]);
+  }, [slug]);
 
   if (!blogData) {
     return (
@@ -49,12 +50,11 @@ export default function BlogDetails() {
 
   return (
     <div className="max-w-screen-lg mx-auto px-4 py-8">
-      <button
-        onClick={() => router.back()}
+     <Link href={'/blog'} > <button
         className="text-black px-4 py-2 rounded-md mb-6"
       >
         Back
-      </button>
+      </button></Link>
       <div className="flex flex-col gap-8">
         <div className="relative">
           <Image

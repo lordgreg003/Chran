@@ -85,7 +85,7 @@ export default function BlogLayout() {
         {/* Right smaller cards */}
         <div className="space-y-8">
           {rightCardsData.map((card) => (
-            <div key={card.id} className={`relative ${isVisible ? 'animate__animated animate__fadeInUp' : ''}`}>
+            <div key={card.slug} className={`relative ${isVisible ? 'animate__animated animate__fadeInUp' : ''}`}>
               <Image
                 src={card.imageSrc}
                 alt={card.title}
@@ -97,7 +97,7 @@ export default function BlogLayout() {
                 Blog
               </span>
               <h3 className={`${playfair_Display.className} mt-4 text-lg font-semibold`}>
-                <Link href={`/blo/${card.id}`} className="cursor-pointer">
+                <Link href={`/blo/${card.slug}`} className="cursor-pointer">
                   {card.title}
                 </Link>
               </h3>
