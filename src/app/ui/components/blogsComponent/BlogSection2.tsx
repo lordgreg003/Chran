@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { open_sans, playfair_Display } from "../../fonts/fonts";
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
-import { mainCardData, rightCardsData } from "../../data/istdata";
+import { mainCardData1, rightCardsData1 } from "../../data/istdata";
 
-export default function BlogLayout() {
+export default function BlogLayout2() {
   const [isVisible, setIsVisible] = useState(false);
 
   // Check the scroll position and add the animation
@@ -39,15 +39,15 @@ export default function BlogLayout() {
       {/* Add animations when the component is visible */}
       <div
         id="blogLayout"
-        className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${isVisible ? 'animate__animated animate__zoomIn animate__slow' : ''}`}
+        className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${isVisible ? 'animate__animated animate__zoomIn' : ''}`}
       >
         {/* Left large card */}
         <div className="md:col-span-2">
           <div className="relative">
             {/* Video */}
-            <Link href={`/blogs/${mainCardData.slug}`}>
+            <Link href={`/blogs/${mainCardData1.slug}`}>
               <video
-                src={mainCardData.videoSrc}
+                src={mainCardData1.videoSrc}
                 controls
                 className="w-full h-auto rounded cursor-pointer"
               >
@@ -61,31 +61,34 @@ export default function BlogLayout() {
 
           {/* Title and Description */}
           <h2 className={`${playfair_Display.className} mt-4 text-2xl font-semibold`}>
-            <Link href={`/blogs/${mainCardData.slug}`} className="cursor-pointer">
-              {mainCardData.title}
+            <Link href={`/blogs/${mainCardData1.slug}`} className="cursor-pointer">
+              {mainCardData1.title}
             </Link>
           </h2>
           <p className={`${open_sans.className} mt-2 text-gray-600`}>
-            <Link href={`/blogs/${mainCardData.slug}`} className="cursor-pointer">
-              {mainCardData.description}
+            <Link href={`/blogs/${mainCardData1.slug}`} className="cursor-pointer">
+              {mainCardData1.description}
             </Link>
           </p>
 
           {/* Article Info */}
           <div className="mt-4 flex items-center gap-4">
             <span className={`${open_sans.className} text-sm text-gray-500`}>
-              {mainCardData.articleCount}
+              {mainCardData1.articleCount}
             </span>
             <button className="px-3 py-1 border border-gray-300 text-sm rounded">
-              {mainCardData.category}
+              {mainCardData1.category}
             </button>
           </div>
         </div>
 
         {/* Right smaller cards */}
         <div className="space-y-8">
-          {rightCardsData.map((card) => (
-            <div key={card.slug} className={`relative ${isVisible ? 'animate__animated animate__zoomIn animate__slow' : ''}`}>
+          {rightCardsData1.map((card, index) => (
+            <div
+              key={card.slug}
+              className={`relative ${isVisible ? `animate__animated animate__zoomIn animate__delay-${index + 1}s` : ''}`}
+            >
               <Image
                 src={card.imageSrc}
                 alt={card.title}
@@ -97,7 +100,7 @@ export default function BlogLayout() {
                 Blog
               </span>
               <h3 className={`${playfair_Display.className} mt-4 text-lg font-semibold`}>
-                <Link href={`/blo/${card.slug}`} className="cursor-pointer">
+                <Link href={`/blo/details/${card.slug}`} className="cursor-pointer">
                   {card.title}
                 </Link>
               </h3>

@@ -41,6 +41,7 @@ export interface showMoreinter {
 export interface BlogCard {
   slug: string;
   imageSrc: string;
+  videoSrc?: string;
   title: string;
   images: string[];
   articleCount?: string;
@@ -91,7 +92,7 @@ export interface BlogCard {
 
 // Define the type for the main card
 interface MainCard {
-  id: string;
+  slug: string;
   videoSrc?: string;
   title?: string;
   description?: string;
@@ -306,24 +307,101 @@ export const rightCardsData: BlogCard[] = [
     ],
   },
   {
-    slug: "Thoughts-from-the-Beltway",
+    slug: "gov-umo-eno-cso-presents-18-months-scorecard-rates-performance-high",
     imageSrc:
-      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734885978/missionconvert_bhdvew.jpg",
-    title: "Thoughts from the Beltway",
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734972902/chran6_i6xydz.jpg",
+    title:
+      "GOV UMO ENO: CSO PRESENTS 18-MONTHS SCORECARD, RATES PERFORMANCE HIGH",
     articleCount: "8 articles",
     category: "CHRAN",
-    images: [
-      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734885979/missionconvert1_bhdvew.jpg",
-      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734885980/missionconvert2_bhdvew.jpg",
-      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734885981/missionconvert3_bhdvew.jpg",
-      // Add more images as needed
-    ],
+    description: " - THANKS MEDIA PARTNERS ",
+    description1:
+      "A foremost good governance-cum-human rights organisation in Nigeria, the Center For Human Rights and Accountability Network (CHRAN) has presented its independent scorecard of the Governor of Akwa Ibom State, Pastor Umo Eno, PhD, in a well-attended Thank You Media Parley organised in its Conference Hall, Uyo, Akwa Ibom State, on Monday, 23rd December, 2024, to mark its End of Year Activities in 2024.",
+    description2: " - THANKS MEDIA PARTNERS ",
+    images: [],
+  },
+];
+export const rightCardsData1: BlogCard[] = [
+  {
+    slug: "cso-calls-for-actualization-ibom-science-park",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1735881629/Akwa-Ibom_p9hhcx.webp",
+    title: "CSO calls for actualization of Ibom Science Park",
+    articleCount: "10 articles",
+    description:
+      "The Center for Human Rights and Accountability Network, CHRAN, a non-governmental organisation, has raised concern over the abandoned Ibom Science Park in Akwa Ibom, which was conceptualised by the former Governor, Victor Attah.",
+    description1:
+      "It urged the Ministry of Science and Technology to work towards the realisation and actualisation of the Park.",
+    description2:
+      "The Akwa Ibom State Director of CHRAN, Otuekong Franklyn Isong who raised the issues while briefing newsmen during a media parley, noted that over 27 hectares of land was acquired in Itu Local Government Area for the siting of the project.",
+    description3:
+      "He observed that the location has become a security threat to the host communities due to the abandonment by successive administrations.",
+    description4:
+      "He said, “The Center urged the Ministry of Science and Technology to work towards the realisation and actualisation of the Ibom Science Park.”",
+    description5:
+      "The centre also frowned at the abandonment of Model Motor Parks, built by the administration of Victor Attah by successive administrations and called on the present government to look into it.",
+    description6:
+      "He noted that such has led to indiscriminate parking, loading and offloading of passengers by tricycle and mini-bus drivers within and around the highways at Ikot Oku Ikono/Ekom Iman Flyover; around Ibom Plaza up to Ikot Ekpene Road by University of Uyo Roundabout; IBB Roundabout near Ibom Hall which pose danger to road users and motorists plying the axis",
+    description7:
+      "The Center also lauded the audit of the Ibom Power Company as directed by the Governor, pastor Umo Eno.",
+    description8:
+      "On anti-open grazing law, the director who lauded the enactment of the State Anti-Open Grazing Law by the administration of Udom Emmanuel, however, lamented that the law is only been partially enforced in some parts of the state.",
+    description9:
+      "He urged the Ministry of Agriculture and Rural Development, and the Ministry of Internal Security and Waterways to fully implement the Law across the State as a step to checking the grazing of cattle on farmlands and avoidance of clashes.",
+    description10:
+      "Isong also drew the attention of the state government to the issues of understaffing and poor state of infrastructure and facilities, including toilets, fittings, and water, in the Courts spread across the 31 Local Government Areas in the state and called for recruitment of personnel into the State Judiciary as well as a facelift to the Courts in the state.",
+    category: "CHRAN",
+    images: [],
+  },
+  {
+    slug: "cso-decries-poor-funding-state-infrastructure-at-akwa-ibom-judiciary",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1735883377/Franklyn-Isong_efluvl.webp",
+    title:
+      "CSO Decries Poor Funding, State Of Infrastructure At Akwa Ibom Judiciary",
+    articleCount: "8 articles",
+    category: "CHRAN",
+    description:
+      "The Centre for Human Rights and Accountability Network (CHRAN) has expressed dismay over poor funding and decaying infrastructure crippling the Akwa Ibom judicial system.",
+    description1:
+      "CHRAN noted that effective administration of justice could be hampered if urgent measures were not put in place to address the flaws.",
+    description2:
+      "The CSO called on Governor Umo Emo to urgently intervene by giving a face-lift to courts across the 31 local government areas of the state and as well recruit personnel to strengthen the system in the state.",
+    description3:
+      "It added that adequate funding was necessary for judicial officers not to bend the course of justice.",
+    description4:
+      "The group’s Director in the state, Mr Franklyn Isong, who made the call while briefing Journalists during a media parley to mark end of the year activities of the Centre, lamented that facilities in the courts have broken down and become obsolete.”",
+    description5:
+      "Isong listed faulty toilets, fittings and water system in those facilities as those requiring urgent government intervention.",
+    description6:
+      "The CHRAN drew the attention of the State administration to the issues of understaffing and poor state of infrastructure and facilities, including toilets, fittings, water, in the Courts spread across the 31 Local Government Areas in Akwa Ibom State.",
+    description7:
+      "The Centre appealed to the State administration to ensure the recruitment of personnel into the State Judiciary and also give a facelift to the Courts spread across the 31 Local Government Areas in Akwa Ibom State",
+    description8:
+      "Isong, who was giving sectoral assessment during the media parley also drew the attention of the Governor to the abandoned Divisional Library which he noted was established by the military administration in the defunct South Eastern State.",
+    description9:
+      "CHRAN drew the attention of the State administration to the poor state of infrastructure at the Divisional Library, Udotung Ubo Street, Uyo due to abandonment by successive administrations in the State.",
+    description10:
+      "The Centre recalled that the Divisional Library at Udotung Ubo Street, which now harbours the Akwa Ibom State Library Board, Uyo, was built and stocked about half a century ago by the then military administration in the defunct South Eastern State,” he said.",
+    description11:
+      "He further expressed concern on the closure of Calabar-Itu Highway due to the ongoing construction of Tabernacle Road and flood control project in the state, lamenting that the closure has brought serious economic challenges to residents and motorists plying the road.",
+    description12:
+      "According to him, “The Center called for expeditious attention by the contractors and the supervising Ministry”.",
+    description13:
+      "Isong also frowned at the dormant state of the multi-billion naira Ibom E-Library, adding that findings by the group had revealed that the place is no longer functioning as a library.",
+    description14:
+      "“Findings by CHRAN indicate that the Ibom E-Library at Babangida Avenue, Uyo is no longer functioning as a library. The Centre urged urgent action to revitalise the Ibom E-Library and other public libraries in the State” Isong stated",
+    description15:
+      "On Anti-open Grazing Law in the state, the director who lauded the enactment of the law by the immediate-past administration of Mr. Udom Emmanuel, however, lamented that the law is only been partially enforced in some parts of the state.",
+    description16:
+      "He urged the Ministry of Agriculture and Rural Development, and the Ministry of Internal Security and Waterways to fully implement the law as a step to checking grazing of cattle on farmlands.",
+    images: [],
   },
 ];
 
 // Main card data
 export const mainCardData: MainCard = {
-  id: "GOV-UMO-ENO-HAS-DONE-WELL",
+  slug: "gov-umo-eno-has-done-well",
   videoSrc:
     "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1734685554/thatvideo_jbpduz.mp4",
   title: "18 MONTHS: GOV UMO ENO HAS DONE WELL - CHRAN ",
@@ -331,6 +409,21 @@ export const mainCardData: MainCard = {
     "The Center for Human Rights and Accountability Network (CHRAN) has, on Tuesday, 17th December 2024, assessed the performance of Akwa Ibom State Governor, Pastor Umo Eno, PhD, saying the Governor has done well in his 18 months in office. ",
   description1:
     "This assertion was done by the Center's Director, Otuekong Franklyn Isong, while presenting the CHRAN's scorecard of the governor in a television programme on ADBN TV, in Uyo,",
+  description2: "#ADBNTV",
+  description3: "#CHRAN_ADVOCACY ",
+  articleCount: "3 articles",
+  category: "CHRAN",
+};
+
+export const mainCardData1: MainCard = {
+  slug: "gov-umo-eno-cso-presents-18-months-scorecard-rates-performance-high",
+  videoSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1735884422/compressed_video2_otvu5o.mp4",
+  title:
+    "GOV UMO ENO: CSO PRESENTS 18-MONTHS SCORECARD, RATES PERFORMANCE HIGH",
+  description: "- THANKS MEDIA PARTNERS",
+  description1:
+    "A foremost good governance-cum-human rights organisation in Nigeria, the Center For Human Rights and Accountability Network (CHRAN) has presented its independent scorecard of the Governor of Akwa Ibom State, Pastor Umo Eno, PhD, in a well-attended Thank You Media Parley organised in its Conference Hall, Uyo, Akwa Ibom State, on Monday, 23rd December, 2024, to mark its End of Year Activities in 2024.",
   description2: "#ADBNTV",
   description3: "#CHRAN_ADVOCACY ",
   articleCount: "3 articles",

@@ -14,7 +14,6 @@ export default function BlogDetails() {
   const [blogData, setBlogData] = useState<BlogCard | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [animationClass, setAnimationClass] = useState<string>('');
- 
 
   useEffect(() => {
     if (slug) {
@@ -34,66 +33,73 @@ export default function BlogDetails() {
   }
 
   const nextImage = () => {
-    setAnimationClass('animate__animated animate__slideOutLeft');
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % blogData.images.length);
-      setAnimationClass('animate__animated animate__slideInRight');
-    }, 500);
+    if (Array.isArray(blogData.images) && blogData.images.length > 0) {
+      setAnimationClass('animate__animated animate__slideOutLeft');
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % blogData.images.length);
+        setAnimationClass('animate__animated animate__slideInRight');
+      }, 500);
+    }
   };
 
   const prevImage = () => {
-    setAnimationClass('animate__animated animate__slideOutRight');
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex - 1 + blogData.images.length) % blogData.images.length);
-      setAnimationClass('animate__animated animate__slideInLeft');
-    }, 500);
+    if (Array.isArray(blogData.images) && blogData.images.length > 0) {
+      setAnimationClass('animate__animated animate__slideOutRight');
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + blogData.images.length) % blogData.images.length);
+        setAnimationClass('animate__animated animate__slideInLeft');
+      }, 500);
+    }
   };
 
   return (
     <div className="max-w-screen-lg mx-auto px-4 py-8">
-     <Head>
-  {/* Fallback image dimensions */}
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+      <Head>
+        {/* Fallback image dimensions */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
-  {/* Fallback values for title, description, and image */}
-  <meta property="og:title" content={blogData.title || "Celebrate the Year-End with Exciting Activities"} />
-  <meta property="og:description" content={blogData.description || "Join us to mark the end of the year with fun-filled activities, meaningful reflections, and community celebrations. "} />
-  <meta property="og:image" content="https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734972902/chran6_i6xydz.jpg" />
-  <meta property="og:image:alt" content="Explorer | Blog" />
-  <meta property="og:url" content={`https://www.chran.org/blo/${blogData.slug || "to-mark-the-end-year-activities"}`} />
-  <meta property="og:type" content="article" />
-  <meta property="og:image:type" content="image/jpg" />
-</Head>
+        {/* Fallback values for title, description, and image */}
+        <meta property="og:title" content={blogData.title || "Celebrate the Year-End with Exciting Activities"} />
+        <meta property="og:description" content={blogData.description || "Join us to mark the end of the year with fun-filled activities, meaningful reflections, and community celebrations."} />
+        <meta property="og:image" content="https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734972902/chran6_i6xydz.jpg" />
+        <meta property="og:image:alt" content="Explorer | Blog" />
+        <meta property="og:url" content={`https://www.chran.org/blo/${blogData.slug || "to-mark-the-end-year-activities"}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image:type" content="image/jpg" />
+      </Head>
 
+      <Link href={'/blog'}>
+        <button className="text-black px-4 py-2 rounded-md mb-6">
+          Back
+        </button>
+      </Link>
 
-     <Link href={'/blog'} > <button
-        className="text-black px-4 py-2 rounded-md mb-6"
-      >
-        Back
-      </button></Link>
       <div className="flex flex-col gap-8">
-        <div className="relative">
-          <Image
-            src={blogData.images[currentIndex]}
-            alt={blogData.title}
-            width={800}
-            height={400}
-            className={`w-full h-auto rounded-lg ${animationClass}`}
-          />
-          <button
-            onClick={prevImage}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
-          >
-            Prev
-          </button>
-          <button
-            onClick={nextImage}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
-          >
-            Next
-          </button>
-        </div>
+        {/* Conditionally render images and navigation buttons */}
+        {Array.isArray(blogData.images) && blogData.images.length > 0 && (
+          <div className="relative">
+            <Image
+              src={blogData.images[currentIndex]}
+              alt={blogData.title}
+              width={800}
+              height={400}
+              className={`w-full h-auto rounded-lg ${animationClass}`}
+            />
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
+            >
+              Prev
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-blue-700 text-white p-3 rounded-full shadow-lg hover:scale-105 transition duration-300"
+            >
+              Next
+            </button>
+          </div>
+        )}
 
         <div>
           <h2 className={`${playfair_Display.className} text-3xl font-semibold`}>
@@ -108,6 +114,7 @@ export default function BlogDetails() {
               {blogData.category}
             </button>
           </div>
+          {/* Rest of the descriptions */}
           <p className={`${open_sans.className} mt-4 text-gray-600`}>
             {blogData.description1}
           </p>
@@ -233,7 +240,7 @@ export default function BlogDetails() {
           </p>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );
