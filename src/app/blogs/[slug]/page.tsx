@@ -3,19 +3,21 @@ import { useRouter } from 'next/navigation'; // Import useRouter hook for naviga
 import Footer from '@/app/ui/components/layoutComponents/Footer';
 import { useParams } from 'next/navigation';
 import { mainCardData } from '@/app/ui/data/istdata';
+import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
+ 
 
 export default function BlogDetail() {
   const params = useParams(); // Access route parameters
-  const id = typeof params?.id === 'string' ? params.id : '';
+  const slug = typeof params?.slug === 'string' ? params.slug : '';
   const router = useRouter();  
 
-  console.log('Blog ID from URL:', id);  
+  console.log('Blog ID from URL:', slug);  
 
   // Now search for the blog by matching the id in the main object (not rightCards)
-  const blog = mainCardData.id === id ? mainCardData : null;
+  const blog = mainCardData.slug === slug ? mainCardData : null;
 
   if (!blog) {
-    console.log('Blog not found with id:', id); // Log if no blog is found
+    console.log('Blog not found with id:', slug); // Log if no blog is found
     return <p>Blog not found!</p>;
   }
 
@@ -30,14 +32,14 @@ export default function BlogDetail() {
 
       <div>
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold">{blog.title}</h1>
+        <h1 className={`${playfair_Display.className}`}>{blog.title}</h1>
         
         {/* Descriptions with responsive text */}
         <div className="md:max-w-md">
-          <p className="mt-4 text-gray-600 text-base md:text-lg">{blog.description}</p>
-          <p className="mt-4 text-gray-600 text-base md:text-lg">{blog.description1}</p>
-          <p className="mt-4 text-gray-600 text-base md:text-lg">{blog.description2}</p>
-          <p className="mt-4 text-gray-600 text-base md:text-lg">{blog.description3}</p>
+          <p className={`${open_sans.className}mt-4 text-gray-600 text-base md:text-lg`}>{blog.description}</p>
+          <p className={`${open_sans.className}mt-4 text-gray-600 text-base md:text-lg`}>{blog.description1}</p>
+          <p className={`${open_sans.className}mt-4 text-gray-600 text-base md:text-lg`}>{blog.description2}</p>
+          <p className={`${open_sans.className}mt-4 text-gray-600 text-base md:text-lg`}>{blog.description3}</p>
         </div>
 
         {/* Video Embed */}
