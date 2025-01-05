@@ -8,6 +8,7 @@ import Mission from '../ui/components/aboutComponents/Mission';
    return (
      <div>
        <Navbar />
+       
       <Mission />
       <CHRNAboutSection />
       <Footer />
