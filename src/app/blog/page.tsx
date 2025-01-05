@@ -5,6 +5,7 @@ import Blogs from "../ui/components/blogsComponent/Blogs";
 import BlogSection1 from "../ui/components/blogsComponent/BlogSection1";
 import ShowMoreLayout from "../ui/components/homeComponents/ShowMoreLayout";
 import BlogLayout2 from "../ui/components/blogsComponent/BlogSection2";
+import BlogLayout3 from "../ui/components/blogsComponent/BlogSection3";
 
 const page = () => {
   return (
@@ -12,6 +13,7 @@ const page = () => {
       <Navbar />
       <BlogSection1 />
       <BlogLayout2 />
+      <BlogLayout3 />
       <Blogs />
       <ShowMoreLayout />
      

@@ -94,7 +94,8 @@ export interface BlogCard {
 interface MainCard {
   slug: string;
   videoSrc?: string;
-  title?: string;
+  imageSrc: string;
+  title: string;
   description?: string;
   description1?: string;
   description2?: string;
@@ -404,6 +405,7 @@ export const mainCardData: MainCard = {
   slug: "gov-umo-eno-has-done-well",
   videoSrc:
     "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1734685554/thatvideo_jbpduz.mp4",
+  imageSrc: "",
   title: "18 MONTHS: GOV UMO ENO HAS DONE WELL - CHRAN ",
   description:
     "The Center for Human Rights and Accountability Network (CHRAN) has, on Tuesday, 17th December 2024, assessed the performance of Akwa Ibom State Governor, Pastor Umo Eno, PhD, saying the Governor has done well in his 18 months in office. ",
@@ -415,10 +417,54 @@ export const mainCardData: MainCard = {
   category: "CHRAN",
 };
 
+export const rightCardsData2: BlogCard[] = [
+  {
+    slug: "cso-calls-for-actualization-ibom-science-park",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089299/images-2024-12-19t2129153403168636743343004_etwhpi.jpg",
+    title: "CSO calls for actualization of Ibom Science Park",
+    articleCount: "10 articles",
+    description:
+      "The Center for Human Rights and Accountability Network, CHRAN, a non-governmental organisation, has raised concern over the abandoned Ibom Science Park in Akwa Ibom, which was conceptualised by the former Governor, Victor Attah.",
+    category: "CHRAN",
+    images: [],
+  },
+  {
+    slug: "cso-decries-poor-funding-state-infrastructure-at-akwa-ibom-judiciary",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089430/IMG-20240612-WA0015_bxuxhy.webp",
+    title:
+      "CSO Decries Poor Funding, State Of Infrastructure At Akwa Ibom Judiciary",
+    articleCount: "8 articles",
+    category: "CHRAN",
+    description:
+      "The Centre for Human Rights and Accountability Network (CHRAN) has expressed dismay over poor funding and decaying infrastructure crippling the Akwa Ibom judicial system.",
+    images: [],
+  },
+];
+
 export const mainCardData1: MainCard = {
   slug: "gov-umo-eno-cso-presents-18-months-scorecard-rates-performance-high",
   videoSrc:
     "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1735884422/compressed_video2_otvu5o.mp4",
+  imageSrc: "",
+  title:
+    "GOV UMO ENO: CSO PRESENTS 18-MONTHS SCORECARD, RATES PERFORMANCE HIGH",
+  description: "- THANKS MEDIA PARTNERS",
+  description1:
+    "A foremost good governance-cum-human rights organisation in Nigeria, the Center For Human Rights and Accountability Network (CHRAN) has presented its independent scorecard of the Governor of Akwa Ibom State, Pastor Umo Eno, PhD, in a well-attended Thank You Media Parley organised in its Conference Hall, Uyo, Akwa Ibom State, on Monday, 23rd December, 2024, to mark its End of Year Activities in 2024.",
+  description2: "#ADBNTV",
+  description3: "#CHRAN_ADVOCACY ",
+  articleCount: "3 articles",
+  category: "CHRAN",
+};
+
+export const mainCardData2: MainCard = {
+  slug: "gov-umo-eno-cso-presents-18-months-scorecard-rates-performance-high",
+  videoSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1735884422/compressed_video2_otvu5o.mp4",
+  imageSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089135/Akwa-Ibom-State-Governor-Umo-Eno_azdchi.jpg",
   title:
     "GOV UMO ENO: CSO PRESENTS 18-MONTHS SCORECARD, RATES PERFORMANCE HIGH",
   description: "- THANKS MEDIA PARTNERS",

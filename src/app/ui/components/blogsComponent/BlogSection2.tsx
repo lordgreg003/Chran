@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { open_sans, playfair_Display } from "../../fonts/fonts";
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
-import { mainCardData1, rightCardsData1 } from "../../data/istdata";
+import { mainCardData2, rightCardsData2 } from "../../data/istdata";
 
 export default function BlogLayout2() {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,14 +45,14 @@ export default function BlogLayout2() {
         <div className="md:col-span-2">
           <div className="relative">
             {/* Video */}
-            <Link href={`/blogs/${mainCardData1.slug}`}>
-              <video
-                src={mainCardData1.videoSrc}
-                controls
+            <Link href={`/blogs/${mainCardData2.slug}`}>
+            <Image
+                src={mainCardData2.imageSrc}
+                alt={mainCardData2.title}
+                width={400}
+                height={200}
                 className="w-full h-auto rounded cursor-pointer"
-              >
-                Your browser does not support the video tag.
-              </video>
+              />
             </Link>
             <span className="absolute top-4 left-4 bg-red-500 text-white text-xs px-3 py-1 rounded">
               Blog
@@ -61,30 +61,30 @@ export default function BlogLayout2() {
 
           {/* Title and Description */}
           <h2 className={`${playfair_Display.className} mt-4 text-2xl font-semibold`}>
-            <Link href={`/blogs/${mainCardData1.slug}`} className="cursor-pointer">
-              {mainCardData1.title}
+            <Link href={`/blogs/${mainCardData2.slug}`} className="cursor-pointer">
+              {mainCardData2.title}
             </Link>
           </h2>
           <p className={`${open_sans.className} mt-2 text-gray-600`}>
-            <Link href={`/blogs/${mainCardData1.slug}`} className="cursor-pointer">
-              {mainCardData1.description}
+            <Link href={`/blogs/${mainCardData2.slug}`} className="cursor-pointer">
+              {mainCardData2.description}
             </Link>
           </p>
 
           {/* Article Info */}
           <div className="mt-4 flex items-center gap-4">
             <span className={`${open_sans.className} text-sm text-gray-500`}>
-              {mainCardData1.articleCount}
+              {mainCardData2.articleCount}
             </span>
             <button className="px-3 py-1 border border-gray-300 text-sm rounded">
-              {mainCardData1.category}
+              {mainCardData2.category}
             </button>
           </div>
         </div>
 
         {/* Right smaller cards */}
         <div className="space-y-8">
-          {rightCardsData1.map((card, index) => (
+          {rightCardsData2.map((card, index) => (
             <div
               key={card.slug}
               className={`relative ${isVisible ? `animate__animated animate__zoomIn animate__delay-${index + 1}s` : ''}`}
