@@ -14,7 +14,7 @@ async function getNewsData(slug: string): Promise<NewsData | undefined> {
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const resolvedParams = await params; // Await the params
+  const resolvedParams = await params;  
   const newsItem = await getNewsData(resolvedParams.slug);
 
   return {
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 interface NewsDetailsProps {
-  params: { slug: string }; // Directly use an object instead of a Promise
+  params: Promise<{ slug: string }>;
 }
 
 export default async function NewsDetails({ params }: NewsDetailsProps) {
