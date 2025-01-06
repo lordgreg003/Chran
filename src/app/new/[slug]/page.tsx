@@ -17,7 +17,9 @@ async function getNewsData(slug: string): Promise<NewsData | undefined> {
 
 // Adjust `generateMetadata` to await the resolved params (no need to wrap params in a promise)
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const newsItem = await getNewsData(params.slug);
+
+  const resolvedParams = await params;  
+  const newsItem = await getNewsData(resolvedParams.slug);
 
   return {
     title: newsItem?.title || "Blog not found",
@@ -41,7 +43,7 @@ export default async function NewsDetails({ params }: NewsDetailsProps) {
   try {
     const newsItem: NewsData | undefined = await getNewsData(slug);
     if (!newsItem) {
-      throw new Error("Blog not found");
+      throw new Error("Article not found");
     }
 
     return (
