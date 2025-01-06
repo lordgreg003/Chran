@@ -2,7 +2,7 @@ import { BlogCard, rightCardsData2 } from "@/app/ui/data/istdata";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
 
-// Simulate fetching data from rightCardsData2
+// Simulate fetching data (replace with your actual data fetching)
 async function getData(slug: string): Promise<BlogCard | undefined> {
   return new Promise((resolve, reject) => {
     const cardData = rightCardsData2.find((card) => card.slug === slug);
@@ -52,29 +52,31 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 interface CardDetailsProps {
-  params: { slug: string };  
+  params: { slug: string };
 }
 
 export default async function CardDetails({ params }: CardDetailsProps) {
-  const { slug } = params;  
+  const { slug } = params;
 
   try {
-    const cardData: BlogCard | undefined = await getData(slug);
+    const cardData = await getData(slug);
 
     if (!cardData) {
-      throw new Error("Blog not found");
+      return (
+        <div className="text-center py-10">
+          <h2 className="text-2xl font-bold text-gray-700">Blog    Post Not Found</h2>
+          <p className="text-gray-500">The blog post with slug &quot;{slug}&quot; could not be found.</p>
+        </div>
+      );
     }
 
     return (
       <div className="max-w-screen-lg mx-auto overflow-x-hidden py-8 px-4">
-        {/* Header */}
         <h1 className={`${playfair_Display.className} text-2xl md:text-5xl font-bold mb-6 text-left`}>
           {cardData.title}
         </h1>
 
-        {/* Content Layout (Flexbox for Image and Text) */}
         <div className="flex flex-col gap-8">
-          {/* Image */}
           <div className="w-full mb-6 ">
             <Image
               src={cardData.imageSrc}
@@ -86,9 +88,7 @@ export default async function CardDetails({ params }: CardDetailsProps) {
             />
           </div>
 
-          {/* Text Section */}
           <div className="w-full ">
-            {/* Article Info */}
             <div className="mb-4">
               <span className={`${open_sans.className} text-sm md:text-base text-gray-500`}>
                 Articles: {cardData.articleCount}
@@ -98,7 +98,6 @@ export default async function CardDetails({ params }: CardDetailsProps) {
               </span>
             </div>
 
-            {/* Description */}
             <div className="space-y-5">
               {[
                 cardData.description,
@@ -112,9 +111,11 @@ export default async function CardDetails({ params }: CardDetailsProps) {
                 cardData.description8,
                 cardData.description9,
               ].map((desc, index) => (
-                <p key={index} className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}>
-                  {desc}
-                </p>
+                desc ? (
+                  <p key={index} className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}>
+                    {desc}
+                  </p>
+                ) : null
               ))}
             </div>
           </div>
@@ -122,9 +123,13 @@ export default async function CardDetails({ params }: CardDetailsProps) {
       </div>
     );
   } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
-    console.error(errorMessage);
-
-    return <p className="text-center text-red-500">{errorMessage}</p>;
+    console.error("Error fetching blog data:", error);
+    return (
+      <div className="text-center py-10">
+        <h2 className="text-2xl font-bold text-red-500">Error Loading Blog Post</h2>
+        <p className="text-gray-500">An error occurred while loading the blog post. Please try again later.</p>
+        {process.env.NODE_ENV === 'development' && <p className="text-red-500">{error instanceof Error ? error.message : "An unexpected error occurred"}</p>}
+      </div>
+    );
   }
 }
