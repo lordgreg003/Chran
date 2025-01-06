@@ -18,7 +18,7 @@ async function getData(slug: string): Promise<BlogCard | undefined> {
 
 // Update `generateMetadata` to await params
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const resolvedParams = await params; // Await the params
+  const resolvedParams = await params;  
   const cardData = await getData(resolvedParams.slug);
 
   return cardData
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 interface CardDetailsProps {
-  params: Promise<{ slug: string }>; // Treat params as a Promise
+  params: Promise<{ slug: string }>;  
 }
 
 // Update the main component to handle async params

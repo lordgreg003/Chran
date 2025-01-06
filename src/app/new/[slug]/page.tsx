@@ -1,6 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Metadata } from "next";
 import { newsData, NewsData } from "@/app/ui/data/articles";
 import { roboto, merriweather } from "@/app/ui/fonts/fonts";
+
+
+interface NewsDetailsProps {
+  params: Promise<{ slug: any }>;
+}
 
 async function getNewsData(slug: string): Promise<NewsData | undefined> {
   return new Promise((resolve, reject) => {
@@ -13,7 +19,7 @@ async function getNewsData(slug: string): Promise<NewsData | undefined> {
   });
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata>{
   const resolvedParams = await params;  
   const newsItem = await getNewsData(resolvedParams.slug);
 
@@ -25,10 +31,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: newsItem?.description || "No description available",
     },
   };
-}
-
-interface NewsDetailsProps {
-  params: Promise<{ slug: string }>;
 }
 
 export default async function NewsDetails({ params }: NewsDetailsProps) {
