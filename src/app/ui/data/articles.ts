@@ -25,7 +25,7 @@ export type FeatureData = {
 };
 
 export type NewsData = {
-  id: string;
+  slug: string;
   type?: string;
   title?: string;
   description?: string;
@@ -226,7 +226,7 @@ export const newsItems: NewsItem[] = [
 
 export const newsData: NewsData[] = [
   {
-    id: "This-presentation-represents-the",
+    slug: "being-a-presentation-by-the-center-for-human-rights-accountability-network-chran-at-the-public-hearing-on-the-2025-appropriation-bill-held-at-the-akwa-ibom-state-house-assembly-on-monday-9th-december-2024-at-the-old-chapel-house-assembly-uyo",
     type: "News",
     title:
       "BEING A PRESENTATION BY THE CENTER FOR HUMAN RIGHTS & ACCOUNTABILITY NETWORK (CHRAN) AT THE PUBLIC HEARING ON THE 2025 APPROPRIATION BILL HELD AT THE AKWA IBOM STATE HOUSE OF ASSEMBLY ON MONDAY, 9th DECEMBER, 2024 AT THE OLD CHAPEL, HOUSE OF ASSEMBLY, UYO",
@@ -283,7 +283,7 @@ export const newsData: NewsData[] = [
     Text20: "Comrade (Barr.) Christopher Ekpo (Secretary)",
   },
   {
-    id: "CHRAN-Urges-Akwa-Ibom-State-Government",
+    slug: "chran-urges-akwa-ibom-state-government-to-upgrade-coe-to-university-status-calls-for-management-union-collaboration",
     type: "News",
     title:
       "CHRAN Urges Akwa Ibom State Government to Upgrade COE to University Status Calls for Management and Union Collaboration",
@@ -309,7 +309,7 @@ export const newsData: NewsData[] = [
       "CHRAN concluded its statement by urging the state government to act swiftly, noting that such a move would reinforce Akwa Ibom's position as a leader in educational innovation and development in Nigeria. The group pledged its support and readiness to partner with the government and all stakeholders in realizing this important goal.",
   },
   {
-    id: "CHRAN-Meets-New-Commissioner-of-Police",
+    slug: "chran-meets-new-commissioner-police-lauds-professional-handling-nlccsos-protest-in-akwa-ibom",
     type: "News",
     title:
       "CHRAN Meets New Commissioner of Police, Lauds Professional Handling of NLC/CSOs Protest in Akwa Ibom",

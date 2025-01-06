@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
           description: cardData.description || "No description available",
           images: [
             {
-              url: cardData.imageSrc,
+              url: cardData.videoSrc,
               width: 800,
               height: 600,
               alt: cardData.title,
