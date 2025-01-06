@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 interface NewsDetailsProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string }; // Directly use an object instead of a Promise
 }
 
 export default async function NewsDetails({ params }: NewsDetailsProps) {
