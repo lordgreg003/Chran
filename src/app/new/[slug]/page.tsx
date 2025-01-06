@@ -3,9 +3,9 @@ import { Metadata } from "next";
 import { newsData, NewsData } from "@/app/ui/data/articles";
 import { roboto, merriweather } from "@/app/ui/fonts/fonts";
 
-
+// Update the interface to use a plain object type for params
 interface NewsDetailsProps {
-  params: Promise<{ slug: any }>;
+  params: { slug: string };  // Remove the Promise wrapper
 }
 
 async function getNewsData(slug: string): Promise<NewsData | undefined> {
@@ -19,24 +19,24 @@ async function getNewsData(slug: string): Promise<NewsData | undefined> {
   });
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata>{
-  const resolvedParams = await params;  
-  const newsItem = await getNewsData(resolvedParams.slug);
+// Adjust `generateMetadata` to await the resolved params (no need to wrap params in a promise)
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const newsItem = await getNewsData(params.slug);
 
   return {
-    title: newsItem?.title,
+    title: newsItem?.title || "Blog not found",
     description: newsItem?.description || "No description available",
     openGraph: {
-      title: newsItem?.title,
+      title: newsItem?.title || "Blog not found",
       description: newsItem?.description || "No description available",
     },
   };
 }
 
+// Update the main component to handle params correctly
 export default async function NewsDetails({ params }: NewsDetailsProps) {
   try {
-    const resolvedParams = await params; // Await the params
-    const { slug } = resolvedParams;
+    const { slug } = params; // Directly destructure from params, no need to await
 
     const newsItem: NewsData | undefined = await getNewsData(slug);
     if (!newsItem) {
