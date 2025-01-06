@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+// Import the required types
 import { BlogCard, rightCardsData2 } from "@/app/ui/data/istdata";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
@@ -52,14 +53,18 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function CardDetails({ params }: { params: { slug: string } }) {
-  const slug = params.slug;
+interface CardDetailsProps {
+  params: { slug: string };
+}
+
+export default async function CardDetails({ params }: CardDetailsProps) {
+  const { slug } = params;
 
   try {
     const cardData: any = await getData(slug);
 
     return (
-      <div className="max-w-screen-lg mx-auto overflow-x-hidden py-8 px-4">
+      <div className="max-w-screen-lg mx-auto overflow-hidden py-8 px-4">
         {/* Header */}
         <h1 className={`${playfair_Display.className} text-2xl md:text-5xl font-bold mb-6 text-left`}>
           {cardData.title}
@@ -68,7 +73,7 @@ export default async function CardDetails({ params }: { params: { slug: string }
         {/* Content Layout (Flexbox for Image and Text) */}
         <div className="flex flex-col gap-8">
           {/* Image */}
-          <div className="w-full mb-6 ">
+          <div className="w-full mb-6">
             <Image
               src={cardData.imageSrc}
               alt={cardData.title}
@@ -78,9 +83,9 @@ export default async function CardDetails({ params }: { params: { slug: string }
               className="rounded-lg shadow-lg"
             />
           </div>
-          
+
           {/* Text Section */}
-          <div className="w-full ">
+          <div className="w-full">
             {/* Article Info */}
             <div className="mb-4">
               <span className={`${open_sans.className} text-sm md:text-base text-gray-500`}>
@@ -93,8 +98,22 @@ export default async function CardDetails({ params }: { params: { slug: string }
 
             {/* Description */}
             <div className="space-y-5">
-              {[cardData.description, cardData.description1, cardData.description2, cardData.description3, cardData.description4, cardData.description5, cardData.description6, cardData.description7, cardData.description8, cardData.description9].map((desc, index) => (
-                <p key={index} className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}>
+              {[
+                cardData.description,
+                cardData.description1,
+                cardData.description2,
+                cardData.description3,
+                cardData.description4,
+                cardData.description5,
+                cardData.description6,
+                cardData.description7,
+                cardData.description8,
+                cardData.description9,
+              ].map((desc, index) => (
+                <p
+                  key={index}
+                  className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}
+                >
                   {desc}
                 </p>
               ))}
