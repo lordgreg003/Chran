@@ -1,40 +1,45 @@
 import { Metadata } from "next";
-import { newsData } from "@/app/ui/data/articles";
+import { newsData, NewsData } from "@/app/ui/data/articles";
 import { roboto, merriweather } from "@/app/ui/fonts/fonts";
 
-async function getNewsData(slug: string) {
-  // Simulating fetching data from a data source
-  const newsItem = newsData.find((item) => item.slug.trim() === slug);
-  if (!newsItem) {
-    throw new Error("News not found");
-  }
-  return newsItem;
+async function getNewsData(slug: string): Promise<NewsData | undefined> {
+  return new Promise((resolve, reject) => {
+    const newsItem = newsData.find((item) => item.slug === slug);
+    if (newsItem) {
+      resolve(newsItem);
+    } else {
+      reject(new Error("Blog not found"));
+    }
+  });
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  // Ensure params are awaited before using
-  const { slug } = await params;  // Await the params object
-  const newsItem = await getNewsData(slug);
+  const resolvedParams = await params; // Await the params
+  const newsItem = await getNewsData(resolvedParams.slug);
 
   return {
-    title: newsItem.title,
-    description: newsItem.description || "No description available",
+    title: newsItem?.title,
+    description: newsItem?.description || "No description available",
     openGraph: {
-      title: newsItem.title,
-      description: newsItem.description || "No description available",
+      title: newsItem?.title,
+      description: newsItem?.description || "No description available",
     },
   };
 }
 
 interface NewsDetailsProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function NewsDetails({ params }: NewsDetailsProps) {
   try {
-    // Ensure params are awaited before using
-    const { slug } = await params;  // Await the params object
-    const newsItem = await getNewsData(slug);
+    const resolvedParams = await params; // Await the params
+    const { slug } = resolvedParams;
+
+    const newsItem: NewsData | undefined = await getNewsData(slug);
+    if (!newsItem) {
+      throw new Error("Blog not found");
+    }
 
     return (
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -96,18 +101,6 @@ export default async function NewsDetails({ params }: NewsDetailsProps) {
                 </p>
               )
           )}
-
-          {/* Observations */}
-          {/* <div>
-            {[newsItem.Observation, newsItem.Observation1, newsItem.Observation2].map(
-              (obs, index) =>
-                obs && (
-                  <p key={index} className={`${roboto.className} text-lg text-gray-950`}>
-                    {obs}
-                  </p>
-                )
-            )}
-          </div> */}
         </div>
       </div>
     );
