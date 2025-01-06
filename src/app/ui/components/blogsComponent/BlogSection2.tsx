@@ -45,7 +45,7 @@ export default function BlogLayout2() {
         <div className="md:col-span-2">
           <div className="relative">
             {/* Video */}
-            <Link href={`/blogs/${mainCardData2.slug}`}>
+            <Link href={`/blogs/details/${mainCardData2.slug}`}>
             <Image
                 src={mainCardData2.imageSrc}
                 alt={mainCardData2.title}
@@ -61,12 +61,12 @@ export default function BlogLayout2() {
 
           {/* Title and Description */}
           <h2 className={`${playfair_Display.className} mt-4 text-2xl font-semibold`}>
-            <Link href={`/blogs/${mainCardData2.slug}`} className="cursor-pointer">
+            <Link href={`/blogs/details/${mainCardData2.slug}`} className="cursor-pointer">
               {mainCardData2.title}
             </Link>
           </h2>
           <p className={`${open_sans.className} mt-2 text-gray-600`}>
-            <Link href={`/blogs/${mainCardData2.slug}`} className="cursor-pointer">
+            <Link href={`/blogs/details/${mainCardData2.slug}`} className="cursor-pointer">
               {mainCardData2.description}
             </Link>
           </p>

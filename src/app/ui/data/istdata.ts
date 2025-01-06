@@ -91,7 +91,7 @@ export interface BlogCard {
 }
 
 // Define the type for the main card
-interface MainCard {
+export interface MainCard {
   slug: string;
   videoSrc?: string;
   imageSrc: string;
