@@ -100,6 +100,15 @@ interface MainCard {
   description1?: string;
   description2?: string;
   description3?: string;
+  description4?: string;
+  description5?: string;
+  description6?: string;
+  description7?: string;
+  description8?: string;
+  description9?: string;
+  description10?: string;
+  description11?: string;
+  description12?: string;
   articleCount?: string;
   category?: string;
 }
@@ -419,26 +428,65 @@ export const mainCardData: MainCard = {
 
 export const rightCardsData2: BlogCard[] = [
   {
-    slug: "cso-calls-for-actualization-ibom-science-park",
+    slug: "rights-group-wants-gov-eno-to-revisit-abandoned-ibom-science-park-project",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089299/images-2024-12-19t2129153403168636743343004_etwhpi.jpg",
-    title: "CSO calls for actualization of Ibom Science Park",
+    title:
+      "Rights Group Wants Gov Eno To Revisit Abandoned Ibom Science Park Project",
     articleCount: "10 articles",
     description:
-      "The Center for Human Rights and Accountability Network, CHRAN, a non-governmental organisation, has raised concern over the abandoned Ibom Science Park in Akwa Ibom, which was conceptualised by the former Governor, Victor Attah.",
+      "The Center for Human Rights and Accountability Network (CHRAN) has decried the lofty vision of Ibom Science Park Project in Akwa Ibom State that has been allowed to waste away by successive administrations.",
+    description1:
+      "CHRAN, a foremost pro-democracy-cum-human rights and good governance advocacy organisation in Nigeria noted with sadness that Ibom Science Park project which was conceived by the former governor of the state,  Arc Victor Attah with over 27 hectares of land acquired for project, has now become a haven for criminals to hide and hatch their plans. ",
+    description2:
+      "It would be recalled that Ibom Science Park Project which was later abandoned by successive administration in the state after the exit of Gov Attah’s administration in 2008, was hoped to be a one-stop employment and wealth generations venture for the teaming youth, besides being economic booster for the state. ",
+    description3:
+      "Arising from its press statement signed by CHRAN Secretary, Comrade Christopher Ekpo and made available to New Nigerian in Uyo on Wednesday, the rights group appealed to Governor Umo Eno through the Ministry of Science and Technology to work towards the realisation and actualisation of the project ",
+    description4:
+      "“The Center urged the Ministry of Science and Technology to work towards the realisation and actualisation of the Ibom Science Park. The Center noted that the administration of Arc. Victor Attah that conceptualised the project acquired over 27 hectares of land in Itu Local Government Area for the siting of the project. The Center observed that the location has become a security threat to the host communities due to the abandonment of the Ibom Science Park by successive administrations.” The release stated.",
+    description5:
+      "CHRAN also urged the State’s Petroleum Products Monitoring Committee to be up and doing in order to ensure that the effort of the Governor Umo Eno to ensure that Akwa Ibom people are not shortchanged by owners and promoters of petroleum products filling stations in the State was not in vain",
+    description6:
+      "It lauded the state government for inaugurating the committee to check the excesses of petroleum marketers in the State and ensure the availability of petroleum products at reasonable prices. ",
+    description7:
+      "Taking appraisal of works done smtge state government in the last few years in the state, “CHRAN lauded the administration on the completion of the following roads: Ekparakwa/Ntak Ibesit Road in Oruk Anam Local Government Area; Ikot Eyo/Edem Idim Okpot/Mbiekene/Nnung Obong/Ikot Ntung/East West Road in Nsit Ubuim.",
+    description8:
+      "“Ikot Obio Offong/Enen Nsit Road; Mkpat Enin/Ikot Ubo/Ikot Ntot Road; Urueffong/Utuku/ Ibotong Road in Urueffong Oruko Local Government Area; Spring Road in Ikot Ekpene, and Ndiya Street at the Akpan Andem Market. The Center commended the administration on the ongoing construction of the 8km Ikot Ekan/Ikot Akpanya/Ikot Ebo Ikono Road in Etinan and Uyo local government. ",
+    description9:
+      "The CHRAN, being a foremost pro-democracy-cum-human rights and good governance advocacy organisation in Nigeria committed to holding governments and public office holders accountable to the people stated its commitment to continue to engage the Government of Akwa Ibom State and its agencies constructively in the remaining two and a half years of the Pastor Umo Eno-led administration with a view to facilitating the delivery of good governance to the people of Akwa Ibom State.” The release added.",
+    description10: "",
     category: "CHRAN",
     images: [],
   },
   {
-    slug: "cso-decries-poor-funding-state-infrastructure-at-akwa-ibom-judiciary",
+    slug: "democracy-day-review-nigerias-constitution-long-overdue-rights-group",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089430/IMG-20240612-WA0015_bxuxhy.webp",
     title:
-      "CSO Decries Poor Funding, State Of Infrastructure At Akwa Ibom Judiciary",
+      "A human rights organisation, Center for Human Rights and Accountability Network (CHRAN), said the review or overhaul of the 1999 constitution to accommodate the current realities in Nigeria is long overdue.",
     articleCount: "8 articles",
     category: "CHRAN",
     description:
-      "The Centre for Human Rights and Accountability Network (CHRAN) has expressed dismay over poor funding and decaying infrastructure crippling the Akwa Ibom judicial system.",
+      "The Director of CHRAN, Otuekong Franklyn Isong, speaking in Uyo on Wednesday during a symposium to mark the 2024 Democracy Day in Nigeria with the theme “Civil Society as the Pivot of Good Governance in a Democratic Setting,” stated that the current Nigerian democracy “is founded on a constitution that the General Abdulsalami Abubakar-led military junta hurriedly packaged and imposed on Nigerians using Decree No. 24 of 1999.",
+    description1:
+      "He observed that the constitution, which is now twenty-five years in existence, has not effectively addressed Nigeria’s multifarious problems and challenges, saying, “There is no doubt that the extant constitution requires a fundamental review, if not a complete overhaul.”",
+    description2:
+      "Enumerating the lapses of the 1999 constitution, the director noted, “Section 2(2) of the Constitution of the Federal Republic of Nigeria, 1999 (as amended), states that Nigeria shall be a federation consisting of states and a Federal Capital Territory. It excludes the local government areas as part of the federation, thus impeding grassroots development in Nigeria.",
+    description3:
+      "“In Section 7(1) of the Nigerian Constitution, the system of local government by democratically elected local government councils is guaranteed. But the funding of the local government areas is tied to the apron strings and control of the state governments in Section 162(6) of the Constitution, which states that each state shall maintain a special account to be called ‘State Joint Local Government Account’ into which shall be paid all allocations to the local government councils of the state from the Federation Account and from the government of the state.",
+    description4:
+      "“Again, the State Independent Electoral Commissions (SIECs) are provided for in Section 197(1)(b) of the Constitution while their funding is in the hands of state governments, making the SIECs an appendage of the state governors.”",
+    description5:
+      "He, however, commended Governor Umo Eno for allowing the funds of the local government councils to get to them, saying, “This information was verified during the just concluded tour of the 31 local government councils by the Akwa Ibom State House of Assembly Committee on Local Government and Chieftaincy Affairs, with the CHRAN as a part of the team.”",
+    description6:
+      "Isong also noted that for the 25 years of uninterrupted democracy in Nigeria, the country is still searching for capable leaders and true democrats at the helm of affairs, stressing, “leaders who would enact the aspirations of the presumed winner of the June 12, 1993 Presidential Election, Chief Moshood Abiola.”",
+    description7:
+      "While wishing President Bola Tinubu success in his administration, the director urged him, as one of the frontline June 12 activists, to implement the ethos of democracy and make his government people-centric.",
+    description8:
+      "He urged him to revisit the policy on the fuel subsidy and reverse it in line with the popular opinion of Nigerians, as the policy has failed to achieve its desired intention.",
+    description9:
+      "“I believe that Mr. President has good intentions for this country. He has demonstrated the capacity to provide good governance to Nigerians. I wish he listened to the plea of Nigerians by reversing the fuel subsidy removal. The strength of character of a good leader is when the leader listens to his followers and makes amends. Surely, Nigeria shall be great again!” he stated.",
+    description10: "",
     images: [],
   },
 ];
@@ -460,18 +508,38 @@ export const mainCardData1: MainCard = {
 };
 
 export const mainCardData2: MainCard = {
-  slug: "gov-umo-eno-cso-presents-18-months-scorecard-rates-performance-high",
-  videoSrc:
-    "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1735884422/compressed_video2_otvu5o.mp4",
+  slug: "group-seeks-govt-intervention-to-reverse-poor-underfunding-facilities-in-aibom-judiciaryv-umo-eno-cso-presents-18-months-scorecard-rates-performance-high",
+  videoSrc: "",
   imageSrc:
     "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089135/Akwa-Ibom-State-Governor-Umo-Eno_azdchi.jpg",
   title:
-    "GOV UMO ENO: CSO PRESENTS 18-MONTHS SCORECARD, RATES PERFORMANCE HIGH",
-  description: "- THANKS MEDIA PARTNERS",
+    "Group Seeks Govt Intervention To Reverse Poor Underfunding, Facilities In A’Ibom Judiciary",
+  description:
+    "A non-governmental organisation commited to good governance, Center for Human Rights and Accountability Network, has raised concern over the underfunding and poor state of infrastructure in the state judicial system.",
   description1:
     "A foremost good governance-cum-human rights organisation in Nigeria, the Center For Human Rights and Accountability Network (CHRAN) has presented its independent scorecard of the Governor of Akwa Ibom State, Pastor Umo Eno, PhD, in a well-attended Thank You Media Parley organised in its Conference Hall, Uyo, Akwa Ibom State, on Monday, 23rd December, 2024, to mark its End of Year Activities in 2024.",
-  description2: "#ADBNTV",
-  description3: "#CHRAN_ADVOCACY ",
+  description2:
+    "This is as it called on the governor of Akwa Ibom State, Umo Eno, to urgently intervene by undertaking holistic renovation of the courts spread across the 31 local government areas of the state and recruit personnel to strengthen the system.",
+  description3:
+    "He said “The CHRAN drew the attention of the state administration to the issues of understaffing and poor state of infrastructure and facilities, including toilets, fittings, water, in the courts spread across the 31 local government areas in Akwa Ibom State.",
+  description4:
+    "“The Center appealed to the state government to ensure the recruitment of personnel into the state judiciary and also give a facelift to the courts spread across the 31 local government areas in Akwa Ibom State.”",
+  description5:
+    "The state director, who was giving sectoral assessment during the media parley also drew the attention of the governor to the abandoned divisional library located at Udotung Ubo Street, which he noted was established by the military administration in the defunct South Eastern State",
+  description6:
+    "“The Center recalled that the Divisional Library at Udotung Ubo Street, which now harbours the Akwa Ibom State Library Board, Uyo, was built and stocked about half a century ago by the then military administration in the defunct South Eastern State.”",
+  description7:
+    "He further expressed concern on the closure of Calabar-Itu Highway due to the ongoing construction of Tabernacle Road and flood control project in the state, lamenting that the closure has brought serious economic challenges to residents and motorists plying the road",
+  description8:
+    "He enthused, “The Center observed that the long closure of Calabar-Itu Highway by Itam flyover due to the ongoing Tabernacle Road construction and flood control project has posed serious economic challenges to residents and motorists, plying that axis of the road. The Center called for expeditious attention by the contractors and the supervising ministry.”",
+  description9:
+    "He also frowned at the dormant state of the multi-billion naira Ibom e-Library, adding that findings by the group had revealed that the place is no longer functioning as a library",
+  description10:
+    "The Center urged urgent action to revitalise the Ibom e-Library and other public libraries in the state.",
+  description11:
+    "On anti-open grazing law, the director who lauded the  enactment of the state Anti-Open Grazing Law by the administration of Mr. Udom Emmanuel,  however, lamented that the law is only been partially enforced in some parts of the state.",
+  description12:
+    "He urged the Ministry of Agriculture and Rural Development, and the Ministry of Internal Security and Waterways to fully implement the law across the state as a step to checking grazing of cattle on farmlands.”",
   articleCount: "3 articles",
   category: "CHRAN",
 };
