@@ -53,15 +53,18 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 interface CardDetailsProps {
-  params: Promise<{ slug: string }>; // Fix: Use Promise type for params
+  params: { slug: string }; // The params type is now correctly defined
 }
 
 export default async function CardDetails({ params }: CardDetailsProps) {
-  try {
-    const resolvedParams = await params; // Await the params to resolve
-    const { slug } = resolvedParams;
+  const { slug } = params; // Extract the slug directly from params
 
-    const cardData: any = await getData(slug);
+  try {
+    const cardData: BlogCard | undefined = await getData(slug);
+
+    if (!cardData) {
+      throw new Error("Blog not found");
+    }
 
     return (
       <div className="max-w-screen-lg mx-auto overflow-x-hidden py-8 px-4">
