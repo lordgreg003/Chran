@@ -52,11 +52,24 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 interface CardDetailsProps {
-  params: { slug: string };
+  params: { slug: string }; // Correct way to type props in App Router
+  // Optional search params
+  searchParams: { [key: string]: string | string[] | undefined }; 
 }
 
-export default async function CardDetails({ params }: CardDetailsProps) {
+
+export default async function CardDetails({ params, searchParams }: CardDetailsProps) {
   const { slug } = params;
+
+  if (searchParams.utm_source) {
+    console.log("UTM Source:", searchParams.utm_source);
+    // Use the value, e.g., for analytics tracking
+  }
+
+  if (searchParams.category) {
+    console.log("Category Filter:", searchParams.category);
+    // Use the value to filter data or change the UI
+  }
 
   try {
     const cardData = await getData(slug);
