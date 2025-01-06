@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// Import the required types
 import { BlogCard, rightCardsData2 } from "@/app/ui/data/istdata";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
@@ -10,7 +9,7 @@ async function getData(slug: string): Promise<BlogCard | undefined> {
     const cardData = rightCardsData2.find((card) => card.slug === slug);
 
     if (cardData) {
-      resolve(cardData); // Now it knows it's of type BlogCard
+      resolve(cardData);
     } else {
       reject(new Error("Blog not found"));
     }
@@ -54,17 +53,18 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 interface CardDetailsProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // Fix: Use Promise type for params
 }
 
 export default async function CardDetails({ params }: CardDetailsProps) {
-  const { slug } = params;
-
   try {
+    const resolvedParams = await params; // Await the params to resolve
+    const { slug } = resolvedParams;
+
     const cardData: any = await getData(slug);
 
     return (
-      <div className="max-w-screen-lg mx-auto overflow-hidden py-8 px-4">
+      <div className="max-w-screen-lg mx-auto overflow-x-hidden py-8 px-4">
         {/* Header */}
         <h1 className={`${playfair_Display.className} text-2xl md:text-5xl font-bold mb-6 text-left`}>
           {cardData.title}
@@ -73,7 +73,7 @@ export default async function CardDetails({ params }: CardDetailsProps) {
         {/* Content Layout (Flexbox for Image and Text) */}
         <div className="flex flex-col gap-8">
           {/* Image */}
-          <div className="w-full mb-6">
+          <div className="w-full mb-6 ">
             <Image
               src={cardData.imageSrc}
               alt={cardData.title}
@@ -85,7 +85,7 @@ export default async function CardDetails({ params }: CardDetailsProps) {
           </div>
 
           {/* Text Section */}
-          <div className="w-full">
+          <div className="w-full ">
             {/* Article Info */}
             <div className="mb-4">
               <span className={`${open_sans.className} text-sm md:text-base text-gray-500`}>
@@ -110,10 +110,7 @@ export default async function CardDetails({ params }: CardDetailsProps) {
                 cardData.description8,
                 cardData.description9,
               ].map((desc, index) => (
-                <p
-                  key={index}
-                  className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}
-                >
+                <p key={index} className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}>
                   {desc}
                 </p>
               ))}
