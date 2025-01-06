@@ -1,12 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Metadata } from "next";
 import { newsData, NewsData } from "@/app/ui/data/articles";
 import { roboto, merriweather } from "@/app/ui/fonts/fonts";
 
-// Update the interface to use a plain object type for params
-interface NewsDetailsProps {
-  params: { slug: string };  // Remove the Promise wrapper
-}
+
 
 async function getNewsData(slug: string): Promise<NewsData | undefined> {
   return new Promise((resolve, reject) => {
@@ -33,11 +29,16 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
+interface NewsDetailsProps {
+  params: Promise<{ slug: string }>;  
+}
+
 // Update the main component to handle params correctly
 export default async function NewsDetails({ params }: NewsDetailsProps) {
-  try {
-    const { slug } = params; // Directly destructure from params, no need to await
+  const resolvedParams = await params; 
+  const { slug } = resolvedParams;
 
+  try {
     const newsItem: NewsData | undefined = await getNewsData(slug);
     if (!newsItem) {
       throw new Error("Blog not found");
