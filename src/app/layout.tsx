@@ -5,7 +5,7 @@ import ReduxProvider from "./ui/utils/ReduxProvider";
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("www.chran.org"),
+  metadataBase: new URL("https://www.chran.org"),
   title: {default: "Chran", template: "%s | Explore Chran"},
   description: "The Center For HUman Rights & Accountability Network",
   openGraph : {title: {default: "Chran", template: "%s | Explore Chran"}, 
