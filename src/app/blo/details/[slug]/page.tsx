@@ -1,8 +1,9 @@
+import { Metadata } from "next";
 import { BlogCard, rightCardsData2 } from "@/app/ui/data/istdata";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
 
-// Simulate fetching data (replace with your actual data fetching)
+// Simulate fetching data from rightCardsData2
 async function getData(slug: string): Promise<BlogCard | undefined> {
   return new Promise((resolve, reject) => {
     const cardData = rightCardsData2.find((card) => card.slug === slug);
@@ -15,12 +16,13 @@ async function getData(slug: string): Promise<BlogCard | undefined> {
   });
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  try {
-    const cardData = await getData(params.slug);
+// Update `generateMetadata` to await params
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params; // Await the params
+  const cardData = await getData(resolvedParams.slug);
 
-    if (cardData) {
-      return {
+  return cardData
+    ? {
         title: cardData.title,
         description: cardData.description || "No description available",
         openGraph: {
@@ -35,62 +37,38 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             },
           ],
         },
-      };
-    } else {
-      return {
+      }
+    : {
         title: "Blog not found",
         description: "Sorry, the blog you are looking for does not exist.",
       };
-    }
-  } catch (error) {
-    console.error(error);
-    return {
-      title: "Error fetching data",
-      description: "An error occurred while fetching the blog data.",
-    };
-  }
 }
 
 interface CardDetailsProps {
-  params: { slug: string }; // Correct way to type props in App Router
-  // Optional search params
-  searchParams: { [key: string]: string | string[] | undefined }; 
+  params: Promise<{ slug: string }>; // Treat params as a Promise
 }
 
-
-export default async function CardDetails({ params, searchParams }: CardDetailsProps) {
-  const { slug } = params;
-
-  if (searchParams.utm_source) {
-    console.log("UTM Source:", searchParams.utm_source);
-    // Use the value, e.g., for analytics tracking
-  }
-
-  if (searchParams.category) {
-    console.log("Category Filter:", searchParams.category);
-    // Use the value to filter data or change the UI
-  }
+// Update the main component to handle async params
+export default async function CardDetails({ params }: CardDetailsProps) {
+  const resolvedParams = await params; // Await the params
+  const { slug } = resolvedParams;
 
   try {
-    const cardData = await getData(slug);
+    const cardData: BlogCard | undefined = await getData(slug);
 
     if (!cardData) {
-      return (
-        <div className="text-center py-10">
-          <h2 className="text-2xl font-bold text-gray-700">Blog    Post Not Found</h2>
-          <p className="text-gray-500">The blog post with slug &quot;{slug}&quot; could not be found.</p>
-        </div>
-      );
+      throw new Error("Blog not found");
     }
 
     return (
       <div className="max-w-screen-lg mx-auto overflow-x-hidden py-8 px-4">
-        <h1 className={`${playfair_Display.className} text-2xl md:text-5xl font-bold mb-6 text-left`}>
+        <h1
+          className={`${playfair_Display.className} text-2xl md:text-5xl font-bold mb-6 text-left`}
+        >
           {cardData.title}
         </h1>
-
         <div className="flex flex-col gap-8">
-          <div className="w-full mb-6 ">
+          <div className="w-full mb-6">
             <Image
               src={cardData.imageSrc}
               alt={cardData.title}
@@ -100,17 +78,17 @@ export default async function CardDetails({ params, searchParams }: CardDetailsP
               className="rounded-lg shadow-lg"
             />
           </div>
-
-          <div className="w-full ">
+          <div className="w-full">
             <div className="mb-4">
-              <span className={`${open_sans.className} text-sm md:text-base text-gray-500`}>
+              <span
+                className={`${open_sans.className} text-sm md:text-base text-gray-500`}
+              >
                 Articles: {cardData.articleCount}
               </span>
               <span className="ml-4 px-3 py-1 bg-gray-200 text-gray-700 text-sm md:text-base rounded">
                 {cardData.category}
               </span>
             </div>
-
             <div className="space-y-5">
               {[
                 cardData.description,
@@ -124,11 +102,12 @@ export default async function CardDetails({ params, searchParams }: CardDetailsP
                 cardData.description8,
                 cardData.description9,
               ].map((desc, index) => (
-                desc ? (
-                  <p key={index} className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}>
-                    {desc}
-                  </p>
-                ) : null
+                <p
+                  key={index}
+                  className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}
+                >
+                  {desc}
+                </p>
               ))}
             </div>
           </div>
@@ -136,13 +115,8 @@ export default async function CardDetails({ params, searchParams }: CardDetailsP
       </div>
     );
   } catch (error) {
-    console.error("Error fetching blog data:", error);
-    return (
-      <div className="text-center py-10">
-        <h2 className="text-2xl font-bold text-red-500">Error Loading Blog Post</h2>
-        <p className="text-gray-500">An error occurred while loading the blog post. Please try again later.</p>
-        {process.env.NODE_ENV === 'development' && <p className="text-red-500">{error instanceof Error ? error.message : "An unexpected error occurred"}</p>}
-      </div>
-    );
+    console.error(error);
+
+    return <p className="text-center text-red-500">An error occurred.</p>;
   }
 }
