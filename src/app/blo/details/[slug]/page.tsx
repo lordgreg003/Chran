@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BlogCard, rightCardsData2 } from "@/app/ui/data/istdata";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
@@ -53,11 +52,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 interface CardDetailsProps {
-  params: { slug: string }; // The params type is now correctly defined
+  params: { slug: string };  
 }
 
 export default async function CardDetails({ params }: CardDetailsProps) {
-  const { slug } = params; // Extract the slug directly from params
+  const { slug } = params;  
 
   try {
     const cardData: BlogCard | undefined = await getData(slug);
