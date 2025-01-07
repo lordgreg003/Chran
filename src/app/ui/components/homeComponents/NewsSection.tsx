@@ -54,7 +54,7 @@ const NewsSection: React.FC = () => {
       {/* Render Limited News Items */}
       {newsData.slice(0, 5).map((newsItem) => (
         <motion.div
-          key={newsItem.id}
+          key={newsItem.slug}
           className="mb-8"
           initial={{ opacity: 0, y: 50 }}
           animate={{
@@ -63,20 +63,20 @@ const NewsSection: React.FC = () => {
           }} // Slide and fade in when in view
           transition={{ duration: 0.75, ease: "easeOut" }}
         >
-          <Link href={`/new/${newsItem.id}`} className={`${open_sans.className} text-sm text-red-500 mb-1 hover:underline`}>
+          <Link href={`/new/${newsItem.slug}`} className={`${open_sans.className} text-sm text-red-500 mb-1 hover:underline`}>
             {newsItem.type}
           </Link>
           <Link
-            href={`/new/${newsItem.id}`}
+            href={`/new/${newsItem.slug}`}
             className={`${playfair_Display.className} text-2xl font-semibold text-gray-800 hover:underline block mt-2`}
           >
             {newsItem.title}
           </Link>
-          <Link href={`/new/${newsItem.id}`} className={`${open_sans.className} text-gray-600 mt-1 block hover:underline`}>
+          <Link href={`/new/${newsItem.slug}`} className={`${open_sans.className} text-gray-600 mt-1 block hover:underline`}>
             {newsItem.description}
           </Link>
           <div className="flex items-center gap-4 text-sm text-gray-500 mt-2">
-            <Link href={`/new/${newsItem.id}`} className={`${open_sans.className} hover:underline`}>
+            <Link href={`/new/${newsItem.slug}`} className={`${open_sans.className} hover:underline`}>
               By {newsItem.author}
             </Link>
             <span>{newsItem.date}</span>
@@ -85,7 +85,7 @@ const NewsSection: React.FC = () => {
             {newsItem.categories?.map((category, index) => (
               <Link
                 key={index}
-                href={`/new/${newsItem.id}`}
+                href={`/new/${newsItem.slug}`}
                 className={`${open_sans.className} border border-gray-400 px-2 py-1 rounded text-gray-700 hover:underline`}
               >
                 {category}
