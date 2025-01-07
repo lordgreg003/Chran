@@ -115,3 +115,14 @@
 //     return <p className="text-center text-red-500">An error occurred.</p>;
 //   }
 // }
+import React from 'react'
+
+const page = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default page
