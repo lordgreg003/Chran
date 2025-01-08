@@ -1,5 +1,5 @@
 "use client";
- 
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "next/navigation";
@@ -7,6 +7,11 @@ import { AppDispatch, RootState } from "@/redux/store";
 import { getArticleById } from "@/redux/articleSlice";
 import "animate.css"; // Import animate.css for animations
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
+
+// Function to convert line breaks to <br> tags
+export const linebreaksToBr = (content: string) => {
+  return content.replace(/\r\n/g, "<br>"); // Replaces carriage return + newline with <br>
+};
 
 const ArticleDetails: React.FC = () => {
   const params = useParams(); // Access route parameters
@@ -34,6 +39,9 @@ const ArticleDetails: React.FC = () => {
     return <div>No article found</div>;
   }
 
+  // Convert the article content to include <br> tags
+  const formattedArticle = linebreaksToBr(article.article);
+
   return (
     <div className="container mx-auto p-4 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-900 transition-colors duration-300">
       <h1 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-400 animate__animated animate__fadeIn">
@@ -47,7 +55,12 @@ const ArticleDetails: React.FC = () => {
         <p className="text-sm text-gray-500">
           Created At: {new Date(article.createdAt).toLocaleDateString()}
         </p>
-        <p className={`${open_sans.className} mt-4 text-lg`}>{article.article}</p>
+        <p
+          className={`${open_sans.className} mt-4 text-lg`}
+          // Use dangerouslySetInnerHTML to render HTML content
+          dangerouslySetInnerHTML={{ __html: formattedArticle }}
+          style={{ marginBottom: '1.5em', lineHeight: '1.6' }} 
+        />
       </div>
     </div>
   );

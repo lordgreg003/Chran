@@ -11,10 +11,10 @@ const page = () => {
   return (
     <div>
       <Navbar />
+      <Blogs />
       <BlogSection1 />
       <BlogLayout2 />
       <BlogLayout3 />
-      <Blogs />
       <ShowMoreLayout />
      
       <Footer />
