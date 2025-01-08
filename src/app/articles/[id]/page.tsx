@@ -8,10 +8,7 @@ import { getArticleById } from "@/redux/articleSlice";
 import "animate.css"; // Import animate.css for animations
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 
-// Function to convert line breaks to <br> tags
-export const linebreaksToBr = (content: string) => {
-  return content.replace(/\r\n/g, "<br>"); // Replaces carriage return + newline with <br>
-};
+
 
 const ArticleDetails: React.FC = () => {
   const params = useParams(); // Access route parameters
@@ -39,8 +36,7 @@ const ArticleDetails: React.FC = () => {
     return <div>No article found</div>;
   }
 
-  // Convert the article content to include <br> tags
-  const formattedArticle = linebreaksToBr(article.article);
+   const formattedArticle = (article.article);
 
   return (
     <div className="container mx-auto p-4 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-900 transition-colors duration-300">
