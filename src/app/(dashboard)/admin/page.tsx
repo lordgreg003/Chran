@@ -1,12 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { BlogPost, createBlogPost } from "@/redux/blogSlice";
 import { compressImage } from "@/app/ui/utils/imageCompressor";
- 
-const AdminDashboard = () => {
+import dynamic from "next/dynamic";
+
+// Dynamically import AdminDashboard with SSR disabled
+const AdminDashboard = dynamic(() => import("@/app/(dashboard)/admin/page"), { ssr: false });
+
+const AdminDashboardComponent = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [videoFiles, setVideoFiles] = useState<File[]>([]);
@@ -107,13 +110,9 @@ const AdminDashboard = () => {
           <div className="mb-3 relative">
             {previewUrls.map((url, index) => (
               <div key={index} className="relative mb-2">
-                <Image
+                <img
                   src={url}
                   alt={`Selected preview ${index}`}
-                  layout="responsive"
-                  width={100}
-                  height={100}
-                  quality={100}
                   className="rounded-t-lg object-cover"
                 />
                 <button
@@ -186,8 +185,11 @@ const AdminDashboard = () => {
           Submit
         </button>
       </div>
+
+      {/* Dynamically rendered Admin Dashboard */}
+      <AdminDashboard />
     </div>
   );
 };
 
-export default AdminDashboard;
+export default AdminDashboardComponent;
