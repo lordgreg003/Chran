@@ -1,5 +1,3 @@
-"use client";
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -132,7 +130,7 @@ export const deleteBlogPost = createAsyncThunk<
   try {
     console.log(`Deleting post with id: ${id}`); // Log the id being deleted
     await axios.delete(`https://chran-backend-1.onrender.com/api/blogs/${id}`);
-    console.log(`Post with id: ${id} deleted successfully`);  
+    console.log(`Post with id: ${id} deleted successfully`);
     return id; // Return the deleted post ID to update the state
   } catch (error) {
     console.error("Error deleting post:", error); // Log the error if it occurs
