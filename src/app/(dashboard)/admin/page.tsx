@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { BlogPost, createBlogPost } from "@/redux/blogSlice";
-import dynamic from "next/dynamic";
+ 
 
 // const AdminDashboard = dynamic(() => import("@/app/(dashboard)/admin/page"), { ssr: false });
 
