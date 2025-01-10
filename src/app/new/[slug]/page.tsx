@@ -17,9 +17,9 @@
 
 // // Adjust `generateMetadata` to await the resolved params (no need to wrap params in a promise)
 // export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+//   const resolvedParams = await params;  // Await params here
 
-//   const resolvedParams = await params;  
-//   const newsItem = await getNewsData(resolvedParams.slug);
+//   const newsItem = await getNewsData(resolvedParams.slug);  // Now access resolved slug
 
 //   return {
 //     title: newsItem?.title || "Blog not found",
@@ -31,14 +31,14 @@
 //   };
 // }
 
+
 // interface NewsDetailsProps {
-//   params: Promise<{ slug: string }>;  
+//   params: Promise<{ slug: string }>;  // Ensure it's a Promise
 // }
 
-// // Update the main component to handle params correctly
 // export default async function NewsDetails({ params }: NewsDetailsProps) {
-//   const resolvedParams = await params; 
-//   const { slug } = resolvedParams;
+//   const resolvedParams = await params;  // Await params before accessing it
+//   const { slug } = resolvedParams;  // Now access resolved slug
 
 //   try {
 //     const newsItem: NewsData | undefined = await getNewsData(slug);
@@ -115,6 +115,7 @@
 //     return <p className="text-center text-red-500">An error occurred.</p>;
 //   }
 // }
+
 import React from 'react'
 
 const page = () => {
@@ -126,3 +127,4 @@ const page = () => {
 }
 
 export default page
+
