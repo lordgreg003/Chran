@@ -1,5 +1,4 @@
 "use client";
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -22,10 +21,9 @@ interface BlogState {
   error: string | null;
 }
 
-// Helper functions to handle localStorage
 const loadPostsFromLocalStorage = (): BlogPost[] => {
   if (typeof window === "undefined") {
-    return [];
+    return []; // Return an empty array during SSR
   }
 
   try {

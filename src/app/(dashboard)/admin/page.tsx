@@ -4,11 +4,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { BlogPost, createBlogPost } from "@/redux/blogSlice";
-import { compressImage } from "@/app/ui/utils/imageCompressor";
 import dynamic from "next/dynamic";
 
-// Dynamically import AdminDashboard with SSR disabled
-const AdminDashboard = dynamic(() => import("@/app/(dashboard)/admin/page"), { ssr: false });
+// const AdminDashboard = dynamic(() => import("@/app/(dashboard)/admin/page"), { ssr: false });
 
 const AdminDashboardComponent = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,36 +15,24 @@ const AdminDashboardComponent = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
+  const [isClient, setIsClient] = useState(false);
 
-  // Ensure this only runs on the client side
   useEffect(() => {
-    if (typeof window === "undefined") return; // Only run on the client
+    setIsClient(true); // Runs only on the client side
   }, []);
 
-  const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (typeof window === "undefined") return; // Ensure this runs only on the client
+  if (!isClient) {
+    return null; // Or a loading state
+  }
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = event.target.files ? Array.from(event.target.files) : [];
-    try {
-      const compressedFiles = await Promise.all(
-        selectedFiles.map(async (file) => {
-          const compressedFile = await compressImage(file, {
-            maxSizeMB: 2,
-            maxHeight: 800,
-            maxWidth: 800,
-          });
-          return new File([compressedFile], file.name, { type: file.type });
-        })
-      );
-      const previewUrls = compressedFiles.map((file) => URL.createObjectURL(file));
-      setImageFiles((prevFiles) => [...prevFiles, ...compressedFiles]);
-      setPreviewUrls((prevPreviews) => [...prevPreviews, ...previewUrls]);
-    } catch (error) {
-      console.error("Error compressing images:", error);
-    }
+    const previewUrls = selectedFiles.map((file) => URL.createObjectURL(file));
+    setImageFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
+    setPreviewUrls((prevPreviews) => [...prevPreviews, ...previewUrls]);
   };
 
   const handleVideoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (typeof window === "undefined") return; // Ensure this runs only on the client
     const selectedFiles = event.target.files ? Array.from(event.target.files) : [];
     setVideoFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
     const videoPreviews = selectedFiles.map((file) => URL.createObjectURL(file));
@@ -108,6 +94,8 @@ const AdminDashboardComponent = () => {
                   src={url}
                   alt={`Preview ${index}`}
                   className="rounded-t-lg object-cover"
+                  width={300}
+                  height={200}
                 />
                 <button
                   onClick={() => removePreview(index)}
@@ -139,7 +127,7 @@ const AdminDashboardComponent = () => {
           Submit
         </button>
       </div>
-      <AdminDashboard />
+      {/* <AdminDashboard /> */}
     </div>
   );
 };
