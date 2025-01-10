@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { BlogPost, createBlogPost } from "@/redux/blogSlice";
@@ -17,6 +17,11 @@ const AdminDashboardComponent = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [previewUrls, setPreviewUrls] = useState<string[]>([]);
+
+  // Ensure this only runs on the client side
+  useEffect(() => {
+    if (typeof window === "undefined") return; // Only run on the client
+  }, []);
 
   const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (typeof window === "undefined") return; // Ensure this runs only on the client
