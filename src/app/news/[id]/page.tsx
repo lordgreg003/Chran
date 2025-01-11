@@ -1,8 +1,7 @@
 "use client";
 import { newsItems1 } from '@/app/ui/data/istdata';
 import { useParams } from "next/navigation";
-import Footer from "@/app/ui/components/layoutComponents/Footer";
-import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
+ import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 
 
 const NewsDetail: React.FC = () => {
@@ -30,8 +29,6 @@ const NewsDetail: React.FC = () => {
                     <p>{newsItem.date}</p>
                 </div>
             </div>
-
-             <Footer />
         </div>
     );
 };

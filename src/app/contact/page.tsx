@@ -1,16 +1,14 @@
 "use client";
 import React from "react";
-import Navbar from "../ui/components/layoutComponents/navbar";
-import Contact from "../ui/components/contactcomponents/Contact";
-import Footer from "../ui/components/layoutComponents/Footer";
-
+ import Contact from "../ui/components/contactcomponents/Contact";
+import Marquee from "../ui/components/layoutComponents/Marquee";
+ 
 const page = () => {
   return (
     <div>
-      <Navbar />
-      <Contact />
-      <Footer />
-    </div>
+      <Marquee />
+       <Contact />
+     </div>
   );
 };
 

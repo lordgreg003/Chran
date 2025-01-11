@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "next/navigation";
@@ -7,8 +6,6 @@ import { AppDispatch, RootState } from "@/redux/store";
 import { getArticleById } from "@/redux/articleSlice";
 import "animate.css"; // Import animate.css for animations
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
-
-
 
 const ArticleDetails: React.FC = () => {
   const params = useParams(); // Access route parameters

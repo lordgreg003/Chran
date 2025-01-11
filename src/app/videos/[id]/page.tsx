@@ -1,8 +1,7 @@
 "use client";
 import { featureData } from "@/app/ui/data/articles";
 import { useParams } from "next/navigation";
-import Footer from "@/app/ui/components/layoutComponents/Footer";
-
+ 
  
 const FeatureDetail: React.FC = () => {
     const params = useParams(); // Access route parameters
@@ -40,7 +39,7 @@ const FeatureDetail: React.FC = () => {
           className="rounded-md w-full h-full object-cover"
         />
       </div>
-      <Footer />
+    
     </div>
   );
 };

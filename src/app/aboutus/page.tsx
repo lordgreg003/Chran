@@ -1,16 +1,15 @@
  import React from 'react';
-import Navbar from '../ui/components/layoutComponents/navbar';
-import CHRNAboutSection from '../ui/components/aboutComponents/CHRNAboutSection';
-import Footer from '../ui/components/layoutComponents/Footer';
-import Mission from '../ui/components/aboutComponents/Mission';
+ import CHRNAboutSection from '../ui/components/aboutComponents/CHRNAboutSection';
+ import Mission from '../ui/components/aboutComponents/Mission';
+import Marquee from '../ui/components/layoutComponents/Marquee';
  
  const page = () => {
    return (
      <div>
-       <Navbar />
+     <Marquee />
       <Mission />
       <CHRNAboutSection />
-      <Footer />
+      
      </div>
    )
  }

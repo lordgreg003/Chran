@@ -1,7 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation'; // Import useRouter hook for navigation
-import Footer from '@/app/ui/components/layoutComponents/Footer';
-import { useParams } from 'next/navigation';
+ import { useParams } from 'next/navigation';
 import { mainCardData } from '@/app/ui/data/istdata';
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
  
@@ -59,7 +58,6 @@ export default function BlogDetail() {
         </div>
       </div>
 
-      <Footer />
-    </div>
+     </div>
   );
 }

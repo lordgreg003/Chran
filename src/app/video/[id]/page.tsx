@@ -3,8 +3,6 @@ import { featureData1 } from "@/app/ui/data/istdata";
 import { open_sans } from "@/app/ui/fonts/fonts";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import Footer from "@/app/ui/components/layoutComponents/Footer";
-
 
 const FeatureDetail: React.FC = () => {
     const params = useParams(); // Access route parameters
@@ -59,7 +57,7 @@ const FeatureDetail: React.FC = () => {
                 <p className={`${open_sans.className} text-xl text-gray-700 underline`}>{feature.text4}</p>
                 <p className={`${open_sans.className} text-xl text-gray-700 underline`}>{feature.text5}</p>
             </div>
-            <Footer />
+            
         </div>
     );
 };

@@ -171,42 +171,42 @@ export const newsItems1: News1Item[] = [
 
 export const showMore: showMoreinter[] = [
   {
-    id: "Guarding-against",
-    type: "Brandpost",
+    id: "group-seeks-govt-intervention-to-reverse-poor-underfunding-facilities-in-aibom-judiciary",
+    type: "Blog",
     title:
-      "Guarding against AI-powered threats requires a focus on cyber awareness",
-    author: "Rob Rashotte",
+      "Group Seeks Govt Intervention To Reverse Poor Underfunding, Facilities In A’Ibom Judiciary",
+    author: "Otuekong Franklyn Isong",
     date: "16 Dec 2024 ",
     duration: "5 mins",
     tags: "CHRAN",
     imageUrl:
-      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
-    sponsor: "Sponsored by Fortinet",
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089135/Akwa-Ibom-State-Governor-Umo-Eno_azdchi.jpg",
+    sponsor: "Sponsored",
   },
   {
-    id: "Guardians-of-the-Games",
-    type: "Podcast",
+    id: "rights-group-wants-gov-eno-to-revisit-abandoned-ibom-science-park-project",
+    type: "Blog",
     title:
-      "CSO Executive Sessions: Guardians of the Games - How to keep the Olympics cyber safe",
-    author: "",
+      "Rights Group Wants Gov Eno To Revisit Abandoned Ibom Science Park Project",
+    author: "Otuekong Franklyn Isong",
     date: "07 Aug 2024 ",
     duration: "17 mins",
     tags: "CHRAN",
     imageUrl:
-      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089299/images-2024-12-19t2129153403168636743343004_etwhpi.jpg",
     sponsor: "",
   },
   {
-    id: "Open-Source-Institute",
-    type: "Video",
+    id: "democracy-day-review-nigerias-constitution-long-overdue-rights-group",
+    type: "Blog",
     title:
-      "CSO Executive Sessions: Open Source Institute’s Eric Nguyen on supply chain risks",
-    author: "",
+      "Democracy Day: Review of Nigeria’s constitution long overdue – Rights group",
+    author: "Otuekong Franklyn Isong",
     date: "14 Nov 2024 ",
     duration: "15 mins",
     tags: "CHRAN_Advocacy,  Governance, CHRAN",
     imageUrl:
-      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734376240/chran1_kgdvmk.jpg",
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089430/IMG-20240612-WA0015_bxuxhy.webp",
     sponsor: "",
   },
 ];
