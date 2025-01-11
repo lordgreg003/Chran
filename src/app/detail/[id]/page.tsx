@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { articles, FeatureData } from "@/app/ui/data/articles"; // Import your articles data
-import { playfair_Display } from "@/app/ui/fonts/fonts";
+import { playfair_Display,open_sans } from "@/app/ui/fonts/fonts";
 import Footer from "@/app/ui/components/layoutComponents/Footer";
 
 const ArticleDetails: React.FC = () => {
@@ -29,10 +29,10 @@ const ArticleDetails: React.FC = () => {
         {/* Content Section */}
         <div className="w-full lg:w-1/2 text-center">
           {/* Category */}
-          <p className="text-sm italic text-red-600 mb-2">{article.category}</p>
+          <p className={`${open_sans.className}`}>{article.category}</p>
 
           {/* Author and Date */}
-          {article.author && <p className="text-sm text-gray-500">By {article.author}</p>}
+          {article.author && <p className={`${open_sans.className}text-sm text-gray-500`}>By {article.author}</p>}
           {article.date && <p className="text-sm text-gray-500">{article.date}</p>}
 
           {/* Title */}
@@ -67,21 +67,21 @@ const ArticleDetails: React.FC = () => {
         <div className="w-full lg:w-1/2">
           {article.content && (
             <div className="mt-4 text-gray-700 flex flex-col gap-5">
-              <p>{article.content}</p>
-              <p>{article.content1}</p>
-              <p>{article.content2}</p>
-              <p>{article.content3}</p>
-              <p>{article.content4}</p>
-              <p>{article.content5}</p>
-              <p>{article.content6}</p>
-              <p>{article.content7}</p>
-              <p>{article.content8}</p>
-              <p>{article.content9}</p>
-              <p>{article.content10}</p>
-              <p>{article.content11}</p>
-              <p>{article.content12}</p>
-              <p>{article.content13}</p>
-              <p>{article.content14}</p>
+              <p className={`${open_sans.className}`}>{article.content}</p>
+              <p className={`${open_sans.className}`}>{article.content1}</p>
+              <p className={`${open_sans.className}`}>{article.content2}</p>
+              <p className={`${open_sans.className}`}>{article.content3}</p>
+              <p className={`${open_sans.className}`}>{article.content4}</p>
+              <p className={`${open_sans.className}`}>{article.content5}</p>
+              <p className={`${open_sans.className}`}>{article.content6}</p>
+              <p className={`${open_sans.className}`}>{article.content7}</p>
+              <p className={`${open_sans.className}`}>{article.content8}</p>
+              <p className={`${open_sans.className}`}>{article.content9}</p>
+              <p className={`${open_sans.className}`}>{article.content10}</p>
+              <p className={`${open_sans.className}`}>{article.content11}</p>
+              <p className={`${open_sans.className}`}>{article.content12}</p>
+              <p className={`${open_sans.className}`}>{article.content13}</p>
+              <p className={`${open_sans.className}`}>{article.content14}</p>
             </div>
           )}
         </div>
