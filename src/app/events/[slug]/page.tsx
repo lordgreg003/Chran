@@ -9,10 +9,10 @@ import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 
 const EventDetails: React.FC = () => {
     const params = useParams();
-    const id = typeof params?.id === "string" ? params.id.trim() : ""; 
+    const slug = typeof params?.slug === "string" ? params.slug.trim() : ""; 
 
   // Find the event by id
-  const event = events.find((event) => event.id === id);
+  const event = events.find((event) => event.slug === slug);
 
   if (!event) {
     return (

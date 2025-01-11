@@ -69,7 +69,7 @@ export interface NewsItem {
 }
 
 export interface Feature {
-  id: string;
+  slug: string;
   title: string;
   description: string;
   author: string;
@@ -182,7 +182,7 @@ export const articles: FeatureData[] = [
 ];
 
 export const featureData: Feature = {
-  id: "Security-leaders-top-10-takeaways-for-2024",
+  slug: "Security-leaders-top-10-takeaways-for-2024",
   title:
     "Presentation by the Center for Human Rights & Accountability Network (CHRAN) at the Akwa Ibom State House of Assembly Public Hearing on the 2025 Budget of Akwa Ibom State on Monday, 9th December, 2024.",
   description:

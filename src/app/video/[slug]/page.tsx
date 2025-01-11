@@ -6,15 +6,15 @@ import { useParams } from "next/navigation";
 
 const FeatureDetail: React.FC = () => {
     const params = useParams(); // Access route parameters
-    const id = typeof params?.id === "string" ? params.id : "";
+    const slug = typeof params?.slug === "string" ? params.slug : "";
 
     // Decode the URL parameter to match the feature data ID
-    const decodedId = decodeURIComponent(id);
+    const decodedId = decodeURIComponent(slug);
 
   
 
     // Mock fetching by ID
-    const feature = decodedId === featureData1.id ? featureData1 : null;
+    const feature = decodedId === featureData1.slug ? featureData1 : null;
 
     // Log if feature is found or not
     if (!feature) {

@@ -50,7 +50,7 @@ const UpcomingEvents: React.FC = () => {
       <hr className="border-t border-gray-300 mb-8" />
 
       {events.map((event) => (
-        <div key={event.id}>
+        <div key={event.slug}>
           <motion.div
             className="flex flex-col md:flex-row items-start gap-6 mb-8"
             initial={{ opacity: 0, x: 100 }}
@@ -61,14 +61,14 @@ const UpcomingEvents: React.FC = () => {
             }}
           >
             {/* Date */}
-            <Link href={`/events/${event.id}`} className="w-full md:w-1/5">
+            <Link href={`/events/${event.slug}`} className="w-full md:w-1/5">
               <div className={`${playfair_Display.className} text-2xl  font-semibold text-gray-700 hover:underline`}>
                 {event.date}
               </div>
             </Link>
 
             {/* Image */}
-            <Link href={`/events/${event.id}`} className="w-full md:w-2/5 relative aspect-[16/9]">
+            <Link href={`/events/${event.slug}`} className="w-full md:w-2/5 relative aspect-[16/9]">
               <Image
                 src={event.imageSrc}
                 alt={event.altText}
@@ -85,20 +85,20 @@ const UpcomingEvents: React.FC = () => {
                 {event.eventType}
               </span>
               <Link
-                href={`/events/${event.id}`}
+                href={`/events/${event.slug}`}
                 className={`${playfair_Display.className} text-2xl font-semibold ml-2 text-gray-800 hover:underline`}
               >
                 {event.title}
               </Link>
               <Link
-                href={`/events/${event.id}`}
+                href={`/events/${event.slug}`}
                 className={`${open_sans.className} text-gray-500 mt-1 block hover:underline`}
               >
                 {event.details}
               </Link>
               {event.category && (
                 <Link
-                  href={`/events/${event.id}`}
+                  href={`/events/${event.slug}`}
                   className={`${open_sans.className} inline-block border border-gray-400 px-2 py-1 mt-2 rounded text-gray-700 text-sm hover:underline`}
                 >
                   {event.category}

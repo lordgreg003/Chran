@@ -47,9 +47,9 @@ const NewsComponent1: React.FC = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <h1 className={`${playfair_Display.className} text-4xl font-semibold text-gray-900 leading-tight mb-4`}>
-          <Link href={`/video/${featureData1.id}`}>{featureData1.title}</Link>
+          <Link href={`/video/${featureData1.slug}`}>{featureData1.title}</Link>
         </h1>
-        <Link href={`/video/${featureData1.id}`}>
+        <Link href={`/video/${featureData1.slug}`}>
           <p className={`${open_sans.className} text-gray-600 text-lg mb-4`}>{featureData1.description}</p>
         </Link>
         <div className={`${open_sans.className} flex items-center gap-2 text-sm text-gray-500 mb-4`}>
@@ -81,7 +81,7 @@ const NewsComponent1: React.FC = () => {
         >
           <p className="text-sm text-red-500 italic mb-2">Feature</p>
           <div className="relative w-full h-64 lg:h-96 mb-4">
-            <Link href={`/video/${featureData1.id}`}>
+            <Link href={`/video/${featureData1.slug}`}>
               <video
                 src={featureData1.videoUrl}
                 controls
@@ -90,7 +90,7 @@ const NewsComponent1: React.FC = () => {
             </Link>
           </div>
           <h2 className={`${playfair_Display.className} text-xl font-bold text-gray-900`}>
-            <Link href={`/video/${featureData1.id}`}>{featureData1.title}</Link>
+            <Link href={`/video/${featureData1.slug}`}>{featureData1.title}</Link>
           </h2>
         </motion.div>
 

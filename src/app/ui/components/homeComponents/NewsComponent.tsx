@@ -41,9 +41,9 @@ const NewsComponent: React.FC = () => {
         transition={{ duration: 1, ease: "easeOut" }} // Duration and easing for smooth transition
       >
         <h1 className={`${playfair_Display.className} text-4xl font-semibold text-gray-900 leading-tight mb-4`}>
-          <Link href={`/videos/${featureData.id}`}>{featureData.title}</Link>
+          <Link href={`/videos/${featureData.slug}`}>{featureData.title}</Link>
         </h1>
-        <Link href={`/videos/${featureData.id}`}>
+        <Link href={`/videos/${featureData.slug}`}>
           <p className={`${open_sans.className} text-gray-600 text-lg mb-4`}>{featureData.description}</p>
         </Link>
         <div className={`${open_sans.className} flex items-center gap-2 text-sm text-gray-500 mb-4`}>
@@ -72,7 +72,7 @@ const NewsComponent: React.FC = () => {
         >
           <p className="text-sm text-red-500 italic mb-2">Feature</p>
           <div className="relative w-full h-64 lg:h-96 mb-4">
-            <Link href={`/videos/${featureData.id}`}>
+            <Link href={`/videos/${featureData.slug}`}>
               <video
                 src={featureData.videoUrl}
                 controls
@@ -81,7 +81,7 @@ const NewsComponent: React.FC = () => {
             </Link>
           </div>
           <h2 className={`${playfair_Display.className} text-xl font-bold text-gray-900`}>
-            <Link href={`/videos/${featureData.id}`}>{featureData.title}</Link>
+            <Link href={`/videos/${featureData.slug}`}>{featureData.title}</Link>
           </h2>
         </motion.div>
 

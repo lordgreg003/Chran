@@ -1,14 +1,14 @@
 "use client";
 import { featureData } from "@/app/ui/data/articles";
+import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 import { useParams } from "next/navigation";
- 
  
 const FeatureDetail: React.FC = () => {
     const params = useParams(); // Access route parameters
-    const id = typeof params?.id === "string" ? params.id : "";
+    const slug = typeof params?.slug === "string" ? params.slug : "";
 
   // Mock fetching by ID
-  const feature = id === featureData.id ? featureData : null;
+  const feature = slug === featureData.slug ? featureData : null;
 
 
 
@@ -16,8 +16,8 @@ const FeatureDetail: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 pt-8">
-      <h1 className="text-4xl font-semibold text-gray-900 mb-4">{feature.title}</h1>
-      <p className="text-gray-600 text-lg mb-4">{feature.description}</p>
+      <h1 className={`${playfair_Display.className}`}>{feature.title}</h1>
+      <p className={`${open_sans.className}`}>{feature.description}</p>
       <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
         <p className="font-medium">{feature.author}</p>
         <p>{feature.date}</p>
