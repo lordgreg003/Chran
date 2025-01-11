@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "animate.css";
 import ReduxProvider from "./ui/utils/ReduxProvider";
+import Footer from "./ui/components/layoutComponents/Footer";
+import Navbar from "./ui/components/layoutComponents/navbar";
 
 
 export const metadata: Metadata = {
@@ -25,7 +27,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ReduxProvider>
+          <Navbar />
           {children}
+          <Footer />
         </ReduxProvider>
       </body>
     </html>

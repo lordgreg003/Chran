@@ -1,15 +1,13 @@
 "use client";
 import React from "react";
-import Footer from "../ui/components/layoutComponents/Footer";
-import Navbar from "../ui/components/layoutComponents/navbar";
 import Donate from "../ui/components/donateComponents/Donate";
+import Marquee from "../ui/components/layoutComponents/Marquee";
 
 const page = () => {
   return (
     <div>
-      <Navbar />
+    <Marquee />
       <Donate />
-      <Footer />
     </div>
   );
 };

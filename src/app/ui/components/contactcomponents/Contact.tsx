@@ -63,7 +63,7 @@ const Contact = () => {
       <div className="flex flex-col md:flex-row items-center gap-3 justify-center">
         <div className="w-full flex items-center justify-center md:w-1/2 h-auto">
           <Image
-            src="/contactImage.webp"
+            src="https://res.cloudinary.com/dg8cmo2gb/image/upload/v1736089430/IMG-20240612-WA0015_bxuxhy.webp"
             loading="lazy"
             alt="chran"
             width={450}
@@ -75,7 +75,7 @@ const Contact = () => {
         <div className="w-full md:w-1/2 p-8 md:pl-16">
           <div className="text-center md:text-left mb-8">
             <p className={`${open_sans.className} text-lg font-semibold`}>
-              500 Terry Francine Street, San Francisco, CA 94158
+            15 Akpa Ubeh Street off Babangida avenue by Je-Nissi Event Center,Uyo Akwa Ibom State Nigeria
             </p>
             <p className={`${open_sans.className} text-lg`}>
                center4humanrights@gmail.com | +2348023501555

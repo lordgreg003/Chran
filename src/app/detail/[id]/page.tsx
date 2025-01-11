@@ -4,8 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { articles, FeatureData } from "@/app/ui/data/articles"; // Import your articles data
 import { playfair_Display,open_sans } from "@/app/ui/fonts/fonts";
-import Footer from "@/app/ui/components/layoutComponents/Footer";
-
+ 
 const ArticleDetails: React.FC = () => {
   const params = useParams(); // Access route parameters
   const id = typeof params?.id === "string" ? params.id : ""; // Get the `id` from the URL
@@ -86,8 +85,7 @@ const ArticleDetails: React.FC = () => {
           )}
         </div>
       </div>
-      <Footer />
-    </div>
+     </div>
   );
 };
 
