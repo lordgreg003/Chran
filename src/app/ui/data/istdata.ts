@@ -10,7 +10,7 @@ export interface News1Item {
 }
 
 export interface Feature1 {
-  id: string;
+  slug: string;
   title: string;
   description: string;
   author: string;
@@ -25,7 +25,7 @@ export interface Feature1 {
 }
 
 export interface showMoreinter {
-  id: string;
+  slug: string;
   type?: string;
   title?: string;
   author?: string;
@@ -114,7 +114,7 @@ export interface MainCard {
 }
 
 export const featureData1: Feature1 = {
-  id: "2024-BUDGET:-GOV-UMO-ENO-HAS",
+  slug: "2024-BUDGET:-GOV-UMO-ENO-HAS",
   title: "2024 BUDGET: GOV UMO ENO HAS NOT DEVIATED FROM ARISE AGENDA - CHRAN ",
   description:
     "BEING A PRESENTATION BY THE CENTER FOR HUMAN RIGHTS & ACCOUNTABILITY NETWORK (CHRAN)",
@@ -171,7 +171,7 @@ export const newsItems1: News1Item[] = [
 
 export const showMore: showMoreinter[] = [
   {
-    id: "group-seeks-govt-intervention-to-reverse-poor-underfunding-facilities-in-aibom-judiciary",
+    slug: "group-seeks-govt-intervention-to-reverse-poor-underfunding-facilities-in-aibom-judiciary",
     type: "Blog",
     title:
       "Group Seeks Govt Intervention To Reverse Poor Underfunding, Facilities In A’Ibom Judiciary",
@@ -184,7 +184,7 @@ export const showMore: showMoreinter[] = [
     sponsor: "Sponsored",
   },
   {
-    id: "rights-group-wants-gov-eno-to-revisit-abandoned-ibom-science-park-project",
+    slug: "rights-group-wants-gov-eno-to-revisit-abandoned-ibom-science-park-project",
     type: "Blog",
     title:
       "Rights Group Wants Gov Eno To Revisit Abandoned Ibom Science Park Project",
@@ -197,7 +197,7 @@ export const showMore: showMoreinter[] = [
     sponsor: "",
   },
   {
-    id: "democracy-day-review-nigerias-constitution-long-overdue-rights-group",
+    slug: "democracy-day-review-nigerias-constitution-long-overdue-rights-group",
     type: "Blog",
     title:
       "Democracy Day: Review of Nigeria’s constitution long overdue – Rights group",

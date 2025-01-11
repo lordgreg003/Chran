@@ -1,6 +1,6 @@
 // Define the Event interface
 interface Event {
-  id: string;
+  slug: string;
   date: string;
   imageSrc: string;
   altText: string;
@@ -17,7 +17,7 @@ interface Event {
 // Event Data
 export const events: Event[] = [
   {
-    id: "MARK-ITS-END-OF-THE-YEAR-ACTIVITIES",
+    slug: "MARK-ITS-END-OF-THE-YEAR-ACTIVITIES",
     date: "23/Dec/2024",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734947909/chranimage_ttcqyj.jpg",
@@ -37,7 +37,7 @@ export const events: Event[] = [
     category: "(CHRAN)",
   },
   {
-    id: "In-person",
+    slug: "In-person",
     date: "04/May/2025",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734412962/chran5_dhjg9a.jpg",
@@ -48,7 +48,7 @@ export const events: Event[] = [
     category: "Technology Industry",
   },
   {
-    id: "event",
+    slug: "event",
     date: "04/May/2025",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1734412962/chran5_dhjg9a.jpg",

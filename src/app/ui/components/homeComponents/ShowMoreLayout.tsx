@@ -88,7 +88,7 @@ const ShowMoreLayout = () => {
         >
           {showMore.map((item, index) => (
             <div
-              key={item.id}
+              key={item.slug}
               className="flex flex-col px-4 space-y-1 bg-white border rounded-lg shadow-lg overflow-x-hidden"
             >
               <span className={`${open_sans.className}text-gray-200 text-6xl font-light`}>
