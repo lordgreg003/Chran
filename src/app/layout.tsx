@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.chran.org"),
   title: {default: "Chran", template: "%s | Explore Chran"},
   description: "The Center For HUman Rights & Accountability Network",
+  // icons: {
+  //   icon: "/favicon.ico", 
+  // },
   openGraph : {title: {default: "Chran", template: "%s | Explore Chran"}, 
    description: "Implemented Chidera",
    type: "website",
