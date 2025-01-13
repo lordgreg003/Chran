@@ -14,6 +14,7 @@ const ArticleDetails: React.FC = () => {
   const { article, loading, error } = useSelector(
     (state: RootState) => state.articles
   );
+  console.log("article",article)
 
   useEffect(() => {
     if (id) {
@@ -35,6 +36,9 @@ const ArticleDetails: React.FC = () => {
   if (!article) {
     return <div className="text-center text-gray-500">No article found</div>;
   }
+   if (!article) {
+    return <div className="text-center text-gray-500">No article found</div>;
+  }
 
   // Utility function: Split long text into chunks
   const splitTextIntoChunks = (text: string, chunkSize = 50): string[] => {
@@ -48,6 +52,8 @@ const ArticleDetails: React.FC = () => {
 
   // Format and split article content
   const formattedArticleChunks = splitTextIntoChunks(article.article);
+  console.log("formattedArticleChunks",formattedArticleChunks)
+
 
   return (
     <div className="container mx-auto p-4 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -60,7 +66,7 @@ const ArticleDetails: React.FC = () => {
       <div className="border-4 border-blue-500 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow animate__animated animate__zoomIn">
         {/* Article Title */}
         <h2 className={`${playfair_Display.className} text-xl font-semibold text-blue-600 dark:text-blue-400`}>
-          {article.article.slice(0, 50)}...
+          {article.article.slice(0,200)}
         </h2>
 
         {/* Created Date */}
