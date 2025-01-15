@@ -14,7 +14,7 @@ import Marquee from "./ui/components/layoutComponents/Marquee";
 export default function Home() {
  
   return (
-    <div className="overflow-x-hidden w-full m-0">
+    <div className="overflow-x-hidden overflow-x w-full m-0">
       <Marquee />
       <FeatureCard />
       <NewsComponent />
