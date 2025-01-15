@@ -16,6 +16,8 @@ const ArticleDetails: React.FC = () => {
   );
   console.log("article",article)
 
+  
+
   useEffect(() => {
     if (id) {
       dispatch(getArticleById(id));
@@ -63,7 +65,7 @@ const ArticleDetails: React.FC = () => {
       </h1>
 
       {/* Article Card */}
-      <div className="border-4 border-blue-500 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow animate__animated animate__zoomIn">
+      <div className="border-4 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow animate__animated animate__zoomIn">
         {/* Article Title */}
         <h2 className={`${playfair_Display.className} text-xl font-semibold text-blue-600 dark:text-blue-400`}>
           {article.article.slice(0,200)}
