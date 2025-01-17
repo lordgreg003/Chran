@@ -10,12 +10,14 @@ import NewsComponent1 from "./ui/components/homeComponents/NewsComponent1";
 import UpcomingEvents from "./ui/components/homeComponents/UpcomingEvents";
 import ShowMoreLayout from "./ui/components/homeComponents/ShowMoreLayout";
 import Marquee from "./ui/components/layoutComponents/Marquee";
+import BlogLayout4 from "./ui/components/blogsComponent/BlogSection4";
  
 export default function Home() {
  
   return (
     <div className="overflow-x-hidden overflow-x w-full m-0">
       <Marquee />
+       <BlogLayout4 />
       <FeatureCard />
       <NewsComponent />
       <NewsSection />
