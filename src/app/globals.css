@@ -15,3 +15,36 @@ html.dark {
     "colors.darkBg"
   );   
 }
+
+ 
+
+:root {
+  --font-inter: ${inter.style.fontFamily};
+  --font-lusitana: ${lusitana.style.fontFamily};
+  --font-playfair: ${playfair.style.fontFamily};
+  --font-coustard: ${coustard.style.fontFamily};
+  --font-open-sans: ${open_sans.style.fontFamily};
+  --font-playfair_Display: ${playfair_Display.style.fontFamily};
+  --font-merriweather: ${merriweather.style.fontFamily};
+  --font-roboto: ${roboto.style.fontFamily};
+}
+
+ 
+body {
+  font-family: var(--font-roboto), sans-serif; /* Default font */
+}
+
+h1, h2, h3 {
+  font-family: var(--font-playfair), serif;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-merriweather), serif;
+}
+
+p {
+  font-family: var(--font-open-sans), sans-serif;
+}
+
+ 
+
