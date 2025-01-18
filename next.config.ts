@@ -3,8 +3,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    nextScriptWorkers: true,
-  } as any,
+   } as any, // Ignore type checking for this property
   images: {
     unoptimized: true,
     remotePatterns: [
