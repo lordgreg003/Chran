@@ -3,8 +3,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    appDir: true, // Enable app directory support
-  } as any, // Ignore type checking for this property
+    nextScriptWorkers: true,
+  } as any,
   images: {
     unoptimized: true,
     remotePatterns: [
