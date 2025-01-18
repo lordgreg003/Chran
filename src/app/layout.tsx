@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "animate.css";
+import {GoogleTagManager} from "@next/third-parties/google"
 import ReduxProvider from "./ui/utils/ReduxProvider";
 import Footer from "./ui/components/layoutComponents/Footer";
 import Navbar from "./ui/components/layoutComponents/navbar";
 import Head from "next/head";  // Import Head from Next.js
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.chran.org"),
@@ -25,23 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <GoogleTagManager gtmId="G-M3GYBWKMBC"  />
         <Head>
-          <meta name="google-adsense-account" content="ca-pub-8660328606992175" />
+        <meta name="google-adsense-account" content="ca-pub-8660328606992175" />
           <script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8660328606992175"
             crossOrigin="anonymous"
           ></script>
-          <script>
-            {`(function(h,o,t,j,a,r){
-              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-              h._hjSettings={hjid:5271942,hjsv:6};
-              a=o.getElementsByTagName('head')[0];
-              r=o.createElement('script');r.async=1;
-              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-              a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
-          </script>
         </Head>
       </head>
       <body>
