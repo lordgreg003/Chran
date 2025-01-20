@@ -5,7 +5,7 @@ import {GoogleTagManager} from "@next/third-parties/google"
 import ReduxProvider from "./ui/utils/ReduxProvider";
 import Footer from "./ui/components/layoutComponents/Footer";
 import Navbar from "./ui/components/layoutComponents/navbar";
-import Head from "next/head";  // Import Head from Next.js
+import Head from "next/head";  
 
 
 export const metadata: Metadata = {
@@ -35,6 +35,7 @@ export default function RootLayout({
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8660328606992175"
             crossOrigin="anonymous"
           ></script>
+          
         </Head>
       </head>
       <body>
