@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { open_sans, playfair_Display } from "../../fonts/fonts";
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
-import { mainCardData2} from "../../data/data3";
+import { mainCardData2 ,rightCardsData2} from "../../data/data3";
 
 export default function BlogLayout4() {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,19 +83,19 @@ export default function BlogLayout4() {
         </div>
 
         {/* Right smaller cards */}
-        {/* <div className="space-y-8">
-          {rightCardsData1.map((card, index) => (
+        <div className="space-y-8">
+          {rightCardsData2.map((card, index) => (
             <div
               key={card.slug}
               className={`relative ${isVisible ? `animate__animated animate__zoomIn animate__delay-${index + 1}s` : ''}`}
             >
-              <Image
-                src={card.imageSrc}
-                alt={card.title}
-                width={400}
-                height={200}
-                className="w-full h-auto rounded cursor-pointer"
-              />
+              <video
+                    src={card.videoSrc}
+                              controls
+                    className="w-full h-auto rounded cursor-pointer"
+                      >
+                      Your browser does not support the video tag.
+              </video>
               <span className="absolute top-4 left-4 bg-red-500 text-white text-xs px-3 py-1 rounded">
                 Blog
               </span>
@@ -112,7 +112,7 @@ export default function BlogLayout4() {
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   );

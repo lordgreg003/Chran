@@ -1,3 +1,5 @@
+import { BlogCard } from "./istdata";
+
 export interface data {
   slug: string;
   videoSrc: string;
@@ -38,7 +40,7 @@ export interface data {
 }
 
 export const mainCardData2: data = {
-  slug: "text-press-conference-held-by-the-coalition-civil-society-organizations-in-nigeria-ccson-in-uyo-akwa-ibom-state-on-thursday-16th-january-2025",
+  slug: "100-days-in-office-cso-urges-local-govt-chairmen-in-akwa-ibom-to-publish-their-scorecards",
   videoSrc: "",
   imageSrc:
     "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737136231/chran1_tw13vy.jpg",
@@ -99,7 +101,42 @@ export const mainCardData2: data = {
   description21:
     "CCSON'S POSITIONS:At the end of the one-day congress, and in tandem with the resolutions reached thereat, CCSON makes public the following key position:",
   articleCount: "15 articles",
-  createdAt:"Dated: Thursday, 16th day of January, 2025.",
+  createdAt: "Dated: Thursday, 16th day of January, 2025.",
   number: "0802 350 1555",
   category: "CHRAN",
 };
+
+export const rightCardsData2: BlogCard[] = [
+  {
+    slug: "cso-calls-for-actualization-ibom-science-park",
+    imageSrc:
+      "",
+    videoSrc: "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1737825446/New_Minimum_Wage__Niger_Delta_Implementation_Pace___Niger_Delta_Today_cp6x0d.mp4",
+    title: " ",
+    articleCount: "10 articles",
+    description: "",
+    description1: "",
+    description2: "",
+    description3: "",
+    description4: "",
+    description5: "",
+    description6: " ",
+    description7: " ",
+    description8: "",
+    description9: " ",
+    description10: " ",
+    category: "CHRAN",
+    images: [],
+  },
+  {
+    slug: "our-guest-otuekong-franklyn-isong-director-the-centre-for-human-rights-accountability-network-chran-shared-his-insights-on-the-challenges-expectations-surrounding-this-critical-issue",
+    imageSrc: "",
+    videoSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1737825446/New_Minimum_Wage__Niger_Delta_Implementation_Pace___Niger_Delta_Today_cp6x0d.mp4",
+    title:
+      " Our guest, Otuekong Franklyn Isong, Director of the Centre for Human Rights and Accountability Network (CHRAN), shared his insights on the challenges and expectations surrounding this critical issue.",
+    articleCount: "8 articles",
+    category: "CHRAN",
+    images: [],
+  },
+];
