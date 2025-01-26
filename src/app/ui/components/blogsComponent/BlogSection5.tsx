@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import { open_sans, playfair_Display } from "../../fonts/fonts";
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
-import { mainCardData2 ,rightCardsData3} from "../../data/data3";
+import { mainCardData3  } from "../../data/data3";
 
-export default function BlogLayout4() {
+export default function BlogLayout5() {
   const [isVisible, setIsVisible] = useState(false);
 
   // Check the scroll position and add the animation
@@ -45,10 +45,10 @@ export default function BlogLayout4() {
         <div className="md:col-span-2">
           <div className="relative">
             {/* image */}
-            <Link href={`/blo/detail1/${mainCardData2.slug}`}>
+            <Link href={`/blo/detail3/${mainCardData3.slug}`}>
             <Image
-                src={mainCardData2.imageSrc}
-                alt={mainCardData2.title}
+                src={mainCardData3.imageSrc}
+                alt={mainCardData3.title}
                 width={400}
                 height={200}
                 className="w-full h-auto rounded cursor-pointer"
@@ -61,29 +61,29 @@ export default function BlogLayout4() {
 
           {/* Title and Description */}
           <h2 className={`${playfair_Display.className} mt-4 text-2xl font-semibold`}>
-            <Link href={`/blo/detail1/${mainCardData2.slug}`} className="cursor-pointer">
-              {mainCardData2.title}
+            <Link href={`/blo/detail3/${mainCardData3.slug}`} className="cursor-pointer">
+              {mainCardData3.title}
             </Link>
           </h2>
           <p className={`${open_sans.className} mt-2 text-gray-600`}>
-            <Link href={`/blo/detail1/${mainCardData2.slug}`} className="cursor-pointer">
-              {mainCardData2.description}
+            <Link href={`/blo/detail3/${mainCardData3.slug}`} className="cursor-pointer">
+              {mainCardData3.description}
             </Link>
           </p>
 
           {/* Article Info */}
           <div className="mt-4 flex items-center gap-4">
             <span className={`${open_sans.className} text-sm text-gray-500`}>
-              {mainCardData2.articleCount}
+              {mainCardData3.articleCount}
             </span>
             <button className="px-3 py-1 border border-gray-300 text-sm rounded">
-              {mainCardData2.category}
+              {mainCardData3.category}
             </button>
           </div>
         </div>
 
         {/* Right smaller cards */}
-        <div className="space-y-8">
+        {/* <div className="space-y-8">
           {rightCardsData3.map((card, index) => (
             <div
               key={card.slug}
@@ -112,7 +112,7 @@ export default function BlogLayout4() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
