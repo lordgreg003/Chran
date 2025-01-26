@@ -29,12 +29,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         openGraph: {
           title: cardData.title,
           description: cardData.description || "No description available",
-          images: [
+          videos: [
             {
               url: cardData?.videoSrc || "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1737825446/New_Minimum_Wage__Niger_Delta_Implementation_Pace___Niger_Delta_Today_cp6x0d.mp4",  
               width: 800,
               height: 600,
-              alt: cardData.title,
             },
           ],
           
