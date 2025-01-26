@@ -106,6 +106,72 @@ export const mainCardData2: data = {
   category: "CHRAN",
 };
 
+export const mainCardData3: data = {
+  slug: "third-party-insurance-chran-partners-police-in-akwa-ibom-to-sensitise-motorists",
+  videoSrc: "",
+  imageSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737892445/WhatsApp_Image_2025-01-24_at_7.46.43_PM_1_bdjwr2.jpg",
+  imageSrc1:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737892437/WhatsApp_Image_2025-01-24_at_7.46.43_PM_aojdwz.jpg",
+  imageSrc2:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737892426/WhatsApp_Image_2025-01-24_at_7.46.42_PM_vcwgey.jpg",
+  imageSrc3:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737892410/WhatsApp_Image_2025-01-24_at_7.46.40_PM_cahlup.jpg",
+  imageSrc4:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737894749/WhatsApp_Image_2025-01-24_at_7.46.44_PM_erckfn.jpg",
+  imageSrc5:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737136269/chran6_xtxbfq.jpg",
+  imageSrc6:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737136274/chran7_yh9igd.jpg",
+  title:
+    "THIRD PARTY INSURANCE: CHRAN PARTNERS POLICE IN AKWA IBOM TO SENSITISE MOTORISTS",
+  description:
+    "The Center for Human Rights And Accountability Network (CHRAN) on Friday, 24th January, 2025 paid an advocacy visit to the Commissioner of Police, Akwa Ibom State Command, CP Baba Mohammed Azare, fsi, to further expand the conversations ahead of the commencement of the enforcement of traffic laws relating to Third Party Insurance by vehicle owners in the State.",
+  description1:
+    "CHRAN Director, Otuekong Franklyn Isong, who led members of the organisation to the visit at the State Police Headquarters, Ikot Akpan Abia, Uyo, congratulated CP Azare on his posting to Akwa Ibom State. ",
+  description2:
+    "The Center commended the achievements of CP Azare within the short period since his posting to the State. ",
+  description3:
+    "The Center noted that CP Azare appeared prepared and combat ready to tackle crimes in the State.",
+  description4:
+    "The CHRAN stated that the CP has held several engagements with critical stakeholders in the State, particularly as the Command prepares to fully enforce the Anti-Open Grazing Law and the Motor Vehicles Third Party Insurance, among others.",
+  description5:
+    "The Center asserted that its visit to CP Azare became necessary in view of the need for operatives of the State Police Command to ensure a zero human rights infringement while enforcing the directive of the Inspector-General of Police, IGP Kayode Egbetokun, on the Motor Vehicles Third Party Insurance in the State, which commences on 1st February, 2025.",
+  description6:
+    "The CHRAN lauded the Commissioner of Police for his thoughtfulness in engaging relevant stakeholders, including representatives of the Federal Road Safety Commission (FRSC), National Union of Road Transport Workers (NURTW), Road Transport Employers Association of Nigeria (RTEAN), Nigeria Labour Congress (NLC), Trade Union Congress (TUC), Nigeria Union of Journalists (NUJ), and the Akwa Ibom State Internal Revenue Service (IRS), with a view to sensitising the public ahead of the commencement of enforcement on 1st February, 2025.",
+  description7:
+    "The CHRAN described the stakeholders meetings as clear demonstrations of the  Commissioner's ingenuity in committing to engage the public, stating that confidence-building between the Police and members of the public through regular stakeholders engagements will facilitate free-flow of information from the public to the Police and engender peace and security in the State.",
+  description8:
+    "The CHRAN appealed for an extension of the date of commencement of enforcement of the Motor Vehicle Third Party Insurance beyond February 1, 2025 till, possibly, April, 2025 to give room for more sensitisation and engagements.",
+  description9:
+    "The CHRAN further called for the recognition of both offline and online Third Party Insurance documents upon presentation on the road as long as they are genuine and with valid dates as stipulated by the laws.",
+  description10:
+    "Responding, CP Mohammed Azare thanked the CHRAN team for the visit, saying that it shows the passion and commitment for partnership with the Police for the good of the society.",
+  description12:
+    "CP Azare likened CHRAN's activities in the State to a mirror that tells things the way they are, and expressed the readiness of the Command under his watch to partner the CHRAN in the task of protecting both lives and property in the State.",
+  description13:
+    "The Commissioner, who described the Police as a large organisation that may have few bad eggs, pledged his readiness to ensure that the officers and men of the Command are regularly trained on how to go about their duties professionally without infringing the human rights of citizens.",
+  description14:
+    "On issue of corruption/extortion during the enforcement, CP Azare stated that he has directed all Area Commanders to mobilise their DPOs to turn out for the enforcement and to ensure that human rights violations are not recorded throughout the enforcement. He urged members of the public to report incidents of extortion to the Command by calling the numbers which he had already made available through the Police Public Relations Officer.",
+  description15:
+    "On the CHRAN's appeal for extension of the February 1 enforcement date,  CP Azare recalled that the enforcement date was shifted for three months by the IGP and that the Force Public Relations Desk commenced sensitisation since then adding that there was no extension that would be enough for an unwilling motorist. ",
+  description16:
+    "Meanwhile, the CHRAN's Director, Otuekong Franklyn Isong, has set up a 5-man Committee to carry out extensive awareness campaigns to all nooks and crannies of the State to ensure that all vehicle owners are made aware of the need to get their valid Third Party Insurance documents before plying the roads from 1st February, 2025.",
+  description17:
+    "The CHRAN Committee will also continue to interface with the critical stakeholders in the State to ensure compliance with human rights standards by Police Officers, motorists and members of the public during the enforcement of the laws.",
+  description18:
+    "The 5-man Committee is headed by Comrade (Dr.) Victor David as Chairman while Comrade Nsima Udom, Esq. is the Secretary. Members are: Comrades Emmanuel Ika, Julius Nsikak and Asuquo Etukudo. ",
+  description19:
+    "Recall that the Inspector-General of Police, IGP Kayode Egbetokun, PhD, NPM, had in a directive to Commissioners of Police across the States of the Federation, directed that all vehicle owners must obtain valid Third Party Insurance as stipulated by Section 68 of the Insurance Act, 2003 and Section 312 of the 1945 Motor Vehicle (Third Party Insurance) Act with effect from February 1, 2025.",
+  description20:
+    "The CHRAN team on the visit was led by Otuekong Frankyn Isong, Director, and included: Comrade Victor David, Director of Programmes; Comrade (Mrs) Lovina Emole; Comrade (Barr.) Nsima Udom; Comrade Emmanuel Ika; Comrade Julius Nsikak; Comrade Asuquo Etukudo and Comrade Patrick Titus.",
+  description21: "Signed Comrade (Barr. ) Christopher Ekpo Secretary ",
+  articleCount: "15 articles",
+  createdAt: "Dated; Friday, 24th January, 2025.",
+  number: "0802 350 1555",
+  category: "CHRAN",
+};
+
 export const rightCardsData3: BlogCard[] = [
   {
     slug: "100-days-in-office-cso-urges-local-govt-chairmen-in-akwa-ibom-to-publish-their-scorecards",
@@ -115,13 +181,20 @@ export const rightCardsData3: BlogCard[] = [
     title:
       " 100 DAYS-IN-OFFICE: CSO URGES LOCAL GOVT CHAIRMEN IN AKWA IBOM TO PUBLISH THEIR SCORECARDS ",
     articleCount: "10 articles",
-    description: "The Center for Human Rights and Accountability Network (CHRAN) has urged the 31 elected Local Government Council Chairmen in Akwa Ibom State to present their performance scorecards to the public for assessment and scrutiny. ",
-    description1: "The Center made the call through its Director, Otuekong Franklyn Isong, while fielding questions in a live-phone-in Radio programme tagged Morning Flight with Captain Ikechukwu Juwe as the host on Passion 94.5 FM, Uyo, Akwa Ibom State on Wednesday, 22nd January, 2025.",
-    description2: "The Center stated that the council officials were elected on Saturday, 5th October, 2024, asserting that their 100 days performance scorecards are not being made public for scrutiny, verification, and appraisal by members of the public. ",
-    description3: "The CHRAN lauded the Governor of Akwa Ibom State, Pastor Umo Eno, PhD, who made public his scorecard of achievements within his first 100 days in office. The Center urged the 31 council chairmen to emulate the Governor by reeling out their respective projects, programmes and achievements within their first 100 days in office.",
-    description4: "The Center urged the council officials to be people-oriented by outlining life-touching projects and programmes in their respective local government areas. ",
-    description5: "The CHRAN further commended Governor Umo Eno for publicly launching his blueprint tagged ARISE AGENDA at Ibom Hotel and Golf Resort days after he was sworn in. The CHRAN urged the 31 council chairmen to follow the footsteps of the Governor by making public their respective blueprints. ",
-    description6: "The Center Director commended President Bola Tinubu for the financial autonomy granted the 774 Local Government Councils in Nigeria by the Supreme Court of Nigeria through the effort of his administration, calling on the President to ensure full implementation of the apex court judgement across the country.",
+    description:
+      "The Center for Human Rights and Accountability Network (CHRAN) has urged the 31 elected Local Government Council Chairmen in Akwa Ibom State to present their performance scorecards to the public for assessment and scrutiny. ",
+    description1:
+      "The Center made the call through its Director, Otuekong Franklyn Isong, while fielding questions in a live-phone-in Radio programme tagged Morning Flight with Captain Ikechukwu Juwe as the host on Passion 94.5 FM, Uyo, Akwa Ibom State on Wednesday, 22nd January, 2025.",
+    description2:
+      "The Center stated that the council officials were elected on Saturday, 5th October, 2024, asserting that their 100 days performance scorecards are not being made public for scrutiny, verification, and appraisal by members of the public. ",
+    description3:
+      "The CHRAN lauded the Governor of Akwa Ibom State, Pastor Umo Eno, PhD, who made public his scorecard of achievements within his first 100 days in office. The Center urged the 31 council chairmen to emulate the Governor by reeling out their respective projects, programmes and achievements within their first 100 days in office.",
+    description4:
+      "The Center urged the council officials to be people-oriented by outlining life-touching projects and programmes in their respective local government areas. ",
+    description5:
+      "The CHRAN further commended Governor Umo Eno for publicly launching his blueprint tagged ARISE AGENDA at Ibom Hotel and Golf Resort days after he was sworn in. The CHRAN urged the 31 council chairmen to follow the footsteps of the Governor by making public their respective blueprints. ",
+    description6:
+      "The Center Director commended President Bola Tinubu for the financial autonomy granted the 774 Local Government Councils in Nigeria by the Supreme Court of Nigeria through the effort of his administration, calling on the President to ensure full implementation of the apex court judgement across the country.",
     description7: " ",
     description8: "",
     description9: " ",
