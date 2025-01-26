@@ -106,21 +106,22 @@ export const mainCardData2: data = {
   category: "CHRAN",
 };
 
-export const rightCardsData2: BlogCard[] = [
+export const rightCardsData3: BlogCard[] = [
   {
-    slug: "cso-calls-for-actualization-ibom-science-park",
-    imageSrc:
-      "",
-    videoSrc: "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1737825446/New_Minimum_Wage__Niger_Delta_Implementation_Pace___Niger_Delta_Today_cp6x0d.mp4",
-    title: " ",
+    slug: "100-days-in-office-cso-urges-local-govt-chairmen-in-akwa-ibom-to-publish-their-scorecards",
+    imageSrc: "",
+    videoSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1737825446/New_Minimum_Wage__Niger_Delta_Implementation_Pace___Niger_Delta_Today_cp6x0d.mp4",
+    title:
+      " 100 DAYS-IN-OFFICE: CSO URGES LOCAL GOVT CHAIRMEN IN AKWA IBOM TO PUBLISH THEIR SCORECARDS ",
     articleCount: "10 articles",
-    description: "",
-    description1: "",
-    description2: "",
-    description3: "",
-    description4: "",
-    description5: "",
-    description6: " ",
+    description: "The Center for Human Rights and Accountability Network (CHRAN) has urged the 31 elected Local Government Council Chairmen in Akwa Ibom State to present their performance scorecards to the public for assessment and scrutiny. ",
+    description1: "The Center made the call through its Director, Otuekong Franklyn Isong, while fielding questions in a live-phone-in Radio programme tagged Morning Flight with Captain Ikechukwu Juwe as the host on Passion 94.5 FM, Uyo, Akwa Ibom State on Wednesday, 22nd January, 2025.",
+    description2: "The Center stated that the council officials were elected on Saturday, 5th October, 2024, asserting that their 100 days performance scorecards are not being made public for scrutiny, verification, and appraisal by members of the public. ",
+    description3: "The CHRAN lauded the Governor of Akwa Ibom State, Pastor Umo Eno, PhD, who made public his scorecard of achievements within his first 100 days in office. The Center urged the 31 council chairmen to emulate the Governor by reeling out their respective projects, programmes and achievements within their first 100 days in office.",
+    description4: "The Center urged the council officials to be people-oriented by outlining life-touching projects and programmes in their respective local government areas. ",
+    description5: "The CHRAN further commended Governor Umo Eno for publicly launching his blueprint tagged ARISE AGENDA at Ibom Hotel and Golf Resort days after he was sworn in. The CHRAN urged the 31 council chairmen to follow the footsteps of the Governor by making public their respective blueprints. ",
+    description6: "The Center Director commended President Bola Tinubu for the financial autonomy granted the 774 Local Government Councils in Nigeria by the Supreme Court of Nigeria through the effort of his administration, calling on the President to ensure full implementation of the apex court judgement across the country.",
     description7: " ",
     description8: "",
     description9: " ",
