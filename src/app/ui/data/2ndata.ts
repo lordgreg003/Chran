@@ -14,6 +14,7 @@ interface Event {
   category?: string;
 }
 
+
 // Event Data
 export const events: Event[] = [
   {
