@@ -97,7 +97,7 @@ const Marquee = () => {
       <style jsx>{`
         .animate-marquee {
           display: inline-block;
-          animation: marquee 30s linear infinite;
+          animation: marquee 50s linear infinite;
         }
         @keyframes marquee {
           0% {

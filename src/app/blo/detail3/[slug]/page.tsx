@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
           description: cardData.description || "No description available",
           images: [
             {
-              url: cardData.imageSrc,
+              url: cardData.imageSrc || "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737892445/WhatsApp_Image_2025-01-24_at_7.46.43_PM_1_bdjwr2.jpg",
               width: 800,
               height: 600,
               alt: cardData.title,
@@ -166,7 +166,16 @@ export default async function CardDetails({ params }: CardDetailsProps) {
                       />
         </div>
 
-
+        <div className="mt-6">
+           <Image
+                        src={cardData.imageSrc5}
+                        alt={cardData.title}
+                        height={500}
+                        width={500}
+                        objectFit="cover"
+                        className="rounded-lg shadow-lg"
+                      />
+        </div>
             </div>
             </div>
       </div>
