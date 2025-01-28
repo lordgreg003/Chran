@@ -9,7 +9,7 @@ export interface data {
   imageSrc3: string;
   imageSrc4: string;
   imageSrc5: string;
-  imageSrc6?: string;
+  imageSrc6: string;
   title: string;
   description?: string;
   description1?: string;
@@ -121,7 +121,7 @@ export const mainCardData3: data = {
     "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737894749/WhatsApp_Image_2025-01-24_at_7.46.44_PM_erckfn.jpg",
   imageSrc5:
     "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737894749/WhatsApp_Image_2025-01-24_at_7.46.44_PM_erckfn.jpg",
-  
+  imageSrc6: " ",
   title:
     "THIRD PARTY INSURANCE: CHRAN PARTNERS POLICE IN AKWA IBOM TO SENSITISE MOTORISTS",
   description:
