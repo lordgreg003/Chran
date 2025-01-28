@@ -9,7 +9,7 @@ export interface data {
   imageSrc3: string;
   imageSrc4: string;
   imageSrc5: string;
-  imageSrc6: string;
+  imageSrc6?: string;
   title: string;
   description?: string;
   description1?: string;
@@ -120,9 +120,8 @@ export const mainCardData3: data = {
   imageSrc4:
     "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737894749/WhatsApp_Image_2025-01-24_at_7.46.44_PM_erckfn.jpg",
   imageSrc5:
-    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737136269/chran6_xtxbfq.jpg",
-  imageSrc6:
-    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737136274/chran7_yh9igd.jpg",
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1737894749/WhatsApp_Image_2025-01-24_at_7.46.44_PM_erckfn.jpg",
+  
   title:
     "THIRD PARTY INSURANCE: CHRAN PARTNERS POLICE IN AKWA IBOM TO SENSITISE MOTORISTS",
   description:
@@ -177,7 +176,7 @@ export const rightCardsData3: BlogCard[] = [
     slug: "100-days-in-office-cso-urges-local-govt-chairmen-in-akwa-ibom-to-publish-their-scorecards",
     imageSrc: "",
     videoSrc:
-      "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1737825446/New_Minimum_Wage__Niger_Delta_Implementation_Pace___Niger_Delta_Today_cp6x0d.mp4",
+      "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1738049375/video_yendep.mp4",
     title:
       " 100 DAYS-IN-OFFICE: CSO URGES LOCAL GOVT CHAIRMEN IN AKWA IBOM TO PUBLISH THEIR SCORECARDS ",
     articleCount: "10 articles",

@@ -19,31 +19,35 @@ async function getData(slug: string): Promise<BlogCard | undefined> {
 
 // Update `generateMetadata` to await params
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const resolvedParams = await params;  
+  const resolvedParams = await params;
   const cardData = await getData(resolvedParams.slug);
 
-  return cardData
-    ? {
-        title: cardData.title,
-        description: cardData.description || "No description available",
-        openGraph: {
-          title: cardData.title,
-          description: cardData.description || "No description available",
-          videos: [
-            {
-              url: cardData?.videoSrc || "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1737825446/New_Minimum_Wage__Niger_Delta_Implementation_Pace___Niger_Delta_Today_cp6x0d.mp4",  
-              width: 800,
-              height: 600,
-            },
-          ],
-          
+  if (!cardData) {
+    return {
+      title: "Blog not found",
+      description: "Sorry, the blog you are looking for does not exist.",
+    };
+  }
+
+  const videoUrl = cardData.videoSrc || "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1738049375/video_yendep.mp4";
+
+  return {
+    title: cardData.title,
+    description: cardData.description || "No description available",
+    openGraph: {
+      title: cardData.title,
+      description: cardData.description || "No description available",
+      videos: [
+        {
+          url: videoUrl,
+          width: 800,
+          height: 600,
         },
-      }
-    : {
-        title: "Blog not found",
-        description: "Sorry, the blog you are looking for does not exist.",
-      };
+      ],
+    },
+  };
 }
+
 
 interface CardDetailsProps {
   params: Promise<{ slug: string }>;  
