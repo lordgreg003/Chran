@@ -171,6 +171,37 @@ export const mainCardData3: data = {
   category: "CHRAN",
 };
 
+export const mainCardData4: data = {
+  slug: "chran-lauds-gov-umo-eno-over-operation-zero-potholes",
+  videoSrc: "",
+  imageSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738127372/WhatsApp_Image_2025-01-28_at_2.43.56_PM_edezpm.jpg",
+  imageSrc1:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738127442/WhatsApp_Image_2025-01-28_at_3.03.14_PM_stsprl.jpg",
+  imageSrc2: "",
+  imageSrc3: "",
+  imageSrc4: "",
+  imageSrc5: "",
+  imageSrc6: " ",
+  title: "CHRAN LAUDS GOV UMO ENO OVER OPERATION ZERO POTHOLES",
+  description:
+    "The Center for Human Rights and Accountability Network (CHRAN) has done an appraisal of the ongoing Operation Zero Potholes exercise being carried out in Uyo metropolis and across the length and breadth of Akwa Ibom State by the administration of Governor Umo Eno, PhD., which began in the third quarter of 2024.",
+  description1:
+    "The CHRAN notes with commendation the progress recorded so far on the exercise by the administration. ",
+  description2:
+    "The CHRAN notes with satisfaction that potholes and failed portions of the following roads and streets have been repaired by the administration:",
+  description3:
+    " 1. Abak Road to University of Uyo Teaching Hospital (UUTH),2. Babangida Avenue,3. Two Lanes,4. Four Lanes,5. Oron Road by Udo Umana,6. Oron Road by Uruan Street,7. Oron Road by Udo Udoma,8. Uruan Street,9. Nwaniba Road,10. Bypass,11. Udobio Street, 12. Iboko Street, 13. Oku Street, 14. Anua Street, 15. Udo Eduok Street, 16. Inlet of Ukana Offot Street, 17. Inlet of Williams Street, 18. Ikot Ekpene Road,19. Part of Osongoma Road,20. Nung Udoe Road,21. Afaha Offiong Road,22. Afaha Nsit Road,23. Nsit Ubium Road,24. Nkemba Street, 25. Udoweme Street, 26. Ikpa Road by University of Uyo,27. Ibom Plaza and the approach roads, where over 12 spots have been repaired, and28. Nwaniba Road to University of Uyo permanent site and to Ibom Hotels & Golf Resort.",
+  description4:
+    "The CHRAN notes with commendation the ongoing construction of Uyo Village Road. ",
+  description5:
+    "The Center commends the Governor for the achievements recorded and urges that the tempo be maintained in order to completely repair all deplorable portions of roads and streets across the State before the rainy season.",
+  description6: "Signed Otuekong Franklyn Isong (Director)",
+  articleCount: "6 articles",
+  createdAt: "Dated: Tuesday, 28th January, 2025.",
+  category: "CHRAN",
+};
+
 export const rightCardsData3: BlogCard[] = [
   {
     slug: "100-days-in-office-cso-urges-local-govt-chairmen-in-akwa-ibom-to-publish-their-scorecards",

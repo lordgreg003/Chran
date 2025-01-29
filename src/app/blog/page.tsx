@@ -6,11 +6,13 @@ import BlogLayout3 from "../ui/components/blogsComponent/BlogSection3";
 import Marquee from "../ui/components/layoutComponents/Marquee";
 import BlogLayout4 from "../ui/components/blogsComponent/BlogSection4";
 import BlogLayout5 from "../ui/components/blogsComponent/BlogSection5";
+import BlogLayout6 from "../ui/components/blogsComponent/BlogSection6";
 
 const page = () => {
   return (
     <div>
     <Marquee />
+    <BlogLayout6 />
     <BlogLayout5 />
     <BlogLayout4 />
       {/* <Blogs /> */}
