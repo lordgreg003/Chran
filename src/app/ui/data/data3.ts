@@ -244,3 +244,68 @@ export const rightCardsData3: BlogCard[] = [
     images: [],
   },
 ];
+
+export const rightCardsData4: BlogCard[] = [
+  {
+    slug: "akwa-ibom-chran-calls-for-accountability-in-local-govt-councils-to-partner-sren",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738422373/WhatsApp_Image_2025-01-30_at_10.08.38_AM_lz0asj.jpg",
+    title:
+      "AKWA IBOM: CHRAN CALLS FOR ACCOUNTABILITY IN LOCAL GOVT COUNCILS, TO PARTNER SREN",
+    articleCount: "8 articles",
+    description:
+      "The Center for Human Rights and Accountability Network (CHRAN) has called on the Chairmen of the 31 Local Government Councils in Akwa Ibom State to render account of their stewardship as they mark their first 100 days in office. ",
+    description1:
+      "The CHRAN made the call through its Director, Otuekong Franklyn Isong, when he received members of the Social Reorientation and Empowerment Network (SREN) led by its President, Dr. Daniel Evans Eshett, on a courtesy visit at CHRAN office in Uyo, the Capital of Akwa Ibom State on Wednesday, 29th January, 2025.",
+    description2:
+      " According to Otuekong Isong, the 31 council chairmen, elected on 5th October, 2024, were sworn-in on 7th October, 2024,  and after staying in office as the Chief Accounting Officers for 100 days, are expected to make public the list of projects they have executed so far in fulfillment of their promises to the electorates during their electioneering campaigns.",
+    description3:
+      "This, the CHRAN Director said, became necessary in view of the huge monthly financial allocations released to the 31 local government councils by the Federal Account Allocation Committee (FAAC) as a result of the financial autonomy granted the 774 local governments by the Supreme Court of Nigeria through the effort of the President Bola Tinubu administration.",
+    description4:
+      "The CHRAN noted that the State Chief Executive, Pastor Umo Eno, had presented to the public the list of projects that his administration has executed within the first 100 days in office, thus giving account of his stewardship in the State.",
+    description5:
+      "The CHRAN urged council chairmen across the 31 local government areas of the State to take a cue from Governor Umo Eno and present the scorecards of their performance in the first 100 days in office for appraisal by members of the  public.",
+    description6:
+      "The CHRAN singled out the Chairmen of Etim Ekpo and Ibiono Ibom Local Government Councils, Hon. Gideon Uwah and Hon. Asuakak Udo Umoh, respectively, for commendation, noting that, so far, they are among the first to make public their 100 days' scorecards of performance for appraisal. ",
+    description7:
+      "On the visit by SREN to CHRAN, Otuekong Isong thanked the SREN for the visit, the purpose of which is to seek partnership with the Center, whose network spreads across Nigeria and abroad.",
+    description8:
+      "CHRAN Director said the Center would partner SREN in the areas of community development, capacity building, public enlightenment, advocacy on rule of law, human rights, transparency and accountability among others, which will also expose SREN to the workings of advocacy.",
+    description9:
+      "He also told the SREN delegation that the Center was open to partnership with credible civil society organisations (CSOs) and non-governmental organisations (NGOs) duly registered by law.",
+    description10:
+      "CHRAN Director  charged officers and members of SREN to be above board in their conduct and activities and never to use the body as a vehicle to exploit the society. He stressed that where such abhorrent acts are observed, the Center would quickly terminate the partnership with them.",
+    description11:
+      "Earlier, the President of SREN, Dr. Daniel Evans Eshett, had disclosed that the visit to CHRAN was to seek partnership in order to collectively amplify SREN's reach and deepen the impact of its intervention programmes and objectives.",
+    description12:
+      "Daniel described CHRAN as a reputable organisation with remarkable contributions to Nigeria's democratic landscape. This, he added, spreads from advocating for electoral reforms to championing the rights of the marginalised and waging a tireless fight against corruption with unparalleled standard of civic leadership and accountability.",
+    description13:
+      "According to SREN President, the visit to CHRAN was not just to celebrate CHRAN's achievements but to explore avenues for collaboration, just as SREN recognises the importance of uniting forces in addressing Nigeria's socio-politcal challenges.",
+    description14:
+      "He commended CHRAN for accepting to partner SREN in its avowed determination to inspire hope, empower the voiceless and build a Nigeria where democracy thrives, human dignity is upheld and every citizen able to contribute meaningfully to national development.",
+    description15:
+      "On the SREN President's entourage were: Dr. Inemesit Umoren; (Programmes Director); Idongesit Akpanudo (Mobilisations Officer), and Emediong Umanah (Media).",
+    description16:
+      "Members of CHRAN present during the visit were: Otuekong Franklyn Isong, Director; Comrade Usen Johnson, Comrade Emmanuel Udoatta, Comrade (Dr.) Victor David, Comrade Julius Nsikak, Comrade Lovina Anthony, Comrade Patrick Titus and Comrade (Barr. ) Nsima Udom. ",
+    description17: "Signed Comrade  (Barr. ) Christopher Ekpo (Secretary)",
+    description18: "Dated: Thursday, 30th January, 2025.",
+    category: "CHRAN",
+    images: [],
+  },
+  {
+    slug: "aks-cp-visists-okuibom-ibibio",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738423361/475642096_vrhw0a.jpg",
+    title: "AKS CP VISISTS OKUIBOM IBIBIO ",
+    articleCount: "8 articles",
+    category: "CHRAN",
+    description:
+      "The Commissioner of Police, Akwa Ibom Command, CP Baba M. Azare has paid a familiarization visit to the Okuibom Ibibio and President General of Ifim Ibom Ibibio - the apex Ibibio traditional rulers' council, His Eminence Ntenyin (Dr.) Solomon D. Etuk, CFR at his Palace in Nsit Ubium Local Government Area on Thursday, 30th January, 2025. ",
+    description1:
+      "Ntenyin also doubles as the President General of the Akwa Ibom State Supreme Council of Traditional Rulers.",
+    description2: "Yak itong uwem asong Okuibom Ibibio ke nsi si! ",
+    description3: "> Otuekong Franklyn Isong ",
+    description4: "Administrative Secretary, Ifim Ibom Ibibio.",
+    images: [],
+  },
+];
