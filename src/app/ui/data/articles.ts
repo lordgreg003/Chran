@@ -336,4 +336,31 @@ export const newsData: NewsData[] = [
     Text8:
       "CHRAN’s engagement with the Akwa Ibom State Police Command underscores its unwavering commitment to bridging the gap between law enforcement and the public, ensuring that human rights remain at the forefront of governance and security operations in Nigeria.",
   },
+  {
+    slug: "2024-budget-cso-lauds-aksg-on-transparency-accountability",
+    type: "News",
+    title: "2024 BUDGET: CSO LAUDS AKSG ON TRANSPARENCY, ACCOUNTABILITY",
+    description:
+      "In a statement issued after a courtesy visit to the Commissioner, CHRAN applauded the Akwa Ibom State Police Command for maintaining peace and order during the protests",
+    author: "Franklyn Isong",
+    date: "1 Jan 2025 ",
+    categories: ["Franklyn Isong"],
+    Text: "A foremost civil society organisation in Nigeria, the Center for Human Rights and Accountability Network (CHRAN) has commended the Pastor Umo Eno administration in Akwa Ibom State on its impressive tendency towards transparency and accountability.",
+    Text1:
+      "CHRAN made this assertion through its Secretary, Comrade (Barr.) Christopher Ekpo, during a Press Briefing on the 2024 Arise Budget for Growth and Expansion held today, the 31st of January, 2025 at the conference room of the Ministry of Information, Idongesit Nkanga Secretariat, Uyo, the Capital of Akwa Ibom State.",
+    Text2:
+      "The Center stated that regular interactions between Government, the Press and civil society, which is a feature of the current State administration, will inspire public confidence in government. ",
+    Text3:
+      "Appraising the budget, the CHRAN lauded the State Government for recording a 79.1% budget performance in 2024 with a bias for capital projects.",
+    Text4:
+      "Earlier, while addressing the Press and civil society on the implementation of the 2024 Arise Budget for Growth and Expansion, the Permanent Secretary, Ministry of Finance, Mr. Mark Umoh, stated that the 2024 budget recorded 79.1% performance, saying that is the highest in the history of Akwa Ibom State.",
+    Text5:
+      "He noted that there was an impressive and unparalleled disbursement of revenue to fund the capital expenditure contained in the 2024 Budget.",
+    Text6:
+      "Mr Umoh added that the injection of revenue to fund the capital expenditure has resulted to capital projects that have boosted the economy and enhanced social security.",
+    Text7:
+      "Other State officials who spoke during the briefing include: the Accountant-General of the State, Pastor Uwem Andrew Essien; the Permanent Secretary, Ministry of Information, Akparawa James Edet; the Permanent Secretary, Ministry of Economic Development, Barr. Christopher Udoh; the Director of Budget, Mr Otu Asuquo, and the Director-General, Fiscal Responsibility Commission, Akparawa Victor Edet.",
+    Text8:
+      "The State Chairman, Nigeria Union of Journalists (NUJ), Comrade Amos Etuk, who led journalists to the briefing, commended the State administration on its commitment to transparency and accountability, and pledged the support of the Press to government to ensure that the people feel the positive impact of government.",
+  },
 ];
