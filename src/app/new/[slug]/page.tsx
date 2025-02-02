@@ -2,8 +2,7 @@
 // import { newsData, NewsData } from "@/app/ui/data/articles";
 // import { roboto, merriweather } from "@/app/ui/fonts/fonts";
 
-
-
+// // Function to fetch news data by slug
 // async function getNewsData(slug: string): Promise<NewsData | undefined> {
 //   return new Promise((resolve, reject) => {
 //     const newsItem = newsData.find((item) => item.slug === slug);
@@ -15,33 +14,38 @@
 //   });
 // }
 
-// // Adjust `generateMetadata` to await the resolved params (no need to wrap params in a promise)
+// // Generate metadata dynamically based on the slug
 // export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-//   const resolvedParams = await params;  // Await params here
+//   try {
+//     const newsItem = await getNewsData(params.slug);
 
-//   const newsItem = await getNewsData(resolvedParams.slug);  // Now access resolved slug
-
-//   return {
-//     title: newsItem?.title || "Blog not found",
-//     description: newsItem?.description || "No description available",
-//     openGraph: {
+//     return {
 //       title: newsItem?.title || "Blog not found",
 //       description: newsItem?.description || "No description available",
-//     },
-//   };
+//       openGraph: {
+//         title: newsItem?.title || "Blog not found",
+//         description: newsItem?.description || "No description available",
+//       },
+//     };
+//   } catch (error) {
+//     console.error("Error generating metadata:", error);
+//     return {
+//       title: "Blog not found",
+//       description: "No description available",
+//     };
+//   }
 // }
 
-
+// // Props interface for the component
 // interface NewsDetailsProps {
-//   params: Promise<{ slug: string }>;  // Ensure it's a Promise
+//   params: { slug: string };
 // }
 
+// // Main component to display news details
 // export default async function NewsDetails({ params }: NewsDetailsProps) {
-//   const resolvedParams = await params;  // Await params before accessing it
-//   const { slug } = resolvedParams;  // Now access resolved slug
-
 //   try {
-//     const newsItem: NewsData | undefined = await getNewsData(slug);
+//     const newsItem = await getNewsData(params.slug);
+
 //     if (!newsItem) {
 //       throw new Error("Article not found");
 //     }
@@ -61,6 +65,7 @@
 //           <span>{newsItem.date}</span>
 //         </div>
 
+//         {/* Display categories */}
 //         <div className="flex flex-wrap gap-2 mt-4">
 //           {newsItem.categories?.map((category, index) => (
 //             <span
@@ -73,7 +78,7 @@
 //         </div>
 
 //         {/* Full text with Roboto font */}
-//         <div className="mt-6 flex flex-col gap-5 ">
+//         <div className="mt-6 flex flex-col gap-5">
 //           {[
 //             newsItem.Text1,
 //             newsItem.Text2,
@@ -110,9 +115,15 @@
 //       </div>
 //     );
 //   } catch (error) {
-//     console.error(error);
+//     console.error("Error fetching news data:", error);
 
-//     return <p className="text-center text-red-500">An error occurred.</p>;
+//     // Display a user-friendly error message
+//     return (
+//       <div className="max-w-4xl mx-auto px-4 py-8 text-center text-red-500">
+//         <p>An error occurred while loading the article.</p>
+//         <p>Please try again later.</p>
+//       </div>
+//     );
 //   }
 // }
 
@@ -127,4 +138,3 @@ const page = () => {
 }
 
 export default page
-
