@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { open_sans, playfair_Display } from "../../fonts/fonts";
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
-import { mainCardData3  } from "../../data/data3";
+import { mainCardData3, rightCardsData3  } from "../../data/data3";
 
 export default function BlogLayout5() {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,7 +83,7 @@ export default function BlogLayout5() {
         </div>
 
         {/* Right smaller cards */}
-        {/* <div className="space-y-8">
+        <div className="space-y-8">
           {rightCardsData3.map((card, index) => (
             <div
               key={card.slug}
@@ -112,7 +112,7 @@ export default function BlogLayout5() {
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   );
