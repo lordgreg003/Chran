@@ -41,6 +41,10 @@ export interface showMoreinter {
 export interface BlogCard {
   slug: string;
   imageSrc: string;
+  imageSrc1?: string;
+  imageSrc2?: string;
+  imageSrc3?: string;
+  imageSrc4?: string;
   videoSrc?: string;
   title: string;
   images: string[];

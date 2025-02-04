@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import { BlogCard} from "@/app/ui/data/istdata";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
  
-import { rightCardsData3 } from "@/app/ui/data/data3";
+import { rightCardsData5 } from "@/app/ui/data/data4";
 
 // Simulate fetching data from rightCardsData2
 async function getData(slug: string): Promise<BlogCard | undefined> {
   return new Promise((resolve, reject) => {
-    const cardData = rightCardsData3.find((card) => card.slug === slug);
+    const cardData = rightCardsData5.find((card) => card.slug === slug);
 
     if (cardData) {
       resolve(cardData);
@@ -105,6 +105,15 @@ export default async function CardDetails({ params }: CardDetailsProps) {
                 cardData.description7,
                 cardData.description8,
                 cardData.description9,
+                cardData.description10,
+                cardData.description11,
+                cardData.description12,
+                cardData.description13,
+                cardData.description14,
+                cardData.description15,
+                cardData.description16,
+                cardData.description17,
+                cardData.description18,
               ].map((desc, index) => (
                 <p
                   key={index}

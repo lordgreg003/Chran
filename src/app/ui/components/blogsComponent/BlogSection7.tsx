@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { open_sans, playfair_Display } from "../../fonts/fonts";
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
-import { mainCardData5  } from "../../data/data4";
+import { mainCardData5, rightCardsData5  } from "../../data/data4";
 
 export default function BlogLayout7() {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,8 +83,8 @@ export default function BlogLayout7() {
         </div>
 
         {/* Right smaller cards */}
-        {/* <div className="space-y-8">
-          {rightCardsData4.map((card) => (
+        <div className="space-y-8">
+          {rightCardsData5.map((card) => (
             <div key={card.slug} className="relative">
               <Image
                 src={card.imageSrc}
@@ -97,7 +97,7 @@ export default function BlogLayout7() {
                 Blog
               </span>
               <h3 className={`${playfair_Display.className} mt-4 text-lg font-semibold`}>
-                <Link href={`/blo/detail5/${card.slug}`} className="cursor-pointer">
+                <Link href={`/blo/detail7/${card.slug}`} className="cursor-pointer">
                   {card.title}
                 </Link>
               </h3>
@@ -109,7 +109,7 @@ export default function BlogLayout7() {
               </div>
             </div>
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   );
