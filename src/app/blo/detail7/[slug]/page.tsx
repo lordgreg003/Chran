@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { BlogCard} from "@/app/ui/data/istdata";
+import { BlogCard } from "@/app/ui/data/istdata";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
- import Image from "next/image";
+import Image from "next/image";
 import { rightCardsData5 } from "@/app/ui/data/data4";
 
 // Simulate fetching data from rightCardsData2
@@ -29,8 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
-   
-
   return {
     title: cardData.title,
     description: cardData.description || "No description available",
@@ -49,9 +47,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-
 interface CardDetailsProps {
-  params: Promise<{ slug: string }>;  
+  params: Promise<{ slug: string }>;
 }
 
 // Update the main component to handle async params
@@ -67,35 +64,39 @@ export default async function CardDetails({ params }: CardDetailsProps) {
     }
 
     return (
-      <div className="max-w-screen-lg mx-auto overflow-x-hidden py-8 px-4">
-        <h1
-          className={`${playfair_Display.className} text-2xl md:text-5xl font-bold mb-6 text-left`}
-        >
+      <div className="max-w-screen-lg mx-auto px-4 py-8">
+        {/* Title */}
+        <h1 className={`${playfair_Display.className} text-3xl md:text-5xl font-bold mb-6 text-center md:text-left`}>
           {cardData.title}
         </h1>
+
+        {/* Main Content */}
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex flex-col gap-8 bg-red-500"><div className="mt-6">
-             <Image
-              src={cardData.imageSrc}
-              alt={cardData.title}
-              height={500}
-              width={500}
-              objectFit="cover"
-              className="rounded-lg shadow-lg"
-                />
-          </div>
-          <div className="w-full">
-            <div className="mb-4">
-              <span
-                className={`${open_sans.className} text-sm md:text-base text-gray-500`}
-              >
+          {/* Left Column (Image and Descriptions) */}
+          <div className="flex-1">
+            {/* Image */}
+            <div className="mb-8">
+              <Image
+                src={cardData.imageSrc}
+                alt={cardData.title}
+                width={800}
+                height={500}
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+
+            {/* Article Count and Category */}
+            <div className="mb-8">
+              <span className={`${open_sans.className} text-sm md:text-base text-gray-500`}>
                 Articles: {cardData.articleCount}
               </span>
               <span className="ml-4 px-3 py-1 bg-gray-200 text-gray-700 text-sm md:text-base rounded">
                 {cardData.category}
               </span>
             </div>
-            <div className="space-y-5">
+
+            {/* Descriptions */}
+            <div className="space-y-4">
               {[
                 cardData.description,
                 cardData.description1,
@@ -127,20 +128,60 @@ export default async function CardDetails({ params }: CardDetailsProps) {
               ].map((desc, index) => (
                 <p
                   key={index}
-                  className={`${open_sans.className} text-gray-600 text-lg md:text-xl leading-relaxed`}
+                  className={`${open_sans.className} text-gray-600 text-base md:text-lg leading-relaxed`}
                 >
                   {desc}
                 </p>
               ))}
             </div>
-          </div></div><div></div>
+          </div>
+
+          {/* Right Column (Optional Second Image) */}
+          {cardData.imageSrc1 && (
+            <div className="w-[16%]">
+              <div className="mt-6">
+                <Image
+                  src={cardData.imageSrc1}
+                  alt={cardData.title}
+                  width={500}
+                  height={500}
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="mt-6">
+                <Image
+                  src={cardData.imageSrc2 || '/default-image.png'}
+                  alt={cardData.title}
+                  width={500}
+                  height={500}
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="mt-6">
+                <Image
+                  src={cardData.imageSrc3 || '/default-image.png'}
+                  alt={cardData.title}
+                  width={500}
+                  height={500}
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="mt-6">
+                <Image
+                  src={cardData.imageSrc4 || '/default-image.png'}
+                  alt={cardData.title}
+                  width={500}
+                  height={500}
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
   } catch (error) {
     console.error(error);
-
     return <p className="text-center text-red-500">An error occurred.</p>;
   }
 }
-
