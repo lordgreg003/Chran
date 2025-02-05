@@ -47,7 +47,7 @@ export const mainCardData5: data = {
 
 export const rightCardsData5: BlogCard[] = [
   {
-    slug: "2024-budget-cso-lauds-aksg-on-transparency-accountability",
+    slug: "report-chrans-accountability-tour-etim-ekpo-lga",
     imageSrc:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738702460/WhatsApp_Image_2025-02-04_at_9.35.42_PM_xvbmxd.jpg",
     imageSrc1:
@@ -58,44 +58,60 @@ export const rightCardsData5: BlogCard[] = [
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738702415/WhatsApp_Image_2025-02-04_at_9.35.34_PM_zaq3od.jpg",
     imageSrc4:
       "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738702378/WhatsApp_Image_2025-02-04_at_9.35.28_PM_nwrrqj.jpg",
-    title: "2024 BUDGET: CSO LAUDS AKSG ON TRANSPARENCY, ACCOUNTABILITY",
+    title: "REPORT OF CHRAN'S ACCOUNTABILITY TOUR OF ETIM EKPO LGA",
     articleCount: "8 articles",
     description:
-      "The Center for Human Rights and Accountability Network (CHRAN) has called on the Chairmen of the 31 Local Government Councils in Akwa Ibom State to render account of their stewardship as they mark their first 100 days in office. ",
+      "The Center for Human Rights and Accountability Network (CHRAN) has kicked-started its accountability tour of projects of the Chairmen of the 31 Local Government Councils of Akwa Ibom State to verify projects executed within their first 100 days in office.",
     description1:
-      "The CHRAN made the call through its Director, Otuekong Franklyn Isong, when he received members of the Social Reorientation and Empowerment Network (SREN) led by its President, Dr. Daniel Evans Eshett, on a courtesy visit at CHRAN office in Uyo, the Capital of Akwa Ibom State on Wednesday, 29th January, 2025.",
+      "This exercise is in furtherance of CHRAN's avowed commitment to deepening democracy at the grassroots level and ensuring good governance at the third tier of Government.",
     description2:
-      " According to Otuekong Isong, the 31 council chairmen, elected on 5th October, 2024, were sworn-in on 7th October, 2024,  and after staying in office as the Chief Accounting Officers for 100 days, are expected to make public the list of projects they have executed so far in fulfillment of their promises to the electorates during their electioneering campaigns.",
+      "The tour started with a visit to Etim Ekpo Local Government Council on Monday, 3rd February, 2025. The CHRAN team was received by the Executive Chairman of the Council, Hon. Gideon Uwah.",
     description3:
-      "This, the CHRAN Director said, became necessary in view of the huge monthly financial allocations released to the 31 local government councils by the Federal Account Allocation Committee (FAAC) as a result of the financial autonomy granted the 774 local governments by the Supreme Court of Nigeria through the effort of the President Bola Tinubu administration.",
+      "The Director of CHRAN, Otuekong Franklyn Isong, who led the team, informed the Council Chairman that beyond the Federal and State Governments, CHRAN also has as its core mandate the monitoring of the activities of Local Government Councils across the country with a view to holding the Council officials accountable to the people. ",
     description4:
-      "The CHRAN noted that the State Chief Executive, Pastor Umo Eno, had presented to the public the list of projects that his administration has executed within the first 100 days in office, thus giving account of his stewardship in the State.",
+      "He noted that the CHRAN is a worthy development partner that is committed to ensuring good governance at the grassroots level, which lies at the core of Government.",
     description5:
-      "The CHRAN urged council chairmen across the 31 local government areas of the State to take a cue from Governor Umo Eno and present the scorecards of their performance in the first 100 days in office for appraisal by members of the  public.",
+      "The Local Government Chairmen should be heard and they should tell us what they have done within their first 100 days in office as the Chief Accounting Officers of their respective Councils in Akwa Ibom State.",
     description6:
-      "The CHRAN singled out the Chairmen of Etim Ekpo and Ibiono Ibom Local Government Councils, Hon. Gideon Uwah and Hon. Asuakak Udo Umoh, respectively, for commendation, noting that, so far, they are among the first to make public their 100 days' scorecards of performance for appraisal. ",
+      "The Council Chairman, Hon. Gideon Uwah, conducted the CHRAN team round his projects, which include: the general facelift of the Council Secretariat,  remodelling of the Secretariat fence, newly constructed two-bedroom gate house with newly constructed gateway, construction of  1.5 km asphalted internal roads/walkways with kerbs, refurbishment of the Council chairman's office to a smart office, painting of the Police Area Command and Division.",
     description7:
-      "On the visit by SREN to CHRAN, Otuekong Isong thanked the SREN for the visit, the purpose of which is to seek partnership with the Center, whose network spreads across Nigeria and abroad.",
+      "Others include:  the rehabilitation of St. Anthony Primary School Block at Esa Obong in Ward 11, recovery and rehabilitation of Council Grader for grading and opening up of rural roads, and the cultivation of cassava on five hectares of farmland to enhance the council's food sufficiency efforts.",
     description8:
-      "CHRAN Director said the Center would partner SREN in the areas of community development, capacity building, public enlightenment, advocacy on rule of law, human rights, transparency and accountability among others, which will also expose SREN to the workings of advocacy.",
+      "The CHRAN commended the Local Government Chairman for what he has done within his 100 days in office and observed that the Council has become busy and the staff more engaged.  When we came, we spoke with some staff privately and they expressed happiness with the administration of Gideon Uwah, the Director disclosed.",
     description9:
-      "He also told the SREN delegation that the Center was open to partnership with credible civil society organisations (CSOs) and non-governmental organisations (NGOs) duly registered by law.",
+      "He urged the Chairman, having done creditably within the Council Secretariat, to go further into the hinterlands to ensure the development of the entire Local Government Area as the next line of action.",
     description10:
-      "CHRAN Director  charged officers and members of SREN to be above board in their conduct and activities and never to use the body as a vehicle to exploit the society. He stressed that where such abhorrent acts are observed, the Center would quickly terminate the partnership with them.",
+      "He further commended the Chairman and his team for their vision and focus within the short time and urged other Local Government Chairmen in the State to emulate the Etim Ekpo Chairman by opening their books and allowing the public, including the CSOs, to scrutinise. He commended the Chairman for striving to justify the funds that he has received.",
     description11:
-      "Earlier, the President of SREN, Dr. Daniel Evans Eshett, had disclosed that the visit to CHRAN was to seek partnership in order to collectively amplify SREN's reach and deepen the impact of its intervention programmes and objectives.",
+      "The Director also recalled that Utu Etim Ekpo Roundabout has always been prone to accidents. He stated that not long ago, a truck loaded with sugar rammed into some shops by the Roundabout killing some people and injuring others. CHRAN, therefore, called on both the Federal and Akwa Ibom State Governments to redesign and reconstruct the Roundabout to make it easier for vehicles coming from Abak Local Government Area to access Ika Local Government Area without first turning around the Roundabout, which he observed, is too narrow.",
     description12:
-      "Daniel described CHRAN as a reputable organisation with remarkable contributions to Nigeria's democratic landscape. This, he added, spreads from advocating for electoral reforms to championing the rights of the marginalised and waging a tireless fight against corruption with unparalleled standard of civic leadership and accountability.",
+      "Earlier, the Etim Ekpo Local Government Council Chairman, Hon. Gideon Uwah, who took the CHRAN delegation round the Secretariat, said that he was moved out of the passion and love that he has for his people to do what he has done so far having lived among them for many years.",
     description13:
-      "According to SREN President, the visit to CHRAN was not just to celebrate CHRAN's achievements but to explore avenues for collaboration, just as SREN recognises the importance of uniting forces in addressing Nigeria's socio-politcal challenges.",
+      "His words, Two days after I was sworn in as the Chairman, journalists came to me and addressed me as Honourable but I quickly cut in and told them that I prefer that my works should be described as honourable.",
     description14:
-      "He commended CHRAN for accepting to partner SREN in its avowed determination to inspire hope, empower the voiceless and build a Nigeria where democracy thrives, human dignity is upheld and every citizen able to contribute meaningfully to national development.",
+      "And when I started these projects, someone asked me, Sir where are you getting the money to do all these? My answer was simple: What you are seeing is not the function of money but the function of vision and passion to work for my people and how committed I am to the people, he said.",
     description15:
-      "On the SREN President's entourage were: Dr. Inemesit Umoren; (Programmes Director); Idongesit Akpanudo (Mobilisations Officer), and Emediong Umanah (Media).",
+      "Uwah added that the Council Secretariat lacked the requisite status when he assumed office as the Executive Chairman and that that informed his decision to start development from the Council Secretariat with plans to move immediately to other parts of the Local Government Area and give the people a sense of belonging.",
     description16:
-      "Members of CHRAN present during the visit were: Otuekong Franklyn Isong, Director; Comrade Usen Johnson, Comrade Emmanuel Udoatta, Comrade (Dr.) Victor David, Comrade Julius Nsikak, Comrade Lovina Anthony, Comrade Patrick Titus and Comrade (Barr. ) Nsima Udom. ",
-    description17: "Signed Comrade  (Barr. ) Christopher Ekpo (Secretary)",
-    description18: "Dated: Thursday, 30th January, 2025.",
+      "Anyone who knew Etim Ekpo Council Secretariat before now will remember that the fence of the Secretariat was used for billboards by all manner of people, including people from far-flung places in Abia State and other neighbouring States who saw it as a place to post their political campaign flyers, burial notices, flex and job vacancies, et cetera and that completely defaced and eroded the Secretariat. So I said, this must stop!",
+    description17:
+      " I started the reconstruction of the council gate house, remodeled the fence and gave the place you are seeing now a facelift, Uwah noted.",
+    description18:
+      "On the five hectares cassava farm, Uwah said it was in line with the State Governor's directive that each Local Government Area should own a farm in order to contribute to the food basket of the State to feed the populace.",
+    description19:
+      "He said that the produce from the farm would be sold at a subsidised rate to not only the council staff but every interested buyer.",
+    description20:
+      "Uwah, who noted that CHRAN is an organisation with track records of accountability and forthrightness,  commended CHRAN for the visit to the Council to see what he has been able to do so far with his team, counting such as an honour to him and his Council.",
+    description21:
+      "Uwah said Etim Ekpo Local Government Area under his administration is open to scrutiny by any anti-graft agency just as he welcomes partnership with any development firm and organisation for the growth and development of the area.",
+    description22:
+      "Recall that the CHRAN had a week ago called on the 31 Local Government Council Chairmen in Akwa Ibom State to make public the scorecards of their administration within their first 100 days in office, urging them to emulate the footsteps of Governor Umo Eno and President Bola Tinubu, who made public their respective scorecards for public appraisal during their first 100 days in office.",
+    description23:
+      "On the CHRAN team were: Otuekong Franklyn Isong, Director; Comrade (Barr.) Christopher Ekpo, Secretary; Comrade (Dr.) Victor David, Comrade (Dr.) Daniel Evans Eshett, Comrade Julius Nsikak, Comrade Lovina Anthony, and Comrade Patrick Titus, among others.",
+    description24: "Signed Otuekong Franklyn Isong (Director)",
+    description25: "Comrade (Barr.) Christopher Ekpo (Secretary)",
+    description26: "Dated: Tuesday, 4th February, 2025.",
+    description27: "",
     category: "CHRAN",
     images: [],
   },

@@ -36,7 +36,7 @@ export default function BlogLayout7() {
       {/* Main container */}
       <div className="h-16"></div> {/* Space for fixed navbar */}
 
-      {/* Add animations when the component is visible */}
+      {/* Add animations when the component is visiblrightCardsData5e */}
       <div
         id="blogLayout"
         className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${isVisible ? 'animate__animated animate__zoomIn' : ''}`}
