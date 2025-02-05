@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { BlogCard} from "@/app/ui/data/istdata";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
- 
+ import Image from "next/image";
 import { rightCardsData5 } from "@/app/ui/data/data4";
 
 // Simulate fetching data from rightCardsData2
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
-  const videoUrl = cardData.videoSrc || "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1738049375/video_yendep.mp4";
+   
 
   return {
     title: cardData.title,
@@ -37,11 +37,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: cardData.title,
       description: cardData.description || "No description available",
-      videos: [
+      images: [
         {
-          url: videoUrl,
+          url: cardData.imageSrc || "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738702460/WhatsApp_Image_2025-02-04_at_9.35.42_PM_xvbmxd.jpg",
           width: 800,
           height: 600,
+          alt: cardData.title,
         },
       ],
     },
@@ -73,15 +74,16 @@ export default async function CardDetails({ params }: CardDetailsProps) {
           {cardData.title}
         </h1>
         <div className="flex flex-col gap-8">
-          <div className="w-full mb-6">
-          <video
-                    src={cardData.videoSrc}
-                              controls
-                    className="w-full h-auto rounded cursor-pointer"
-                      >
-                      Your browser does not support the video tag.
-              </video>
-          </div>
+          <div className="mt-6">
+                    <Image
+                                 src={cardData.imageSrc}
+                                 alt={cardData.title}
+                                 height={500}
+                                 width={500}
+                                 objectFit="cover"
+                                 className="rounded-lg shadow-lg"
+                               />
+                 </div>
           <div className="w-full">
             <div className="mb-4">
               <span
