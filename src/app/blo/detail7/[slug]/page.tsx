@@ -73,17 +73,17 @@ export default async function CardDetails({ params }: CardDetailsProps) {
         >
           {cardData.title}
         </h1>
-        <div className="flex flex-col gap-8">
-          <div className="mt-6">
-                    <Image
-                                 src={cardData.imageSrc}
-                                 alt={cardData.title}
-                                 height={500}
-                                 width={500}
-                                 objectFit="cover"
-                                 className="rounded-lg shadow-lg"
-                               />
-                 </div>
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col gap-8 bg-red-500"><div className="mt-6">
+             <Image
+              src={cardData.imageSrc}
+              alt={cardData.title}
+              height={500}
+              width={500}
+              objectFit="cover"
+              className="rounded-lg shadow-lg"
+                />
+          </div>
           <div className="w-full">
             <div className="mb-4">
               <span
@@ -116,6 +116,14 @@ export default async function CardDetails({ params }: CardDetailsProps) {
                 cardData.description16,
                 cardData.description17,
                 cardData.description18,
+                cardData.description19,
+                cardData.description20,
+                cardData.description21,
+                cardData.description22,
+                cardData.description23,
+                cardData.description24,
+                cardData.description25,
+                cardData.description26,
               ].map((desc, index) => (
                 <p
                   key={index}
@@ -125,7 +133,7 @@ export default async function CardDetails({ params }: CardDetailsProps) {
                 </p>
               ))}
             </div>
-          </div>
+          </div></div><div></div>
         </div>
       </div>
     );
