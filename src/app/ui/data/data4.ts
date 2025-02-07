@@ -116,31 +116,45 @@ export const rightCardsData5: BlogCard[] = [
     images: [],
   },
   {
-    slug: "2024-budget-cso-lauds-aksg-on-transparency-accountability",
+    slug: "mkpat-enin-chran-lauds-emoimee-over-teachers-training-programme",
     imageSrc:
-      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738127372/WhatsApp_Image_2025-01-28_at_2.43.56_PM_edezpm.jpg",
-    title: "2024 BUDGET: CSO LAUDS AKSG ON TRANSPARENCY, ACCOUNTABILITY",
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738892680/WhatsApp_Image_2025-02-06_at_1.12.37_PM_hzefuk.jpg",
+    imageSrc1:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738892690/WhatsApp_Image_2025-02-06_at_1.12.34_PM_xedl4p.jpg",
+    imageSrc2:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738892670/WhatsApp_Image_2025-02-06_at_1.12.35_PM_pussul.jpg",
+    imageSrc3:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738892680/WhatsApp_Image_2025-02-06_at_1.12.37_PM_hzefuk.jpg",
+    imageSrc4:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738892690/WhatsApp_Image_2025-02-06_at_1.12.34_PM_xedl4p.jpg",
+    title: "MKPAT ENIN: CHRAN LAUDS EMOIMEE OVER TEACHERS TRAINING PROGRAMME",
     articleCount: "8 articles",
     category: "CHRAN",
     description:
-      "A foremost civil society organisation in Nigeria, the Center for Human Rights and Accountability Network (CHRAN) has commended the Pastor Umo Eno administration in Akwa Ibom State on its impressive tendency towards transparency and accountability.",
-    description1:
-      "CHRAN made this assertion through its Secretary, Comrade (Barr.) Christopher Ekpo, during a Press Briefing on the 2024 Arise Budget for Growth and Expansion held today, the 31st of January, 2025 at the conference room of the Ministry of Information, Idongesit Nkanga Secretariat, Uyo, the Capital of Akwa Ibom State.",
+      "GOODWILL MESSAGE BY THE CENTER FOR HUMAN RIGHTS AND ACCOUNTABILITY NETWORK (CHRAN) DELIVERED AT THE MKPAT ENIN EMOIMEE 1ST TEACHERS TRAINING & RE-TRAINING PROGRAMME, 2025 AT DOMINION ACADEMY, IKOT EKONG, MKPAT ENIN LOCAL GOVERNMENT AREA, AKWA IBOM STATE ON WEDNESDAY, 5TH FEBRUARY, 2025.",
+    description1: "Protocol.",
     description2:
-      "The Center stated that regular interactions between Government, the Press and civil society, which is a feature of the current State administration, will inspire public confidence in government. ",
+      "1, The Center for Human Rights and Accountability Network (CHRAN) received an invitation from the Programme Consultant to participate in this Mkpat Enin EMOIMEE 1st Teachers Training and Re-Training programme holding today, Wednesday, 5th February, 2025.",
     description3:
-      "Appraising the budget, the CHRAN lauded the State Government for recording a 79.1% budget performance in 2024 with a bias for capital projects.",
+      "2, According to invitation, the programme is billed to hold from Wednesday, 5th February, 2025 to Monday, 10th February, 2025 at Dominion Academy, Ikot Ekong, Mkpat Enin Local Government Area of Akwa Ibom State, Nigeria.",
     description4:
-      "Earlier, while addressing the Press and civil society on the implementation of the 2024 Arise Budget for Growth and Expansion, the Permanent Secretary, Ministry of Finance, Mr. Mark Umoh, stated that the 2024 budget recorded 79.1% performance, saying that is the highest in the history of Akwa Ibom State.",
+      "3, The CHRAN, being an internationally recognised human rights cum pro-democracy organisation that fought for the enthronement of democracy in Nigeria, is committed to holding governments and public officeholders accountable to the peopl",
     description5:
-      "He noted that there was an impressive and unparalleled disbursement of revenue to fund the capital expenditure contained in the 2024 Budget.",
+      "4, The CHRAN notes that Teachers play a crucial role in nation-building as they shape the minds and values of the present and future generations. Their influence extends beyond the classrooms, impacting society in profound ways. A nation's future depends on the quality of its education, and teachers are at the heart of this transformation. By educating and inspiring young minds, they lay the foundation for a strong, prosperous, and united nation.",
     description6:
-      "Mr Umoh added that the injection of revenue to fund the capital expenditure has resulted to capital projects that have boosted the economy and enhanced social security.",
+      "5, The CHRAN commends NNPC/MPN JV EMOIMEE for this timely and thoughtful Programme for our Teachers.",
     description7:
-      "Other State officials who spoke during the briefing include: the Accountant-General of the State, Pastor Uwem Andrew Essien; the Permanent Secretary, Ministry of Information, Akparawa James Edet; the Permanent Secretary, Ministry of Economic Development, Barr. Christopher Udoh; the Director of Budget, Mr Otu Asuquo, and the Director-General, Fiscal Responsibility Commission, Akparawa Victor Edet.",
+      "6, The Center urges that this programme should not be a one-off programme but a regular programme for our Teachers.",
     description8:
-      "The State Chairman, Nigeria Union of Journalists (NUJ), Comrade Amos Etuk, who led journalists to the briefing, commended the State administration on its commitment to transparency and accountability, and pledged the support of the Press to government to ensure that the people feel the positive impact of government.",
-    description9: "",
+      "7, The CHRAN urges that the issues raised by the NUT Chairman of Mkpat Enin with respect to  challenges faced by teachers and pupils in Mkpat Enin should be looked into by the relevant State authorities",
+    description9:
+      "8, The CHRAN extends its appreciation to EMOIMEE and other sponsors of this programme.",
+    description10:
+      "8, The CHRAN extends its appreciation to EMOIMEE and other sponsors of this programme.",
+    description11:
+      "9, The CHRAN congratulates participating teachers and expresses the hope that the knowledge and educational skills acquired from this programme will go a long way in the teaching career of all the participants.",
+    description12: "Signed Otuekong Franklyn Isong (Director)",
+    description13: "Dated: 5th February, 2025.",
     images: [],
   },
 ];
