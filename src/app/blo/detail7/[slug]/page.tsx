@@ -4,7 +4,7 @@ import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 import Image from "next/image";
 import { rightCardsData5 } from "@/app/ui/data/data4";
 
-// Simulate fetching data from rightCardsData2
+// Simulate fetching data from rightCardsData5
 async function getData(slug: string): Promise<BlogCard | undefined> {
   return new Promise((resolve, reject) => {
     const cardData = rightCardsData5.find((card) => card.slug === slug);
@@ -64,7 +64,7 @@ export default async function CardDetails({ params }: CardDetailsProps) {
     }
 
     return (
-      <div className="max-w-screen-lg mx-auto px-4 py-8">
+      <div className="max-w-screen-xl mx-auto px-4 py-8">
         {/* Title */}
         <h1 className={`${playfair_Display.className} text-3xl md:text-5xl font-bold mb-6 text-center md:text-left`}>
           {cardData.title}
@@ -138,43 +138,18 @@ export default async function CardDetails({ params }: CardDetailsProps) {
 
           {/* Right Column (Optional Second Image) */}
           {cardData.imageSrc1 && (
-            <div className="w-[16%]">
-              <div className="mt-6">
-                <Image
-                  src={cardData.imageSrc1}
-                  alt={cardData.title}
-                  width={500}
-                  height={500}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="mt-6">
-                <Image
-                  src={cardData.imageSrc2 || '/default-image.png'}
-                  alt={cardData.title}
-                  width={500}
-                  height={500}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="mt-6">
-                <Image
-                  src={cardData.imageSrc3 || '/default-image.png'}
-                  alt={cardData.title}
-                  width={500}
-                  height={500}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="mt-6">
-                <Image
-                  src={cardData.imageSrc4 || '/default-image.png'}
-                  alt={cardData.title}
-                  width={500}
-                  height={500}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-              </div>
+            <div className="w-full md:w-1/3 grid grid-cols-2 md:grid-cols-1 gap-4">
+              {[cardData.imageSrc1, cardData.imageSrc2, cardData.imageSrc3, cardData.imageSrc4].map((src, index) => (
+                <div key={index} className="mt-6">
+                  <Image
+                    src={src || '/default-image.png'}
+                    alt={cardData.title}
+                    width={600}
+                    height={600}
+                    className="w-full h-auto rounded-lg shadow-lg object-cover"
+                  />
+                </div>
+              ))}
             </div>
           )}
         </div>
