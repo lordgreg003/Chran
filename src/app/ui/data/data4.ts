@@ -45,6 +45,53 @@ export const mainCardData5: data = {
   category: "CHRAN",
 };
 
+export const mainCardData6: data = {
+  slug: "2027-csos-issue-red-flag-to-akwa-ibom-politicians-alleges-plots-to-destabilize-akwa-ibom-government",
+  videoSrc: "",
+  imageSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739196772/WhatsApp_Image_2025-02-10_at_2.42.17_PM_2_n3rvr8.jpg",
+  imageSrc1:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739196748/WhatsApp_Image_2025-02-10_at_2.42.16_PM_ucrdsv.jpg",
+  imageSrc2:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739196739/WhatsApp_Image_2025-02-10_at_2.42.15_PM_vunceb.jpg",
+  imageSrc3:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739196764/WhatsApp_Image_2025-02-10_at_2.42.17_PM_1_dfluli.jpg",
+  imageSrc4:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738683934/WhatsApp_Image_2025-02-04_at_4.40.38_PM_y0htos.jpg",
+  imageSrc5:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739196755/WhatsApp_Image_2025-02-10_at_2.42.17_PM_xfork0.jpg",
+  imageSrc6:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739196817/WhatsApp_Image_2025-02-10_at_2.42.19_PM_x0qkoh.jpg",
+  title:
+    "2027: CSOs Issue Red Flag To Akwa Ibom Politicians, Alleges Plots To Destabilize Akwa Ibom Government",
+  description: "Gentlemen of the Press.",
+  description1:
+    "TEXT OF PRESS CONFERENCE HELD BY THE COALITION OF CIVIL SOCIETY ORGANIZATIONS IN NIGERIA (CCSON) AT THE CHRAN’S CONFERENCE HALL, 15 AKPA UBEH STREET, UYO, AKWA IBOM STATE, ON MONDAY, 10TH FEBRUARY, 2025.",
+  description2:
+    "We welcome you to this Press Conference organized by the Coalition of Civil Society Organizations in Nigeria (CCSON).",
+  description3:
+    "CCSON is an umbrella organization cum mouthpiece of the leadership of 180 human rights groups, civil society organizations (CSOs), non-governmental organizations (NGOs), professional bodies, town unions, students’ unions and community-based organizations across the Nigerian State. CCSON is committed to the sustenance of democracy, good governance, rule of law and transparency and accountability in governments across the Nigerian State. ",
+  description4:
+    "CCSON held its well-attended February Congress at the Conference Hall of the Center for Human Rights and Accountability Network (CHRAN) at 15 Akpa Ubeh Street in Uyo, the Akwa Ibom State Capital, on Saturday, 8th February, 2025. The Congress took time to review governance and developments in the country. CCSON took cognizance of the prevailing atmosphere of apparent plots by some overly futuristic political gladiators to destabilize the administration of Pastor Umo Eno in Akwa Ibom State as a buildup to 2027 politics.",
+  description5:
+    "At the end of the Congress, the following positions were taken:",
+  description6:
+    "1. That CCSON frowns at, and issues the red flag against, that section of the political class in Akwa Ibom State for piling up unhealthy and fractious climate of politicking in the State towards the 2027 general elections.",
+  description7:
+    "2. That despite CCSON’s advisory following the outcome of its January 2025 Congress and subsequent Press Conference, sustained campaign of calumny, media attacks and media trials of political leaders of Akwa Ibom State, particularly His Excellency Pastor Umo Eno, the Governor of Akwa Ibom State, and His Excellency, Mr. Udom Emmanuel, the immediate past Governor of Akwa Ibom State, continue unabated thereby further heating up the State.",
+  description8:
+    "3. That CCSON restates its earlier position that if these overly futuristic political gladiators and their supporters do not call themselves to order, their inimical activities could ground the course of governance in the State.",
+  description9:
+    "4. That CCSON reiterates the right of every citizen to hold government and its officials accountable insofar as media trials are avoided and complaints duly directed to appropriate investigative authorities.",
+  description10:
+    "5. That CCSON urges politicians across party lines to close ranks and work towards the unity, progress and development of Akwa Ibom State and Nigeria.",
+  description11:
+    "Signed:For and on behalf of CCSON Otuekong Franklyn Isong (National Coordinator) 0802 350 1555",
+  articleCount: "8 articles",
+  createdAt: "Dated: Monday, 10th February 2025.",
+  category: "CHRAN",
+};
+
 export const rightCardsData5: BlogCard[] = [
   {
     slug: "report-chrans-accountability-tour-etim-ekpo-lga",
