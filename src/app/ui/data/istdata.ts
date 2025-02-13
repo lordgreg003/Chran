@@ -447,6 +447,21 @@ export const mainCardData7: MainCard = {
   category: "CHRAN",
 };
 
+export const mainCardData8: MainCard = {
+  slug: "why-we-score-ogbuku-led-nddc-high-csos-in-niger-delta-region-speak",
+  videoSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1739469000/videoplaybacknews_twggba.mp4",
+  imageSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739467414/Screenshot_from_2025-02-13_18-22-46_vuy05l.png",
+  title: "WHY WE SCORE OGBUKU-LED NDDC HIGH - CSOs IN NIGER DELTA REGION SPEAK",
+  description: "",
+  description1: "#ADBNtv",
+  description2: "#CHRAN",
+  description3: "#GoodGovernanceAdvocacy",
+  articleCount: "1 articles",
+  category: "CHRAN",
+};
+
 export const rightCardsData2: BlogCard[] = [
   {
     slug: "rights-group-wants-gov-eno-to-revisit-abandoned-ibom-science-park-project",
