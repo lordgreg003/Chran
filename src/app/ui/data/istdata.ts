@@ -430,6 +430,23 @@ export const mainCardData: MainCard = {
   category: "CHRAN",
 };
 
+export const mainCardData7: MainCard = {
+  slug: "coalition-civil-society-organizations-in-niger-delta-region-led-by-comrade-charles-inko-tariah-otuekong-franklyn-isong-pays-an-advocacy-visit-to-the-mdceo-nddc",
+  videoSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/video/upload/v1739450766/NDDC_Dismisses_Claims_Of_Irregularity_In_Internship_Scheme_fmu64x.mp4",
+  imageSrc:
+    "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739467414/Screenshot_from_2025-02-13_18-22-46_vuy05l.png",
+  title:
+    " Coalition of Civil Society Organizations in Niger Delta Region Led by Comrade Charles Inko-Tariah and Otuekong Franklyn Isong Pays an Advocacy Visit to the MD/CEO of NDDC",
+  description:
+    "Coalition of Civil Society Organizations in Niger Delta Region Led by Comrade Charles Inko-Tariah and Otuekong Franklyn Isong Pays an Advocacy Visit to the MD/CEO of NDDC, Dr. Samuel Ogbuku and his Management Team on Tuesday, 11th February, 2025, at the NDDC Headquarters in Port Harcourt, Rivers State.",
+  description1: "",
+  description2: "#CHRAN",
+  description3: "#CHRAN_ADVOCACY ",
+  articleCount: "3 articles",
+  category: "CHRAN",
+};
+
 export const rightCardsData2: BlogCard[] = [
   {
     slug: "rights-group-wants-gov-eno-to-revisit-abandoned-ibom-science-park-project",
