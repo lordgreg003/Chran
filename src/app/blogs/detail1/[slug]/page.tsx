@@ -15,7 +15,7 @@ async function getData(slug: string): Promise<MainCard | undefined> {
 
 // Update `generateMetadata` to await params
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const resolvedParams = await params; // Await the params
+  const resolvedParams = await params;  
   const cardData = await getData(resolvedParams.slug);
 
   return cardData
@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: cardData.title,
         description: cardData.description || "No description available",
         openGraph: {
-          title: cardData.title,
-          description: cardData.description || "No description available",
+          title: cardData?.title,
+          description: cardData?.description || "No description available",
           images: [
             {
-              url: cardData.imageSrc || "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739467414/Screenshot_from_2025-02-13_18-22-46_vuy05l.png",
+              url: cardData?.imageSrc || "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1739467414/Screenshot_from_2025-02-13_18-22-46_vuy05l.png",
               width: 800,
               height: 600,
               alt: cardData.title,
