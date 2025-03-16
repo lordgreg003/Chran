@@ -3,19 +3,31 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // Interfaces and Initial State
+export interface MediaItem {
+  url: string;
+  type: "image" | "video";
+}
+
 export interface BlogPost {
   _id: string;
   title: string;
   description: string;
-  media?: { url: string; type: "image" | "video" }[];
-  likes: number;
+  image1?: string;
+  image2?: string;
+  image3?: string;
+  image4?: string;
+  image5?: string;
   createdAt: Date;
+  slug: string;
+  author: string;
+  status: "draft" | "published";
+  tags: string[];
 }
 
 interface BlogState {
   posts: BlogPost[];
   post: BlogPost | null;
-  currentPost: BlogPost | null; // New state property to store the selected post
+  currentPost: BlogPost | null;
   loading: boolean;
   lastUpdated: number;
   error: string | null;
@@ -51,25 +63,25 @@ const savePostsToLocalStorage = (posts: BlogPost[]) => {
 const initialState: BlogState = {
   posts: [],
   post: null,
-  currentPost: null, // Initialize currentPost to null
+  currentPost: null,
   loading: false,
   lastUpdated: Date.now(),
   error: null,
 };
 
 // Thunks
-export const getPostById = createAsyncThunk<
-  BlogPost, // Define the return type
-  string, // Define the argument type (blog post ID)
+export const getPostBySlug = createAsyncThunk<
+  BlogPost,
+  string,
   { rejectValue: string }
->("blogs/getPostById", async (id, { rejectWithValue }) => {
-  console.log("Fetching blog with ID:", id);
+>("blogs/getPostBySlug", async (slug, { rejectWithValue }) => {
+  console.log("Fetching blog with slug:", slug);
   try {
     const response = await axios.get(
-      `https://chran-backend.onrender.com/api/blogs/${id}` // Use ID in the endpoint
+      `https://chran-backend-1.onrender.com/api/blogs/${slug}` // Use slug in the endpoint
     );
-    console.log("API get by id Response:", response.data);
-    return response.data; // Assuming the API returns the blog post directly
+    console.log("API get by slug Response:", response.data);
+    return response.data;
   } catch (error) {
     return rejectWithValue(
       error instanceof Error ? error.message : "Failed to fetch post"
@@ -85,6 +97,7 @@ export const fetchAllPosts = createAsyncThunk(
       const response = await axios.get(
         `https://chran-backend-1.onrender.com/api/blogs/?page=${page}&limit=${limit}`
       );
+      console.log("API  getall Response:", response.data);
       return response.data.blogPosts;
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -126,14 +139,16 @@ export const deleteBlogPost = createAsyncThunk<
   string,
   string,
   { rejectValue: string }
->("blogs/deleteBlogPost", async (id, { rejectWithValue }) => {
+>("blogs/deleteBlogPost", async (slug, { rejectWithValue }) => {
   try {
-    console.log(`Deleting post with id: ${id}`); // Log the id being deleted
-    await axios.delete(`https://chran-backend-1.onrender.com/api/blogs/${id}`);
-    console.log(`Post with id: ${id} deleted successfully`);
-    return id; // Return the deleted post ID to update the state
+    console.log(`Deleting post with slug: ${slug}`);
+    await axios.delete(
+      `https://chran-backend-1.onrender.com/api/blogs/${slug}`
+    );
+    console.log(`Post with slug: ${slug} deleted successfully`);
+    return slug; // Return the deleted post slug to update the state
   } catch (error) {
-    console.error("Error deleting post:", error); // Log the error if it occurs
+    console.error("Error deleting post:", error);
     return rejectWithValue(
       error instanceof Error ? error.message : "Failed to delete blog post"
     );
@@ -143,11 +158,11 @@ export const deleteBlogPost = createAsyncThunk<
 // Update a blog post
 export const updateBlogPost = createAsyncThunk<
   BlogPost,
-  { id: string; formData: FormData }
->("blogs/updateBlogPost", async ({ id, formData }, { rejectWithValue }) => {
+  { slug: string; formData: FormData }
+>("blogs/updateBlogPost", async ({ slug, formData }, { rejectWithValue }) => {
   try {
     const response = await axios.put(
-      `https://chran-backend-1.onrender.com/api/blogs/${id}`,
+      `https://chran-backend-1.onrender.com/api/blogs/${slug}`,
       formData,
       {
         headers: {
@@ -157,7 +172,9 @@ export const updateBlogPost = createAsyncThunk<
     );
 
     const updatedPosts = loadPostsFromLocalStorage();
-    const updatedPostIndex = updatedPosts.findIndex((post) => post._id === id);
+    const updatedPostIndex = updatedPosts.findIndex(
+      (post) => post.slug === slug
+    );
 
     if (updatedPostIndex !== -1) {
       updatedPosts[updatedPostIndex] = response.data.updatedPost;
@@ -193,15 +210,15 @@ const blogSlice = createSlice({
       })
 
       // Get post by slug
-      .addCase(getPostById.pending, (state) => {
+      .addCase(getPostBySlug.pending, (state) => {
         state.loading = true;
-        state.currentPost = null; // Clear previous data when a new fetch begins
+        state.currentPost = null;
       })
-      .addCase(getPostById.fulfilled, (state, action) => {
+      .addCase(getPostBySlug.fulfilled, (state, action) => {
         state.loading = false;
-        state.currentPost = action.payload; // Set the retrieved post
+        state.currentPost = action.payload;
       })
-      .addCase(getPostById.rejected, (state, action) => {
+      .addCase(getPostBySlug.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || "Failed to fetch post by slug";
       })
@@ -223,45 +240,37 @@ const blogSlice = createSlice({
 
       // Delete a blog post
       .addCase(deleteBlogPost.pending, (state) => {
-        console.log("Deleting post..."); // Log when the deletion is pending
         state.loading = true;
       })
       .addCase(deleteBlogPost.fulfilled, (state, action) => {
-        console.log(`Post with id: ${action.payload} deleted from the state`);
         state.loading = false;
-        // Remove the post from the state using the id
-        state.posts = state.posts.filter((post) => post._id !== action.payload);
+        state.posts = state.posts.filter(
+          (post) => post.slug !== action.payload
+        );
         state.lastUpdated = Date.now();
-        savePostsToLocalStorage(state.posts); // Sync with local storage
+        savePostsToLocalStorage(state.posts);
       })
       .addCase(deleteBlogPost.rejected, (state, action) => {
-        console.error(`Failed to delete post: ${action.payload}`);
         state.loading = false;
         state.error = action.payload || "Failed to delete post";
       })
 
-      // update
+      // Update a blog post
       .addCase(updateBlogPost.pending, (state) => {
         state.loading = true;
-        console.log("Updating post...");
       })
       .addCase(updateBlogPost.fulfilled, (state, action) => {
-        console.log(`Post with id: ${action.payload} Update from the state`);
         state.loading = false;
-        const updatedPost = action.payload;
-
-        // Update the post in the state
         const index = state.posts.findIndex(
-          (post) => post._id === updatedPost._id
+          (post) => post.slug === action.payload.slug
         );
         if (index !== -1) {
-          state.posts[index] = updatedPost;
+          state.posts[index] = action.payload;
           state.lastUpdated = Date.now();
           savePostsToLocalStorage(state.posts);
         }
       })
       .addCase(updateBlogPost.rejected, (state, action) => {
-        console.error(`Failed to Update post: ${action.payload}`);
         state.loading = false;
         state.error = (action.payload as string) || "Failed to update post";
       });

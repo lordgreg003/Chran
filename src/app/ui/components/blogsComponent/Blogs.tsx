@@ -14,12 +14,15 @@ const Blogs: React.FC = () => {
   const [page, setPage] = useState(1);
   const postsPerPage = 8;
   const [isFetching, setIsFetching] = useState(false);
-  const [formattedDates, setFormattedDates] = useState<string[]>([]); // Store formatted dates
+  const [formattedDates, setFormattedDates] = useState<string[]>([]);
   const observer = useRef<IntersectionObserver | null>(null);
   const lastPostRef = useRef<HTMLDivElement | null>(null);
 
+  console.log("Blogs component re-rendered");
+
   // Fetch posts when the page changes
   useEffect(() => {
+    console.log("Fetching posts for page:", page);
     const fetchPosts = async () => {
       setIsFetching(true);
       await dispatch(fetchAllPosts({ page, limit: postsPerPage }));
@@ -31,12 +34,18 @@ const Blogs: React.FC = () => {
 
   // Intersection Observer for infinite scrolling
   useEffect(() => {
-    if (!lastPostRef.current) return;
+    console.log("Setting up IntersectionObserver for page:", page);
+    if (!lastPostRef.current) {
+      console.log("lastPostRef is not set");
+      return;
+    }
 
     observer.current = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
+        console.log("IntersectionObserver entry:", entry.isIntersecting);
         if (entry.isIntersecting && !loading) {
+          console.log("Loading more posts for page:", page + 1);
           setPage((prevPage) => prevPage + 1);
         }
       },
@@ -46,49 +55,30 @@ const Blogs: React.FC = () => {
     observer.current.observe(lastPostRef.current);
 
     return () => {
-      if (observer.current) observer.current.disconnect();
+      if (observer.current) {
+        console.log("Cleaning up IntersectionObserver");
+        observer.current.disconnect();
+      }
     };
-  }, [lastPostRef, loading]);
+  }, [lastPostRef,page, loading]);
 
   // Format dates on client-side
   useEffect(() => {
     if (posts.length > 0) {
+      console.log("Formatting dates for posts:", posts);
       const formatted = posts.map((post) => format(new Date(post.createdAt), "MMMM dd, yyyy"));
       setFormattedDates(formatted);
     }
   }, [posts]);
 
-  const renderMedia = (mediaUrls: { url: string; type: "image" | "video" }[]) => {
-    return mediaUrls.map((media, index) =>
-      media.type === "image" ? (
-        <Image
-          key={index}
-          src={media.url || "/default-image.png"}
-          alt={`Media ${index + 1}`}
-          layout="responsive"
-          width={800}
-          height={400}
-          loading="lazy"
-          quality={100}
-          className="rounded-md object-cover w-full"
-        />
-      ) : (
-        <video
-          key={index}
-          src={media.url}
-          controls
-          className="w-full rounded-md"
-        ></video>
-      )
-    );
-  };
-
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
   // Sort posts by creation date in descending order
- // Sort posts by creation date in descending order
-const sortedPosts = [...posts].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  const sortedPosts = [...posts].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
 
+  console.log("Sorted posts:", sortedPosts);
 
   return (
     <div className="container mx-auto py-8 px-4">
@@ -98,35 +88,67 @@ const sortedPosts = [...posts].sort((a, b) => new Date(b.createdAt).getTime() - 
           <div
             key={post._id}
             ref={index === sortedPosts.length - 1 ? lastPostRef : null}
-            className="bg-white shadow-md dark:bg-gray-800 rounded-lg overflow-hidden"
+            className="shadow-md dark:bg-gray-800 rounded-lg overflow-hidden"
           >
-            {/* Media */}
-            <div className="relative flex justify-center">
-              {post.media && (
-                <div className="w-full lg:w-[60%] bg-red-300">
-                  {renderMedia(post.media)}
+            {/* Clickable Image */}
+            <Link href={`/blog/${post.slug}`} passHref>
+              <div className="relative cursor-pointer w-full">
+                {post.image1 && (
+                  <div className="w-full flex flex-col items-center justify-center md:flex md:flex-row md:justify-evenly">
+                    <Image
+                      src={post.image1}
+                      alt={post.title}
+                      layout="intrinsic"
+                      width={300}
+                      height={300}
+                      loading="lazy"
+                      quality={100}
+                      className="rounded-lg w-full md:w-[45%]"
+                    />
+                    {post.image2 && (
+                      <Image
+                        src={post.image2}
+                        alt={post.title}
+                        layout="intrinsic"
+                        width={300}
+                        height={300}
+                        loading="lazy"
+                        quality={100}
+                        className="rounded-lg w-full md:w-[45%]"
+                        onError={(e) => {
+                          console.error("Failed to load image2:", e);
+                        }}
+                      />
+                    )}
+                  </div>
+                )}
+                <div className="absolute flex justify-center -transfor bg-red-500 text-white text-xs px-2 py-1 rounded">
+                  Blog
                 </div>
-              )}
-              <div className="absolute flex justify-center bg-red-500 text-white text-xs px-2 py-1 rounded">
-                Blog
               </div>
-            </div>
+            </Link>
 
-            {/* Content */}
+            {/* Clickable Title and Description */}
+            <Link href={`/blog/${post.slug}`} passHref>
+              <div className="p-4 cursor-pointer">
+                <h3 className="text-lg font-bold mb-2 hover:text-blue-500 transition">
+                  {post.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 hover:text-blue-500 transition">
+                  {post.description}
+                </p>
+              </div>
+            </Link>
+
+            {/* Author, Status, Tags, and Date */}
             <div className="p-4">
-              <h3 className="text-lg font-bold mb-2">{post.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                {post.description}
-              </p>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-500">
-                  {formattedDates[index] || "General"}
+                <span className="text-xs text-gray-900">
+                  By {post.author} | {formattedDates[index] || "General"}
                 </span>
-                <Link href={`/blog/${post._id}`} passHref>
-                  <button className="bg-blue-500 text-white text-sm px-4 py-2 rounded hover:bg-blue-600 transition">
-                    Read More
-                  </button>
-                </Link>
+                <span className="text-xs text-gray-900">
+                  Status: {post.status} | Tags: {post.tags.join(", ")}
+                </span>
               </div>
             </div>
           </div>
@@ -143,4 +165,4 @@ const sortedPosts = [...posts].sort((a, b) => new Date(b.createdAt).getTime() - 
   );
 };
 
-export default Blogs;
+export default React.memo(Blogs);

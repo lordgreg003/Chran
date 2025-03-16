@@ -1,16 +1,11 @@
 "use client";
 import { fetchAllPosts, deleteBlogPost, updateBlogPost } from "@/redux/blogSlice";
 import { AppDispatch, RootState } from "@/redux/store";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BlogSkeleton } from "../../subComponents/skeletons";
-import { BlogPost } from "@/redux/blogSlice";
 import Article from "./Article";
- 
-export interface Media {
-  url: string;
-  type: "image" | "video";
-}
+import { format } from "date-fns";
+import { BlogPost } from "@/redux/blogSlice";
 
 const AdminGetAll: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -18,23 +13,55 @@ const AdminGetAll: React.FC = () => {
 
   const [page, setPage] = useState(1);
   const postsPerPage = 3;
+  const [isFetching, setIsFetching] = useState(false);
+  const [formattedDates, setFormattedDates] = useState<string[]>([]);
+  const observer = useRef<IntersectionObserver | null>(null);
+  const lastPostRef = useRef<HTMLDivElement | null>(null);
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
-  const [newImage, setNewImage] = useState<File | null>(null); // State for storing the new image
-  const [readMore, setReadMore] = useState<Set<string>>(new Set()); // Track which posts are expanded
+  const [newImage, setNewImage] = useState<File | null>(null);
+  const [readMore, setReadMore] = useState<Set<string>>(new Set());
 
+  // Fetch posts when the page changes
   useEffect(() => {
-    dispatch(fetchAllPosts({ page, limit: postsPerPage }));
+    const fetchPosts = async () => {
+      setIsFetching(true);
+      await dispatch(fetchAllPosts({ page, limit: postsPerPage }));
+      setIsFetching(false);
+    };
+
+    fetchPosts();
   }, [dispatch, page]);
 
-  const handlePreviousPage = () => {
-    if (page > 1) setPage(page - 1);
-  };
+  // Intersection Observer for infinite scrolling
+  useEffect(() => {
+    if (!lastPostRef.current) return;
 
-  const handleNextPage = () => {
-    setPage(page + 1);
-  };
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !loading) {
+          setPage((prevPage) => prevPage + 1);
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    observer.current.observe(lastPostRef.current);
+
+    return () => {
+      if (observer.current) observer.current.disconnect();
+    };
+  }, [lastPostRef, loading]);
+
+  // Format dates on client-side
+  useEffect(() => {
+    if (posts.length > 0) {
+      const formatted = posts.map((post) => format(new Date(post.createdAt), "MMMM dd, yyyy"));
+      setFormattedDates(formatted);
+    }
+  }, [posts]);
 
   const handleDelete = (id: string) => {
     if (window.confirm("Are you sure you want to delete this post?")) {
@@ -44,9 +71,9 @@ const AdminGetAll: React.FC = () => {
   };
 
   const handleUpdate = (post: BlogPost) => {
-    setSelectedPost(post); // Set selected post for editing
-    setIsEditModalOpen(true); // Open the edit modal
-    setNewImage(null); // Clear any previously selected image
+    setSelectedPost(post);
+    setIsEditModalOpen(true);
+    setNewImage(null);
   };
 
   const handleSaveUpdate = () => {
@@ -54,24 +81,21 @@ const AdminGetAll: React.FC = () => {
       const formData = new FormData();
       formData.append("title", selectedPost.title);
       formData.append("description", selectedPost.description);
-  
-      // Check if a new image is selected
+
+      // Handle image updates
       if (newImage) {
-        formData.append("media[0].url", URL.createObjectURL(newImage));  // Update media.url
-        formData.append("media[0].type", "image"); // Assuming it's an image
+        formData.append("image1", newImage); // Update image1 with the new image
       } else {
-        selectedPost.media?.forEach((media, index) => {
-          formData.append(`media[${index}].url`, media.url);  // Keep existing media.url
-          formData.append(`media[${index}].type`, media.type);  // Keep existing media.type
-        });
+        // Keep existing images
+        if (selectedPost.image1) formData.append("image1", selectedPost.image1);
+        if (selectedPost.image2) formData.append("image2", selectedPost.image2);
+        if (selectedPost.image3) formData.append("image3", selectedPost.image3);
+        if (selectedPost.image4) formData.append("image4", selectedPost.image4);
+        if (selectedPost.image5) formData.append("image5", selectedPost.image5);
       }
-  
-      // Log the formData to check the contents
-      console.log("Form Data:", formData);
-  
-      // Dispatch the updateBlogPost action with formData
-      dispatch(updateBlogPost({ id: selectedPost._id, formData }));
-      setIsEditModalOpen(false);  // Close the modal after saving
+
+      dispatch(updateBlogPost({ slug: selectedPost.slug, formData }));
+      setIsEditModalOpen(false);
     }
   };
 
@@ -87,43 +111,36 @@ const AdminGetAll: React.FC = () => {
     });
   };
 
-  if (loading) return <p className="text-center text-gray-600">Loading posts...</p>;
+  if (loading && page === 1) return <p className="text-center text-gray-600">Loading posts...</p>;
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
   return (
     <div className="container dark:bg-[#2D2D2D] mx-auto py-8 px-4">
       <h2 className="text-2xl font-semibold text-center mb-6">Blog Posts</h2>
-      <Suspense fallback={<BlogSkeleton />}>
-        <div className="space-y-6">
-          {posts.map((post) => (
+      <div className="space-y-6">
+        {posts.map((post, index) => (
+          <div
+            key={post._id}
+            ref={index === posts.length - 1 ? lastPostRef : null}
+          >
             <Article
-              key={post._id}
               post={post}
               onDelete={handleDelete}
               onEdit={handleUpdate}
               readMore={readMore}
               toggleReadMore={toggleReadMore}
+              formattedDate={formattedDates[index]}
             />
-          ))}
-        </div>
-      </Suspense>
-
-      {/* Pagination */}
-      <div className="flex justify-center space-x-4 py-4">
-        <button
-          onClick={handlePreviousPage}
-          disabled={page === 1}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
-        >
-          Previous Page
-        </button>
-        <button
-          onClick={handleNextPage}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
-        >
-          Next Page
-        </button>
+          </div>
+        ))}
       </div>
+
+      {/* Loading Spinner */}
+      {isFetching && (
+        <div className="flex justify-center py-6">
+          <span className="text-blue-500 text-lg">Loading more posts...</span>
+        </div>
+      )}
 
       {/* Edit Modal */}
       {isEditModalOpen && selectedPost && (
@@ -156,6 +173,21 @@ const AdminGetAll: React.FC = () => {
                 }
                 className="w-full p-2 border border-gray-300 rounded-md"
               ></textarea>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="image" className="block text-sm font-medium mb-2">
+                Update Image
+              </label>
+              <input
+                type="file"
+                id="image"
+                onChange={(e) => {
+                  if (e.target.files && e.target.files[0]) {
+                    setNewImage(e.target.files[0]);
+                  }
+                }}
+                className="w-full p-2 border border-gray-300 rounded-md"
+              />
             </div>
             <div className="flex justify-between mt-4">
               <button
