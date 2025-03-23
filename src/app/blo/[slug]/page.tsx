@@ -6,8 +6,8 @@ import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
 import 'animate.css';
 import Link from 'next/link';
 import { BlogCard, rightCardsData } from '@/app/ui/data/istdata';
-import Footer from '@/app/ui/components/layoutComponents/Footer';
-
+import Footer from '@/app/components/layoutComponents/Footer';
+ 
 export default function BlogDetails() {
   const { slug } = useParams(); // Get the id from URL
   const [blogData, setBlogData] = useState<BlogCard | null>(null);

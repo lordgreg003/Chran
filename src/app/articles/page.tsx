@@ -1,7 +1,8 @@
 import React from 'react'
-import GetAllArticles from '../ui/components/articleComponets/GetAllArticles'
-import NewsSection from '../ui/components/homeComponents/NewsSection'
-import Marquee from '../ui/components/layoutComponents/Marquee'
+import Marquee from '../components/layoutComponents/Marquee'
+import NewsSection from '../components/homeComponents/NewsSection'
+import GetAllArticles from '../components/articleComponets/GetAllArticles'
+ 
 
 const page = () => {
   return (

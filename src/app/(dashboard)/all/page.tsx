@@ -1,7 +1,7 @@
  "use client";
+import AdminGetAll from "@/app/components/blogsComponent/AdminGetAll";
  import React from "react";
- import AdminGetAll from "@/app/ui/components/blogsComponent/AdminGetAll";
-
+ 
 const page = () => {
   return <div><AdminGetAll /></div>;
 };

@@ -1,6 +1,6 @@
 import React from 'react'
-import FeatureCard from '../ui/components/homeComponents/FeatureCard'
-
+import FeatureCard from '../components/homeComponents/FeatureCard'
+ 
 const page = () => {
   return (
     <div>

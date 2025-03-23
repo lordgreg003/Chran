@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import Donate from "../ui/components/donateComponents/Donate";
-import Marquee from "../ui/components/layoutComponents/Marquee";
+import Marquee from "../components/layoutComponents/Marquee";
+import Donate from "../components/donateComponents/Donate";
+ 
 
 const page = () => {
   return (

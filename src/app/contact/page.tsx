@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
- import Contact from "../ui/components/contactcomponents/Contact";
-import Marquee from "../ui/components/layoutComponents/Marquee";
+import Marquee from "../components/layoutComponents/Marquee";
+import { Contact } from "lucide-react";
+ 
  
 const page = () => {
   return (
