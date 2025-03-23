@@ -3,9 +3,10 @@ import "./globals.css";
 import "animate.css";
 import {GoogleTagManager} from "@next/third-parties/google"
 import ReduxProvider from "./ui/utils/ReduxProvider";
-import Footer from "./ui/components/layoutComponents/Footer";
-import Navbar from "./ui/components/layoutComponents/navbar";
+ 
 import Head from "next/head";  
+import Navbar from "./components/layoutComponents/navbar";
+import Footer from "./components/layoutComponents/Footer";
 
 
 export const metadata: Metadata = {

@@ -205,3 +205,229 @@ export const rightCardsData5: BlogCard[] = [
     images: [],
   },
 ];
+
+// right card data 6
+
+export const rightCardsData6: BlogCard[] = [
+  {
+    slug: "akwa-ibom-university-education-bill-chrans-position",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738127372/WhatsApp_Image_2025-01-28_at_2.43.56_PM_edezpm.jpg",
+    title: "Akwa Ibom University of Education Bill: CHRAN's Position",
+    articleCount: "8 articles",
+    description:
+      "A PRESENTATION BY THE CENTER FOR HUMAN RIGHTS & ACCOUNTABILITY NETWORK (CHRAN) AT THE PUBLIC HEARING ON “A BILL FOR A LAW TO PROVIDE FOR THE ESTABLISHMENT OF THE AKWA IBOM STATE UNIVERSITY OF EDUCATION AFAHA NSIT AND TO MAKE PROVISIONS FOR ITS ADMINISTRATION AND FOR OTHER PURPOSES CONNECTED THERETO” HELD AT THE OLD CHAPEL, AKWA IBOM STATE HOUSE OF ASSEMBLY, UYO ON WEDNESDAY, 26TH FEBRUARY, 2025.",
+    description1:
+      "Introduction: By a letter dated 20th February, 2025 with Reference number: AKHA/S/72/VOL.II/261 signed by Etim A. Okon for Chairman, House Committee on Education, the Center for Human Rights & Accountability Network (CHRAN), was invited by the Akwa Ibom State House of Assembly to this Public Hearing. Annexed to the invitation letter was a copy of the Bill. The Invitation letter stated that the Public Hearing is billed to hold on Wednesday, February 26, 2025. On receipt of the invitation letter on 20th February, 2025, the CHRAN appraised the Bill. ",
+    description2:
+      "This presentation represents the position of the CHRAN on the Bill at the Old Chapel, Akwa Ibom State House of Assembly Complex, Udo Udoma Avenue, Uyo.",
+    description3:
+      "i)	An Overview of the Bill:The Bill has 37 Sections and 3 Schedules. The First Schedule provides for the Principal Officers of the University. The Second Schedule contains transitional provisions as to property, functions, etc. The Third Schedule contains provisions on the arrangement of articles with respect to the constitution by statute of the main bodies of the University, including the Council, the Senate, Congregation and Convocation. ",
+    description4:
+      "The Bill is divided into 5 functional Parts. Part I makes provision for the establishment, constitution and functions of the Akwa Ibom University of Education and its constituent bodies. Part II makes provision for general fund, transfer of property, etc. Part III provides for statutes, ordinances and regulations of the University. Part IV makes provision for supervision and discipline. Part V contains miscellaneous and general provisions.",
+    description5:
+      "The Bill seeks to repeal the Akwa Ibom State College of Education Law, Cap. 31, Vol. 2, Laws of Akwa Ibom State, 2022. When the Bill becomes Law, the Akwa Ibom State College of Education, Afaha Nsit will be replaced by the Akwa Ibom State University of Education, Afaha Nsit, and all assets, liabilities and staff of the former will be taken over by the latter. ",
+    description6:
+      " ii) CHRAN’s Inputs:The Center appreciates and commends the Akwa Ibom State House of Assembly for taking concrete legislative steps towards upgrading the Akwa Ibom State College of Education, Afaha Nsit to the Akwa Ibom State University of Education, Afaha Nsit. CHRAN has been at the head of advocacies towards the upgrade of the Akwa Ibom State College of Education, Afaha Nsit to the status of a University of Education. CHRAN had embarked on several advocacy visits to the Akwa Ibom State College of Education, Afaha Nsit, during which period, CHRAN met with the management of the College and toured and appraised the facilities of the College.",
+    description7:
+      "In March, 2024, during an advocacy visit to the College, CHRAN, while advocating for the state government to upgrade the College to the status of a University of Education, expressed concern that the institution, which was established in October 1990, has been losing students enrolment to universities as most parents and guardians preferred a four- year degree programme to a three-year National Certificate of Education (NCE) programme offered by the College. ",
+    description8:
+      "Findings by CHRAN indicates that admission into the Akwa Ibom State College of Education, Afaha Nsit for the NCE programme has drastically reduced from over 5000 in the late 1990s to just 69 in the 2023/2024 session.",
+    description9:
+      "CHRAN also found that the labour market no longer favours NCE graduates. Again, as findings by the CHRAN indicate, about 11 academic programmes in the Akwa Ibom State College of Education are already running the degree programme affiliated to the University of Uyo. ",
+    description10:
+      "According to findings by CHRAN, the drastic drop in students enrolment for the NCE programme coupled with the ceiling by the University of Uyo on admissions by the College of Education, Afaha Nsit for the degree programme, the internally-generated revenue (IGR) of the College of Education, Afaha Nsit has become too low for meaningful administration and academic progress of the College of Education, Afaha Nsit.",
+    description11:
+      "CHRAN had decried that although the College is empowered by Law to award degrees, it can only do so in affiliation with the University of Uyo.",
+    description12:
+      "CHRAN notes that Section 4(2)(c) of the Akwa Ibom State College of Education Law specifically provides that the Dean of the Faculty of Education, University of Uyo shall be a member of the Council of the Akwa Ibom State College of Education, Afaha Nsit. ",
+    description13:
+      "Conclusion: The Center commends the Akwa Ibom State House of Assembly for working round the clock to ensure that requisite legislation is in place to upgrade the Akwa Ibom State College of Education, Afaha Nsit to the Akwa Ibom State University of Education, Afaha Nsit in line with contemporary realities in the field of education. When the Bill becomes Law, Akwa Ibom State will boast of an institution that will ensure the availability of highly-trained manpower at all levels of education. Of course, this will be a big boost to the ARISE Agenda of the current administration of Pastor Umo Eno, PhD.",
+    description14:
+      "CHRAN supports the Bill and urges all stakeholders to close ranks and synergise towards the realisation of the lofty objectives of the Bill.",
+    description15:
+      "The Center appreciates the Speaker, the Leadership and Members of the Akwa Ibom State House of Assembly for the invitation to this Public Hearing, believing that our submission will be considered in the legislation.",
+    description24: "Signed Otuekong Franklyn Isong (Director)",
+    description25: "Comrade (Barr.) Christopher Ekpo(Secretary)",
+    images: [],
+  },
+  {
+    slug: "cso-lauds-futia-for-upholding-public-procurement-act",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738127372/WhatsApp_Image_2025-01-28_at_2.43.56_PM_edezpm.jpg",
+    title: "CSO LAUDS FUTIA FOR UPHOLDING PUBLIC PROCUREMENT ACT ",
+    articleCount: "8 articles",
+    category: "CHRAN",
+    description:
+      "The Center for Human Rights and Accountability Network (CHRAN) has applauded the management of the Federal University of Technology Ikot Abasi (FUTIA), Akwa Ibom State for constantly adhering to the provisions of the Public Procurement Act (PPA), 2007 in its Bid Opening exercises since inception of the institution.",
+    description1:
+      "This assertion was made by its Director, Otuekong Franklyn Isong, after observing the Technical Bid Opening for Year 2024 Capital Project, held on Thursday, 27th February, 2025, at the University Senate Chamber.",
+    description2:
+      "In a letter dated 25th February, 2025, and signed by Umoh Jacob, Ag. Director, Procurement, for the Vice Chancellor,  Prof. Leo Daniel, the CHRAN was invited to participate in the exercise as an Observer in line with the PPA 2007.",
+    description3:
+      "The Center observed that the exercise was conducted in accordance with the basic principles applicable to public procurement under the PPA, 2007, which are accountability, fairness, reliability, transparency, ethical standards, and economy.",
+    description4:
+      "The Center noted that the Vice Chancellor, Prof. Leo Daniel who presided over the exercise was represented by Dr. O. E. Etim.",
+    description5:
+      "The exercise was moderated by the Acting Director of Procurement of FUTIA, Umoh Jacob.",
+    description6:
+      "Other members of the university management team who attended the exercise included the Registrar, Nkang, Offiongita represented by Samuel Effiok; Bursar, Dr. Erasmus Mbobo represented by Ikemesit A. Victor; the Librarian, Prof. P. U. Akor represented by Dr. C. O. Udofot. ",
+    description7:
+      "Others were: Imo G. Uko, acting Head of Audit; Engr. Ekanem Anietie, Acting Head of Works and Arc. Sampson, Ubong, Physical Planning and Development, among others.",
+    images: [],
+  },
+];
+
+// right data 7
+
+export const rightCardsData7: BlogCard[] = [
+  {
+    slug: "rights-group-alleges-plots-to-cause-unrest-in-the-college-education",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738127372/WhatsApp_Image_2025-01-28_at_2.43.56_PM_edezpm.jpg",
+    title:
+      "Rights Group Alleges Plots to Cause Unrest in the College of Education",
+    articleCount: "8 articles",
+    description:
+      "A pro-democracy cum human rights organisation in Nigeria, the Center for Human Rights and Accountability Network (CHRAN), has alleged plots to instigate labour unrest in the Akwa Ibom State College of Education, Afaha Nsit in Nsit Ibom Local Government Area of Akwa Ibom State.",
+    description1:
+      "The civil society group made the allegation in a Press Conference in its office in Uyo, the Akwa Ibom State Capital, on Thursday, 6th March, 2025,calling on the security agencies, management and staff of the College and members of the public to be alert and vigilant. ",
+    description2:
+      "The CHRAN Director, Otuekong Franklyn Isong, who was flanked by members of the organisation during the Press Conference, stated that the group gathered some intelligence from its network in the State. ",
+    description3:
+      "The Center said that alleged sponsors of the plots are working with some staff and members of the College community.",
+    description4:
+      "The CHRAN noted that the intention of the sponsors of the plots is to instigate unrest within the College, disrupt academic activities, and stall the ongoing process of upgrading the institution from a College of Education to a University of Education.",
+    description5:
+      "The CHRAN lauded the Governor of Akwa Ibom State, Pastor Umo Eno, for paying attention to the educational needs of the people of the State by showing concern in the development of the College through the construction of internal roads network in the College, among other ongoing projects, in the College.",
+    description6:
+      "The CHRAN also commended the Akwa Ibom State House of Assembly for considering a Bill to upgrade the College of Education, Afaha Nsit to the Akwa Ibom State University of Education, Afaha Nsit and called on all critical stakeholders within and outside the College of Education, Afaha Nsit to work together in the best interest of the College and Akwa Ibom State.",
+    images: [],
+  },
+  {
+    slug: "mkpat-enin-chran-lauds-emoimee-over-teachers-training-programme",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742469917/charnus1_teuxe9.jpg",
+    imageSrc1:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742469923/chranus2_oc3ubx.jpg",
+    imageSrc2:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742469930/chranus4_wpgjsd.jpg",
+    imageSrc3:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742469939/charnus3_lee8fz.jpg",
+    imageSrc4:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742469944/chanus5_tw7ztj.jpg",
+    title: "MKPAT ENIN: CHRAN LAUDS EMOIMEE OVER TEACHERS TRAINING PROGRAMME",
+    articleCount: "8 articles",
+    category: "CHRAN",
+    description:
+      "A foremost civil society organisation in Nigeria under the auspices of Center for Human Rights and Accountability Network (CHRAN) has waded into the dispute between the management of the Akwa Ibom State College of Education, Afaha Nsit, Nsit Ibom Local Government Area and the Colleges of Education Academic Staff Union (COEASU).",
+    description1:
+      "The Center made this known in a Press Conference addressed by the organisation in its office in Uyo on Wednesday, 12th March. 2025.",
+    description2:
+      "The Director, Otuekong Franklyn Isong flanked by other members of the organisation including its secretary, Comrade (Barr.) Christopher Ekpo, noted that the Center’s attention was drawn to the disagreement between the leaders of COEASU and the College management by a letter dated 10th March, 2025 titled: “Re: COEASU Election Report: Non-Recognition of Purported Elected Officers: A 72 Hour Ultimatum” addressed to the Registrar, College of Education, Afaha Nsit, Nsit Ibom Local Government Area and signed by Comrade (Elder) Sunny James, Chairperson, and Comrade Alpha J. Marshall, State Secretary, for Nigeria Labour Congress (NLC), Akwa Ibom State Council, a copy of which was forwarded to the CHRAN Director by Comrade (Elder) Sunny James himself, on Tuesday, 11th March, 2025.",
+    description3:
+      "The NLC letter stated the bone of contention as non-remittance of COEASU check- off dues by the College management. ",
+    description4:
+      "On the strength of the NLC’s letter, CHRAN immediately waded into the matter by engaging the College management of the College, on Tuesday, 11th March, 2025. ",
+    description5:
+      "On its part, the College management stated the reason for withholding the check-off dues, noting that it requested the three unions operating within the College to submit their constitutions to the College management. It stated that while the other two unions submitted their constitutions, COEASU leadership refused to comply, leading to the withholding of its check-off dues by the College management.",
+    description6:
+      "The CHRAN appealed to the College management to release the check-off dues to the COEASU despite of the union leadership’s non-compliance with the College management’s request. ",
+    description7:
+      "The College management assured the CHRAN that steps will be taken to ensure the release of the check-off dues to the COEASU. ",
+    description8:
+      "The CHRAN is pleased that the College management has kept to its promise by directing the release of the check-off dues to COEASU. ",
+    description9:
+      "On the issue of the purported expiration of the tenure of office of the Provost of the College of Education, Afaha Nsit, Prof. Daniel Udo, raised by the Akwa Ibom State NLC Chairperson, Comrade (Elder) Sunny James, CHRAN has verified and ascertained that the tenure of office of the Provost, Prof. Daniel Udo, is still subsisting. ",
+    description10:
+      "Having been a part of the oversight visit of the Akwa Ibom State House of Assembly Committee on Education to the College of Education, Afaha Nsit on Tuesday, 11th March, 2025, CHRAN is pleased with the state of infrastructure and facilities in the College of Education, Afaha Nsit. ",
+    description11:
+      "CHRAN lauds the Governor of Akwa Ibom State, Pastor Umo Eno, on his developmental strides in the College of Education, Afaha Nsit and appreciates the Governor’s vision and drive on education in the State.",
+    description12:
+      "The CHRAN commends the Akwa Ibom State House of Assembly for working assiduously to ensure the actualisation of a legislation to upgrade the Akwa Ibom State College of Education, Afaha Nsit to the Akwa Ibom State University of Education, Afaha Nsit, positively believing that Governor Umo Eno will assent to the Bill immediately upon its passage, the Bill being in sync with the ARISE Agenda of the Governor Umo Eno administration. ",
+    description13:
+      "CHRAN urges all stakeholders to close ranks and work together to birth and berth the Akwa Ibom University of Education, Afaha Nsit.",
+    description14: "Signed:Otuekong Franklyn Isong		(Director)",
+    description15: "Comrade (Barr.) Christopher Ekpo (Secretary) ",
+    description16: "Dated: Wednesday, 12th March, 2025.",
+    images: [],
+  },
+];
+
+// rightcard 8
+export const rightCardsData8: BlogCard[] = [
+  {
+    slug: "chran-wades-into-labour-dispute-at-college-education-afaha-nsit",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742729644/WhatsApp_Image_2025-03-12_at_9.08.01_PM_s8c4ow.jpg",
+    imageSrc1:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742729644/WhatsApp_Image_2025-03-12_at_9.08.01_PM_s8c4ow.jpg",
+    imageSrc2:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742729672/WhatsApp_Image_2025-03-12_at_9.08.03_PM_pvpwcy.jpg",
+    imageSrc3:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742729681/WhatsApp_Image_2025-03-12_at_9.08.04_PM_ftcdpg.jpg",
+    imageSrc4:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1742729691/WhatsApp_Image_2025-03-12_at_9.08.06_PM_ihyshv.jpg",
+    title:
+      "CHRAN WADES INTO LABOUR DISPUTE AT COLLEGE OF EDUCATION, AFAHA NSIT",
+    articleCount: "8 articles",
+    description:
+      "A foremost civil society organisation in Nigeria under the auspices of Center for Human Rights and Accountability Network (CHRAN) has waded into the dispute between the management of the Akwa Ibom State College of Education, Afaha Nsit, Nsit Ibom Local Government Area and the Colleges of Education Academic Staff Union (COEASU).",
+    description1:
+      "The Center made this known in a Press Conference addressed by the organisation in its office in Uyo on Wednesday, 12th March. 2025.",
+    description2:
+      "The Director, Otuekong Franklyn Isong flanked by other members of the organisation including its secretary, Comrade (Barr.) Christopher Ekpo, noted that the Center’s attention was drawn to the disagreement between the leaders of COEASU and the College management by a letter dated 10th March, 2025 titled: “Re: COEASU Election Report: Non-Recognition of Purported Elected Officers: A 72 Hour Ultimatum” addressed to the Registrar, College of Education, Afaha Nsit, Nsit Ibom Local Government Area and signed by Comrade (Elder) Sunny James, Chairperson, and Comrade Alpha J. Marshall, State Secretary, for Nigeria Labour Congress (NLC), Akwa Ibom State Council, a copy of which was forwarded to the CHRAN Director by Comrade (Elder) Sunny James himself, on Tuesday, 11th March, 2025.",
+    description3:
+      "The NLC letter stated the bone of contention as non-remittance of COEASU check- off dues by the College management.",
+    description4:
+      "On the strength of the NLC’s letter, CHRAN immediately waded into the matter by engaging the College management on Tuesday, 11th March, 2025.",
+    description5:
+      "On its part, the College management stated the reason for withholding the check-off dues, noting that it requested the three unions operating within the College to submit their constitutions to the College management. It stated that while the other two unions submitted their constitutions, COEASU leadership refused to comply, leading to the withholding of its check-off dues by the College management.",
+    description6:
+      "The CHRAN appealed to the College management to release the check-off dues to the COEASU despite of the union leadership’s non-compliance with the College management’s request.",
+    description7:
+      "The College management assured the CHRAN that steps will be taken to ensure the release of the check-off dues to the COEASU.",
+    description8:
+      "The CHRAN is pleased that the College management has kept to its promise by directing the release of the check-off dues to COEASU.",
+    description9:
+      "On the issue of the purported expiration of the tenure of office of the Provost of the College of Education, Afaha Nsit, Prof. Daniel Udo, raised by the Akwa Ibom State NLC Chairperson, Comrade (Elder) Sunny James, CHRAN has verified and ascertained that the tenure of office of the Provost, Prof. Daniel Udo, is still subsisting. ",
+    description10:
+      "Having been a part of the oversight visit of the Akwa Ibom State House of Assembly Committee on Education to the College of Education, Afaha Nsit on Tuesday, 11th March, 2025, CHRAN is pleased with the state of infrastructure and facilities in the College of Education, Afaha Nsit.",
+    description11:
+      "CHRAN lauds the Governor of Akwa Ibom State, Pastor Umo Eno, on his developmental strides in the College of Education, Afaha Nsit and appreciates the Governor’s vision and drive on education in the State.",
+    description12:
+      "The CHRAN commends the Akwa Ibom State House of Assembly for working assiduously to ensure the actualisation of a legislation to upgrade the Akwa Ibom State College of Education, Afaha Nsit to the Akwa Ibom State University of Education, Afaha Nsit, positively believing that Governor Umo Eno will assent to the Bill immediately upon its passage, the Bill being in sync with the ARISE Agenda of the Governor Umo Eno administration.",
+    description13:
+      "CHRAN urges all stakeholders to close ranks and work together to birth and berth the Akwa Ibom University of Education, Afaha Nsit.",
+    description14: "Signed Otuekong Franklyn Isong		(Director)",
+    description15: "Comrade (Barr.) Christopher Ekpo (Secretary) ",
+    description16: "Dated: Wednesday, 12th March, 2025.",
+    images: [],
+  },
+  {
+    slug: "press-statement-rivers-state-rights-group-faults-state-emergency",
+    imageSrc:
+      "https://res.cloudinary.com/dg8cmo2gb/image/upload/v1738127372/WhatsApp_Image_2025-01-28_at_2.43.56_PM_edezpm.jpg",
+
+    title:
+      "PRESS STATEMENT RIVERS STATE: RIGHTS GROUP FAULTS STATE OF EMERGENCY ",
+    articleCount: "8 articles",
+    category: "CHRAN",
+    description:
+      "The Center For Human Rights and Accountability Network (CHRAN) has reviewed the situation in Rivers State leading to the declaration of a State of Emergency by the President, Bola Ahmed Tinubu, on Tuesday, 18th March, 2025. ",
+    description1:
+      "The CHRAN views the suspension of the State Governor, Deputy Governor and members of the Rivers State House of Assembly, who were democratically elected for a four-year tenure by the people of Rivers State as unconstitutional, undemocratic and extreme posing a threat to the hard-earned democracy in Nigeria.",
+    description2:
+      "The CHRAN views the suspension of the State Governor, Deputy Governor and members of the Rivers State House of Assembly, who were democratically elected for a four-year tenure by the people of Rivers State as unconstitutional, undemocratic and extreme posing a threat to the hard-earned democracy in Nigeria.",
+    description3:
+      "The CHRAN rejects the imposition of military rule in Rivers State under the guise of a State of Emergency and calls on the President to be more dispassionate in seeking to resolve the crisis in Rivers State. ",
+    description4:
+      "The Center urges the National Assembly, to as a matter of urgency, review the declaration by the President of a State of Emergency in Rivers State which is a threat to the nation's democracy.",
+    description5:
+      "The CHRAN is a pro-democracy cum human rights organisation in Nigeria committed to holding governments and public officeholders accountable to the people and deepening democracy in Nigeria and entrenching sound democratic ethos.",
+    description6: "Signed Otuekong Franklyn Isong Director)",
+    description7: "Comrade (Barr.) Christopher Ekpo (Secretary)",
+    description8: "Dated: Wednesday, 19th March, 2025.",
+    images: [],
+  },
+];

@@ -1,7 +1,8 @@
  import React from 'react';
- import CHRNAboutSection from '../ui/components/aboutComponents/CHRNAboutSection';
- import Mission from '../ui/components/aboutComponents/Mission';
-import Marquee from '../ui/components/layoutComponents/Marquee';
+import Marquee from '../components/layoutComponents/Marquee';
+import Mission from '../components/aboutComponents/Mission';
+import CHRNAboutSection from '../components/aboutComponents/CHRNAboutSection';
+ 
  
  const page = () => {
    return (

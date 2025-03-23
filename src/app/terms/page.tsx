@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import TermsAndConditions from "../ui/components/terms/terms-and-conditions";
-
+import TermsAndConditions from "../components/terms/terms-and-conditions";
+ 
 const page = () => {
   return (
     <div>

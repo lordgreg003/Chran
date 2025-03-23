@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import PrivacyPolicy from "../ui/components/privacy/privacy-policy";
-
+import PrivacyPolicy from "../components/privacy/privacy-policy";
+ 
 const page = () => {
   return (
     <div>

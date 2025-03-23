@@ -1,6 +1,6 @@
 "use client";
-import AdminGetAllArticles from '@/app/ui/components/articleComponets/AdminGetAllArticles'
-import React from 'react'
+import AdminGetAllArticles from '@/app/components/articleComponets/AdminGetAllArticles';
+ import React from 'react'
 
 const page = () => {
   return (
