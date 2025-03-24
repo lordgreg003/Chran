@@ -4,5 +4,4 @@ Allow: /
 User-agent: Mediapartners-Google
 Allow: /
 
-User-agent: *
-Disallow: /private/
+
