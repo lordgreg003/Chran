@@ -1,35 +1,11 @@
 'use client';
-import { useEffect, useState } from 'react';
  import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
 import { mainCardData5, rightCardsData5 } from '@/app/ui/data/data4';
  
 export default function BlogLayout7() {
-  const [isVisible, setIsVisible] = useState(false);
-
-   
-  const handleScroll = () => {
-    const element = document.getElementById('blogLayout');
-    if (element) {
-      const rect = element.getBoundingClientRect();
-
-      // Trigger when the element is in view
-      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-        setIsVisible(true); 
-      } else {
-        setIsVisible(false);  
-      }
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  
 
   return (
     <div className="max-w-screen-lg mx-auto px-4 py-8">
@@ -39,7 +15,7 @@ export default function BlogLayout7() {
       {/* Add animations when the component is visiblrightCardsData5e */}
       <div
         id="blogLayout"
-        className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${isVisible ? 'animate__animated animate__zoomIn' : ''}`}
+        className={`grid grid-cols-1 md:grid-cols-3 gap-8  `}
       >
         {/* Left large card */}
         <div className="md:col-span-2">

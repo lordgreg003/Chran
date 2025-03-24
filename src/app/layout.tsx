@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "animate.css";
 import ReduxProvider from "./ui/utils/ReduxProvider";
-import Navbar from "./components/layoutComponents/navbar";
-import Footer from "./components/layoutComponents/Footer";
 import Adsens from "./components/Adsens";
-
-
+import LayoutWrapper from "./components/LayoutWrapper";
+ 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.chran.org"),
   title: { default: "Chran", template: "%s | Explore Chran" },
@@ -26,13 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
- <Adsens pId="pub-8660328606992175" />
+        <Adsens pId="pub-8660328606992175" />
       </head>
       <body>
         <ReduxProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <LayoutWrapper>{children}</LayoutWrapper>
         </ReduxProvider>
       </body>
     </html>
