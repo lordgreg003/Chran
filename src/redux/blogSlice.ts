@@ -3,26 +3,23 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 // Interfaces and Initial State
-export interface MediaItem {
-  url: string;
-  type: "image" | "video";
-}
-
 export interface BlogPost {
   _id: string;
   title: string;
   description: string;
   image1?: string;
-  image2?: string;
-  image3?: string;
-  image4?: string;
-  image5?: string;
-  createdAt: Date;
+  image2?: string | null;
+  image3?: string | null;
+  image4?: string | null;
+  image5?: string | null;
+  createdAt: Date | string;
   slug: string;
   author: string;
   status: "draft" | "published";
   tags: string[];
 }
+
+
 
 interface BlogState {
   posts: BlogPost[];
@@ -31,16 +28,25 @@ interface BlogState {
   loading: boolean;
   lastUpdated: number;
   error: string | null;
+  currentPage: number;  // Track the current page
+  totalPages: number;    // Store the total number of pages
 }
+
+
+// Helper functions for local storage
+const LOCAL_STORAGE_KEY = "blogPosts";
 
 const loadPostsFromLocalStorage = (): BlogPost[] => {
   if (typeof window === "undefined") {
-    return []; // Return an empty array during SSR
+    return [];
   }
 
   try {
-    const storedPosts = localStorage.getItem("blogPosts");
-    return storedPosts ? JSON.parse(storedPosts) : [];
+    const storedPosts = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (!storedPosts) return [];
+    
+    const parsed = JSON.parse(storedPosts);
+    return Array.isArray(parsed) ? parsed : [];
   } catch (error) {
     console.error("Error loading posts from localStorage:", error);
     return [];
@@ -53,7 +59,7 @@ const savePostsToLocalStorage = (posts: BlogPost[]) => {
   }
 
   try {
-    localStorage.setItem("blogPosts", JSON.stringify(posts));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(posts));
   } catch (error) {
     console.error("Error saving posts to localStorage:", error);
   }
@@ -61,44 +67,62 @@ const savePostsToLocalStorage = (posts: BlogPost[]) => {
 
 // Initialize state
 const initialState: BlogState = {
-  posts: [],
+  posts: loadPostsFromLocalStorage(),
   post: null,
   currentPost: null,
   loading: false,
   lastUpdated: Date.now(),
   error: null,
+  currentPage: 1, // Start from the first page
+  totalPages: 1,  // Default to 1 until fetched
+};
+
+
+// Data normalization function
+const normalizePost = (post: BlogPost): BlogPost => {
+  return {
+    _id: post._id || '',
+    title: post.title || 'Untitled Post',
+    description: post.description || '',
+    image1: post.image1 || undefined,
+    image2: post.image2 || null,
+    image3: post.image3 || null,
+    image4: post.image4 || null,
+    image5: post.image5 || null,
+    createdAt: post.createdAt || new Date().toISOString(),
+    slug: post.slug || '',
+    author: post.author || 'Unknown Author',
+    status: post.status === 'published' ? 'published' : 'draft',
+    tags: Array.isArray(post.tags) ? post.tags : 
+         typeof post.tags === 'string' ? [post.tags] : [],
+  };
 };
 
 // Thunks
-export const getPostBySlug = createAsyncThunk<
-  BlogPost,
-  string,
-  { rejectValue: string }
->("blogs/getPostBySlug", async (slug, { rejectWithValue }) => {
-  console.log("Fetching blog with slug:", slug);
-  try {
-    const response = await axios.get(
-      `https://chran-backend-1.onrender.com/api/blogs/${slug}` // Use slug in the endpoint
-    );
-    console.log("API get by slug Response:", response.data);
-    return response.data;
-  } catch (error) {
-    return rejectWithValue(
-      error instanceof Error ? error.message : "Failed to fetch post"
-    );
-  }
-});
-
-// Fetch all blog posts
 export const fetchAllPosts = createAsyncThunk(
   "blogs/fetchAll",
   async ({ page, limit }: { page: number; limit: number }) => {
     try {
+      const localPosts = loadPostsFromLocalStorage();
+
+      if (localPosts.length > 0 && page === 1) {
+        console.log("Using posts from local storage");
+        return { posts: localPosts, totalPages: 1 }; // Default totalPages to 1 for local storage
+      }
+
       const response = await axios.get(
         `https://chran-backend-1.onrender.com/api/blogs/?page=${page}&limit=${limit}`
       );
-      console.log("API  getall Response:", response.data);
-      return response.data.blogPosts;
+
+      const normalizedPosts = response.data.blogPosts.map(normalizePost);
+      savePostsToLocalStorage(normalizedPosts);
+
+      console.log("Fetched posts from API:", normalizedPosts);
+
+      return {
+        posts: normalizedPosts,
+        totalPages: response.data.totalPages || 1, // Ensure totalPages is always set
+      };
     } catch (error) {
       console.error("Error fetching posts:", error);
       throw error;
@@ -106,26 +130,47 @@ export const fetchAllPosts = createAsyncThunk(
   }
 );
 
-// Create a new blog post
+
+export const getPostBySlug = createAsyncThunk<
+  BlogPost,
+  string,
+  { rejectValue: string }
+>("blogs/getPostBySlug", async (slug, { rejectWithValue }) => {
+  try {
+    const posts = loadPostsFromLocalStorage();
+    const post = posts.find((post) => post.slug === slug);
+
+    if (post) {
+      return post;
+    }
+
+    const response = await axios.get(
+      `https://chran-backend-1.onrender.com/api/blogs/${slug}`
+    );
+    return normalizePost(response.data);
+
+  } catch (error) {
+    return rejectWithValue(
+      error instanceof Error ? error.message : "Failed to fetch post"
+    );
+  }
+});
+
 export const createBlogPost = createAsyncThunk<BlogPost, FormData>(
   "blogs/createBlogPost",
-  async (formData: FormData, { rejectWithValue }) => {
+  async (formData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         "https://chran-backend-1.onrender.com/api/blogs/",
         formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        { headers: { "Content-Type": "multipart/form-data" } }
       );
 
-      const updatedPosts = loadPostsFromLocalStorage();
-      updatedPosts.push(response.data.newPost);
+      const newPost = normalizePost(response.data.newPost);
+      const updatedPosts = [...loadPostsFromLocalStorage(), newPost];
       savePostsToLocalStorage(updatedPosts);
 
-      return response.data.newPost;
+      return newPost;
     } catch (error) {
       return rejectWithValue(
         error instanceof Error ? error.message : "An unexpected error occurred"
@@ -134,54 +179,47 @@ export const createBlogPost = createAsyncThunk<BlogPost, FormData>(
   }
 );
 
-// Delete a blog post
 export const deleteBlogPost = createAsyncThunk<
   string,
   string,
   { rejectValue: string }
 >("blogs/deleteBlogPost", async (slug, { rejectWithValue }) => {
   try {
-    console.log(`Deleting post with slug: ${slug}`);
+    const updatedPosts = loadPostsFromLocalStorage()
+      .filter((post) => post.slug !== slug);
+    savePostsToLocalStorage(updatedPosts);
+
     await axios.delete(
       `https://chran-backend-1.onrender.com/api/blogs/${slug}`
     );
-    console.log(`Post with slug: ${slug} deleted successfully`);
-    return slug; // Return the deleted post slug to update the state
+
+    return slug;
   } catch (error) {
-    console.error("Error deleting post:", error);
     return rejectWithValue(
       error instanceof Error ? error.message : "Failed to delete blog post"
     );
   }
 });
 
-// Update a blog post
 export const updateBlogPost = createAsyncThunk<
   BlogPost,
-  { slug: string; formData: FormData }
+  { slug: string; formData: FormData },
+  { rejectValue: string }
 >("blogs/updateBlogPost", async ({ slug, formData }, { rejectWithValue }) => {
   try {
     const response = await axios.put(
       `https://chran-backend-1.onrender.com/api/blogs/${slug}`,
       formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
+      { headers: { "Content-Type": "multipart/form-data" } }
     );
 
-    const updatedPosts = loadPostsFromLocalStorage();
-    const updatedPostIndex = updatedPosts.findIndex(
-      (post) => post.slug === slug
+    const updatedPost = normalizePost(response.data.updatedPost);
+    const updatedPosts = loadPostsFromLocalStorage().map((post) =>
+      post.slug === slug ? updatedPost : post
     );
+    savePostsToLocalStorage(updatedPosts);
 
-    if (updatedPostIndex !== -1) {
-      updatedPosts[updatedPostIndex] = response.data.updatedPost;
-      savePostsToLocalStorage(updatedPosts);
-    }
-
-    return response.data.updatedPost;
+    return updatedPost;
   } catch (error) {
     return rejectWithValue(
       error instanceof Error ? error.message : "An unexpected error occurred"
@@ -189,27 +227,26 @@ export const updateBlogPost = createAsyncThunk<
   }
 });
 
+// Slice
 const blogSlice = createSlice({
   name: "blogs",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // Fetch all blog posts
       .addCase(fetchAllPosts.pending, (state) => {
         state.loading = true;
       })
       .addCase(fetchAllPosts.fulfilled, (state, action) => {
         state.loading = false;
-        state.posts = action.payload;
-        savePostsToLocalStorage(action.payload);
+        state.posts = action.payload.posts;
+        state.totalPages = action.payload.totalPages;
       })
+      
       .addCase(fetchAllPosts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || null;
       })
-
-      // Get post by slug
       .addCase(getPostBySlug.pending, (state) => {
         state.loading = true;
         state.currentPost = null;
@@ -222,8 +259,6 @@ const blogSlice = createSlice({
         state.loading = false;
         state.error = action.payload || "Failed to fetch post by slug";
       })
-
-      // Create a new blog post
       .addCase(createBlogPost.pending, (state) => {
         state.loading = true;
       })
@@ -231,14 +266,11 @@ const blogSlice = createSlice({
         state.loading = false;
         state.posts.push(action.payload);
         state.lastUpdated = Date.now();
-        savePostsToLocalStorage(state.posts);
       })
       .addCase(createBlogPost.rejected, (state, action) => {
         state.loading = false;
         state.error = (action.payload as string) || "Failed to create post";
       })
-
-      // Delete a blog post
       .addCase(deleteBlogPost.pending, (state) => {
         state.loading = true;
       })
@@ -248,14 +280,11 @@ const blogSlice = createSlice({
           (post) => post.slug !== action.payload
         );
         state.lastUpdated = Date.now();
-        savePostsToLocalStorage(state.posts);
       })
       .addCase(deleteBlogPost.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || "Failed to delete post";
       })
-
-      // Update a blog post
       .addCase(updateBlogPost.pending, (state) => {
         state.loading = true;
       })
@@ -267,7 +296,6 @@ const blogSlice = createSlice({
         if (index !== -1) {
           state.posts[index] = action.payload;
           state.lastUpdated = Date.now();
-          savePostsToLocalStorage(state.posts);
         }
       })
       .addCase(updateBlogPost.rejected, (state, action) => {
@@ -277,5 +305,4 @@ const blogSlice = createSlice({
   },
 });
 
-export const { actions, reducer } = blogSlice;
-export default reducer;
+export default blogSlice.reducer;

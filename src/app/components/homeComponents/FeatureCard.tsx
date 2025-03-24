@@ -1,48 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect, useRef } from "react";
- 
- 
-import { motion } from "framer-motion"; // Ensure this is the correct import
+import React from "react";
+
 import { articles } from "@/app/ui/data/articles";
 import { open_sans, playfair_Display } from "@/app/ui/fonts/fonts";
 
 const FeatureCard: React.FC = () => {
-  const [isInView, setIsInView] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleScroll = () => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      if (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0) {
-        setIsInView(true); // Element is in the viewport
-      } else {
-        setIsInView(false); // Element is out of the viewport
-      }
-    }
-  };
-
-  // Listen for scroll events
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check on initial render as well
-
-    // Cleanup scroll event listener
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <div className="overflow-x-hidden mx-auto px-4 py-8 pt-24 flex flex-col lg:flex-row gap-8" ref={ref}>
+    <div className="overflow-x-hidden mx-auto px-4 py-8 pt-24 flex flex-col lg:flex-row gap-8">
       {/* Main Feature Section */}
-      <motion.div
-        className="flex flex-col lg:flex-row border-b pb-8 lg:pb-0 lg:border-b-0"
-        initial={{ opacity: 0, y: 30 }} // Start hidden and slightly moved down
-        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }} // Trigger fade in and move up
-        transition={{ duration: 0.75, ease: "easeOut" }} // Faster and smoother transition
-      >
+      <div className="flex flex-col lg:flex-row border-b pb-8 lg:pb-0 lg:border-b-0">
         {articles.slice(0, 1).map((article) => (
           <div key={article.id} className="flex flex-col lg:flex-row">
             <div className="relative w-full lg:w-1/2 h-64 lg:h-auto">
@@ -87,15 +55,10 @@ const FeatureCard: React.FC = () => {
             </div>
           </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Side News Section */}
-      <motion.div
-        className="w-full lg:w-1/3 flex flex-col gap-6"
-        initial={{ opacity: 0, x: 30 }} // Start hidden and slightly moved to the right
-        animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 30 }} // Trigger fade in and move to original position
-        transition={{ duration: 0.75, ease: "easeOut", delay: 0.2 }} // Faster with delay
-      >
+      <div className="w-full lg:w-1/3 flex flex-col gap-6">
         {articles.slice(1).map((article) => (
           <div key={article.id}>
             {/* Category */}
@@ -119,7 +82,7 @@ const FeatureCard: React.FC = () => {
             )}
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
