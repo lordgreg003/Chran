@@ -1,33 +1,32 @@
 "use client";
 import React, { useEffect } from 'react';
 
-type AdBannerTypes ={
-  dataAdSlug : string;
-  dataAdFormat : string;
-  dataFullWidthResponsive : boolean;
-}
+type AdBannerTypes = {
+  dataAdSlug: string;
+  dataAdFormat: string;
+  dataFullWidthResponsive: boolean;
+};
 
-const AdBanner = ({dataFullWidthResponsive,dataAdSlug,dataAdFormat} : AdBannerTypes) => {
+const AdBanner = ({ dataFullWidthResponsive, dataAdSlug, dataAdFormat }: AdBannerTypes) => {
   useEffect(() => {
     try {
-      ((window as typeof window & { adsbygoogle: unknown[] }).adsbygoogle = 
-        (window as typeof window & { adsbygoogle: unknown[] }).adsbygoogle || []).push({});
+      const adsbygoogle = (window as unknown as { adsbygoogle: unknown[] }).adsbygoogle || [];
+      adsbygoogle.push({});
     } catch (error) {
-      console.log(error)
-      
+      console.error("AdSense error:", error);
     }
-  }, []);
+  }, [dataAdSlug]); // Re-run if dataAdSlug changes
+
   return (
     <ins
-  className="adsbygoogle"
-  style={{ display: 'block' }}
-  data-ad-client="ca-pub-8660328606992175"
-  // data-ad-slot="1399865081"
-  data-ad-slot={dataAdSlug}
-  data-ad-format={dataAdFormat}
-  data-full-width-responsive={dataFullWidthResponsive.toString()}
-></ins>
-  )
-}
+      className="adsbygoogle"
+      style={{ display: 'block' }}
+      data-ad-client="ca-pub-8660328606992175"
+      data-ad-slot={dataAdSlug}
+      data-ad-format={dataAdFormat}
+      data-full-width-responsive={dataFullWidthResponsive.toString()}
+    />
+  );
+};
 
-export default AdBanner
+export default AdBanner;

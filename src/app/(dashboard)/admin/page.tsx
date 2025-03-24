@@ -4,9 +4,11 @@
   import { useDispatch } from "react-redux";
   import { AppDispatch } from "@/redux/store";
   import { BlogPost, createBlogPost } from "@/redux/blogSlice";
+  import { useRouter } from 'next/navigation'; 
   
   const AdminDashboardComponent = () => {
     const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
   
     // State for form fields
     const [title, setTitle] = useState("");
@@ -113,6 +115,7 @@
         setPreview3(null);
         setPreview4(null);
         setPreview5(null);
+        router.push("/blog");
       } catch (error) {
         alert("Failed to create post: " + error);
       }
