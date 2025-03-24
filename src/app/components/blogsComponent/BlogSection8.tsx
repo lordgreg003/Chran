@@ -3,6 +3,7 @@
 import Link from 'next/link'; // Import Link for navigation
 import { mainCardData6, rightCardsData6 } from '@/app/ui/data/data4';
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
+import AdBanner from '../AdBanner';
  
 export default function BlogLayout8() {
   
@@ -11,6 +12,8 @@ export default function BlogLayout8() {
     <div className="max-w-screen-lg mx-auto px-4 py-8">
       {/* Main container */}
       <div className="h-16"></div> {/* Space for fixed navbar */}
+          <AdBanner dataAdSlug="1399865081" dataAdFormat="auto" dataFullWidthResponsive={true} />
+      
 
       {/* Add animations when the component is visiblrightCardsData5e */}
       <div

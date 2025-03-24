@@ -12,14 +12,12 @@ import BlogSection1 from "../components/blogsComponent/BlogSection1";
 import BlogLayout2 from "../components/blogsComponent/BlogSection2";
 import BlogLayout3 from "../components/blogsComponent/BlogSection3";
 import ShowMoreLayout from "../components/homeComponents/ShowMoreLayout";
-import AdBanner from "../components/AdBanner";
- 
+  
 
 const page = () => {
   return (
     <div>
     <Marquee />
-    <AdBanner dataAdSlug="1399865081" dataAdFormat="auto" dataFullWidthResponsive={true} />
      <Blogs />
     <BlogLayout10 />
     <BlogLayout9 />
