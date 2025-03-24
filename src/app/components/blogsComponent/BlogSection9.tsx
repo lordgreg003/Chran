@@ -5,19 +5,16 @@ import Image from 'next/image'; // Import Image for optimized images
 import { mainCardData8 } from '@/app/ui/data/istdata';
 import { open_sans, playfair_Display } from '@/app/ui/fonts/fonts';
 import { rightCardsData7 } from '@/app/ui/data/data4';
+import AdBanner from '../AdBanner';
  
 
 export default function BlogLayout10() {
- 
-
-   
-
- 
-
   return (
     <div className="max-w-screen-lg mx-auto px-4 py-8">
       {/* Main container */}
       <div className="h-16"></div> {/* Space for fixed navbar */}
+          <AdBanner dataAdSlug="1399865081" dataAdFormat="auto" dataFullWidthResponsive={true} />
+      
 
       {/* Add animations when the component is visible */}
       <div
