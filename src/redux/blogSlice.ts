@@ -114,6 +114,9 @@ export const fetchAllPosts = createAsyncThunk(
         `https://chran-backend-1.onrender.com/api/blogs/?page=${page}&limit=${limit}`
       );
 
+      // Clear local storage before saving new data
+      localStorage.removeItem('blogPosts'); // or whatever key you use
+
       const normalizedPosts = response.data.blogPosts.map(normalizePost);
       savePostsToLocalStorage(normalizedPosts);
 
@@ -158,19 +161,20 @@ export const getPostBySlug = createAsyncThunk<
 
 export const createBlogPost = createAsyncThunk<BlogPost, FormData>(
   "blogs/createBlogPost",
-  async (formData, { rejectWithValue }) => {
+  async (formData: FormData, { rejectWithValue }) => {
     try {
+      console.log("[API] Sending request with formData:", formData);
       const response = await axios.post(
         "https://chran-backend-1.onrender.com/api/blogs/",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-
-      const newPost = normalizePost(response.data.newPost);
-      const updatedPosts = [...loadPostsFromLocalStorage(), newPost];
+      console.log("[API] Response received:", response.data.newPost);
+      const updatedPosts = loadPostsFromLocalStorage();
+      updatedPosts.push(response.data.newPost);
       savePostsToLocalStorage(updatedPosts);
 
-      return newPost;
+      return response.data.newPost;
     } catch (error) {
       return rejectWithValue(
         error instanceof Error ? error.message : "An unexpected error occurred"
